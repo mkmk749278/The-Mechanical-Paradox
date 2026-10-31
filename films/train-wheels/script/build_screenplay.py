@@ -4,9 +4,8 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 PLAN = [
-    ("Paradox stated: solid axle, no steering", "Floating wheelset spins on its axle, lit; a differential gearbox ghost appears and is crossed out (amber); the track draws in under it as a curve", "—", "pen_scratch, relay_click", "How can a train steer with nothing to steer it?"),
-    ("Rail race", "SIGNATURE 2. Top view, quarter turn: two contact dots race; the outer rail keeps unrolling a crimson ribbon, +2.36 m; ANY RADIUS stamped", "Δ LENGTH 2.36 m (MODEL)", "whoosh, quartz_tick", "How does one wheel go farther at the same spin?"),
-    ("Expectation: slip", "Rigid pair; a ghost of the slipping wheel smears crimson; then the real run: no smear", "SLIP 0.0 %", "metal_jam_sub (soft)", "If it doesn't slip, what is it doing?"),
+    ("Paradox stated: one rigid axle, a bend", "Floating wheelset spins on its axle, lit; the track draws in under it as a curve; the outer contact point visibly has farther to go", "—", "pen_scratch, relay_click", "How can a train steer with nothing to steer it?"),
+    ("Rail race and the locomotive", "SIGNATURE 2. A generic one-hundred-ton locomotive in line art, then Top view, quarter turn: two contact dots race; the outer rail keeps unrolling a crimson ribbon, +2.36 m; ANY RADIUS stamped", "Δ LENGTH 2.36 m (MODEL)", "whoosh, quartz_tick", "How does one wheel go farther at the same spin?"),
     ("Promise and open loop", "Wheel cross-section turns slowly; three glyphs flash: cone / screech waveform (a tonal ring, cut short) / wave", "—", "relay_click, glass_tone", "What's special about the shape, and what is that screech?"),
     ("Differential vs solid axle", "A generic car axle with a differential (line art) spins its outer wheel faster; it morphs into a train wheelset: one rigid axle, the wheels pressed on", "ω OUTER = ω INNER", "relay_click", "So what does the train have instead?"),
     ("The flange myth", "Flange highlighted amber; camera dips to the gap between flange and rail on a gentle curve: clear daylight", "FLANGE GAP 7 mm", "quartz_tick", "If not the flanges, then what?"),

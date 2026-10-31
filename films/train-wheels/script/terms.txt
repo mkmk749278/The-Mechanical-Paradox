@@ -20,3 +20,11 @@ millimeters
 derailing
 paradoxes
 wheelsets
+curving
+damped
+skid
+steers
+steeper
+flatter
+sloping
+tapered
