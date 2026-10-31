@@ -1,0 +1,12 @@
+node_modules
+.remotion/
+.cache/
+.venv/
+out/
+*.mp4
+*.mov
+*.wav
+*.mp3
+films/*/assets/
+public/films/
+__pycache__/
