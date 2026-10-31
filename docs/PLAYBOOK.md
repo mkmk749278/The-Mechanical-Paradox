@@ -192,7 +192,8 @@ Fonts (vendored OFL, `public/fonts/`): **Archivo** Black, expanded width (displa
   1,150 MPa…) were left out: a stress number on a part with no stated material is a number without a source.
   YouTube (Help 10456525, read 2026-10-31): upload ≥ 2048×1152, ≤ 6 MB; text and logo safe area 1235×338 at that
   size = **1546×423 centred at 2560×1440** (x 507–2053, y 508–931). Phones show only the safe area, desktops the full
-  width at the safe height, TVs everything; all text and the whole drive sit inside the safe area.
+  width at the safe height, TVs everything; all text and the whole drive sit inside the safe area. The blueprint's
+  cadence badge was removed by the owner (2026-10-31, §17.1).
 - **ChannelSting** (`src/channel/ChannelSting.tsx`, 5.5 s): the pen draws the trio, the plates take form, torque goes
   in, the ring jams (the teeth wind < 1° and spring back, the frame takes the hit, amber at the mesh), then the name
   and the tagline, and the honest telemetry: `ω = 0.000 rad/s`. Outro only.
@@ -282,9 +283,8 @@ depend on the voice. `—` and `...` stay allowed in the screenplay as **edit ma
 recording text. Re-test once on this channel's voice before the first full recording.
 
 ### 7.6 Voice
-**Undecided: the owner's choice (§17.1).** For a global audience the candidates are a neutral international
-narrator from the ElevenLabs library (audition 3 on the same paragraph: warmth, low-register depth, pace variation,
-clarity for non-native listeners) or the sister channels' Akash (an Indian English voice). Never synthesise a real
+**Owner, 2026-10-31: audition three neutral international narrators from the ElevenLabs library** on the same
+paragraph (judged on warmth, low-register depth, pace variation, clarity for non-native listeners); the owner picks. Never synthesise a real
 person's voice.
 
 ### 7.7 Recording blocks in the chat
@@ -595,13 +595,14 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 17. Decisions and open questions
 
-### 17.1 Waiting for the owner
-1. **Narrator voice** (§7.6): a neutral international ElevenLabs voice (audition 3) or Akash.
-2. **Release badge on the banner:** the blueprint's "NEW DEEP DIVE EVERY SUNDAY" is a public promise of a weekly film;
-   keep it, or a promise we can always keep.
-3. **The first film** (§17.3).
-4. Repo secret `GDRIVE_RCLONE_TOKEN` must be added to this repo (Settings → Secrets → Actions) before the first farm
-   render.
+### 17.1 Owner's decisions (2026-10-31)
+1. **Narrator voice:** audition 3 neutral international ElevenLabs narrators on the same paragraph; the owner picks
+   (§7.6). Until then no VO is recorded.
+2. **No cadence badge on the banner** (the blueprint's "NEW DEEP DIVE EVERY SUNDAY" removed): no public promise of a
+   weekly film; quality sets the pace.
+3. **First film: Video 1, train wheels** (blueprint Part G §4). Its title gets an honest fix (trains do derail, §9.2).
+4. Still to do by the owner: add the repo secret `GDRIVE_RCLONE_TOKEN` (Settings → Secrets and variables → Actions)
+   before the first farm render.
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.

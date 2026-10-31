@@ -188,7 +188,7 @@ def drive_svg() -> str:
                  f'L{ox - 40:.1f},{oy - 70:.1f} L{ox - 96:.1f},{oy - 70:.1f}" fill="none" stroke="{L}" '
                  f'stroke-width="1.6"/><text x="{ox - 108:.1f}" y="{oy - 63:.1f}" text-anchor="end" class="call" '
                  f'fill="{L}">OUTPUT  <tspan fill="{A}">i = −11 : 1</tspan></text>')
-    parts.append(callout((0, 0, z_disc + 14), -150, 130, "INPUT  ω"))
+    parts.append(callout((0, 0, z_disc + 14), -96, 168, "INPUT  ω"))
     return "\n".join(parts)
 
 
@@ -219,7 +219,7 @@ html, body {{ margin: 0; background: {C['bg']}; }}
 svg {{ position: absolute; inset: 0; }}
 .call {{ font-family: JBM; font-weight: 500; font-size: 19px; letter-spacing: 1.5px; }}
 .sb {{ font-size: 13px; baseline-shift: sub; letter-spacing: 0; }}
-.text {{ position: absolute; left: 560px; top: 536px; width: 1000px; }}
+.text {{ position: absolute; left: 560px; top: 566px; width: 1000px; }}
 .kicker {{ font-family: JBM; font-weight: 500; font-size: 21px; letter-spacing: 3px; color: {C['muted']}; }}
 .kicker b {{ color: {C['amber']}; font-weight: 700; }}
 h1 {{ margin: 16px 0 0; font-family: Archivo; font-weight: 900; font-stretch: 112%; font-size: 78px; line-height: 0.98; white-space: nowrap;
@@ -239,7 +239,6 @@ h1 {{ margin: 16px 0 0; font-family: Archivo; font-weight: 900; font-stretch: 11
   <div class="kicker"><b>//</b> MECHANICAL FORENSICS &amp; APPLIED PHYSICS</div>
   <h1>THE MECHANICAL<br>PARADOX</h1>
   <div class="sub">Why things work when intuition says they shouldn't.</div>
-  <div class="badge">NEW DEEP DIVE EVERY SUNDAY</div>
 </div>
 <div class="safe"></div>
 </div></body></html>
