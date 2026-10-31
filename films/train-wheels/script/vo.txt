@@ -1,0 +1,55 @@
+## Cold open
+A one-hundred-ton locomotive has no steering wheel, no differential gears, and a solid steel axle. Yet it rounds high-speed curves without ever derailing.
+
+Here's the catch. On every quarter turn, the outer rail is about two point four meters longer than the inner one. Two wheels, locked to one axle, turning at the same speed. So how does one travel farther?
+
+One wheel should slip and scream. But on a gentle curve, neither one slips at all.
+
+The answer is hidden in the shape of the wheel. So is the reason it sometimes fails. And so is the reason fast trains sway.
+
+And that screech you hear on a tight bend? It is probably not coming from where you think.
+
+## Why the obvious answers fail
+Your car has a differential, a box of gears that lets the outside wheel spin faster. A train has nothing like it. Both wheels are fixed to one axle, so they always turn together.
+
+So do the flanges steer it? Those steel lips on the inside of each wheel, pressing on the rail? That is what most of us would guess. But on a gentle curve, the flanges do not need to touch the rail at all.
+
+## The cone
+Look closely at the wheel, and you will see it. The surface it rolls on is not flat at all. It is a cone, sloping about one in twenty, so the wheel gets slightly bigger toward the flange.
+
+Now watch what happens in a curve. The whole axle slides a few millimeters outward. The outer wheel now rolls on a bigger circle, and the inner wheel rolls on a smaller one. Same spin, different distance. The axle steers itself round the bend.
+
+So how big is the difference? On a textbook wheelset, at the full slide, the two wheels differ in radius by about seven tenths of a millimeter. Thinner than the bank card in your wallet.
+
+That is the entire steering system. No moving parts. Just geometry.
+
+It even works on straight track. Drift to the left, and the left wheel gets bigger, so the axle turns back to the right. It is always pulling itself toward the middle.
+
+## Where the cone runs out
+But geometry has a limit. Imagine a curve with a radius of five hundred meters. To roll round it cleanly, that textbook wheelset would have to slide fifteen millimeters outward. It only has about seven before the flange meets the rail.
+
+Run the numbers, and with a one in twenty cone, clean rolling ends at a curve radius of about one kilometer. Anything tighter, and the cone runs out.
+
+So what happens on a tight curve? The wheels slip. The flange presses against the rail. The axle is dragged round at a slight angle, so the tread is forced sideways across the top of the rail.
+
+And that is the screech. You would think it is the flange rubbing. But most researchers say it is the tread, sliding sideways, sticking and slipping so fast that the whole wheel rings like a bell.
+
+The flange has a limit of its own. More than a century ago, an engineer named Nadal worked out how hard a flange can be pushed sideways before it climbs the rail. For a typical flange, that push can be about as large as the weight on the wheel. Go past it, and the wheel can ride up and over the rail. That is one way a train comes off the track.
+
+## The price of the cone
+And here is the twist. The cone that keeps a train centered also makes it sway.
+
+Push the axle to one side, and the cone steers it back. But does it stop in the middle? No. It overshoots, and steers back again. The axle snakes along the track in a smooth wave.
+
+George Stephenson knew about this sway in eighteen twenty-one. In eighteen eighty-three, an engineer named Klingel worked out the length of that wave. For our textbook wheelset, about seventeen meters. At a hundred and sixty kilometers an hour, that is about two and a half sways every second.
+
+At low speed, the sway dies away. But above a critical speed, it feeds on itself, and it grows until the flanges hammer the rails.
+
+So fast trains use flatter cones. Japan's bullet train wheels are cut with a slope of one in forty, half as steep. And stiff suspension holds the axles straight.
+
+See the trade-off? A steeper cone steers round tighter curves. A flatter cone stays calm at speed. One cone cannot do both.
+
+## Landing
+So the next time you hear that screech on a bend, you will know what it means. The cone has run out of geometry, and the steel is sliding sideways.
+
+And that sound is just one of the paradoxes hiding inside the machines you use every day.
