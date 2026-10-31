@@ -35,8 +35,7 @@ Engineering, Real Engineering, Steve Mould. US, UK, India in that order (autocom
 A solid axle, a longer outer rail, no slip on a gentle curve: how? And the film tells you it will also explain the
 failure and the sway, and that the screech isn't what you think.
 
-## Open decision for the owner
-The blueprint fixes the first sentence word for word: "…Yet it rounds high-speed curves without ever derailing."
-The film later shows how a train can derail on a curve (Nadal's limit). Claim C03: the line is true of what it
-describes (high-speed curves are gentle, where the cone steers alone), but "ever" is absolute. See the question
-in the phase report.
+## Owner's decision (2026-10-31): the first line
+The blueprint's fixed sentence ended "…without ever derailing"; all six test viewers flagged it as false (the film
+itself shows a curve derailment). Owner chose: **"A one-hundred-ton locomotive has no steering wheel, no differential
+gears, and a solid steel axle. Yet it rounds curves at high speed, and its wheels stay on the rails."** (claim C03)
