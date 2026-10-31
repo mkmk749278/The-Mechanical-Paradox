@@ -581,6 +581,19 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**Film 1 script: two audience rounds (2026-10-31).**
+- *A fixed first line can cost trust before second two.* The blueprint's "…without ever derailing" was flagged as false
+  by all six test viewers; "no steering wheel" was then read as a fake puzzle (rails obviously guide trains). The owner
+  chose to lead with the real paradox (rigid axle, longer outer path). **Rule:** the first sentence states the true
+  broken intuition, never a straw puzzle and never an absolute.
+- *Abstract geometry dies by ear.* "Two rolling circles form a cone whose tip points at the center of the curve" lost
+  half the panel; the same idea in plain words worked, and the image moved to the picture. **Rule:** say the plain
+  mechanism; let the animation carry the elegant geometry.
+- *Causal order matters to experts.* "The wheels slip. The flange presses…" read backwards to the driver and the
+  engineer. Narrate cause → effect in the physical order.
+- *Hedges experts ask for:* "close to a cone" (real profiles are curved and wear), "about the thickness of" (0.70 vs
+  0.76 mm), "keeps pulling" (not "always", it overshoots).
+
 **Channel foundation (2026-10-31).**
 - *Three equal gears on a triangle only mesh at 6k+3 teeth.* Solving the three mesh conditions together gives
   N/6 = k + ½. 15 teeth for the mark, 9 for the favicon. The build asserts every mesh.
