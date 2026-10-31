@@ -1,0 +1,40 @@
+{
+  "name": "the-mechanical-paradox",
+  "private": true,
+  "description": "The Mechanical Paradox: one Remotion workspace for every film (PLAYBOOK \u00a710)",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio",
+    "still": "remotion still",
+    "render": "remotion render",
+    "brand": "python3 scripts/brand_ts.py && python3 brand/build_logo.py"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@react-three/fiber": "9.2.0",
+    "@remotion/bundler": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "@remotion/noise": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "@remotion/shapes": "4.0.534",
+    "@remotion/three": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "flubber": "0.4.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534",
+    "three": "0.178.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@types/three": "0.178.1",
+    "typescript": "5.9.3"
+  }
+}
