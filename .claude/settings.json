@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "mcp__claude-code-remote__create_session",
+      "mcp__claude-code-remote__send_message",
+      "mcp__claude-code-remote__get_session",
+      "mcp__claude-code-remote__list_sessions",
+      "mcp__claude-code-remote__list_events",
+      "mcp__claude-code-remote__get_event",
+      "mcp__claude-code-remote__archive_session",
+      "mcp__claude-code-remote__interrupt_session",
+      "mcp__claude-code-remote__set_session_title",
+      "mcp__claude-code-remote__send_later",
+      "mcp__Google_Drive__search_files",
+      "mcp__Google_Drive__get_file_metadata",
+      "mcp__Google_Drive__read_file_content",
+      "mcp__Google_Drive__download_file_content",
+      "mcp__Google_Drive__create_file",
+      "mcp__github__create_pull_request",
+      "mcp__github__merge_pull_request",
+      "mcp__github__pull_request_read",
+      "mcp__github__list_pull_requests",
+      "mcp__github__list_branches",
+      "mcp__github__get_file_contents"
+    ]
+  }
+}
