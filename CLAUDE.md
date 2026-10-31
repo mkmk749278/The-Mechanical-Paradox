@@ -85,7 +85,8 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
 - VO text: numbers as words, units spelled as said (`mega-pascals`, `kilo-newtons`, `micro-meters`, `kwahn-DAH`),
   letter acronyms with dots (L.E.D.); no digits, symbols or brackets in `vo.txt`. Pauses come from full stops, commas
   and paragraph breaks; exact 250/400 ms beats are cut in the edit (`...` measured as no pause on the sister channel).
-- **Voice: the owner's decision, pending** (PLAYBOOK §17.1). Never synthesise a real person's voice.
+- **Voice:** three neutral international ElevenLabs narrators are auditioned on one paragraph; the owner picks
+  (owner, 2026-10-31; PLAYBOOK §17.1). Never synthesise a real person's voice.
 - **Recording blocks go in the chat** as click-to-copy code blocks, every time a VO is ready or changes.
 - Every narration passes the lean-in test, `scripts/spoken_english_check.py --terms`, and an **independent audience
   review** (`prompts/audience_review_v1.md`, a new session with no repo) before the owner sees it.
