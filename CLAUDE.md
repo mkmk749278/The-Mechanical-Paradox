@@ -51,6 +51,8 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   Sessions can't delete branches: tell the owner which ones to delete.
 - **One session does the work.** A new session only for an independent review (audience, fact-check, fresh-eyes
   picture review), archived when done. All sessions share one usage limit and one IP.
+- **Reviews and comments (owner, 2026-11-03):** final cuts are reviewed in `mkmk749278/Review` and comments answered in
+  `mkmk749278/Comments`, each under this channel's own section.
 - **Standing permission:** run any command and archive sessions without asking each time. Still ask before anything
   paid, anything outward-facing beyond our repos and Drive, and anything destructive.
 - Build in phases; at the end of each, stop and report what was built, what was checked and what is left.
@@ -71,7 +73,12 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   cards or bullet lists.
 - **Three layers in every frame:** a moving base (3D/2.5D scene, cross-section, simulation) → atmosphere (grain,
   vignette, light) → kinetic accents (HUD, callouts, dimension lines, equations building).
-- **Continuous micro-motion:** nothing static over 2.5 s (aim for 1.5 s); a visual change about every 3.5 s.
+- **Continuous micro-motion:** nothing static over 2.5 s (aim for 1.5 s); a visual change about every 3.5 s. Only motion
+  a viewer can see counts: grain and grid drift are not motion (PLAYBOOK §6.4).
+- **Legible on a phone held sideways (PLAYBOOK §6.4a):** at 1080, ≥ 36 px for what the narration points to (HUD values,
+  callout names, honesty labels), ≥ 26 px for every other fact; `muted` never carries a label; nothing clipped or on
+  a grid line. Exploded parts and equation terms arrive on their own words; HUD values and the picture share one
+  driver. Outside review notes are checked in code, timing and a rendered still before any fix.
 - **True physics easing:** no linear motion for a physical body; the channel spring (mass 1.2, damping 24,
   stiffness 180) via `physical()`. Kinematics are real: speeds follow ratios, contacts touch, nothing interpenetrates.
 - **Live telemetry HUD** in every scene, ticking with the narration; every value has a `claims.csv` source or the
