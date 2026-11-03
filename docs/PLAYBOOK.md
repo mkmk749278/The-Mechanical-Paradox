@@ -210,11 +210,31 @@ Fonts (vendored OFL, `public/fonts/`): **Archivo** Black, expanded width (displa
   (`microPush`: 1.02 → 1.05) and its own physical motion (shafts spinning, streamlines flowing, particles).
 - **A visual change about every 3.5 s** (sister channels, measured on retention): a new angle, a new layer, a
   callout, a state change. Never two changes in the same instant.
+- **Only motion a viewer can see counts (2026-11-03).** A camera move of about 3% scale or 30 px across any 4 s hold
+  at 1080, a part moving, a field blooming, a HUD value ticking, a callout arriving on its word. Grain, the grid's
+  drift and a microPush stretched over a long hold do not. Plan the dead spots: after an equation finishes building,
+  after a counter lands, after an exploded view has fully separated. *Why:* an outside review of a finished
+  documentary cut on another production found 5–9 s holds that had passed two reviews on grain and drift alone.
 - **True physics easing:** never linear for a physical body. `physical()` uses the channel spring (mass 1.2,
   damping 24, stiffness 180); a different body may use its own constants when the physics calls for it (a stiff steel
   part rings faster: say so in the scene doc). `shudder()` for impacts and jams. Camera and type use eased curves.
 - **Show the real kinematics:** when gears turn, their speeds follow the tooth ratio; when a wheelset shifts, the
   rolling radii follow the cone. A viewer who pauses the frame should find the geometry true.
+
+### 6.4a Legible on a phone, a desk and a TV (2026-11-03)
+The audience is global and watches on all three; the binding case is a phone held sideways at arm's length. Reading
+research puts the smallest size read at full speed at about 0.2° of x-height (Legge and colleagues); for a 1080 frame
+about 65–70 mm tall that is a font of about 36 px. At the 1920×1080 authoring size:
+- **≥ 36 px** for what the narration points to: the HUD value, the callout name, the equation's variable being
+  explained, honesty labels (ILLUSTRATION, ILLUSTRATIVE VALUES, NOT TO SCALE).
+- **≥ 26 px** for every other label that carries a fact: HUD row titles, units, dimension values, source lines.
+- **Contrast:** small text at 7:1 or better: `ink` `#FFFFFF` or `sub` `#8B9EB5` (7.2:1 on the canvas). **`muted`
+  `#5A6E85` (3.8:1, below WCAG AA) is for construction lines and decoration only, never for a label a viewer must
+  read.**
+- All text inside the central 90% of the frame (EBU R95 graphics-safe), on `bg_lift` or a scrim, never crossed by a
+  grid line; nothing clipped at a panel edge in the end state of a build.
+- **The test:** every frame of the 720p review cut, read at full-frame size. A label an outside reviewer misreads is
+  too small.
 
 ### 6.5 Looks to avoid (extend this list)
 Glass cards; neon dashboards; a centred title on a gradient; icon grids; bullet lists; text cards; stock "science"
@@ -310,6 +330,10 @@ reveal the hidden part; rack from the macro view to the micro view (the tire →
 ### 8.2 Exploded and cut-away views
 Parts separate along their real assembly axis, in assembly order, with dashed centre lines (the banner's drive is the
 model). Cut-aways use a clean section plane with hatched faces in the material's tone.
+**Each part on its own word (2026-11-03):** an exploded view, a list of parts or a multi-term equation never arrives
+all at once; each part separates or lights as the narration names it (`wf(id, word)`), and its label stays inside the
+frame and the panel. *Why:* on another production a five-part fastener stack spread in one second, ahead of its words,
+and its last label was clipped by the panel edge.
 
 ### 8.3 Mechanisms built from real geometry
 Gears from `gears.ts` (cycloidal, mesh-checked); cams, linkages and wheel profiles from their real equations. A
@@ -321,6 +345,10 @@ A fixed monospace window (top-right by default; bottom-right when the subject is
 bottom 20% or under its top-right overlays) whose values tick with the narration. **Every row carries a `source`:**
 a `claims.csv` id, or `ILLUSTRATIVE`, and the panel then says "ILLUSTRATIVE VALUES". A HUD number never contradicts
 the voice. Tabular figures so digits don't jitter.
+**The HUD and the picture share one driver (2026-11-03):** a value and the part, trace or field it describes move
+together; never a trace at its minimum while the readout still shows the starting value. A highlight or callout starts
+a few frames before its word so it completes as the word lands. Word times inside a sentence are spread by length,
+so check the signature cues by ear.
 
 ### 8.5 FEA stress fields (`three/fea.ts`; blueprint §2.3 rule 3)
 Failure is never a flashing icon: it is a von Mises field blooming navy → cyan → yellow → red at the notch, crack
@@ -553,6 +581,11 @@ Nothing reaches the owner without passing these, and §1's "polished only".
   timecodes, and returns a verdict, a per-scene score and the top 10 fixes; the `mkmk749278/Review` repo's forensic
   protocol applies to final cuts.
 - [ ] Text readable on a phone; nothing important under YouTube's overlays.
+- [ ] **§6.4a measured:** ≥ 36 px for what the narration points to, ≥ 26 px for every other fact, no fact in `muted`,
+      nothing clipped or on a grid line.
+- [ ] **Motion a viewer can see** in every hold (§6.4); parts on their own words (§8.2); HUD and picture agree (§8.4).
+- [ ] **Outside review notes checked before fixing:** each point against the code, `vo/timing.json` and a rendered
+      still; a `review/<name>_check.md` with CONFIRMED / PARTLY / NOT CONFIRMED.
 - [ ] −14 LUFS, −1 dBTP in the final file; picture length = film length; audio/video within 0.15 s.
 
 ## 15. Tools
@@ -580,6 +613,18 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
+
+**Picture lessons from an outside visual review (2026-11-03).**
+- *What happened:* the owner shared an outside review of a finished Remotion documentary cut on another production.
+  Checked point by point against that film's code, timing and rendered stills: five points right, five real with a
+  different cause or fix, two wrong (a "typo" that was a misread of small text; CSS values and word times that were
+  not the film's), and two of its timing fixes would have made the sync worse.
+- *Rules carried over:* motion a viewer can see (§6.4); legibility floors and `muted` for decoration only (§6.4a);
+  each part on its own word (§8.2); HUD and picture on one driver, highlights complete on their word (§8.4); outside
+  notes checked before fixing (§14.2). Our HUD makes these matter more here than anywhere: it is small mono text by
+  design.
+- *To fix in code before film 1's picture:* `lib/remotion/Hud.tsx` sets its title and units at 15 px and its
+  ILLUSTRATIVE VALUES line at 12 px, all in `muted`; the honesty label is the least readable text in the panel.
 
 **Film 1 script: two audience rounds (2026-10-31).**
 - *A fixed first line can cost trust before second two.* The blueprint's "…without ever derailing" was flagged as false
@@ -616,6 +661,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 3. **First film: Video 1, train wheels** (blueprint Part G §4). Its title gets an honest fix (trains do derail, §9.2).
 4. Still to do by the owner: add the repo secret `GDRIVE_RCLONE_TOKEN` (Settings → Secrets and variables → Actions)
    before the first farm render.
+5. **2026-11-03: the `mkmk749278/Review` and `mkmk749278/Comments` repos get their own section for this channel**, so
+   its first film can be reviewed and its comments answered there, under this channel's own audience and voice.
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.

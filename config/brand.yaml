@@ -13,7 +13,7 @@ colors:
   line: "#F0F4F8"        # Blueprint White: logo and schematic linework
   specular: "#F1F5F9"    # High-Grade Specular: polished edges, gear faces, cutting tools
   metal: "#6A7B8C"       # Cast Iron Gray: housings, shafts, frames
-  muted: "#5A6E85"       # labels, monospace kickers, construction lines
+  muted: "#5A6E85"       # construction lines and decoration only: 3.8:1, never a label that carries a fact (PLAYBOOK §6.4a)
   sub: "#8B9EB5"         # secondary text
   ink: "#FFFFFF"         # headline text
   # meaning (colour = meaning, every frame)
