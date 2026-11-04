@@ -3,8 +3,8 @@
 - **scene_id:** `TW-BankCard` (`remotion/BankCard.tsx`)
 - **duration_in_frames:** from 40 frames before "How big is that difference" to 50 frames after "Just shape"
   (`bankCardSpan()`; ≈ 34 s on the provisional timing).
-- **audio_timestamps (cues):** "How big is that difference" · "You might guess centimeters" · "Take a textbook
-  wheelset" · "If you shift it" · "seven tenths" · "seven tenths of a millimeter" (end) · "bank card" · "the whole
+- **audio_timestamps (cues):** "How big is that difference" · "You might guess centimeters" · "Take the textbook
+  version" · "If you shift it" · "seven tenths" · "seven tenths of a millimeter" (end) · "bank card" · "the whole
   steering system" · "Just shape".
 
 ## visual_direction

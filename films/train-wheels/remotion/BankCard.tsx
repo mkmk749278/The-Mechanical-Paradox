@@ -30,7 +30,7 @@ const local = (f: number): number => f - bankCardSpan().from;
 const T = () => ({
 	draw: 0,
 	guess: local(cue.at('You might guess centimeters')),
-	take: local(cue.at('Take a textbook wheelset')),
+	take: local(cue.at('Take the textbook version')),
 	shift: local(cue.at('If you shift it')),
 	tenths: local(cue.at('seven tenths')),
 	tenthsEnd: local(cue.end('seven tenths of a millimeter')),
@@ -172,13 +172,13 @@ const Panels: React.FC<{f: number; y: number; fps: number}> = ({f, y, fps}) => {
 				{/* flange touch on the outer wheel: the contact at the gauge corner, a crimson bloom, never an icon */}
 				<circle cx={RIGHT_X - 33 * PX} cy={RAIL_TOP + 9} r={10 + 8 * pulse} fill={colors.crimson} opacity={0.45 * touch * (gap < 0.05 ? 1 : 0)} style={{filter: 'blur(5px)'}} />
 				{/* scale bar */}
-				<line x1={140} y1={960} x2={140 + 10 * PX} y2={960} stroke={colors.line} strokeWidth={4} opacity={draw} />
+				<line x1={140} y1={942} x2={140 + 10 * PX} y2={942} stroke={colors.line} strokeWidth={4} opacity={draw} />
 			</svg>
-			<Label x={140 + 10 * PX + 16} y={940} size={26} color={colors.sub} opacity={draw}>
-				10 mm · TRUE-SCALE SECTION
+			<Label x={140 + 10 * PX + 16} y={922} size={26} color={colors.sub} opacity={draw}>
+				10 mm · TRUE SCALE
 			</Label>
-			<Label x={140} y={980} size={26} color={colors.sub} opacity={draw}>
-				GENERIC WHEEL AND RAIL PROFILES
+			<Label x={140} y={962} size={26} color={colors.sub} opacity={draw}>
+				GENERIC PROFILES
 			</Label>
 			<Label x={LEFT_X - 160} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
 				INNER WHEEL
