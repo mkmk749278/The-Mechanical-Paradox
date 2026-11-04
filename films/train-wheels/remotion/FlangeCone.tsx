@@ -57,7 +57,7 @@ export const FlangeMyth: React.FC = () => {
 		[
 			{f: 0, cam: {position: [0.05, 0.3, 1.6], target: [0.66, 0.05, 0.05], fov: 30}},
 			{f: t.guess, cam: {position: [0.3, 0.09, 1.0], target: [0.7, 0.0, 0.05], fov: 26}},
-			{f: t.surprise + 10, cam: {position: [0.42, 0.04, 0.9], target: [0.71, -0.005, 0], fov: 20}},
+			{f: t.surprise + 10, cam: {position: [GX, 0.06, 1.7], target: [GX, -0.004, 0], fov: 22}},
 			{f: t.gentle + 30, cam: {position: [GX, -0.006, 1.6], target: [GX, -0.008, 0], fov: 4.2}},
 			{f: t.end, cam: {position: [GX, -0.006, 1.5], target: [GX, -0.008, 0], fov: 3.8}},
 		],

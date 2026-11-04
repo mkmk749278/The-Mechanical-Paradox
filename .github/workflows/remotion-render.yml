@@ -30,6 +30,9 @@ on:
       join_from:
         description: "run id: skip rendering, join that run's shards (kept 7 days)"
         default: ""
+      tail_frames:
+        description: "picture after the VO's timing (the channel sting: 330)"
+        default: "0"
 
 permissions:
   contents: read
@@ -51,11 +54,12 @@ jobs:
         env:
           FILM: ${{ inputs.film }}
           RUNNERS: ${{ inputs.runners }}
+          TAIL: ${{ inputs.tail_frames }}
         run: |
           python3 - <<'EOF' >> "$GITHUB_OUTPUT"
           import json, os
           t = json.load(open(f"films/{os.environ['FILM']}/vo/timing.json"))
-          total, per = t["durationInFrames"], 30 * t["fps"]
+          total, per = t["durationInFrames"] + int(os.environ.get("TAIL") or 0), 30 * t["fps"]
           starts = list(range(0, total, per))
           n = max(1, min(20, int(os.environ["RUNNERS"])))
           size = -(-len(starts) // n)

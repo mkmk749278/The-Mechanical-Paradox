@@ -1,0 +1,6 @@
+{
+ "note": "Film 1 bed. The sub-bass drone (30-90 Hz, -26 dBFS) runs under the whole film, picture and sting (PLAYBOOK §12). Music slots: pending the owner's choice of source.",
+ "slots": [],
+ "rooms": [{"what": "drone", "from": 0, "to": 384.9, "gain_db": -20}],
+ "quiet": []
+}

@@ -7,6 +7,7 @@ import {Hud} from '../../../lib/remotion/Hud';
 import {ease, envelope, physical, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
 import {cue} from './cues';
+import {span} from './scenes';
 import {deltaR, rollingRadius, WS} from './model';
 import {contact, flangeGap, railOutline, wheelOutline, WHEEL_SPAN} from './profiles';
 
@@ -24,10 +25,8 @@ const MID = (LEFT_X + RIGHT_X) / 2; // the broken-out axle's centreline
 const HUD_W = 440;
 const SCALE_X = 1440; // the scale note's left edge
 
-export const bankCardSpan = (): {from: number; to: number} => ({
-	from: cue.at('How big is that difference') - 40,
-	to: cue.end('Just shape') + 50,
-});
+/** The scene's span on the film's clock (scenes.ts tiles the VO; s07 runs from 36 frames before its first word). */
+export const bankCardSpan = (): {from: number; to: number} => ({from: span('s07').from, to: span('s07').to});
 
 const local = (f: number): number => f - bankCardSpan().from;
 

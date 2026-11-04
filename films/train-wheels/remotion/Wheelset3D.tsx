@@ -128,6 +128,8 @@ export type WheelsetPose = {
 	heat?: number;
 	/** Glow on the flanges: 0–1 (amber). */
 	flangeGlow?: number;
+	/** A cool light along the axle: 0–1 ("one solid axle"). */
+	axleGlow?: number;
 };
 
 /** An axle-end cap with three bolts on each journal end: the spin you can see from the side. */
@@ -150,11 +152,13 @@ const EndCaps: React.FC<{material: THREE.Material; bolt: THREE.Material}> = ({ma
 };
 
 /** The wheelset: two lathed wheels from profiles.ts, the axle and its journals. Spin follows rolling distance / r0. */
-export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0}) => {
+export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0, axleGlow = 0}) => {
 	const steel = useSteel();
 	const geo = useMemo(() => ({right: wheelGeometry(1), left: wheelGeometry(-1), axle: axleGeometry(), journals: journalGeometry()}), []);
 	const bandMat = useMemo(() => steel.band.clone(), [steel]);
 	const flangeMat = useMemo(() => steel.body.clone(), [steel]);
+	const axleMat = useMemo(() => steel.axle.clone(), [steel]);
+	axleMat.emissive = new THREE.Color(colors.line).multiplyScalar(axleGlow * 0.55);
 	flangeMat.emissive = new THREE.Color(colors.amber).multiplyScalar(flangeGlow * 0.85);
 	const emissive = new THREE.Color(colors.amber).multiplyScalar(glow * 0.6).add(new THREE.Color(colors.crimson).multiplyScalar(heat * 1.1));
 	bandMat.emissive = emissive;
@@ -177,7 +181,7 @@ export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw =
 						<mesh key={`f${i}`} geometry={g} material={flangeMat} />
 					))}
 					{geo.axle.map((g, i) => (
-						<mesh key={`a${i}`} geometry={g} material={steel.axle} />
+						<mesh key={`a${i}`} geometry={g} material={axleMat} />
 					))}
 					{geo.journals.map((g, i) => (
 						<mesh key={`j${i}`} geometry={g} material={steel.journal} />

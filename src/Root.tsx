@@ -12,6 +12,9 @@ import {RailRace} from '../films/train-wheels/remotion/RailRace';
 import {ColdOpen, Promise as PromiseScene} from '../films/train-wheels/remotion/Opening';
 import {Cone, FlangeMyth} from '../films/train-wheels/remotion/FlangeCone';
 import {CurveLimit, Nadal, Screech} from '../films/train-wheels/remotion/Limits';
+import {TradeOff} from '../films/train-wheels/remotion/TradeOff';
+import {Landing} from '../films/train-wheels/remotion/Landing';
+import {Film, FILM_FRAMES} from '../films/train-wheels/remotion/Film';
 import {span} from '../films/train-wheels/remotion/scenes';
 
 loadBrandFonts();
@@ -23,6 +26,7 @@ export const Root: React.FC = () => (
 			<Composition id="ChannelSting" component={ChannelSting} durationInFrames={STING_FRAMES} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="TrainWheels">
+			<Composition id="TW-Film" component={Film} durationInFrames={FILM_FRAMES} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S01-ColdOpen" component={ColdOpen} durationInFrames={span('s01').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S03-Promise" component={PromiseScene} durationInFrames={span('s03').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S04-Flange" component={FlangeMyth} durationInFrames={span('s04').dur} fps={video.fps} width={video.width} height={video.height} />
@@ -35,6 +39,8 @@ export const Root: React.FC = () => (
 			<Composition id="TW-S11-Nadal" component={Nadal} durationInFrames={span('s11').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S12-Hunting" component={Hunting} durationInFrames={span('s12').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S13-Critical" component={CriticalSpeed} durationInFrames={span('s13').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S14-TradeOff" component={TradeOff} durationInFrames={span('s14').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S15-Landing" component={Landing} durationInFrames={span('s15').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
