@@ -1,53 +1,51 @@
 ## Cold open
-A train's two wheels are fixed to one solid steel axle. They always turn at the same speed. But on a bend, the outer wheel has farther to go. So why doesn't one of them skid?
+On most trains, each pair of wheels is locked to one solid steel axle, so both wheels always turn together. But on a bend, the outer wheel has farther to go. So why doesn't one of them skid?
 
-Here's the catch. Take a bend that turns the track through a right angle. The outer rail is about two point four meters longer than the inner one. And a one-hundred-ton locomotive has nothing to fix that. No steering, no differential gears. Yet on a gentle curve, neither wheel really slips.
+Take a bend that turns the track through a right angle. Wide or tight, the outer rail is about two point four meters longer than the inner one. And a one-hundred-ton locomotive has nothing to fix that. No steering, no differential gears, the box that lets your car's outer wheel spin faster. Yet on a gentle curve, if you could watch the wheels, you would see that neither one really slips.
 
-The answer is in the shape of the wheel. And that same shape explains the screech you hear on a tight bend, and why fast trains sway.
+The answer is in the shape of the wheel, and you've probably never noticed it. And that same shape explains the screech you hear on a tight bend, and why fast trains sway.
 
-## Why the obvious answers fail
-Your car fixes this with a box of gears called a differential, so the outer wheel can spin faster. A train's wheels cannot. They turn together, every time.
-
-So do the flanges steer it? Those steel lips on the inside of each wheel, pressing on the rail? That is what most of us would guess. But on a gentle curve, the flanges do not need to touch the rail at all.
+## Why the obvious answer fails
+So what steers it? The steel lips on the inside of each wheel, the flanges? That is what you would probably guess. But here is the surprise. On a gentle curve, the flanges do not need to touch the rail at all.
 
 ## The cone
-Look closely, and you will see it in the tread, the part of the wheel that rolls on the rail. It is not flat. It is tapered, close to a cone, sloping about one in twenty, so the wheel gets slightly bigger toward the flange.
+Look closely at the tread, the part of the wheel that rolls on the rail. Do you see it? It is not flat. It is tapered, close to a cone, so the wheel gets slightly bigger toward the flange. The slope is about one in twenty. If you move twenty millimeters across, its radius grows by one millimeter.
 
-Now watch what happens in a curve. The whole axle shifts a few millimeters toward the outside of the bend. The outer wheel now rolls on a bigger circle, and the inner wheel rolls on a smaller one. Same spin, different distance.
+Now watch the axle enter a curve. With both wheels the same size, it rolls straight on. But the rails bend away beneath it, so it drifts a few millimeters toward the outside of the bend. And now you have the trick. That moves the outer wheel onto its fatter part, near the flange, and the inner wheel onto its thinner part, away from its flange. So the outer wheel rolls on a bigger circle, and the inner wheel on a smaller one. Same spin, different distance.
 
-It keeps shifting until the extra size of the outer wheel exactly matches the extra distance. Now neither wheel slips, and the axle follows the curve all by itself.
+It keeps drifting until the outer wheel is just big enough to cover the extra distance. Now neither wheel really slips, and the axle follows the curve by itself.
 
-So how big is the difference? On a textbook wheelset, shifted as far as it can go, the two wheels differ in radius by about seven tenths of a millimeter. About the thickness of the bank card in your wallet.
+How big is that difference? You might guess centimeters. Take a textbook wheelset, the two wheels and axle you saw at the start. If you shift it as far as it can go, its two wheels differ in radius by about seven tenths of a millimeter. About the thickness of the bank card in your wallet.
 
-That is the entire steering system. No moving parts. Just shape.
+So on a gentle curve, what you are looking at is the whole steering system. No gears, no levers. Just shape.
 
-It even works on straight track. Drift to the left, and the left wheel gets bigger, so the axle turns back to the right. It keeps pulling itself back toward the middle.
+It even works on straight track. Imagine you nudge the axle to one side. The wheel on that side gets bigger, so the axle steers itself back toward the middle.
 
 ## Where the cone runs out
-But shape has a limit. Imagine you are on a curve with a radius of five hundred meters. To roll round it cleanly, that textbook wheelset would have to shift fifteen millimeters outward. It only has about seven millimeters before the flange meets the rail.
+But shape has a limit. Say you are on a curve with a radius of five hundred meters. How far would our textbook wheelset have to shift to roll round it cleanly? Fifteen millimeters. It only has about seven millimeters before the flange meets the rail.
 
-So a one in twenty cone can only roll smoothly round curves wider than about a kilometer in radius. Any tighter, and it runs out of cone.
+With a one in twenty cone, then, you need a curve about a kilometer in radius, or wider, for the wheels to roll without slipping. Tighter than that, the flange starts to touch the rail.
 
-So what happens when you take a tight curve? The axle shifts out until the flange hits the rail. Now the flange drags the axle round, but at a slight angle. So the tread is scraped sideways across the top of the rail.
+And on a really tight curve? The flange presses hard against the rail and drags the axle round, but at a slight angle. So the tread is scraped sideways across the top of the rail.
 
-And that is the screech. You would think it is the flange rubbing. But most researchers say it is the tread, sliding sideways, sticking and slipping so fast that the whole wheel rings like a bell.
+And that is the screech you hear. You would think it is the flange rubbing, right? But most researchers say it is the tread, sliding sideways, sticking and slipping so fast that the whole wheel rings like a bell.
 
-The flange has a limit of its own. More than a century ago, an engineer named Nadal worked out how hard a flange can be pushed sideways before it climbs the rail. For a typical flange, the wheel is safe until the sideways push is roughly as big as the weight on that wheel. Push harder, and the wheel can climb up and over the rail. That is one way a train comes off the track.
+On tight curves, the flange does the hard work. But how hard can you push it? More than a century ago, an engineer named Nadal worked that out. For a typical flange, the wheel should stay on until the sideways push is roughly as big as the weight on that wheel. Push harder, and the wheel can climb up and over the rail. That is one way a train comes off the track.
 
 ## The price of the cone
-And here is the twist. The cone that keeps a train centered also makes it sway.
+And here is the twist. The cone that keeps your train centered also makes it sway.
 
-Push the axle to one side, and the cone steers it back. But does it stop in the middle? No. It overshoots, and steers back again. The axle snakes along the track in a smooth wave. Railway engineers call it hunting.
+If you push the axle to one side, the cone steers it back. But does it stop in the middle, where you want it? No. It overshoots, and steers back again. If you watched from above, you would see the axle snake along the track in a smooth wave. Railway engineers call it hunting.
 
-Engineers have known about this sway for two centuries. In eighteen eighty-three, an engineer named Klingel worked out how long each wave is. For our textbook wheelset, about seventeen meters. At a hundred and sixty kilometers an hour, that is about two and a half sways every second.
+George Stephenson knew about this sway about two hundred years ago. Then, in eighteen eighty-three, another engineer, Klingel, worked out how long each of those waves is. For the textbook wheelset you just saw, about seventeen meters. At a hundred and sixty kilometers an hour, that would be about two and a half sways every second.
 
-At low speed, the sway is damped out. But above a certain speed, the critical speed, it feeds on itself, and it grows until the flanges hammer the rails.
+Why don't you feel it? Because below a certain speed, the critical speed, the sway dies away. But above it, the sway feeds on itself, and it grows until the flanges hammer the rails.
 
-So fast trains use flatter cones. Japan's bullet trains used wheels with a slope of one in forty, half as steep. And stiff suspension helps keep the axles straight, though that same stiffness makes curving harder.
+Fast trains have a fix. They use flatter cones. Japan's bullet trains used wheels with a slope of one in forty, half as steep. And holding each axle stiffly in its frame keeps it pointing straight. But that same stiffness makes it harder to turn into a curve.
 
-See the trade-off? A steeper cone steers round tighter curves. A flatter cone stays calm at speed. One cone cannot do both.
+See the trade-off? Make the cone steeper, and you can take tighter curves. Make it flatter, and the ride stays calm at speed. No single slope is best at both.
 
 ## Landing
-So the next time you hear that screech on a bend, you will know what it means. The cone has run out, and the steel is sliding sideways.
+So the next time you hear that screech on a bend, you will know what it means. The cone has run out, and your train's steel wheels are sliding sideways.
 
-One solid axle. Two wheels locked together. And a slope of one in twenty. That is how a train steers with no steering at all.
+One solid axle. Two wheels locked together. And a gentle slope on every wheel. That is how a train steers with no steering at all.

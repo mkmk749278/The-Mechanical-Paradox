@@ -30,7 +30,7 @@ export const envelope = (frame: number, start: number, end: number, fadeIn = 12,
 	Math.min(tween(frame, start, start + fadeIn, 0, 1, ease.arrive), tween(frame, end - fadeOut, end, 1, 0, ease.leave));
 
 /** The channel's physical spring (mass 1.2, damping 24, stiffness 180), starting at `start`. */
-export const physical = (frame: number, fps: number, start: number, config: Partial<typeof physicalSpring> = {}): number =>
+export const physical = (frame: number, fps: number, start: number, config: Partial<{mass: number; damping: number; stiffness: number}> = {}): number =>
 	spring({frame: frame - start, fps, config: {...physicalSpring, ...config}});
 
 /** The mathematical Ken Burns (blueprint §2.3 rule 1): a slow 1.02 → 1.05 push across a shot. Never static. */

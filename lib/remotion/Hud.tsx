@@ -14,7 +14,11 @@ export type HudRow = {
 	label: string;
 	unit: string;
 	/** Keyframes: the value eases between them. One key = a constant. */
-	keys: HudKey[];
+	keys?: HudKey[];
+	/** Or the same driver as the picture (PLAYBOOK §8.4): the value as a function of the frame. */
+	at?: (frame: number) => number;
+	/** The row fades in from this frame (default: with the panel). */
+	from?: number;
 	decimals?: number;
 	/** Colour = meaning: crimson tension/heat, cyan compression/flow, emerald balance, amber friction. */
 	tone?: 'line' | 'crimson' | 'cyan' | 'emerald' | 'amber';
@@ -44,11 +48,12 @@ type HudProps = {
 	start: number;
 	end: number;
 	corner?: 'top-right' | 'bottom-right' | 'top-left';
-	/** Shown when any row is ILLUSTRATIVE. */
 	width?: number;
+	/** An honesty line under the rows (e.g. 'TEXTBOOK MODEL'). ILLUSTRATIVE VALUES is added automatically. */
+	note?: string;
 };
 
-export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-right', width = 360}) => {
+export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-right', width = 600, note}) => {
 	const frame = useCurrentFrame();
 	const o = envelope(frame, start, end, 18, 14);
 	if (o <= 0) return null;
@@ -69,11 +74,11 @@ export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-
 				background: 'rgba(7,10,15,0.72)',
 				border: `1px solid ${colors.grid}`,
 				boxShadow: `inset 0 0 0 1px rgba(240,244,248,0.04)`,
-				padding: '14px 18px 12px',
+				padding: '18px 24px 16px',
 				overflow: 'hidden',
 			}}
 		>
-			<div style={{display: 'flex', justifyContent: 'space-between', fontSize: 15, letterSpacing: 2.4, color: colors.muted}}>
+			<div style={{display: 'flex', justifyContent: 'space-between', fontSize: 26, letterSpacing: 2.4, color: colors.sub}}>
 				<span>
 					<span style={{color: colors.amber}}>// </span>
 					{title}
@@ -82,16 +87,27 @@ export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-
 			</div>
 			<div style={{height: 1, background: colors.grid, margin: '10px 0 8px'}} />
 			{rows.map((r) => (
-				<div key={r.label} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '5px 0'}}>
-					<span style={{fontSize: 17, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
-					<span style={{fontSize: 26, fontWeight: 700, color: toneColour(r.tone), fontVariantNumeric: 'tabular-nums'}}>
-						{fmt(valueAt(r.keys, frame), r.decimals)}
-						<span style={{fontSize: 15, fontWeight: 500, color: colors.muted, marginLeft: 8}}>{r.unit}</span>
+				<div
+					key={r.label}
+					style={{
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'baseline',
+						padding: '5px 0',
+						opacity: r.from === undefined ? 1 : interpolate(frame, [r.from, r.from + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}),
+					}}
+				>
+					<span style={{fontSize: 26, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
+					<span style={{fontSize: 38, fontWeight: 700, color: toneColour(r.tone), fontVariantNumeric: 'tabular-nums'}}>
+						{fmt(r.at ? r.at(frame) : valueAt(r.keys ?? [{frame: 0, value: 0}], frame), r.decimals)}
+						{r.unit ? <span style={{fontSize: 26, fontWeight: 500, color: colors.sub, marginLeft: 10}}>{r.unit}</span> : null}
 					</span>
 				</div>
 			))}
-			{illustrative ? (
-				<div style={{marginTop: 8, fontSize: 12, letterSpacing: 2, color: colors.muted}}>ILLUSTRATIVE VALUES</div>
+			{illustrative || note ? (
+				<div style={{marginTop: 10, fontSize: 36, letterSpacing: 2, color: colors.ink}}>
+					{illustrative ? 'ILLUSTRATIVE VALUES' : note}
+				</div>
 			) : null}
 			<div
 				style={{
