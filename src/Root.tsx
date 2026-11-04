@@ -11,6 +11,7 @@ import {Drift, SelfCentre} from '../films/train-wheels/remotion/Drift';
 import {RailRace} from '../films/train-wheels/remotion/RailRace';
 import {ColdOpen, Promise as PromiseScene} from '../films/train-wheels/remotion/Opening';
 import {Cone, FlangeMyth} from '../films/train-wheels/remotion/FlangeCone';
+import {CurveLimit, Nadal, Screech} from '../films/train-wheels/remotion/Limits';
 import {span} from '../films/train-wheels/remotion/scenes';
 
 loadBrandFonts();
@@ -29,6 +30,9 @@ export const Root: React.FC = () => (
 			<Composition id="TW-S02-RailRace" component={RailRace} durationInFrames={span('s02').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S06-Drift" component={Drift} durationInFrames={span('s06').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S08-SelfCentre" component={SelfCentre} durationInFrames={span('s08').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S09-Limit" component={CurveLimit} durationInFrames={span('s09').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S10-Screech" component={Screech} durationInFrames={span('s10').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S11-Nadal" component={Nadal} durationInFrames={span('s11').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S12-Hunting" component={Hunting} durationInFrames={span('s12').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S13-Critical" component={CriticalSpeed} durationInFrames={span('s13').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
