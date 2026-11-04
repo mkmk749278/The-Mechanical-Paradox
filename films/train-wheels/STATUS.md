@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-04, music mixed, Blender hero shots rendered)
+# Film 1 status and handoff (2026-11-04, music mixed, review cut v3 with the Blender hero shots)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -55,10 +55,15 @@ run 41859965297 (`blender-render.yml`, 1080p, 16 samples, 23 jobs, all green; th
 the s03 glow on "the shape of the wheel"; the s15 axle and slope beats. "OUTER RAIL: FARTHER TO GO" now sits on two
 lines clear of the bend (the rail crossed "GO").
 
+**Review cut v3** (`train-wheels_review_720p_v3.mp4` in Drive `train-wheels/renders/`, run 41905950494, 15/15 jobs
+green): the three Blender shots in. Gate: 6:24.9, −14.1 LUFS, −1.2 dBTP, no black frames; holds only the three known
+deliberate ones (1:30.0, 2:38.3, 4:10.4); frame-to-frame motion measured through every plate shot: no stuck or missing
+frame (isolated near-identical single frames only in the footage insert at 0:09, at scene changes, and once in the
+slow final roll-away).
+
 **Next session, in order**
-1. Gate review cut v3 (`train-wheels_review_720p_v3.mp4`, with the three Blender shots): length, audio, black
-   frames, every plate frame in motion (no missing or stuck frame), then the independent viewer review (§14.2) and the
-   owner's review in `mkmk749278/Review`.
+1. Independent viewer review of v3 (§14.2: a new session, no repo, the cut and the narration with timecodes), then
+   the owner's review in `mkmk749278/Review`.
    For the 4K master the plates render again at width 3840 (about 4× the time: two runs).
    When the Gemini cap resets or is raised, run the two listeners on the three act tracks (`lyria_library.py` `listen`
    and `voice_check`).
