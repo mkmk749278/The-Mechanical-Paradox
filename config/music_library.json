@@ -1,0 +1,127 @@
+{
+ "_doc": "Prompts for this channel's music library (Drive Music-Library/blueprint/). Generate with scripts/lyria_music.py; PLAYBOOK §12.1.",
+ "common": "Instrumental only: no vocals, no choir, no humming, no spoken words, no vocal samples, and no pads or synths that sound like voices or a choir: sustained sounds come from bowed strings, piano, electric piano, organ-free analogue synths and electronic hum. This is a documentary underscore that plays under a narrator's voice: no lead melody in the speech range, no sudden loud hits or long silences, a steady overall level from start to finish, clean cinematic mix, wide stereo. Make it about three minutes long. It ends with a final held chord or note that decays naturally, never an abrupt cut.",
+ "tracks": [
+  {
+   "palette": "blueprint",
+   "id": "bp01_curious_pulse",
+   "title": "Curious Pulse",
+   "use": "Act 1, the broken intuition and the first test",
+   "mood": "curious, precise, light",
+   "bpm": "96",
+   "key": "A minor",
+   "prompt": "Curious, precise and intelligent. 96 BPM, A minor. A light steady pulse of soft plucked synth and muted marimba in eighth notes, a warm soft pad underneath, a gentle sub-bass on the downbeats. Minimal and clean like a scientist at a drawing board. No big melody, no drums beyond a very soft tick. Small changes every 20 seconds keep it alive.",
+   "brief": "curious, precise, light steady pulse, soft pad, no big melody"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp02_clockwork",
+   "title": "Clockwork Mechanism",
+   "use": "A mechanism explained step by step, exploded parts, gears meshing",
+   "mood": "methodical, intricate, bright",
+   "bpm": "110",
+   "key": "D major",
+   "prompt": "Methodical and intricate. 110 BPM, D major / B minor. Interlocking minimalist arpeggios on celesta, plucked strings and a clean electric piano, like gears meshing; each layer enters one at a time and locks into the others. Light ticking percussion like a fine clock. Feels like watching a mechanism work perfectly.",
+   "brief": "methodical interlocking minimalist arpeggios, clockwork, bright"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp03_low_tension",
+   "title": "Under Load",
+   "use": "Act 2, the doubt: forces build, the intuition fails",
+   "mood": "dark tension, restrained",
+   "bpm": "84",
+   "key": "C minor",
+   "prompt": "Darker tension, restrained, not horror. 84 BPM, C minor. Low cello and bass ostinato, a pulsing analogue synth bass, soft metallic textures and a faint clock-like tick. Slowly builds over three minutes by adding layers, never loud. Feels like a structure under rising load.",
+   "brief": "dark restrained tension, low strings and synth pulse, slowly building, not horror"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp04_stress_build",
+   "title": "Stress Field",
+   "use": "The run-up to a failure: the stress climbs to the notch",
+   "mood": "rising dread, driving",
+   "bpm": "120",
+   "key": "E minor",
+   "prompt": "Rising, driving tension. 120 BPM, E minor. Staccato string ostinato in sixteenths, a deep synth pulse, taiko-like low drums very soft and distant, metallic swells. Builds steadily in intensity from quiet to strong over the piece, then pulls back to a held low note at the end. Precise, engineered, not chaotic.",
+   "brief": "rising driving tension, staccato strings, deep pulse, builds then pulls back"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp05_resolve",
+   "title": "The Answer",
+   "use": "Act 3, the paradox solved: building, then warm and resolved",
+   "mood": "hopeful, resolved, warm",
+   "bpm": "90",
+   "key": "F major",
+   "prompt": "Building, then warm and resolved. 90 BPM, F major. Starts with a quiet piano and soft pulse, adds strings and a gentle synth arpeggio, grows to a warm, satisfying full sound around the middle like a puzzle clicking into place, then settles into calm resolved chords and ends gently.",
+   "brief": "builds then warm and resolved, ends gently, satisfying"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp06_wonder",
+   "title": "Inside the Crystal",
+   "use": "3D reveals, microscopic worlds, slow camera moves through a machine",
+   "mood": "wonder, glassy, slow",
+   "bpm": "70",
+   "key": "E major",
+   "prompt": "Slow wonder. 70 BPM, E major with suspended chords. Glassy shimmering pads, bowed vibraphone, soft harp arpeggios, a deep warm drone. Spacious and luminous, like seeing the inside of a metal crystal for the first time. No percussion.",
+   "brief": "slow wonder, glassy shimmering pads, spacious, no percussion"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp07_heat",
+   "title": "Furnace",
+   "use": "Heat, friction, high temperature, electrical stress",
+   "mood": "industrial, hot, menacing",
+   "bpm": "75",
+   "key": "G minor",
+   "prompt": "Industrial heat. 75 BPM, G minor. A low electric hum like a transformer, deep bowed double basses, slow metallic percussion hits on a steady grid, a gritty analogue synth bass line, distant machine rhythm. Hot, dense and heavy but controlled and steady in level, cinematic.",
+   "brief": "industrial hot hum, metallic percussion, low strings, heavy, steady, controlled"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp08_flow",
+   "title": "Laminar",
+   "use": "Fluids, air flow, boundary layers, anything that flows",
+   "mood": "fluid, gentle, flowing",
+   "bpm": "88",
+   "key": "D major",
+   "prompt": "Fluid and flowing. 88 BPM, D major. Rippling piano and harp arpeggios that flow like water, soft string pads, a gentle rolling pulse. Smooth, continuous, curious, with small eddies of counter-melody in the low register.",
+   "brief": "fluid flowing arpeggios, smooth, continuous, curious"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp09_precision",
+   "title": "Tolerance",
+   "use": "Measurements, numbers, data and telemetry on screen",
+   "mood": "clean, focused, modern",
+   "bpm": "100",
+   "key": "B minor",
+   "prompt": "Clean, focused, modern. 100 BPM, B minor. A tight electronic pulse, soft muted kick, crisp hi-hat ticks very low, a synth bass line and sparse electric piano chords. Feels like precise measurement and telemetry, calm and confident.",
+   "brief": "clean focused modern electronic pulse, calm, confident"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp10_landing",
+   "title": "Landing",
+   "use": "The outro, the landing image and the forward line",
+   "mood": "calm, reflective, forward-looking",
+   "bpm": "80",
+   "key": "C major",
+   "prompt": "Calm and reflective, forward-looking. 80 BPM, C major. Soft piano chords, a warm string pad, a gentle slow arpeggio. A quiet sense of understanding and a hint of the next question. Simple and resolved, ends on a soft held major chord.",
+   "brief": "calm reflective forward-looking, soft piano and strings, resolved ending"
+  },
+  {
+   "palette": "blueprint",
+   "id": "bp11_shorts_hook",
+   "title": "Shorts Hook",
+   "use": "Vertical Shorts: an instant hook and a fast reveal",
+   "mood": "punchy, curious, immediate",
+   "bpm": "118",
+   "key": "A minor",
+   "prompt": "Make this one about one minute long. Starts immediately at full energy with no intro: a punchy curious pulse of plucked synth, deep bass and a tight soft beat, 118 BPM, A minor. A small lift at thirty seconds, then a clean ending on a held note.",
+   "brief": "punchy curious immediate start, about one minute, tight beat"
+  }
+ ]
+}

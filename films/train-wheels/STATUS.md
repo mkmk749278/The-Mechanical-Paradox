@@ -30,15 +30,13 @@ current mix (VO + SFX + drone, no music). Shards are kept 7 days: a new mix re-j
 (`join_from` = 41810631645).
 
 **Next session, in order**
-1. **Music with Lyria 3.5** (`GEMINI_API_KEY`; docs aistudio.google.com/docs/music-generation; model `lyria-3.5`,
-   `response_format` WAV, 44.1 kHz stereo, "a couple of minutes" per track, prompt for "Instrumental only, no
-   vocals"). Three tracks, one per act, at the film's tempo feel: act 1 (0:00–2:53) curious, precise, a light steady
-   pulse, soft pad, no big melody; act 2 (2:53–4:12) darker tension, low strings or a synth pulse, building, not
-   horror; act 3 (4:12–6:25) building, then warm and resolved, ends gently. Report the cost. Save to
-   `assets/music/`, log in `media_manifest.csv` (Lyria 3.5, Gemini API terms, SynthID), add
-   `sound/music_manifest.csv`, set `sound/score.json` slots (drop 1–1.5 s before "neither one really slips" and
-   before "Just shape"; music out before the sting), mix (`score_mix.py --tail-frames 330`), upload `mix.wav` to
-   Drive `train-wheels/mix/`, re-join the farm render (`join_from` 41810631645 if within 7 days, else re-render).
+1. **Music from the library** (PLAYBOOK §12.1; generated 2026-11-04 with Lyria 3.5, Drive `Music-Library/blueprint/`):
+   `scripts/music_pull.sh films/train-wheels/assets/music bp01_curious_pulse bp03_low_tension bp05_resolve`; listen
+   to all three first. Act 1 (0:00–2:53) `bp01_curious_pulse`, act 2 (2:53–4:12) `bp03_low_tension`, act 3
+   (4:12–6:25) `bp05_resolve`. Log them in `media_manifest.csv` (§12.1 wording), set `sound/score.json` slots (drop
+   1–1.5 s before "neither one really slips" and before "Just shape"; music out before the sting), mix
+   (`score_mix.py --tail-frames 330`), upload `mix.wav` to Drive `train-wheels/mix/`, re-join the farm render
+   (`join_from` 41810631645 if within 7 days, else re-render).
 2. Picture gate (§14.2) on the 720p cut with music: contact sheet every 4 s, every insert, every dissolve; then the
    owner's review in `mkmk749278/Review`.
 3. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).
