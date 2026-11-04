@@ -269,10 +269,10 @@ const Apex: React.FC<{f: number; o: number}> = ({f, o}) => {
 				</g>
 			</Svg>
 			<Label x={O.x + 70} y={O.y - 30} size={36} color={colors.amber} weight={700} opacity={meet}>
-				CONE TIP = CURVE CENTRE
+				CONE TIP = CURVE CENTER
 			</Label>
 			<Label x={O.x + 70} y={O.y + 18} size={26} color={colors.sub} opacity={on(f, t.neither - 10, 20)}>
-				CENTRE OF THE CURVE
+				CENTER OF THE CURVE
 			</Label>
 			<Tag x={1824} y={H - 110} align="right" opacity={o}>
 				NOT TO SCALE · CURVE AND CONE EXAGGERATED
@@ -445,7 +445,7 @@ export const SelfCentre: React.FC = () => {
 					−7 mm FLANGE
 				</Label>
 				<Label x={1544} y={CY - 18} size={26} color={colors.sub} opacity={on(f, t.nudge, 24)}>
-					CENTRE
+					CENTER
 				</Label>
 				<Callout x={xw - 230} y={CY - 750 * k - y * k} lx={xw - 420} ly={CY - 330} text="BIGGER" color={colors.amber} t={lin(f, t.side + 20, t.side + 60, 0, 1)} />
 				<Tag x={96} y={H - 110} opacity={on(f, t.back, 24)}>

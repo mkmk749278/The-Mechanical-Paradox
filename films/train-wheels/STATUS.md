@@ -28,16 +28,25 @@ the track"; act 3 releases after "until the flanges hammer the rails"; out 0.5 s
 K-weighted loudness: bed 14.5 dB under solid speech (median), effects 13.4 dB, `glass_tone` −6 dB; master −14.1 LUFS,
 −1.4 dBTP. `mix.wav` in Drive `train-wheels/mix/` (the previous one kept as `mix_v1_no_music.wav`).
 
-**Farm render (720p, with footage and music):** run 41810631645 on commit 30f4cdc; its join step pulls the new
-`mix.wav`, so the cut it writes, `train-wheels_review_720p_v1.mp4` in Drive `train-wheels/renders/`, carries the music.
-Shards are kept 7 days: a new mix re-joins without re-rendering (`join_from` = 41810631645).
+**Review cut v1** (`train-wheels_review_720p_v1.mp4`, run 41810631645): 6:24.9 at 60 fps, audio = the new mix
+(correlation 1.000), −14.1 LUFS, −1.2 dBTP, channels equal; no black frames. **Picture gate on v1** (a frame every 2 s
+with the words heard, then full-size stills) found and fixed, all re-checked in stills:
+- "CENTRE" on screen in s06, s08, s12 → "CENTER" (American spelling).
+- s09 opened on bare axes for ~4 s: the curve panel now arrives on "But shape has a limit" with sleepers running
+  under the wheelset, follows the HUD's CURVE R (3,000 m, then 500 m when named), and its rails sit under the treads
+  (they ran inside the flanges: contacts did not touch).
+- Labels the narration names were 26 px → 36 px: KLINGEL · 1883, GEORGE STEPHENSON · BY 1821 (also moved off the
+  flange-limit line and out before Klingel's dimension line), NADAL · MORE THAN A CENTURY AGO, JAPAN'S BULLET TRAINS
+  USED IT. The ONE WAVE dimension line no longer strikes through its text.
+- Footage credits get a low scrim (the credit vanished on the snow insert).
+- Holds just over 1.5 s at 1:30.0, 2:38.3, 4:10.4 (1.55–1.67 s, under the 2.5 s limit): the last two are the held
+  beats before "Just shape" and after the derailment line; left as they are.
+**Review cut v2** renders on the farm with these fixes (720p, `train-wheels_review_720p_v2.mp4`).
 
 **Next session, in order**
-1. Check the joined cut: its audio is the new mix (music audible at 0:12, the stop at 4:09). The landing shard was
-   rendered before the fix in `Landing.tsx` (both 3D canvases mounted, 3 h+); the fix halves it for every later render.
+1. Check v2 (length, audio, black frames, the fixed frames), then the independent viewer review (§14.2) and the
+   owner's review in `mkmk749278/Review`.
    When the Gemini cap resets or is raised, run the two listeners on the three act tracks (`lyria_library.py` `listen`
    and `voice_check`).
-2. Picture gate (§14.2) on the 720p cut with music: contact sheet every 4 s, every insert, every dissolve; then the
-   owner's review in `mkmk749278/Review`.
-3. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).
-4. Re-open the Tanifuji record (C24) when the Niigata repository is up.
+2. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).
+3. Re-open the Tanifuji record (C24) when the Niigata repository is up.
