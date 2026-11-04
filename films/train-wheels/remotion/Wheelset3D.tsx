@@ -126,6 +126,8 @@ export type WheelsetPose = {
 	glow?: number;
 	/** Heat on the tread bands: 0–1 (crimson, sliding). */
 	heat?: number;
+	/** Glow on the flanges: 0–1 (amber). */
+	flangeGlow?: number;
 };
 
 /** An axle-end cap with three bolts on each journal end: the spin you can see from the side. */
@@ -148,12 +150,16 @@ const EndCaps: React.FC<{material: THREE.Material; bolt: THREE.Material}> = ({ma
 };
 
 /** The wheelset: two lathed wheels from profiles.ts, the axle and its journals. Spin follows rolling distance / r0. */
-export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0}) => {
+export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0}) => {
 	const steel = useSteel();
 	const geo = useMemo(() => ({right: wheelGeometry(1), left: wheelGeometry(-1), axle: axleGeometry(), journals: journalGeometry()}), []);
 	const bandMat = useMemo(() => steel.band.clone(), [steel]);
-	const emissive = new THREE.Color(colors.amber).multiplyScalar(glow * 0.9).add(new THREE.Color(colors.crimson).multiplyScalar(heat * 1.1));
+	const flangeMat = useMemo(() => steel.body.clone(), [steel]);
+	flangeMat.emissive = new THREE.Color(colors.amber).multiplyScalar(flangeGlow * 0.85);
+	const emissive = new THREE.Color(colors.amber).multiplyScalar(glow * 0.6).add(new THREE.Color(colors.crimson).multiplyScalar(heat * 1.1));
 	bandMat.emissive = emissive;
+	// lit amber, the steel dims under the glow so it reads as colour, not as white
+	bandMat.color = new THREE.Color('#DCE3EA').lerp(new THREE.Color('#2E2418'), Math.min(1, glow + heat) * 0.85);
 	// the axle sits at the height the contact solver gives for this shift (rail crown at y = 0)
 	const axleY = contact(Math.abs(shift)).axleZ / 1000;
 	const spin = rolled / (WS.r0 / 1000);
@@ -166,6 +172,9 @@ export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw =
 					))}
 					{[...geo.right.band, ...geo.left.band].map((g, i) => (
 						<mesh key={`t${i}`} geometry={g} material={bandMat} />
+					))}
+					{[...geo.right.flange, ...geo.left.flange].map((g, i) => (
+						<mesh key={`f${i}`} geometry={g} material={flangeMat} />
 					))}
 					{geo.axle.map((g, i) => (
 						<mesh key={`a${i}`} geometry={g} material={steel.axle} />
@@ -219,4 +228,38 @@ export const Track3D: React.FC<{path: PathSample[]; draw?: number; edgeOpacity?:
 			</lineSegments>
 		</group>
 	);
+};
+
+// ---- camera moves and projection ----
+
+export type CamKey = {f: number; cam: CameraSpec};
+
+/** The camera between keyframes, eased (the channel's camera curve); never a cut. */
+export const camAt = (f: number, keys: CamKey[], ease: (t: number) => number): CameraSpec => {
+	if (f <= keys[0].f) return keys[0].cam;
+	for (let i = 1; i < keys.length; i++) {
+		if (f <= keys[i].f) {
+			const a = keys[i - 1];
+			const b = keys[i];
+			const t = ease((f - a.f) / (b.f - a.f));
+			const l = (x: number, y: number) => x + (y - x) * t;
+			return {
+				position: [l(a.cam.position[0], b.cam.position[0]), l(a.cam.position[1], b.cam.position[1]), l(a.cam.position[2], b.cam.position[2])],
+				target: [l(a.cam.target[0], b.cam.target[0]), l(a.cam.target[1], b.cam.target[1]), l(a.cam.target[2], b.cam.target[2])],
+				fov: l(a.cam.fov, b.cam.fov),
+			};
+		}
+	}
+	return keys[keys.length - 1].cam;
+};
+
+/** Where a world point lands on a w×h frame for this camera (for 2D callouts that point at 3D features). */
+export const project = (cam: CameraSpec, p: [number, number, number], w: number, h: number): {x: number; y: number; behind: boolean} => {
+	const c = new THREE.PerspectiveCamera(cam.fov, w / h, 0.01, 400);
+	c.position.set(...cam.position);
+	c.lookAt(new THREE.Vector3(...cam.target));
+	c.updateMatrixWorld();
+	c.updateProjectionMatrix();
+	const v = new THREE.Vector3(...p).project(c);
+	return {x: ((v.x + 1) / 2) * w, y: ((1 - v.y) / 2) * h, behind: v.z > 1};
 };

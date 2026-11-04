@@ -21,6 +21,8 @@ export type Cues = {
 	at: (phrase: string, after?: string) => number;
 	/** Last frame of the phrase's last word. */
 	end: (phrase: string, after?: string) => number;
+	/** First frame of the first match of the phrase that starts in [from, to) (frames): unambiguous inside a scene. */
+	within: (phrase: string, from: number, to: number) => {start: number; end: number};
 	/** Frame span of the sentence that starts with these words. */
 	sentence: (opening: string) => {from: number; to: number};
 	total: number;
@@ -57,6 +59,12 @@ export const makeCues = (t: Timing): Cues => {
 			const s = t.sentences[t.words[i].s];
 			if (t.words[i] !== t.words.find((w) => w.s === s.id)) throw new Error(`"${opening}" does not open a sentence`);
 			return {from: s.startFrame, to: s.endFrame};
+		},
+		within: (phrase, from, to) => {
+			const n = phrase.split(/\s+/).filter((x) => norm(x)).length;
+			const hit = find(phrase, 0).find((i) => t.words[i].startFrame >= from && t.words[i].startFrame < to);
+			if (hit === undefined) throw new Error(`cue "${phrase}": not between frames ${from} and ${to}`);
+			return {start: t.words[hit].startFrame, end: t.words[hit + n - 1].endFrame};
 		},
 		total: t.durationInFrames,
 		provisional: Boolean(t.provisional),

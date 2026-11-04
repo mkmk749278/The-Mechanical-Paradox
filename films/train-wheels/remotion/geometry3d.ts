@@ -90,14 +90,21 @@ const wheelContours = (): {band: Contour; body: Contour} => {
 	return {band, body};
 };
 
-export type WheelGeometry = {body: THREE.BufferGeometry[]; band: THREE.BufferGeometry[]};
+export type WheelGeometry = {body: THREE.BufferGeometry[]; band: THREE.BufferGeometry[]; flange: THREE.BufferGeometry[]};
 
 /** One wheel at side ±1, its nominal contact at x = side·b0. */
 export const wheelGeometry = (side: 1 | -1, segments = 160): WheelGeometry => {
 	const {band, body} = wheelContours();
 	// the band sits a hair proud of the body so it never z-fights
 	const bandProud: Contour = band.map(([r, u]) => [r + 0.15, u]);
-	return {body: latheX(body, side, side * WS.b0, segments), band: latheX(bandProud, side, side * WS.b0, segments)};
+	// the flange's skin (root to back face), a hair proud: its own material, so it can be lit on its own
+	const flange: Contour = [];
+	for (let u = WHEEL_SPAN.back; u <= -34; u += 0.5) flange.push([wheelR(u) + 0.2, u]);
+	return {
+		body: latheX(body, side, side * WS.b0, segments),
+		band: latheX(bandProud, side, side * WS.b0, segments),
+		flange: latheX(flange, side, side * WS.b0, segments),
+	};
 };
 
 // ---- the axle (a: distance from the wheelset centre, mm) ----

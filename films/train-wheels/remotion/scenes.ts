@@ -39,10 +39,21 @@ export const span = (id: SceneId): {from: number; to: number; dur: number} => {
 	return {from, to, dur: to - from};
 };
 
-/** A phrase's first frame in the scene's local frames. */
-export const at = (id: SceneId, phrase: string, after?: string): number => cue.at(phrase, after) - span(id).from;
-/** A phrase's last frame in the scene's local frames. */
-export const endOf = (id: SceneId, phrase: string, after?: string): number => cue.end(phrase, after) - span(id).from;
+/**
+ * A phrase's first frame in the scene's local frames, searched only inside the scene's own span (so a phrase the film
+ * says twice is never ambiguous); `after` narrows to the first match after another phrase of the same scene.
+ */
+export const at = (id: SceneId, phrase: string, after?: string): number => {
+	const s = span(id);
+	const from = after ? cue.within(after, s.from, s.to).end : s.from;
+	return cue.within(phrase, from, s.to).start - s.from;
+};
+/** A phrase's last frame in the scene's local frames (same search). */
+export const endOf = (id: SceneId, phrase: string, after?: string): number => {
+	const s = span(id);
+	const from = after ? cue.within(after, s.from, s.to).end : s.from;
+	return cue.within(phrase, from, s.to).end - s.from;
+};
 
 // every scene must have room to breathe, and the spans must tile the VO
 for (let i = 0; i < SCENE_IDS.length; i++) {
