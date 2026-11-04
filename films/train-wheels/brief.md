@@ -1,7 +1,7 @@
 # Film 1: train wheels, brief (package first; PLAYBOOK §13)
 
-**Slug** `train-wheels` · **Slate** blueprint Video 1 ("The Wheel Geometry Paradox") · **Length** about 5½ minutes
-(narration 824 words; the topic set it, the blueprint's 4:15 was a guide)
+**Slug** `train-wheels` · **Slate** blueprint Video 1 ("The Wheel Geometry Paradox") · **Length** about 6½–7 minutes
+(narration about 1,040 words in VO v6; the topic set it, the blueprint's 4:15 was a guide)
 
 ## The viewer
 Someone who has stood on a platform, heard a train screech on a bend, and never got a real answer. The engineering
