@@ -497,6 +497,17 @@ In a faceless, code-driven film, the sound gives the weight.
   shriek + 45 Hz boom (fracture), 50 → 120 Hz transformer buzz (heat), filtered pink-noise sweep (flow). Most can be
   synthesised exactly in Python (`scripts/score_mix.py` is the mixer to extend); recorded foley only with a licence.
 - Silence before a reveal: drop the music 1–1.5 s before the paradox is solved.
+- **Music from Lyria 3.5** (`scripts/lyria_music.py`, prompts in `sound/lyria_prompts.json`; film 1, 2026-11-04):
+  write each act's prompt as timestamped sections on the film's own beats (a quiet intro, a thinning where the music
+  must drop, a hard stop before a grave line); WAV is `response_format {"type": "audio", "mime_type": "audio/wav"}`
+  (48 kHz stereo came back, not the 44.1 kHz the docs say); a song takes ~20 s and costs $0.08. Make two takes per act
+  and pick by the measured 0.5 s loudness contour against the plan, then slide the track (`offset`) so its events land
+  on the words; check every take for vocals with Whisper. *Why:* the picks of film 1 hit three drops and a stop within
+  1–3 s with no editing. One prompt was blocked "for an unspecified policy reason" (no charge); rewording passed.
+- **Balance by K-weighted short-term loudness against the voice, not by bus RMS** (film 1, 2026-11-04): the bed at
+  −23 dBFS RMS ducked 11 dB measured only 6 dB under solid speech; the mix now carries `music_db`, `sfx_db` and per-sound
+  `sfx_trim` in `score.json`. Targets: bed ≥ 14 dB under solid speech (median), effects ≥ 12 dB (median) and never
+  over the voice except a deliberate hit; sustained tones in 1–4 kHz (the `glass_tone`) mask words first.
 
 ### 12.1 The music library (owner, 2026-11-04)
 All music comes from the channel's own library, generated with **Google Lyria 3.5 through the Gemini API**
@@ -505,8 +516,11 @@ inside `Music-Library`, id `1F5r-bgyORTxPM66DXViM3Oxrrr7ukJY8`, at the top of My
 - **The record:** `config/music_library.csv` (id, title, what it is for, mood, tempo, key, length, loudness, the
   instruments heard); `config/music_library.json` holds the exact prompts. Each WAV in Drive has a JSON sidecar with
   the prompt, the Lyria interaction id and the listening check.
-- **Use:** pick one bed per act from the `use` column (film 1: `bp01_curious_pulse` act 1, `bp03_low_tension` act 2,
-  `bp05_resolve` act 3; `bp10_landing` for an outro without the sting's own sound), pull them with
+- **Library or film takes:** the library gives ready beds for any film; when the music must hit the film's own beats
+  (a drop before a line, a stop on a word), make takes for that film with `scripts/lyria_music.py` and its
+  `sound/lyria_prompts.json` (§12, film 1's method). Film 1 uses its own takes.
+- **Use:** pick one bed per act from the `use` column (`bp01_curious_pulse`, `bp03_low_tension` and `bp05_resolve` are
+  the act shape of a typical film; `bp10_landing` for an outro without the sting's own sound), pull them with
   `scripts/music_pull.sh films/<slug>/assets/music bp01_curious_pulse bp03_low_tension …`, place them as slots in
   `sound/score.json`, and log each in the film's `media_manifest.csv`: source `Music-Library/blueprint/<id>.wav`,
   licence "Generated with Google Lyria 3.5 (Gemini API, Paid Tier); Google claims no ownership of output; SynthID
@@ -515,12 +529,12 @@ inside `Music-Library`, id `1F5r-bgyORTxPM66DXViM3Oxrrr7ukJY8`, at the top of My
   and ducks it under the voice (§12); never use a track at its delivered level.
 - **A new track:** add an entry to `config/music_library.json` (id `bp<NN>_<name>`, a prompt with tempo, key,
   instruments and shape, and a one-line `brief`), run
-  `python3 scripts/lyria_music.py generate config/music_library.json films/<slug>/assets/lyria --only <id>`,
+  `python3 scripts/lyria_library.py generate config/music_library.json films/<slug>/assets/lyria --only <id>`,
   listen to the kept take, push it with `scripts/music_pull.sh --push films/<slug>/assets/lyria`, then rebuild the CSV
-  (`python3 scripts/lyria_music.py catalog <folder with blueprint/> config/music_library.csv` over the whole palette
+  (`python3 scripts/lyria_library.py catalog <folder with blueprint/> config/music_library.csv` over the whole palette
   pulled from Drive) and commit both files. $0.08 a take (aistudio.google.com/docs/pricing, read 2026-11-04).
 - **The check:** Lyria has no instrumental switch and often adds choir or "ooh" pads even when the prompt forbids
-  them. `lyria_music.py` has two Gemini models listen to every take: `gemini-3.5-flash` for vocals, defects, a hard
+  them. `lyria_library.py` has two Gemini models listen to every take: `gemini-3.5-flash` for vocals, defects, a hard
   ending, an unsteady level and the fit to the brief, then `gemini-3.1-pro-preview` for voices alone (it caught choir
   pads in 3 of the first 15 takes the first listener passed). A take either flags is made again, up to five times;
   only clean takes are kept (`--attempts 5`).
@@ -791,7 +805,7 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    mostly Content ID registered (11 of 11 checked for film 1); ElevenLabs' free plan has no commercial licence (its
    output stays non-commercial even after an upgrade); Lyria output is owned by us under the Gemini API terms and
    carries an inaudible SynthID watermark. Fallback: `scripts/compose_score.py`, an original code-composed score.
-   **The library (owner, 2026-11-04):** the music is generated once into one Drive folder and reused (§12.1).
+   **The library (owner, 2026-11-04):** general beds are generated once into one Drive folder and reused (§12.1).
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.

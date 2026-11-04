@@ -1,5 +1,5 @@
 {
- "_doc": "Prompts for this channel's music library (Drive Music-Library/blueprint/). Generate with scripts/lyria_music.py; PLAYBOOK §12.1.",
+ "_doc": "Prompts for this channel's music library (Drive Music-Library/blueprint/). Generate with scripts/lyria_library.py; PLAYBOOK §12.1.",
  "common": "Instrumental only: no vocals, no choir, no humming, no spoken words, no vocal samples, and no pads or synths that sound like voices or a choir: sustained sounds come from bowed strings, piano, electric piano, organ-free analogue synths and electronic hum. This is a documentary underscore that plays under a narrator's voice: no lead melody in the speech range, no sudden loud hits or long silences, a steady overall level from start to finish, clean cinematic mix, wide stereo. Make it about three minutes long. It ends with a final held chord or note that decays naturally, never an abrupt cut.",
  "tracks": [
   {

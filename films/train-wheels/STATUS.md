@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-04, picture built)
+# Film 1 status and handoff (2026-11-04, picture built, music mixed)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -17,26 +17,20 @@
 where the narration names the real thing (`remotion/Footage.tsx`), graded to the palette and credited on screen. Files
 in Drive `train-wheels/render-media/footage/` (a stray partial `he.mp4` there is unused; safe to delete).
 
-**Music (owner, 2026-11-04): Google Lyria 3.5 through the Gemini API.** History: Pixabay picks were all Content ID
-registered; the free ElevenLabs account has no commercial licence; Antigravity could not fetch the YouTube Audio
-Library; the owner then chose Lyria and added `GEMINI_API_KEY` as an environment secret (new sessions only). Terms
-checked: Google claims no ownership of output and sets no commercial limit (aistudio.google.com/docs/terms); every
-track carries an inaudible SynthID watermark. Fallback: `scripts/compose_score.py` (code-composed score, measured
-clean; its last edit, chords overlapping across changes, is untested: run it once before relying on it).
+**Music: done (Lyria 3.5, 2026-11-04).** Two takes per act made with `scripts/lyria_music.py` (7 calls, 6 songs,
+$0.56; one prompt blocked and reworded), picked by measured contour; take 1 of each act used (`sound/music_manifest.csv`,
+`media_manifest.csv`; all six in Drive `train-wheels/music/`). Placement in `sound/score.json`: drops 1.2 s before
+"neither wheel really slips" and 1.0 s before "Just shape"; act 2 stops dead before "That is one way a train comes off
+the track"; act 3 releases after "until the flanges hammer the rails"; out 0.5 s before the sting. Mix rebalanced by
+K-weighted loudness: bed 14.5 dB under solid speech (median), effects 13.4 dB, `glass_tone` −6 dB; master −14.1 LUFS,
+−1.4 dBTP. `mix.wav` in Drive `train-wheels/mix/` (the previous one kept as `mix_v1_no_music.wav`).
 
-**Farm render (720p, with footage):** run 41810631645 on commit 30f4cdc; 8 of 13 shards done at 10:21 UTC, the heavy
-3D shards still running. Output `train-wheels_review_720p_v1.mp4` → Drive `train-wheels/renders/`, joined with the
-current mix (VO + SFX + drone, no music). Shards are kept 7 days: a new mix re-joins without re-rendering
-(`join_from` = 41810631645).
+**Farm render (720p, with footage and music):** run 41810631645 on commit 30f4cdc; its join step pulls the new
+`mix.wav`, so the cut it writes, `train-wheels_review_720p_v1.mp4` in Drive `train-wheels/renders/`, carries the music.
+Shards are kept 7 days: a new mix re-joins without re-rendering (`join_from` = 41810631645).
 
 **Next session, in order**
-1. **Music from the library** (PLAYBOOK §12.1; generated 2026-11-04 with Lyria 3.5, Drive `Music-Library/blueprint/`):
-   `scripts/music_pull.sh films/train-wheels/assets/music bp01_curious_pulse bp03_low_tension bp05_resolve`; listen
-   to all three first. Act 1 (0:00–2:53) `bp01_curious_pulse`, act 2 (2:53–4:12) `bp03_low_tension`, act 3
-   (4:12–6:25) `bp05_resolve`. Log them in `media_manifest.csv` (§12.1 wording), set `sound/score.json` slots (drop
-   1–1.5 s before "neither one really slips" and before "Just shape"; music out before the sting), mix
-   (`score_mix.py --tail-frames 330`), upload `mix.wav` to Drive `train-wheels/mix/`, re-join the farm render
-   (`join_from` 41810631645 if within 7 days, else re-render).
+1. Check the joined cut: its audio is the new mix (music audible at 0:12, the stop at 4:09).
 2. Picture gate (§14.2) on the 720p cut with music: contact sheet every 4 s, every insert, every dissolve; then the
    owner's review in `mkmk749278/Review`.
 3. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).

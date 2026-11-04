@@ -390,7 +390,7 @@ def main() -> None:
     duck = np.repeat(db(1) ** duck_db, hop)  # 10**(dB/20)
     duck = np.pad(duck, (0, max(0, n - len(duck))), mode="edge")[:n]
 
-    # ---- music bed: each slot at −23 dBFS RMS, faded, ducked
+    # ---- music bed: each track at −23 dBFS RMS (measured over the whole track), sliced into slots, faded, ducked
     manifest = film / "sound/music_manifest.csv"
     tracks = {r["title"]: film / r["file"] for r in csv.DictReader(manifest.open())} if manifest.exists() else {}
     score = json.loads((film / "sound/score.json").read_text())
@@ -403,16 +403,19 @@ def main() -> None:
         if s["track"] not in cache:
             cache[s["track"]] = decode(tracks[s["track"]])
         src = cache[s["track"]]
-        off = int(s.get("offset", 0) * SR)
+        o = s.get("offset", 0)  # seconds into the track; an anchor string means "where the film is at that word"
+        off = int((A(o) if isinstance(o, str) else o) * SR)
         seg = src[off: off + int((t1 - t0) * SR)]
         if len(seg) < int((t1 - t0) * SR) - SR // 10:
             print(f"  ! {s['track']} runs out {((t1 - t0) * SR - len(seg)) / SR:.1f}s early in slot {s['why'][:40]}")
-        seg = seg * db(-23 - rms_db(seg) + s.get("gain_db", 0))
+        # level from the whole track, not the slot: a track cut into several slots (drops before reveals) keeps its
+        # own dynamics instead of each piece being pushed to the same RMS (film 1, 2026-11-04)
+        seg = seg * db(-23 - rms_db(src) + s.get("gain_db", 0))
         fi, fo = int(s.get("fade_in", 1.5) * SR), int(s.get("fade_out", 1.5) * SR)
         env = np.ones(len(seg))
         env[: min(fi, len(env))] = np.linspace(0, 1, min(fi, len(env))) ** 2
         env[-min(fo, len(env)):] *= np.linspace(1, 0, min(fo, len(env))) ** 2
-        place(bed, seg * env[:, None], t0, 1.0)
+        place(bed, seg * env[:, None], t0, db(score.get("music_db", 0)))  # music trim set by measurement (score.json)
         print(f"  {t0:7.1f}–{t1:7.1f}  {s['track']}")
     for r in score.get("rooms", []):
         t0, t1 = A(r["from"]), A(r["to"])
@@ -425,7 +428,10 @@ def main() -> None:
         t0 = A(c["at"])
         x = synth(c["sfx"], 100 + k, (A(c["to"]) - t0) if "to" in c else 0)
         x = x / (np.max(np.abs(x)) + 1e-9) * db(-3)
-        place(sfx, x, t0, db(c["gain_db"] + 3), c.get("pan", 0.0))
+        trim = score.get("sfx_trim", {}).get(c["sfx"], 0)  # per-sound trims set by measurement (score.json)
+        place(sfx, x, t0, db(c["gain_db"] + 3 + trim), c.get("pan", 0.0))
+
+    sfx *= db(score.get("sfx_db", 0))
 
     # ---- quiet zones (v8): the whole mix steps down where the film should breathe (the tragedies, the question), so
     # the loudness range opens up; 1 s ramps; the master's one static gain is applied after

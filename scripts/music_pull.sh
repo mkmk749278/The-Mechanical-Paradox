@@ -6,9 +6,9 @@
 #   scripts/music_pull.sh films/train-wheels/assets/music bp01_curious_pulse bp03_low_tension
 #   With no IDs the whole palette is copied. Files already in DEST are skipped. Every track is a 48 kHz stereo WAV
 #   with a JSON sidecar (prompt, listening check, loudness); config/music_library.csv lists what each one is for.
-# To add a track: add it to config/music_library.json, run scripts/lyria_music.py generate, check it, then
+# To add a track: add it to config/music_library.json, run scripts/lyria_library.py generate, check it, then
 #   scripts/music_pull.sh --push DIR  (uploads DIR/blueprint/*.wav and *.json to the library) and update the CSV
-#   with scripts/lyria_music.py catalog.
+#   with scripts/lyria_library.py catalog.
 # Needs GDRIVE_RCLONE_TOKEN, exactly like scripts/upload_gdrive.sh; rclone is a pinned binary fetched into .cache/.
 set -euo pipefail
 RCLONE_VER=v1.71.1
@@ -42,7 +42,7 @@ EOF
 export RCLONE_CONFIG_GD_TYPE=drive RCLONE_CONFIG_GD_SCOPE=drive RCLONE_CONFIG_GD_TOKEN="$TOKEN"
 export RCLONE_CONFIG_GD_ROOT_FOLDER_ID="$FOLDER_ID" RCLONE_CONFIG=/dev/null
 if [[ $1 == --push ]]; then
-  SRC="${2:?folder made by lyria_music.py generate}/blueprint"
+  SRC="${2:?folder made by lyria_library.py generate}/blueprint"
   "$RCLONE" copy --include '*.wav' --include '*.json' --exclude '_rejected_*' --exclude '.*' --transfers 4 --retries 4 "$SRC" gd: >&2
   echo "pushed $(ls "$SRC"/*.wav | wc -l) tracks to Music-Library/blueprint"
   exit 0
