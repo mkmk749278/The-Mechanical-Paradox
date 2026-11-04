@@ -90,6 +90,8 @@ jobs:
       - name: Media and voice from Drive
         run: |
           scripts/gdrive_pull.sh "$FILM/render-media" "public/films/$FILM" > /dev/null
+          # Blender plates arrive as tars, one per rendered block (blender-render.yml)
+          for t in "public/films/$FILM"/plates_tar/*.tar; do [ -e "$t" ] && tar -xf "$t" -C "public/films/$FILM"; done
           du -sh "public/films/$FILM"
       - name: Render
         shell: bash  # -eo pipefail: a failed render fails the step even through the log filter
