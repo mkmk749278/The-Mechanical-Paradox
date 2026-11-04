@@ -15,6 +15,10 @@ before it was added, and its calls were refused. All six blocks go to the owner 
 (`script/blocks_performance.md`).
 
 **Next session, in order:**
+0. **Check ElevenLabs access first:** `curl -sS https://api.elevenlabs.io/v1/user/subscription` must return the
+   account (not "needs_authorization"). The key comes from the environment's Network secret for `api.elevenlabs.io`,
+   or from `ELEVENLABS_API_KEY` (send it as the `xi-api-key` header). If it is refused, tell the owner which of the two
+   to check and build scenes meanwhile; never ask for the key in chat.
 1. Find the voice id of "The Mechanical Paradox" (`GET /v2/voices?search=Mechanical`). Generate b01–b06 from
    `script/blocks_performance.md` (Eleven v4 or the voice's own default model; stability 0.50, similarity 0.80,
    speed 1.0, speaker boost on, no tags), two takes each. Measure with `scripts/vo_review.py`, keep the best take
