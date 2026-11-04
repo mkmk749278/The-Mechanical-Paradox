@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-04, picture built, music mixed)
+# Film 1 status and handoff (2026-11-04, music mixed, Blender hero shots rendered)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -41,11 +41,25 @@ with the words heard, then full-size stills) found and fixed, all re-checked in 
 - Footage credits get a low scrim (the credit vanished on the snow insert).
 - Holds just over 1.5 s at 1:30.0, 2:38.3, 4:10.4 (1.55–1.67 s, under the 2.5 s limit): the last two are the held
   beats before "Just shape" and after the derailment line; left as they are.
-**Review cut v2** renders on the farm with these fixes (720p, `train-wheels_review_720p_v2.mp4`).
+**Review cut v2** (`train-wheels_review_720p_v2.mp4`, run 41843338969): the fixes above; 6:24.9, −14.1 LUFS,
+−1.2 dBTP, no black frames. Superseded before review by the Blender shots.
+
+**Blender hero shots (owner, 2026-11-04: "Film 1 now"; PLAYBOOK §10.6).** Three moments become Cycles plates
+rendered on GitHub's runners: s01 the cold open's wheelset (812 frames), s03 the tread lighting amber on "the shape of
+the wheel" (696), s15 the landing's hero wheelset (1,054). Their 3D state is in `remotion/shots3d.ts` (the same driver
+as the HUD); the blueprint lines stay live three.js over the plate. Look settled on test frames: turned steel with
+lathe rings, studio reflections, polished rail running band, Standard view (AgX turned the amber peach). **Rendered:**
+run 41859965297 (`blender-render.yml`, 1080p, 16 samples, 23 jobs, all green; the bend's aerial frames took ~110 s each),
+2,562 of 2,562 frames; packed one tar per shot in Drive `render-media/plates_tar/` (single frames kept in
+`plates-frames/`). Checked in the composite at key frames of every shot: plate, live lines, callouts and HUD aligned;
+the s03 glow on "the shape of the wheel"; the s15 axle and slope beats. "OUTER RAIL: FARTHER TO GO" now sits on two
+lines clear of the bend (the rail crossed "GO").
 
 **Next session, in order**
-1. Check v2 (length, audio, black frames, the fixed frames), then the independent viewer review (§14.2) and the
+1. Gate review cut v3 (`train-wheels_review_720p_v3.mp4`, with the three Blender shots): length, audio, black
+   frames, every plate frame in motion (no missing or stuck frame), then the independent viewer review (§14.2) and the
    owner's review in `mkmk749278/Review`.
+   For the 4K master the plates render again at width 3840 (about 4× the time: two runs).
    When the Gemini cap resets or is raised, run the two listeners on the three act tracks (`lyria_library.py` `listen`
    and `voice_check`).
 2. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).

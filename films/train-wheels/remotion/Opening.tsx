@@ -73,8 +73,12 @@ export const ColdOpen: React.FC = () => {
 			<AbsoluteFill>
 				<Shot3DView id="s01" f={f} width={W} height={H} />
 				<Dials spin={spin} o={Math.min(on(f, t.together - 10, 20), off(f, t.bend, 24))} />
-				<Label x={130} y={470} size={44} color={colors.crimson} weight={700} opacity={Math.min(on(f, t.farther, 20), off(f, t.end - 30, 20))}>
-					OUTER RAIL: FARTHER TO GO
+				{/* two lines, clear of the bend (on one line the rail crossed "GO") */}
+				<Label x={96} y={440} size={44} color={colors.crimson} weight={700} opacity={Math.min(on(f, t.farther, 20), off(f, t.end - 30, 20))}>
+					OUTER RAIL:
+				</Label>
+				<Label x={96} y={496} size={44} color={colors.crimson} weight={700} opacity={Math.min(on(f, t.farther, 20), off(f, t.end - 30, 20))}>
+					FARTHER TO GO
 				</Label>
 			</AbsoluteFill>
 		</Stage>

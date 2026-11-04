@@ -1,7 +1,7 @@
 # A film's Blender hero shots (Cycles) on GitHub's runners (PLAYBOOK §10.6). Each shot's meshes, camera and poses are
 # exported from the film's own picture code (scripts/export_blender_shot.mjs), so a plate lines up with the HUD and every
-# callout; blender/render_shot.py renders frames with a transparent film; the frames go to Drive
-# <film>/render-media/plates/<shot>/ as WebP with alpha, where the Remotion farm pulls them (remotion-render.yml).
+# callout; blender/render_shot.py renders frames with a transparent film; each block goes to Drive
+# <film>/render-media/plates_tar/<shot>_<start>.tar (WebP with alpha), which the Remotion farm pulls and unpacks.
 # The runners have no GPU: Cycles on 4 CPU cores, about 75 s a 1080p frame at 16 samples (film 1, 2026-11-04).
 # Needs the repo secret GDRIVE_RCLONE_TOKEN.
 name: blender-render
@@ -135,11 +135,15 @@ jobs:
             | grep --line-buffered -E "PLATE|Error|Traceback|line [0-9]+"
           n=$(ls out/$SHOT/*.png | wc -l); want=$((END - START))
           [ "$n" -eq "$want" ] || { echo "::error::$n of $want frames"; exit 1; }
-      - name: WebP with alpha → Drive
+      # one tar per block (plates/<shot>/NNNNN.webp inside): the Remotion farm pulls a few dozen tars, not thousands of
+      # frames (700 single frames took 10 min to pull, film 1)
+      - name: WebP with alpha → one tar per block → Drive
         shell: bash
         run: |
-          mkdir -p webp
+          IFS=: read -r _ START _ <<< "${{ matrix.block }}"
+          mkdir -p "pack/plates/$SHOT" tars
           for f in out/$SHOT/*.png; do
-            ffmpeg -v error -y -i "$f" -c:v libwebp -quality 92 -pix_fmt yuva420p "webp/$(basename "$f" .png).webp"
+            ffmpeg -v error -y -i "$f" -c:v libwebp -quality 92 -pix_fmt yuva420p "pack/plates/$SHOT/$(basename "$f" .png).webp"
           done
-          scripts/upload_gdrive.sh --sub "$FILM/render-media/plates/$SHOT" webp
+          tar -cf "tars/${SHOT}_$(printf %05d "$START").tar" -C pack plates
+          scripts/upload_gdrive.sh --sub "$FILM/render-media/plates_tar" tars
