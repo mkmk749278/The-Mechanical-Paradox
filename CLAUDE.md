@@ -84,7 +84,9 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
 - **Live telemetry HUD** in every scene, ticking with the narration; every value has a `claims.csv` source or the
   panel says ILLUSTRATIVE VALUES.
 - **Failure is a stress field,** never a flashing icon: the FEA ramp navy → cyan → yellow → red at the notch.
-- **Zero stock video:** code-rendered. Real photos only where a real event is the evidence, licensed and credited.
+- **Real footage (owner, 2026-11-04):** short inserts of the real thing (track, curves, wheels, trains) where the
+  narration describes it, then the drawing explains; commercial-use licence, credited on screen, in
+  `media_manifest.csv`; never a render or simulation passed off as real (PLAYBOOK §8.8).
 
 ## Narration (PLAYBOOK §7)
 - Simple international spoken English; American spelling on screen; SI units first with US units where they help.

@@ -10,14 +10,19 @@
   research/visual_refs.md); every number on screen from `model.ts` / `profiles.ts` with numeric checks in code.
 - **Sound:** 77 SFX cues exported from the picture code (`sound/sfx.json`), this channel's foley synthesized in
   `scripts/score_mix.py`, the sub-bass drone bed (`sound/score.json`); master −14.1 LUFS, −1.1 dBTP (VO + SFX + bed).
-- **Farm render started:** 720p review cut, run 41797400057, `train-wheels_review_720p_v1.mp4` → Drive
+- **Farm render started** (with the footage): 720p review cut, `train-wheels_review_720p_v1.mp4` → Drive
   `train-wheels/renders/`.
 
-**Owner, 2026-11-04: music = licensed tracks fetched on the phone.** Three Pixabay picks, one per act, in
-`sound/music_brief.md`; the owner downloads them and uploads to Drive `train-wheels/music/`.
+**Owner, 2026-11-04: real footage.** Nine Pixabay clips (Pixabay Content License, `media_manifest.csv`), 2–5 s inserts
+where the narration names the real thing (`remotion/Footage.tsx`), graded to the palette and credited on screen. Files
+in Drive `train-wheels/render-media/footage/` (a stray partial `he.mp4` there is unused; safe to delete).
+
+**Owner, 2026-11-04: music = licensed tracks fetched on the phone.** Every Pixabay pick checked was Content ID
+registered, so the source is the YouTube Audio Library: the brief is `sound/music_brief.md`; the owner uploads three
+tracks to Drive `train-wheels/music/`.
 
 **Next session, in order**
-1. When the music lands: pull it, log each track in `media_manifest.csv` (Pixabay Content License, page URL), set
+1. When the music lands: pull it, log each track in `media_manifest.csv` (YouTube Audio Library, track and artist), set
    the slots in `sound/score.json` (act 1 0:00–2:55, act 2 2:55–4:13, act 3 4:13–end; drop 1–1.5 s before "Just
    shape" and before "neither one really slips"), mix with `--tail-frames 330`, upload `mix.wav` to Drive
    `train-wheels/mix/`, and re-join the picture without re-rendering (`join_from` = the render's run id, within 7 days).

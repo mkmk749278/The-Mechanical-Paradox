@@ -130,7 +130,7 @@ const Bend: React.FC<{f: number; o: number}> = ({f, o}) => {
 const Loco: React.FC<{f: number; o: number}> = ({f, o}) => {
 	const t = T();
 	if (o <= 0.01) return null;
-	const draw = pen(f, t.loco, 70);
+	const draw = pen(f, t.nothing - 6, 60); // drawn over once the real locomotive's clip has gone (Footage.tsx)
 	const k = 54; // px per m (the whole locomotive clears the HUD column)
 	const x0 = 200;
 	const rail = 470; // screen y of the rail top

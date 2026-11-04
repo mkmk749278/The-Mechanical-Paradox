@@ -368,7 +368,13 @@ Equations build term by term as the voice reaches each symbol, with each variabl
 measures on screen. Never a static slide of maths. One equation on screen at a time.
 
 ### 8.8 Real footage and photos
-The blueprint's rule is **zero stock video**: the channel is 100% code-rendered. Where a real event is the evidence
+**Owner, 2026-11-04: use real clips to show the reality of what we describe** ("when they see real footage the
+audience gets the idea"). So: short inserts (2–5 s) of the real thing at the moment the narration names it, then the
+drawing takes over to explain; graded toward the palette (`Footage.tsx`: desaturated, navy wash, grain), credited on
+screen, licence logged in `media_manifest.csv`. Never a game or simulation render passed off as real (film 1: a
+Pixabay "night locomotive" clip was a train-simulator render; rejected). Sources that work from the cloud: the
+Pixabay video API (`PIXABAY_API_KEY`). The rule before it, kept for evidence photos:
+The blueprint's rule was **zero stock video**: the channel is 100% code-rendered. Where a real event is the evidence
 (a real derailment report photo, the 1854 demonstration engraving, a real teardown), the creative director may propose
 it in the treatment; it needs a licence that allows commercial use (§11) and a credit, and is shown as what it is.
 
@@ -734,6 +740,7 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 8. **2026-11-04: the narration model is Eleven v4, and always the newest Eleven flagship after it** (owner: "Use
    eleven v4 only and if any latest version come use that"). `scripts/eleven_tts.py` picks the highest `eleven_vN`
    the account offers (v4 or later) at run time and records it in each take's sidecar; no turbo, flash or v2 models.
+9. **2026-11-04: real footage inserts** of the real thing where the narration describes it (§8.8).
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
