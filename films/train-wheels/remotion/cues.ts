@@ -1,7 +1,7 @@
 import {makeCues, Timing} from '../../../lib/remotion/timing';
-import provisional from '../vo/timing.provisional.json';
+import recorded from '../vo/timing.json';
 
-// The film's word clock. Until the VO is recorded, scenes run on the provisional timing (150 wpm from vo.txt);
-// after recording, scripts/vo_timing.py writes vo/timing.json and this import switches to it. Nothing else changes.
-export const timing = provisional as Timing;
+// The film's word clock, from the recorded VO (scripts/vo_timing.py, 2026-11-04: Eleven v4, edit breaths for pace).
+// vo/timing.provisional.json (150 wpm from vo.txt) is kept only as the record of how the scenes were first cued.
+export const timing = recorded as Timing;
 export const cue = makeCues(timing);

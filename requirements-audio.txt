@@ -1,0 +1,7 @@
+# VO tooling (scripts/vo_review.py, vo_timing.py, align_script.py). Pinned (ground rule 2).
+# python3 -m venv .venv && .venv/bin/pip install -r requirements-audio.txt
+faster-whisper==1.1.1
+librosa==0.11.0
+matplotlib==3.10.3
+numpy==2.2.6
+av==15.1.0

@@ -17,8 +17,12 @@ import {contact, flangeGap, railOutline, wheelOutline, WHEEL_SPAN} from './profi
 
 const PX = 3;
 const RAIL_TOP = 560;
-const RIGHT_X = 1240; // outer rail (outside of the bend)
-const LEFT_X = 680; // inner rail
+// The panels sit left of centre so the outer wheel (to 1378 px at full shift) clears the HUD column (from 1408 px).
+const RIGHT_X = 1040; // outer rail (outside of the bend)
+const LEFT_X = 480; // inner rail
+const MID = (LEFT_X + RIGHT_X) / 2; // the broken-out axle's centreline
+const HUD_W = 440;
+const SCALE_X = 1440; // the scale note's left edge
 
 export const bankCardSpan = (): {from: number; to: number} => ({
 	from: cue.at('How big is that difference') - 40,
@@ -165,34 +169,34 @@ const Panels: React.FC<{f: number; y: number; fps: number}> = ({f, y, fps}) => {
 		<AbsoluteFill>
 			<svg width={1920} height={1080} style={{position: 'absolute'}}>
 				{/* track centre and the broken-out axle */}
-				<line x1={960} y1={120} x2={960} y2={880} stroke={colors.muted} strokeWidth={1.5} strokeDasharray="22 10 4 10" opacity={draw} />
-				<path d="M 930 300 l 20 -18 l 20 36 l 20 -18" fill="none" stroke={colors.sub} strokeWidth={2.5} opacity={draw} />
+				<line x1={MID} y1={244} x2={MID} y2={880} stroke={colors.muted} strokeWidth={1.5} strokeDasharray="22 10 4 10" opacity={draw} />
+				<path d={`M ${MID - 30} 300 l 20 -18 l 20 36 l 20 -18`} fill="none" stroke={colors.sub} strokeWidth={2.5} opacity={draw} />
 				<ContactPanel side={-1} y={y} draw={draw} glow={glow} />
 				<ContactPanel side={1} y={y} draw={draw} glow={glow} />
 				{/* flange touch on the outer wheel: the contact at the gauge corner, a crimson bloom, never an icon */}
 				<circle cx={RIGHT_X - 33 * PX} cy={RAIL_TOP + 9} r={10 + 8 * pulse} fill={colors.crimson} opacity={0.45 * touch * (gap < 0.05 ? 1 : 0)} style={{filter: 'blur(5px)'}} />
-				{/* scale bar */}
-				<line x1={140} y1={942} x2={140 + 10 * PX} y2={942} stroke={colors.line} strokeWidth={4} opacity={draw} />
+				{/* scale bar, bottom-right: the free corner (the inner rail's web runs through the bottom-left) */}
+				<line x1={SCALE_X} y1={942} x2={SCALE_X + 10 * PX} y2={942} stroke={colors.line} strokeWidth={4} opacity={draw} />
 			</svg>
-			<Label x={140 + 10 * PX + 16} y={922} size={26} color={colors.sub} opacity={draw}>
+			<Label x={SCALE_X + 10 * PX + 16} y={922} size={26} color={colors.sub} opacity={draw}>
 				10 mm · TRUE SCALE
 			</Label>
-			<Label x={140} y={962} size={26} color={colors.sub} opacity={draw}>
+			<Label x={SCALE_X} y={962} size={26} color={colors.sub} opacity={draw}>
 				GENERIC PROFILES
 			</Label>
 			<Label x={LEFT_X - 160} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
 				INNER WHEEL
 			</Label>
-			<Label x={LEFT_X - 160} y={178} size={40} color={colors.amber} align="right" opacity={draw} weight={700}>
+			<Label x={LEFT_X - 160} y={180} size={36} color={colors.amber} align="right" opacity={draw} weight={700}>
 				r {rI.toFixed(2)} mm
 			</Label>
 			<Label x={RIGHT_X - 24} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
 				OUTER WHEEL
 			</Label>
-			<Label x={RIGHT_X - 24} y={178} size={40} color={colors.amber} align="right" opacity={draw} weight={700}>
+			<Label x={RIGHT_X - 24} y={180} size={36} color={colors.amber} align="right" opacity={draw} weight={700}>
 				r {rO.toFixed(2)} mm
 			</Label>
-			<Label x={960} y={70} size={26} color={colors.sub} align="center" opacity={draw}>
+			<Label x={MID} y={70} size={26} color={colors.sub} align="center" opacity={draw}>
 				OUTSIDE OF THE BEND →
 			</Label>
 			{/* the viewer's guess: a centimeter, drawn at true scale beside the outer contact */}
@@ -315,7 +319,7 @@ export const BankCard: React.FC = () => {
 					<Ruler f={f} y={y} fps={fps} />
 				</AbsoluteFill>
 			</Blueprint>
-			<Hud title="WHEELSET" rows={hudRows} start={t.take - 20} end={t.end} note="TEXTBOOK MODEL" width={560} />
+			<Hud title="WHEELSET" rows={hudRows} start={t.take - 20} end={t.end} note="TEXTBOOK MODEL" width={HUD_W} />
 			<Atmosphere />
 		</AbsoluteFill>
 	);

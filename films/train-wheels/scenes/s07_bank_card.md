@@ -2,7 +2,7 @@
 
 - **scene_id:** `TW-BankCard` (`remotion/BankCard.tsx`)
 - **duration_in_frames:** from 40 frames before "How big is that difference" to 50 frames after "Just shape"
-  (`bankCardSpan()`; ≈ 34 s on the provisional timing).
+  (`bankCardSpan()`; 1,748 frames, 29.1 s on the recorded VO, 2:13.0–2:42.1).
 - **audio_timestamps (cues):** "How big is that difference" · "You might guess centimeters" · "Take the textbook
   version" · "If you shift it" · "seven tenths" · "seven tenths of a millimeter" (end) · "bank card" · "the whole
   steering system" · "Just shape".
@@ -11,8 +11,10 @@
 - **Shot A, true-scale sections (3 px = 1 mm).** The inner and outer wheel sections over their rails, the axle broken
   out between them (drawing convention; track centre dashed). Wheels cut through the axle plane: rim and web, steel
   gradient, section hatch; rails hatched, inclined 1:20. Rolling radii in amber from the axle centre (off frame) to the
-  contact dots; live readouts `r 500.00 mm` (40 px). Caption: `10 mm · TRUE-SCALE SECTION / GENERIC WHEEL AND RAIL
-  PROFILES` (honesty: the flange shape is generic, the scale is true).
+  contact dots; live readouts `r 500.00 mm` (36 px). Caption: `10 mm · TRUE-SCALE SECTION / GENERIC WHEEL AND RAIL
+  PROFILES` (honesty: the flange shape is generic, the scale is true), bottom-right. The panels sit left of centre
+  (inner rail at x 480, outer at 1040) so the outer wheel clears the 440 px HUD column at full shift (2026-11-04: the
+  first build ran the wheel behind the HUD).
 - At "You might guess centimeters": a crimson dashed 2 cm bracket beside the outer contact, `2 cm?`, gone when the
   shift starts.
 - **Semantic lock:** at "If you shift it" the wheelset springs (channel spring, damping 26) 7 mm toward the outside of
