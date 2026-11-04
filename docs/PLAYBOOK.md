@@ -300,7 +300,8 @@ descriptions, emotion tags, even `[pause]`) either changed the voice or sounded 
 commas and full stops only. **So, here:** pauses come from full stops, commas and paragraph breaks; the exact 250 /
 400 ms beats are cut in the edit from the word timings (`scripts/vo_timing.py`), where they are frame-exact and never
 depend on the voice. `—` and `...` stay allowed in the screenplay as **edit marks** and are stripped from the
-recording text. Re-test once on this channel's voice before the first full recording.
+recording text. **Measured on this channel's voice (2026-11-04):** Eleven v4 ignores its `speed` setting too, so the
+pace is also set in the edit (edit breaths in `scripts/vo_timing.py`, §16).
 
 ### 7.6 Voice
 **Owner, 2026-10-31: audition three neutral international narrators from the ElevenLabs library** on the same
@@ -599,7 +600,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 - `scripts/claims_check.py`: the fact gate. `scripts/contact_sheet.py`: timecoded sheets.
 - `scripts/spoken_english_check.py`: now takes `--terms` (a film's glossary of explained technical words); "mechanism"
   is no longer on its fancy-word list (it is this channel's subject).
-- `scripts/vo_timing.py` + `scripts/align_script.py`: VO timing. `scripts/vo_review.py`: measures each take
+- `scripts/vo_timing.py` + `scripts/align_script.py`: VO timing. `scripts/eleven_tts.py`: generates the blocks with
+  the channel's voice and the newest Eleven model (fixed seeds, a JSON sidecar per take). `scripts/vo_review.py`: measures each take
   (words as written, pace, pauses, pitch, voice drift, loudness). `scripts/score_mix.py`: the mixer.
 - Python needs: `pyyaml`, `numpy`, `pillow` (brand); `wordfreq` (English check); the VO tools list theirs in their
   headers.
@@ -613,6 +615,22 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
+
+**Film 1 VO recorded (2026-11-04).**
+- *Eleven v4 ignores its speed setting.* b02 at speed 0.80, 0.85 and 0.90 gave the same 13.0 s take, and the voice
+  reads at 173–197 wpm (articulation about 230). Multilingual v2 honours speed but changed the voice by 1.8–4.7
+  semitones, and the owner ruled v4 only. **Rule:** the pace is set in the edit, never by time-stretching:
+  `scripts/vo_timing.py` adds a breath to the read's own pause after every sentence (0.35 s after a full stop, 0.6 s
+  after a question, 0.8 s at a paragraph break; chapter turns keep 1.4 s). Film 1: 379 s, 162 wpm. *Why:* the
+  playbook's 145–160 wpm keeps non-native listeners with us, and a stretch smears consonants Claude cannot hear.
+- *Every join is checked by measurement, since Claude cannot listen:* the 10 ms beside each inserted gap must sit
+  far below speech (film 1: loudest −55.9 dBFS against −30.8 dBFS speech, 90 joins).
+- *A header written directly on its paragraph was swallowed.* `vo_timing.py` and `provisional_timing.py` treated
+  "## Chapter\nFirst paragraph" as a header only, so the provisional clock lost each chapter's first paragraph. Both
+  now split the header line off. **Rule:** a timing script must account for every word of `vo.txt`.
+- *Voice ids are case-sensitive* (`q8Dz…`, not `Q8Dz…`): copy them from the API, never retype them.
+- *Picture defect caught on the new clock:* the bank card's outer wheel ran behind the HUD from the first frame.
+  The panels moved left and the HUD narrowed to 440 px; §8.4 applies to every shot of a scene, not only its first.
 
 **Film 1 script lock and first scene (2026-11-04).**
 - *The spoken-English gate had been run in `--story` mode.* VO v3 "passed" at 1.0 "you" per 100 words; as an
@@ -693,6 +711,9 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    before the secret was added does not have it). This replaces the three-voice audition (decision 1).
 7. **2026-11-04: all recording blocks are delivered together, in one file, once the script is final**
    (`films/<slug>/script/blocks_performance.md`, sent as a file), not as a series of chat blocks.
+8. **2026-11-04: the narration model is Eleven v4, and always the newest Eleven flagship after it** (owner: "Use
+   eleven v4 only and if any latest version come use that"). `scripts/eleven_tts.py` picks the highest `eleven_vN`
+   the account offers (v4 or later) at run time and records it in each take's sidecar; no turbo, flash or v2 models.
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.

@@ -32,9 +32,12 @@ for para in vo.split("\n\n"):
     para = para.strip()
     if not para:
         continue
-    if para.startswith("## "):
-        chap = para[3:].strip()
-        continue
+    if para.startswith("## "):  # a header may sit directly on its first paragraph
+        head, _, para = para.partition("\n")
+        chap = head[3:].strip()
+        para = para.strip()
+        if not para:
+            continue
     if chap != prev_chap:
         if prev_chap is not None:
             t += 1.4 - 0.7

@@ -4,6 +4,8 @@
 No transcription: the locked script is the truth, so only timings are needed.
 1. Each block take is trimmed to its speech (0.15 s kept each side) and joined with BLOCK_GAP; every chapter turn
    (a `## ` line in vo.txt), inside a take or between takes, gets CHAPTER_GAP of silence instead.
+   Every other sentence boundary gets an edit breath (BREATH: full stop, question, paragraph) on top of the read's
+   own pause, which sets the pace (Eleven v4 ignores its speed setting).
 2. Sentences are placed with Creator's silence-to-script aligner (`align_script.align`: pauses snap the boundaries,
    each sentence's speech time follows its share of the text).
 3. Inside a sentence, each clause boundary (comma, pause tag, dash) snaps to a pause in the audio near its expected
@@ -26,6 +28,9 @@ from align_script import align, silences  # noqa: E402
 
 TAG = re.compile(r"\[[^\]]*\]")
 BLOCK_GAP, CHAPTER_GAP, KEEP = 0.55, 1.4, 0.15
+# Edit breaths added to the read's own pause after each sentence (PLAYBOOK §7.5): Eleven v4 ignores its speed setting
+# (measured 2026-11-04), so the pace is set here, never by time-stretching. Chapter turns get CHAPTER_GAP instead.
+BREATH = {"s": 0.35, "q": 0.6, "p": 0.8}  # after a full stop, after a question, at a paragraph break
 SR = 48000
 
 
@@ -55,6 +60,17 @@ def sentences(block: str) -> list[str]:
             if TAG.sub("", s).strip():
                 out.append(s.strip())
     return out
+
+
+def sentence_ends(block: str) -> list[str]:
+    """What ends each spoken sentence of a block: 'p' paragraph break, 'q' question, 's' full stop."""
+    ends = []
+    for para in block.split("\n\n"):
+        sents = sentences(para)
+        ends += ["q" if x.endswith("?") else "s" for x in sents]
+        if sents:
+            ends[-1] = "p"
+    return ends
 
 
 def clauses(sentence: str) -> list[str]:
@@ -120,9 +136,11 @@ def main() -> None:
     beats, chap = [], None
     for para in vo.split("\n\n"):
         para = para.strip()
-        if para.startswith("## "):
-            chap = para[3:].strip()
-        elif para:
+        if para.startswith("## "):  # a header may sit directly on its first paragraph
+            head, _, para = para.partition("\n")
+            chap = head[3:].strip()
+            para = para.strip()
+        if para:
             beats.append((norm(para), chap))
     takes = sorted((out / "takes").glob("b*.mp3"))
     if len(takes) != len(blocks):
@@ -159,11 +177,15 @@ def main() -> None:
             if bi == len(beats):
                 sys.exit(f"sentence not found in vo.txt (in order): {t}")
             chaps.append(beats[bi][1])
-        # cut the take at each chapter turn (mid-pause before the new chapter's first sentence)
-        cuts = [0.0]
+        # cut the take mid-pause after each sentence: a chapter turn gets CHAPTER_GAP, any other boundary a breath
+        ends = sentence_ends(block)
+        if len(ends) != len(sents):
+            sys.exit(f"block {n}: {len(ends)} sentence ends for {len(sents)} sentences")
+        cuts, gap_after = [0.0], []
         for i in range(1, len(sents)):
-            if chaps[i] != chaps[i - 1]:
-                cuts.append(round((spans[i - 1][1] + spans[i][0]) / 2, 3))
+            chapter_turn = chaps[i] != chaps[i - 1]
+            cuts.append(round((spans[i - 1][1] + spans[i][0]) / 2, 3))
+            gap_after.append(CHAPTER_GAP if chapter_turn else BREATH[ends[i - 1]])
         cuts.append(length)
         if n > 1:
             silence(f"gap{n:02d}", CHAPTER_GAP if chaps[0] != prev_chap else BLOCK_GAP)
@@ -171,7 +193,7 @@ def main() -> None:
         for k in range(len(cuts) - 1):
             c0, c1 = cuts[k], cuts[k + 1]
             if k:
-                silence(f"gap{n:02d}_{k}", CHAPTER_GAP)
+                silence(f"gap{n:02d}_{k}", gap_after[k - 1])
             seg = tmp / f"b{n:02d}_{k}.wav"
             ff(["-ss", f"{c0}", "-to", f"{c1}", "-i", wav.as_posix(), "-c", "copy", seg.as_posix()])
             pieces.append(seg)
