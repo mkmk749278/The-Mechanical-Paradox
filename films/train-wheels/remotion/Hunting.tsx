@@ -169,7 +169,7 @@ const Formula: React.FC<{g: number}> = ({g}) => {
 	const f = 'JetBrains Mono, monospace';
 	return (
 		<g opacity={fade}>
-			<text x={x} y={y - 64} fontFamily={f} fontSize={26} letterSpacing={2} fill={colors.sub} opacity={a1}>
+			<text x={x} y={y - 64} fontFamily={f} fontSize={36} letterSpacing={1} fill={colors.sub} opacity={a1}>
 				KLINGEL · 1883
 			</text>
 			<text x={x} y={y} fontFamily={f} fontSize={50} fontWeight={700} fill={colors.line}>
@@ -358,11 +358,12 @@ const Run: React.FC<{g: number}> = ({g}) => {
 					<g>
 						<line x1={X(sa)} y1={Y(yAtS(sa)) + 14} x2={X(sa)} y2={dimY + 16} stroke={colors.emerald} strokeWidth={2} opacity={dimOn} strokeDasharray="6 6" />
 						<line x1={X(sb)} y1={Y(yAtS(sb)) + 14} x2={X(sb)} y2={dimY + 16} stroke={colors.emerald} strokeWidth={2} opacity={dimOn} strokeDasharray="6 6" />
-						<rect x={(X(sa) + X(sb)) / 2 - 190} y={dimY - 26} width={380} height={52} fill={colors.bg} opacity={dimOn} />
+						{/* the dimension line first, then the mask and the text over it (the line struck the text through) */}
+						<Dim x1={X(sa)} y1={dimY} x2={X(sb)} y2={dimY} color={colors.emerald} draw={dimOn} />
+						<rect x={(X(sa) + X(sb)) / 2 - 230} y={dimY - 26} width={460} height={52} fill={colors.bg} opacity={dimOn} />
 						<text x={(X(sa) + X(sb)) / 2} y={dimY + 14} textAnchor="middle" fontFamily="JetBrains Mono, monospace" fontSize={40} fontWeight={700} fill={colors.emerald} opacity={tween(g, t.seventeen + 20, t.seventeen + 40, 0, 1) * dimOn}>
 							ONE WAVE · {L.toFixed(1)} m
 						</text>
-						<Dim x1={X(sa)} y1={dimY} x2={X(sb)} y2={dimY} color={colors.emerald} draw={dimOn} />
 					</g>
 				) : null}
 				{/* flange strikes: a crimson flash where the wheel meets the limit */}
@@ -411,7 +412,7 @@ const Gauge: React.FC<{g: number}> = ({g}) => {
 				−7 mm FLANGE
 			</Label>
 			<Label x={x + 44} y={CY - 18} size={26} color={colors.sub} opacity={o}>
-				CENTRE
+				CENTER
 			</Label>
 		</>
 	);
@@ -449,7 +450,7 @@ export const Hunting: React.FC = () => {
 					<Formula g={g} />
 				</Svg>
 				<Callout x={hx} y={hy} lx={hx + 180} ly={CY + 220} text="HUNTING" color={colors.emerald} t={Math.min(lin(g, t.hunting, t.hunting + 40, 0, 1), 1 - lin(g, t.stephenson + 60, t.stephenson + 90, 0, 1))} size={44} />
-				<Label x={96} y={H - 156} size={26} color={colors.sub} opacity={Math.min(on(g, t.stephenson + 20), off(g, t.fast, 30))}>
+				<Label x={96} y={H - 208} size={36} color={colors.sub} opacity={Math.min(on(g, t.stephenson + 20), off(g, t.klingel, 24))}>
 					GEORGE STEPHENSON · BY 1821
 				</Label>
 				<Tag x={96} y={H - 110} opacity={Math.min(on(g, t.steers - 10, 20), 1 - cam.plot)}>

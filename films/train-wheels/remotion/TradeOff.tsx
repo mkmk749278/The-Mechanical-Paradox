@@ -62,7 +62,7 @@ const Profiles: React.FC<{f: number; o: number}> = ({f, o}) => {
 			<Label x={x1 + 30} y={y0 - (x1 - x0) * (1 / 40) * ex - 30} size={44} color={colors.emerald} weight={700} opacity={o * on(f, t.forty, 20)}>
 				1 : 40
 			</Label>
-			<Label x={x1 + 30} y={y0 - (x1 - x0) * (1 / 40) * ex + 26} size={26} color={colors.sub} opacity={o * on(f, t.japan, 20)}>
+			<Label x={x1 + 30} y={y0 - (x1 - x0) * (1 / 40) * ex + 26} size={36} color={colors.sub} opacity={o * on(f, t.japan, 20)}>
 				JAPAN'S BULLET TRAINS USED IT
 			</Label>
 			<Label x={x1 + 420} y={y0 - 60} size={36} color={colors.line} weight={600} opacity={o * tri}>

@@ -63,7 +63,9 @@ const Clip: React.FC<{insert: Insert; dur: number}> = ({insert, dur}) => {
 			{/* the channel's cool, dark grade: a navy wash and a soft falloff to the abyss at the edges */}
 			<AbsoluteFill style={{background: colors.bg_lift, mixBlendMode: 'multiply', opacity: 0.22}} />
 			<Atmosphere vignette={0.5} />
-			<Label x={96} y={1080 - 84} size={26} color={colors.sub} opacity={0.9}>
+			{/* a low scrim under the credit: on bright footage (snow, sky) the credit vanished (picture gate, 2026-11-04) */}
+			<AbsoluteFill style={{background: `linear-gradient(to top, ${colors.bg}D0 0px, ${colors.bg}80 90px, ${colors.bg}00 200px)`}} />
+			<Label x={96} y={1080 - 84} size={26} color={colors.line} opacity={0.85}>
 				FOOTAGE · PIXABAY / {insert.credit}
 			</Label>
 		</AbsoluteFill>

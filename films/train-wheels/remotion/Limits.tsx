@@ -69,25 +69,47 @@ export const CurveLimit: React.FC = () => {
 		pts.push(`${RX(R).toFixed(1)},${YY(y).toFixed(1)}`);
 	}
 	const crossX = RX(R_LIM);
-	// the curve map: the drawn arc's curvature follows the marker's radius
+	// the curve map: the drawn arc's curvature follows the marker's radius. It arrives on "But shape has a limit", with
+	// the sleepers running under the wheelset, so the scene opens on its subject; the rails sit under the treads (the
+	// tread contact line is 750 mm from the axle's middle), not inside the flanges (picture gate, 2026-11-04)
+	// before the sweep the panel follows the HUD's CURVE R row: a gentle 3,000 m curve, then 500 m when it is named
+	const preR = 3000 - tween(f, t.five, t.five + 40, 0, 2500, ease.camera);
+	const pre = f < t.gentle - 20;
+	const Rmap = pre ? preR : Rm;
+	const okMap = shiftNeeded(Rmap) <= WS.clear;
+	const mapO = pre ? on(f, t.limit, 24) * off(f, t.gentle - 32, 12) : sweepO;
 	const map = () => {
 		const cx = 1580;
-		const cy = 760;
-		const k = 520; // px for a 3,000 m-equivalent straight-ish arc
-		const Rd = Math.max(160, (Rm / 3000) * 2600);
-		const half = 230 / Rd;
+		const cy = 700;
+		const k = 0.08; // px per mm for the wheelset and the track (NOT TO SCALE: the curve is drawn tighter)
+		const Rd = Math.max(220, (Rmap / 3000) * 2600);
+		const half = 260 / Rd;
+		const g = 750 * k; // half the contact-line spacing
 		const arc = (r: number) => {
 			const out: string[] = [];
 			for (let a = -half; a <= half + 1e-6; a += half / 30) out.push(`${(cx + r * Math.sin(a)).toFixed(1)},${(cy + Rd - r * Math.cos(a)).toFixed(1)}`);
 			return out.join(' ');
 		};
-		void k;
+		// sleepers 600 mm apart, running back under the wheelset (rolling forward, to the right)
+		const gap = 600 * k;
+		const phase = ((f * 2.2) % gap) / Rd;
+		const sleepers = [];
+		for (let i = -12; i <= 12; i++) {
+			const a = i * (gap / Rd) - phase;
+			if (Math.abs(a) > half) continue;
+			const r0 = Rd - 1300 * k;
+			const r1 = Rd + 1300 * k;
+			sleepers.push(
+				<line key={i} x1={cx + r0 * Math.sin(a)} y1={cy + Rd - r0 * Math.cos(a)} x2={cx + r1 * Math.sin(a)} y2={cy + Rd - r1 * Math.cos(a)} stroke={colors.sub} strokeWidth={7} opacity={0.35 * (1 - Math.abs(a) / half)} />,
+			);
+		}
 		return (
-			<g opacity={sweepO}>
-				<polyline points={arc(Rd + 26)} fill="none" stroke={colors.line} strokeWidth={3} />
-				<polyline points={arc(Rd - 26)} fill="none" stroke={colors.line} strokeWidth={3} />
+			<g opacity={mapO}>
+				{sleepers}
+				<polyline points={arc(Rd + g)} fill="none" stroke={colors.line} strokeWidth={3} />
+				<polyline points={arc(Rd - g)} fill="none" stroke={colors.line} strokeWidth={3} />
 				<g transform={`translate(${cx} ${cy})`}>
-					<TopWheelset pose={{x: 0, y: 0, heading: Math.PI / 2, k: 0.05}} glow={ok ? 0.8 : 0} heatL={ok ? 0 : 1} heatR={ok ? 0 : 1} />
+					<TopWheelset pose={{x: 0, y: 0, heading: Math.PI / 2, k}} glow={okMap ? 0.8 : 0} heatL={okMap ? 0 : 1} heatR={okMap ? 0 : 1} />
 				</g>
 			</g>
 		);
@@ -184,7 +206,7 @@ export const CurveLimit: React.FC = () => {
 				<Label x={CX0 + 30} y={CY0 - 60} size={36} color={colors.crimson} weight={700} opacity={on(f, t.tighter, 20)}>
 					FLANGE TOUCHES
 				</Label>
-				<Label x={1580} y={1000} size={26} color={colors.sub} align="center" opacity={sweepO}>
+				<Label x={1580} y={880} size={26} color={colors.sub} align="center" opacity={mapO}>
 					THE CURVE · NOT TO SCALE
 				</Label>
 			</AbsoluteFill>
@@ -527,7 +549,7 @@ export const Nadal: React.FC = () => {
 				<Label x={best.x + 70} y={best.y + 30} size={36} color={colors.crimson} weight={700} opacity={forces}>
 					Y · SIDEWAYS PUSH
 				</Label>
-				<Label x={1060} y={410} size={26} color={colors.sub} opacity={fo}>
+				<Label x={1060} y={400} size={36} color={colors.sub} opacity={fo}>
 					NADAL · MORE THAN A CENTURY AGO
 				</Label>
 				<Label x={1060 + (720 * NADAL) / 1.5} y={736} size={26} color={colors.line} align="center" opacity={on(f, t.push, 20)}>

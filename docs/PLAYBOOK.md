@@ -642,6 +642,11 @@ Nothing reaches the owner without passing these, and §1's "polished only".
 - [ ] **Outside review notes checked before fixing:** each point against the code, `vo/timing.json` and a rendered
       still; a `review/<name>_check.md` with CONFIRMED / PARTLY / NOT CONFIRMED.
 - [ ] −14 LUFS, −1 dBTP in the final file; picture length = film length; audio/video within 0.15 s.
+- *Film 1, 2026-11-04:* the first farm cut's gate (a frame every 2 s with the words, then full-size stills of
+  every suspect) caught what scene-by-scene stills had passed: British "CENTRE" in three scenes, four named people
+  and places at 26 px while the narration named them, a schematic whose rails ran inside the flanges, a scene that
+  opened on 4 s of bare axes, a credit lost on bright footage, a dimension line striking its own text. **Rule:** grep
+  every on-screen string for British spellings before a render; any label whose words the narration says is 36 px.
 
 ## 15. Tools
 In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Creator):
