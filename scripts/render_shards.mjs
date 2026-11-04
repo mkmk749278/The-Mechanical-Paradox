@@ -81,6 +81,9 @@ for (const [a, b] of rest.includes('--join-only') ? [] : shards) {
 			serveUrl, composition, codec: 'h264', outputLocation: tmp, frameRange: [a, b], scale, crf,
 			concurrency: attempt === 1 ? concurrency : 1,
 			muted: true, chromiumOptions, x264Preset: 'medium', pixelFormat: 'yuv420p',
+			// 3D scenes under software GL on a 4-CPU runner can take far longer than the 30 s default to build their
+			// first frame (film 1: four lathed wheelsets and a swept track, 2026-11-04)
+			timeoutInMilliseconds: 240000,
 			encodingMaxRate: maxrate, encodingBufferSize: `${parseInt(maxrate) * 2}M`,
 		});
 		const bad = flashes(tmp);

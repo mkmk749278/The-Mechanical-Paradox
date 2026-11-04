@@ -86,24 +86,31 @@ export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-
 				<span style={{color: frame % 60 < 40 ? colors.emerald : 'transparent'}}>● LIVE</span>
 			</div>
 			<div style={{height: 1, background: colors.grid, margin: '10px 0 8px'}} />
-			{rows.map((r) => (
-				<div
-					key={r.label}
-					style={{
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'baseline',
-						padding: '5px 0',
-						opacity: r.from === undefined ? 1 : interpolate(frame, [r.from, r.from + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}),
-					}}
-				>
-					<span style={{fontSize: 26, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
-					<span style={{fontSize: 38, fontWeight: 700, color: toneColour(r.tone), fontVariantNumeric: 'tabular-nums'}}>
-						{fmt(r.at ? r.at(frame) : valueAt(r.keys ?? [{frame: 0, value: 0}], frame), r.decimals)}
-						{r.unit ? <span style={{fontSize: 26, fontWeight: 500, color: colors.sub, marginLeft: 10}}>{r.unit}</span> : null}
-					</span>
-				</div>
-			))}
+			{rows.map((r) => {
+				// a row takes space only once it appears: the panel grows as the story adds a value, never shows a hole
+				const rv = r.from === undefined ? 1 : interpolate(frame, [r.from, r.from + 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: ease.arrive});
+				if (rv <= 0) return null;
+				return (
+					<div
+						key={r.label}
+						style={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'baseline',
+							padding: `${5 * rv}px 0`,
+							maxHeight: 60 * rv,
+							overflow: 'hidden',
+							opacity: rv,
+						}}
+					>
+						<span style={{fontSize: 26, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
+						<span style={{fontSize: 38, fontWeight: 700, color: toneColour(r.tone), fontVariantNumeric: 'tabular-nums'}}>
+							{fmt(r.at ? r.at(frame) : valueAt(r.keys ?? [{frame: 0, value: 0}], frame), r.decimals)}
+							{r.unit ? <span style={{fontSize: 26, fontWeight: 500, color: colors.sub, marginLeft: 10}}>{r.unit}</span> : null}
+						</span>
+					</div>
+				);
+			})}
 			{illustrative || note ? (
 				<div style={{marginTop: 10, fontSize: 36, letterSpacing: 2, color: colors.ink}}>
 					{illustrative ? 'ILLUSTRATIVE VALUES' : note}

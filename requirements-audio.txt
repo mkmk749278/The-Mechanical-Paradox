@@ -5,3 +5,4 @@ librosa==0.11.0
 matplotlib==3.10.3
 numpy==2.2.6
 av==15.1.0
+scipy==1.15.3

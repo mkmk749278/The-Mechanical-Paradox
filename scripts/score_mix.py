@@ -232,6 +232,86 @@ def synth(name: str, seed: int, dur: float = 0) -> np.ndarray:
         bolt = synth("impact_low", seed + 3)[: int(0.6 * SR)] * 0.5
         out[int(0.85 * SR):int(0.85 * SR) + len(bolt)] += bolt[: n - int(0.85 * SR)]
         return out
+    # ---- The Mechanical Paradox foley (PLAYBOOK §12; names = lib/remotion/sfx.ts SfxName) ----
+    if name == "relay_click":  # two contacts closing 9 ms apart, a small coil thunk under them
+        n = int(0.25 * SR)
+        out = np.zeros(n)
+        for k, g in ((0, 1.0), (int(0.009 * SR), 0.6)):
+            b = _band(rng.standard_normal(int(0.02 * SR)), 2000, 7000) * _env(int(0.02 * SR), 0.0003, 0.004)
+            out[k:k + len(b)] += b * g
+        t = np.arange(int(0.05 * SR)) / SR
+        out[: len(t)] += np.sin(2 * np.pi * 120 * t) * _env(len(t), 0.001, 0.012) * 0.5
+        return out
+    if name == "pen_scratch":  # a drafting pen: band-passed grain, scratchy amplitude
+        n = int(0.7 * SR)
+        x = _band(rng.standard_normal(n), 1800, 7500)
+        grains = np.abs(_low(rng.standard_normal(n), 40, 2))
+        grains /= np.max(grains) + 1e-9
+        return x * grains * _env(n, 0.03, 0.5)
+    if name == "quartz_tick":  # a crisp 3.2 kHz ping on a click
+        n = int(0.12 * SR)
+        t = np.arange(n) / SR
+        ping = np.sin(2 * np.pi * 3200 * t) * _env(n, 0.0005, 0.018)
+        clk = _band(rng.standard_normal(n), 4000, 9000) * _env(n, 0.0002, 0.002)
+        return ping * 0.8 + clk * 0.5
+    if name == "typewriter":  # a heavier counter landing: clack and a 180 Hz thump
+        n = int(0.3 * SR)
+        t = np.arange(n) / SR
+        clack = _band(rng.standard_normal(n), 400, 3500) * _env(n, 0.0004, 0.02)
+        thump = np.sin(2 * np.pi * 180 * t) * _env(n, 0.001, 0.05)
+        return clack + thump * 0.6
+    if name == "glass_tone":  # a 2.4 kHz resonant tone (a force vector appearing)
+        n = int(1.6 * SR)
+        t = np.arange(n) / SR
+        tone = np.sin(2 * np.pi * 2400 * t) + 0.22 * np.sin(2 * np.pi * 4800 * t + 0.4) + 0.08 * np.sin(2 * np.pi * 7210 * t)
+        return tone * _env(n, 0.006, 0.55)
+    if name == "metal_snap_sub":  # fracture: a dry snap, a shear shriek, a 45 Hz boom
+        n = int(1.8 * SR)
+        t = np.arange(n) / SR
+        snap = rng.standard_normal(n) * _env(n, 0.0002, 0.003)
+        f = 3000 * np.exp(-t * 6) + 1200
+        shriek = np.sin(2 * np.pi * np.cumsum(f) / SR) * _env(n, 0.002, 0.12) * 0.35
+        shriek += _band(rng.standard_normal(n), 1500, 4500) * _env(n, 0.002, 0.08) * 0.3
+        boom = np.sin(2 * np.pi * 45 * t) * _env(n, 0.004, 0.45)
+        return snap * 0.9 + shriek + boom * 0.9
+    if name == "metal_jam_sub":  # a mechanism locking solid: ringing partials on a 55 Hz thud
+        n = int(1.4 * SR)
+        t = np.arange(n) / SR
+        ring = sum(np.sin(2 * np.pi * fr * t + rng.uniform(0, 6)) * a * np.exp(-t / d) for fr, a, d in [(221, 0.5, 0.35), (517, 0.35, 0.25), (903, 0.22, 0.18), (1489, 0.12, 0.12)])
+        thud = np.sin(2 * np.pi * 55 * t) * _env(n, 0.002, 0.3)
+        hit = _band(rng.standard_normal(n), 300, 5000) * _env(n, 0.0005, 0.02)
+        return ring * 0.6 + thud * 0.8 + hit * 0.6
+    if name == "torque_whine":  # load rising: a whine sweeping up with its harmonics
+        n = int(1.6 * SR)
+        t = np.arange(n) / SR
+        f = 300 + 600 * (t / t[-1]) ** 1.5
+        ph = 2 * np.pi * np.cumsum(f) / SR
+        return (np.sin(ph) + 0.3 * np.sin(2 * ph) + 0.12 * np.sin(3 * ph)) * _env(n, 0.3, 0.6) * 0.5
+    if name == "transformer_rise":  # heat building: a 50 → 120 Hz buzz
+        n = int(2.0 * SR)
+        t = np.arange(n) / SR
+        f = 50 + 70 * (t / t[-1])
+        ph = 2 * np.pi * np.cumsum(f) / SR
+        buzz = sum(np.sin(k * ph) / k for k in range(1, 9))
+        return buzz * _env(n, 0.6, 0.8) * 0.4
+    if name == "flow_sweep":  # filtered pink noise sweeping up (flow; here, steel sliding)
+        n = int(1.6 * SR)
+        w = rng.standard_normal(n)
+        pink = signal.lfilter([0.049922035, -0.095993537, 0.050612699, -0.004408786], [1, -2.494956002, 2.017265875, -0.522189400], w)
+        out = np.zeros(n)
+        seg = n // 16
+        for k in range(16):
+            lo = 300 * (10 ** (k / 16))
+            out[k * seg:(k + 1) * seg] = _band(pink, lo, min(lo * 2.2, 20000))[k * seg:(k + 1) * seg]
+        return _low(out, 9000, 2) * _env(n, 0.4, 0.5)
+    if name == "drone":  # the sub-bass bed (30–90 Hz) under the whole film: never digital silence
+        n = int(dur * SR)
+        t = np.arange(n) / SR
+        tones = sum(np.sin(2 * np.pi * fr * t + rng.uniform(0, 6)) * a * (1 + 0.25 * np.sin(2 * np.pi * lfo * t)) for fr, a, lfo in [(41.2, 0.5, 0.05), (55.0, 0.35, 0.031), (61.7, 0.2, 0.043)])
+        brown = np.cumsum(rng.standard_normal(n))
+        brown = _band(brown / (np.max(np.abs(brown)) + 1e-9), 30, 90)
+        x = _band(tones + brown * 2.0, 30, 90)
+        return _fade(x / (np.sqrt(np.mean(x ** 2)) + 1e-9) * 0.05, dur)
     if name in ("furnace_bed", "cabin", "room"):
         n = int(dur * SR)
         x = np.cumsum(rng.standard_normal(n))  # brown
@@ -257,10 +337,11 @@ def _fade(x: np.ndarray, dur: float) -> np.ndarray:
     return x
 
 
-def place(bus: np.ndarray, x: np.ndarray, t: float, gain: float) -> None:
+def place(bus: np.ndarray, x: np.ndarray, t: float, gain: float, pan: float = 0.0) -> None:
     i = int(round(t * SR))
-    if x.ndim == 1:
-        x = np.stack([x, x], 1)
+    if x.ndim == 1:  # constant-power pan, −1 (left) … +1 (right)
+        a = (pan + 1) * np.pi / 4
+        x = np.stack([x * np.cos(a) * np.sqrt(2), x * np.sin(a) * np.sqrt(2)], 1)
     j = min(len(bus), i + len(x))
     if j > i >= 0:
         bus[i:j] += x[: j - i] * gain
@@ -284,13 +365,14 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("film")
     ap.add_argument("--out")
+    ap.add_argument("--tail-frames", type=int, default=0, help="picture after the VO's timing (e.g. the channel sting)")
     args = ap.parse_args()
     film = Path(args.film)
     out = Path(args.out or film / "assets/mix")
     out.mkdir(parents=True, exist_ok=True)
     timing = json.loads((film / "vo/timing.json").read_text())
     A = Anchors(timing)
-    n = int(round(timing["durationInFrames"] / timing["fps"] * SR))  # exactly the picture's length
+    n = int(round((timing["durationInFrames"] + args.tail_frames) / timing["fps"] * SR))  # exactly the picture's length
 
     # ---- voice: peaks at −3 dBFS
     voice = decode(film / "assets/vo/vo_full.wav")[:n]
@@ -309,7 +391,8 @@ def main() -> None:
     duck = np.pad(duck, (0, max(0, n - len(duck))), mode="edge")[:n]
 
     # ---- music bed: each slot at −23 dBFS RMS, faded, ducked
-    tracks = {r["title"]: film / r["file"] for r in csv.DictReader((film / "sound/music_manifest.csv").open())}
+    manifest = film / "sound/music_manifest.csv"
+    tracks = {r["title"]: film / r["file"] for r in csv.DictReader(manifest.open())} if manifest.exists() else {}
     score = json.loads((film / "sound/score.json").read_text())
     bed = np.zeros((n, 2), np.float32)
     cache: dict = {}
@@ -342,7 +425,7 @@ def main() -> None:
         t0 = A(c["at"])
         x = synth(c["sfx"], 100 + k, (A(c["to"]) - t0) if "to" in c else 0)
         x = x / (np.max(np.abs(x)) + 1e-9) * db(-3)
-        place(sfx, x, t0, db(c["gain_db"] + 3))
+        place(sfx, x, t0, db(c["gain_db"] + 3), c.get("pan", 0.0))
 
     # ---- quiet zones (v8): the whole mix steps down where the film should breathe (the tragedies, the question), so
     # the loudness range opens up; 1 s ramps; the master's one static gain is applied after
@@ -363,18 +446,19 @@ def main() -> None:
     pre = out / "mix_pre.wav"
     wavfile.write(pre, SR, mix.astype(np.float32))
 
-    # ---- master: one static gain to −14 LUFS, then a −1 dBTP limiter; measure twice
+    # ---- master: one static gain to −14 LUFS, then a −1 dBTP limiter run 4× oversampled with a 0.1 ms attack (sharp
+    # synthesized transients passed the 5 ms limiter at +1.4 dBTP, film 1, 2026-11-04); measure twice
     i0, tp0 = loudness(pre)
     gain = -14 - i0
     final = out / "mix.wav"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(pre), "-af",
-                    f"volume={gain:.2f}dB,alimiter=limit={db(-1.5):.4f}:attack=5:release=60:level=false",
+                    f"volume={gain:.2f}dB,aresample=192000,alimiter=limit={db(-1.5):.4f}:attack=0.1:release=60:level=false,aresample=48000:resampler=soxr",
                     "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s24le", str(final)], check=True)
     i1, tp1 = loudness(final)
     if abs(i1 + 14) > 0.15:  # the limiter takes a little off: one corrected pass, still one static gain
         gain += -14 - i1
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(pre), "-af",
-                        f"volume={gain:.2f}dB,alimiter=limit={db(-1.5):.4f}:attack=5:release=60:level=false",
+                        f"volume={gain:.2f}dB,aresample=192000,alimiter=limit={db(-1.5):.4f}:attack=0.1:release=60:level=false,aresample=48000:resampler=soxr",
                         "-ar", str(SR), "-ac", "2", "-c:a", "pcm_s24le", str(final)], check=True)
         i1, tp1 = loudness(final)
     pre.unlink()
