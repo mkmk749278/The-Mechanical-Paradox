@@ -1,4 +1,7 @@
-# Film 1 music (owner's choice 2026-11-04: licensed tracks, fetched on the phone)
+# Film 1 music
+
+**Superseded 2026-11-04 (owner decision 10): the music is made with Google Lyria 3.5** (`lyria_prompts.json`,
+`music_manifest.csv`, slots in `score.json`). The act plan below still holds; the Audio Library steps are history.
 
 **Source: the YouTube Audio Library** (YouTube Studio → Audio library). Checked 2026-11-04: every Pixabay candidate
 (the three first picks and eight alternatives, 11 of 11) is "Content ID Registered", which the playbook rules out (§11):
