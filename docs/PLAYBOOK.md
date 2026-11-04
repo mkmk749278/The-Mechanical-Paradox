@@ -489,7 +489,9 @@ plate under the live blueprint layer.
 - **The look** (`render_shot.py`): a studio world the camera never sees (dark floor, a crisp horizon band for the long
   tread highlight, two tall softboxes for shaped reflections on the webs), the channel's key, cool rim and warm under;
   turned steel (concentric lathe rings in roughness and a slight bump, a faint tonal drift, one white service mark so
-  the spin reads), a polished running band on the rail heads, AgX base contrast at +0.35 EV, a 180° motion blur.
+  the spin reads), a polished running band on the rail heads, a 180° motion blur. **View transform Standard, not
+  AgX:** AgX desaturated the amber glow to peach (the brand colour carries a meaning and must land exact); a glowing
+  tread also takes the glow colour as its metal colour, so its polish never mirrors the studio in white over the glow.
   Blotchy noise weathering read as camouflage: rejected.
 - **Cost (measured 2026-11-04):** about 75 s a 1080p frame at 16 samples with OpenImageDenoise (albedo + normal) on
   4 cores; clean. 1,870 frames ≈ 1.8 h on 20 runners. The 4K master is 4× that: two runs back to back.

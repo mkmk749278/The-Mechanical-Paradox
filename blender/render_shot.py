@@ -89,9 +89,9 @@ scene.render.motion_blur_shutter = 0.5  # a 180° shutter
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
 scene.render.image_settings.color_depth = "8"
-scene.view_settings.view_transform = "AgX"
-scene.view_settings.look = "AgX - Base Contrast"
-scene.view_settings.exposure = 0.35
+scene.view_settings.view_transform = "Standard"
+scene.view_settings.look = "None"
+scene.view_settings.exposure = 0.0
 scene.frame_start = 0
 scene.frame_end = len(frames) - 1
 
@@ -382,7 +382,7 @@ def key_inputs(node, name, value, frame):
 prev_q = [None] * len(wheelsets)
 prev_cq = None
 amber, crimson, white = Vector(lin("#FF9F1C")[:3]), Vector(lin("#FF3B30")[:3]), Vector(lin("#F0F4F8")[:3])
-steel, dimmed = Vector(lin("#DCE3EA")[:3]), Vector(lin("#2E2418")[:3])
+steel = Vector(lin("#DCE3EA")[:3])
 for fr in frames:
     n = fr["f"]
     # camera: position, aim, vertical field of view
@@ -414,8 +414,11 @@ for fr in frames:
         g, h = w["glow"], w["heat"]
         bp = own["band"][1]
         key_inputs(bp, "Emission Color", (*(amber * g + crimson * h * 1.4), 1.0), n)
-        key_inputs(bp, "Emission Strength", 1.6 * min(1.0, g + h), n)
-        key_inputs(bp, "Base Color", (*steel.lerp(dimmed, min(1.0, g + h) * 0.85), 1.0), n)
+        key_inputs(bp, "Emission Strength", 0.7 * min(1.0, g + h), n)
+        # a glowing tread tints its own reflections (metal reflects in its base colour): steel → amber or crimson, so
+        # the polished band never mirrors the studio in white over the glow (it read as peach)
+        tint = (amber * g + crimson * h) / max(1e-6, g + h)
+        key_inputs(bp, "Base Color", (*steel.lerp(tint * 0.8, min(1.0, g + h) * 0.9), 1.0), n)
         fp = own["flange"][1]
         key_inputs(fp, "Emission Color", (*amber, 1.0), n)
         key_inputs(fp, "Emission Strength", 1.8 * w["flangeGlow"], n)

@@ -1,16 +1,14 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {colors} from '../../../lib/remotion/brand';
 import {Hud} from '../../../lib/remotion/Hud';
 import {ease, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
-import {straightPath} from './geometry3d';
 import {H, Label, off, on, Stage, Svg, W} from './kit';
 import {WS} from './model';
-import {at, span} from './scenes';
+import {span} from './scenes';
 import {Shot3DView} from './plates';
-import {T1, V1} from './shots3d';
-import {camAt, Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
+import {T1, T3, V1} from './shots3d';
 
 // s01 cold open and s03 the promise (scenes/s01_cold_open.md). The wheelset is the one solid, lit object.
 
@@ -93,15 +91,8 @@ export const coldOpenCues = (): SfxCue[] => {
 	];
 };
 
-// ---- s03 ----
+// ---- s03 ---- (its 3D state, T3 included, lives in shots3d.ts)
 const S3 = () => span('s03');
-const T3 = () => ({
-	shape: at('s03', 'the shape of the wheel'),
-	noticed: at('s03', "you've probably never noticed it"),
-	screech: at('s03', 'explains the screech'),
-	sway: at('s03', 'why fast trains sway'),
-	end: S3().dur,
-});
 
 /** An oscilloscope strip: a trace that draws itself (and, for the screech, stops short: a loop left open). */
 const Scope: React.FC<{x: number; y: number; w: number; h: number; t: number; color: string; label: string; kind: 'ring' | 'sway'; o: number}> = ({x, y: y0, w, h, t, color, label, kind, o}) => {
@@ -132,17 +123,6 @@ const Scope: React.FC<{x: number; y: number; w: number; h: number; t: number; co
 export const Promise: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T3();
-	const rolled = (0.35 * f) / 60;
-	const cam = camAt(
-		f,
-		[
-			{f: 0, cam: {position: [0.86, 0.1, 3.2], target: [0.76, 0.12, 0], fov: 11}},
-			{f: t.end, cam: {position: [1.05, 0.16, 2.9], target: [0.76, 0.12, 0], fov: 10}},
-		],
-		ease.camera,
-	);
-	const path = useMemo(() => straightPath(-14, 14, 2), []);
-	const glow = tween(f, t.shape, t.shape + 40, 0, 1, ease.draw);
 	return (
 		<Stage
 			dur={S3().dur}
@@ -159,10 +139,7 @@ export const Promise: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
-				<Stage3D width={W} height={H} cam={cam}>
-					<Track3D path={path} />
-					<Wheelset3D rolled={rolled} glow={glow} />
-				</Stage3D>
+				<Shot3DView id="s03" f={f} width={W} height={H} />
 				<Label x={110} y={150} size={44} color={colors.amber} weight={700} opacity={on(f, t.shape + 10, 20)}>
 					THE SHAPE
 				</Label>
