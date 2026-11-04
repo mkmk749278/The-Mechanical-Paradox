@@ -23,7 +23,7 @@ for (const job of jobs) {
 		const n = Number(raw);
 		const frame = n < 0 ? comp.durationInFrames + n : n;
 		const output = resolve(out, `${id}_${frame}.jpg`);
-		await renderStill({composition: comp, serveUrl, frame, output, scale, imageFormat: 'jpeg', jpegQuality: 90, chromiumOptions: {gl: 'swangle'}});
+		await renderStill({composition: comp, serveUrl, frame, output, scale, imageFormat: 'jpeg', jpegQuality: 90, chromiumOptions: {gl: 'swangle'}, timeoutInMilliseconds: 240000});
 		console.log(output);
 	}
 }

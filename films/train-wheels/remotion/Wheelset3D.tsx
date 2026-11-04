@@ -132,6 +132,13 @@ export type WheelsetPose = {
 	axleGlow?: number;
 };
 
+/** The wheelset's geometry is built once and shared by every wheelset on screen (s15 shows four). */
+let shared: {right: ReturnType<typeof wheelGeometry>; left: ReturnType<typeof wheelGeometry>; axle: THREE.BufferGeometry[]; journals: THREE.BufferGeometry[]} | null = null;
+const sharedGeometry = () => {
+	if (!shared) shared = {right: wheelGeometry(1), left: wheelGeometry(-1), axle: axleGeometry(), journals: journalGeometry()};
+	return shared;
+};
+
 /** An axle-end cap with three bolts on each journal end: the spin you can see from the side. */
 const EndCaps: React.FC<{material: THREE.Material; bolt: THREE.Material}> = ({material, bolt}) => {
 	const cap = useMemo(() => new THREE.CylinderGeometry(0.058, 0.058, 0.014, 64).rotateZ(Math.PI / 2), []);
@@ -154,7 +161,7 @@ const EndCaps: React.FC<{material: THREE.Material; bolt: THREE.Material}> = ({ma
 /** The wheelset: two lathed wheels from profiles.ts, the axle and its journals. Spin follows rolling distance / r0. */
 export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0, axleGlow = 0}) => {
 	const steel = useSteel();
-	const geo = useMemo(() => ({right: wheelGeometry(1), left: wheelGeometry(-1), axle: axleGeometry(), journals: journalGeometry()}), []);
+	const geo = sharedGeometry();
 	const bandMat = useMemo(() => steel.band.clone(), [steel]);
 	const flangeMat = useMemo(() => steel.body.clone(), [steel]);
 	const axleMat = useMemo(() => steel.axle.clone(), [steel]);
