@@ -85,6 +85,8 @@ jobs:
           node-version: "22.11.0"
       - name: Install
         run: npm ci --no-audit --no-fund && npx remotion browser ensure
+      - name: ffmpeg (the shard flash check measures every shard)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null && ffmpeg -version | head -1
       - name: Media and voice from Drive
         run: |
           scripts/gdrive_pull.sh "$FILM/render-media" "public/films/$FILM" > /dev/null
