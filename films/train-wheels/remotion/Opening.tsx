@@ -1,61 +1,21 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import * as THREE from 'three';
 import {colors} from '../../../lib/remotion/brand';
 import {Hud} from '../../../lib/remotion/Hud';
 import {ease, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
-import {curvePath, PathSample, straightPath} from './geometry3d';
-import {H, Label, off, on, pen, Stage, Svg, W} from './kit';
+import {straightPath} from './geometry3d';
+import {H, Label, off, on, Stage, Svg, W} from './kit';
 import {WS} from './model';
 import {at, span} from './scenes';
-import {camAt, CamKey, Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
+import {Shot3DView} from './plates';
+import {T1, V1} from './shots3d';
+import {camAt, Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
 
 // s01 cold open and s03 the promise (scenes/s01_cold_open.md). The wheelset is the one solid, lit object.
 
-const V1 = 0.68; // m/s: a slow roll, so the eye can follow the wheels (ILLUSTRATIVE)
-
-/** A tube along the top of one rail, from the wheelset forward round the bend (the contact's path to come). */
-const RailPath: React.FC<{path: PathSample[]; lateral: number; from: number; draw: number; color: string}> = ({path, lateral, from, draw, color}) => {
-	const geo = useMemo(() => {
-		const pts = path
-			.filter((s) => s.p.y >= from)
-			.map((s) => {
-				const n = new THREE.Vector2(s.t.y, -s.t.x);
-				return new THREE.Vector3(s.p.x + n.x * lateral, 0.012, s.p.y + n.y * lateral);
-			});
-		return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 400, 0.022, 8, false);
-	}, [path, lateral, from]);
-	const count = geo.index ? geo.index.count : 0;
-	geo.setDrawRange(0, Math.floor((count * draw) / 6) * 6);
-	return (
-		<mesh geometry={geo}>
-			<meshBasicMaterial color={color} toneMapped={false} />
-		</mesh>
-	);
-};
-
-// ---- s01 ----
+// s01's 3D state (camera, wheelset, track, the two rail paths) lives in shots3d.ts: the Blender plate uses it too
 const S1 = () => span('s01');
-const T1 = () => ({
-	locked: at('s01', 'locked to one solid steel axle'),
-	together: at('s01', 'both wheels always turn together'),
-	bend: at('s01', 'But on a bend'),
-	farther: at('s01', 'has farther to go'),
-	skid: at('s01', "So why doesn't one of them skid"),
-	end: S1().dur,
-});
-
-const KEYS1 = (): CamKey[] => {
-	const t = T1();
-	return [
-		{f: 0, cam: {position: [2.25, 0.6, 2.5], target: [0, 0.42, 0], fov: 30}},
-		{f: t.bend - 40, cam: {position: [2.7, 0.95, 1.0], target: [0, 0.4, 0.2], fov: 30}},
-		{f: t.farther + 60, cam: {position: [1.8, 6.5, -5.5], target: [-1.5, 0, 5], fov: 46}},
-		{f: t.skid + 10, cam: {position: [1.6, 6.2, -5.0], target: [-1.5, 0, 5], fov: 46}},
-		{f: t.end, cam: {position: [1.75, 0.4, 1.05], target: [0.76, 0.06, 0], fov: 28}},
-	];
-};
 
 /** Two dials, one per wheel, turning with it: locked together. */
 const Dials: React.FC<{spin: number; o: number}> = ({spin, o}) => {
@@ -93,12 +53,6 @@ const Dials: React.FC<{spin: number; o: number}> = ({spin, o}) => {
 export const ColdOpen: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T1();
-	const zw = -2 + (V1 * f) / 60;
-	const rel = camAt(f, KEYS1(), ease.camera);
-	const cam = {position: [rel.position[0], rel.position[1], rel.position[2] + zw] as [number, number, number], target: [rel.target[0], rel.target[1], rel.target[2] + zw] as [number, number, number], fov: rel.fov};
-	const path = useMemo(() => curvePath(24, 90, 14, -8, 360), []);
-	const bendDraw = pen(f, t.bend, 70);
-	const paths = pen(f, t.farther - 10, 90);
 	const spin = (V1 * f) / 60 / (WS.r0 / 1000);
 	const rpm = ((V1 / (2 * Math.PI * (WS.r0 / 1000))) * 60);
 	return (
@@ -119,16 +73,7 @@ export const ColdOpen: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
-				<Stage3D width={W} height={H} cam={cam}>
-					<Track3D path={path} draw={Math.max(0.35, bendDraw)} />
-					<Wheelset3D rolled={zw + 2} at={[0, zw]} glow={0} />
-					{paths > 0 ? (
-						<>
-							<RailPath path={path} lateral={-WS.b0 / 1000} from={zw} draw={paths} color={colors.amber} />
-							<RailPath path={path} lateral={WS.b0 / 1000} from={zw} draw={paths} color={colors.crimson} />
-						</>
-					) : null}
-				</Stage3D>
+				<Shot3DView id="s01" f={f} width={W} height={H} />
 				<Dials spin={spin} o={Math.min(on(f, t.together - 10, 20), off(f, t.bend, 24))} />
 				<Label x={130} y={470} size={44} color={colors.crimson} weight={700} opacity={Math.min(on(f, t.farther, 20), off(f, t.end - 30, 20))}>
 					OUTER RAIL: FARTHER TO GO

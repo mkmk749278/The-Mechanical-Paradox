@@ -474,6 +474,31 @@ alignment + word spreader; ported) writes `vo/timing.json` with sentences and wo
   hero wheelset both mounted through the scene, and its 720p farm shard ran 3 h+ against ~55 min for the other 3D
   shards; unmounting halved its frame time with pixel-identical frames (PSNR ∞ before, in and after the crossfade).
 
+### 10.6 Blender hero shots (owner, 2026-11-04)
+The one solid object (the wheelset, the turbine blade, the bulb) can be rendered photoreal in **Blender Cycles on
+GitHub's runners** (`.github/workflows/blender-render.yml`, Blender **4.5.14 LTS**, sha256-pinned) and cut in as a
+plate under the live blueprint layer.
+- **One driver.** A shot's 3D state (camera, poses, glows, track) is a pure function of the frame in the film's
+  `remotion/shots3d.ts`; the scene draws it (`plates.tsx`: the plate when listed in `PLATES`, otherwise three.js) and
+  `scripts/export_blender_shot.mjs` hands the same numbers and the same meshes (`blenderExport.ts`, from
+  `geometry3d.ts`) to `blender/render_shot.py`. The plate therefore lines up with the HUD and every projected callout.
+- **Blender draws the steel, three.js draws the blueprint.** The plate holds the lit wheelset, the rail bodies and the
+  shadows (transparent film); the rail edge lines, sleepers and drawn paths stay live three.js over it, hidden behind
+  the same wheelset and rails drawn depth-only (the rails' occluder with a polygon offset, or its own edges z-fight).
+  *Why:* the lines then match every other scene, and Freestyle doubled the frame time (measured).
+- **The look** (`render_shot.py`): a studio world the camera never sees (dark floor, a crisp horizon band for the long
+  tread highlight, two tall softboxes for shaped reflections on the webs), the channel's key, cool rim and warm under;
+  turned steel (concentric lathe rings in roughness and a slight bump, a faint tonal drift, one white service mark so
+  the spin reads), a polished running band on the rail heads, AgX base contrast at +0.35 EV, a 180° motion blur.
+  Blotchy noise weathering read as camouflage: rejected.
+- **Cost (measured 2026-11-04):** about 75 s a 1080p frame at 16 samples with OpenImageDenoise (albedo + normal) on
+  4 cores; clean. 1,870 frames ≈ 1.8 h on 20 runners. The 4K master is 4× that: two runs back to back.
+- **Order:** export and render on the farm → frames land in Drive `<film>/render-media/plates/<shot>/` as WebP with
+  alpha → check every frame is there → list the shot in `PLATES` → the Remotion farm render. A plate is never listed
+  before all its frames exist.
+- **Layering trap:** inside one `AbsoluteFill` the plate `<Img>` pushed the canvas below the frame (a flex column) and
+  the canvas was never created; give each layer its own `AbsoluteFill`.
+
 ## 11. Assets and references
 - **Code first:** geometry, simulations and schematics are written, not downloaded.
 - **Design from real references:** before drawing any real machine (a bogie, a governor, a bulb's driver board, a
@@ -815,6 +840,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    output stays non-commercial even after an upgrade); Lyria output is owned by us under the Gemini API terms and
    carries an inaudible SynthID watermark. Fallback: `scripts/compose_score.py`, an original code-composed score.
    **The library (owner, 2026-11-04):** general beds are generated once into one Drive folder and reused (§12.1).
+11. **2026-11-04: Blender on GitHub's runners for the hero shots** (owner: "you can even render blender rendering also
+   on GitHub machine"; then "Film 1 now"). Film 1's cold open and landing wheelset are Cycles plates (§10.6).
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.

@@ -5,11 +5,12 @@ import {colors} from '../../../lib/remotion/brand';
 import {Hud} from '../../../lib/remotion/Hud';
 import {ease, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
-import {PathSample, straightPath} from './geometry3d';
+import {PathSample} from './geometry3d';
 import {H, Label, off, on, Stage, Svg, Tag, W} from './kit';
 import {WS} from './model';
 import {at, span} from './scenes';
-import {camAt, CameraSpec, Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
+import {Shot3DView} from './plates';
+import {CameraSpec, Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
 
 // s15 the landing (scenes/s15_landing.md): a coach on a tight bend at night, its treads sliding (crimson); then the one
 // wheelset, its axle, its two wheels, and the gentle slope as the last amber line.
@@ -94,17 +95,6 @@ export const Landing: React.FC = () => {
 		fov: 38,
 	};
 	const heat = on(f, t.runOut, 30);
-	const camHero = camAt(
-		f,
-		[
-			{f: t.axle - 40, cam: {position: [2.6, 0.7, 2.9], target: [0, 0.62, 0], fov: 30}},
-			{f: t.slope, cam: {position: [3.1, 0.85, 2.2], target: [0, 0.6, 0], fov: 30}},
-			{f: t.gentle + 60, cam: {position: [3.4, 1.4, 3.4], target: [0, 0.35, 0], fov: 32}},
-			{f: t.end, cam: {position: [4.2, 1.8, 4.4], target: [0, 0.32, 0], fov: 32}},
-		],
-		ease.camera,
-	);
-	const heroPath = useMemo(() => straightPath(-16, 16, 2), []);
 	// the screech, complete now (the trace s03 cut short)
 	const ringPts: string[] = [];
 	const drawn = tween(f, t.next + 20, t.means + 40, 0, 1, ease.draw);
@@ -160,10 +150,7 @@ export const Landing: React.FC = () => {
 			)}
 			{toHero > 0 && (
 			<AbsoluteFill style={{opacity: toHero}}>
-				<Stage3D width={W} height={H} cam={camHero}>
-					<Track3D path={heroPath} edgeOpacity={0.5} />
-					<Wheelset3D rolled={(0.45 * f) / 60} axleGlow={Math.min(on(f, t.axle, 20), off(f, t.slope, 40)) * 0.9} glow={tween(f, t.slope + 10, t.slope + 60, 0, 1, ease.draw)} />
-				</Stage3D>
+				<Shot3DView id="s15hero" f={f} width={W} height={H} />
 				<Label x={W / 2} y={140} size={44} color={colors.line} weight={700} align="center" opacity={Math.min(on(f, t.axle, 16), off(f, t.locked - 10, 16))}>
 					ONE SOLID AXLE
 				</Label>

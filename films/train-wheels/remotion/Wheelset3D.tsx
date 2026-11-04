@@ -130,7 +130,13 @@ export type WheelsetPose = {
 	flangeGlow?: number;
 	/** A cool light along the axle: 0–1 ("one solid axle"). */
 	axleGlow?: number;
+	/** Depth only, no colour: hides the blueprint lines behind a wheelset the Blender plate draws (plates.tsx). */
+	occluder?: boolean;
 };
+
+const depthOnly = new THREE.MeshBasicMaterial({colorWrite: false, side: THREE.DoubleSide});
+/** The rails' occluder sits a hair behind its own surface, so the edge lines drawn on that surface never z-fight it. */
+const depthOnlyRail = new THREE.MeshBasicMaterial({colorWrite: false, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 2});
 
 /** The wheelset's geometry is built once and shared by every wheelset on screen (s15 shows four). */
 let shared: {right: ReturnType<typeof wheelGeometry>; left: ReturnType<typeof wheelGeometry>; axle: THREE.BufferGeometry[]; journals: THREE.BufferGeometry[]} | null = null;
@@ -159,18 +165,21 @@ const EndCaps: React.FC<{material: THREE.Material; bolt: THREE.Material}> = ({ma
 };
 
 /** The wheelset: two lathed wheels from profiles.ts, the axle and its journals. Spin follows rolling distance / r0. */
-export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0, axleGlow = 0}) => {
-	const steel = useSteel();
+export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw = 0, at = [0, 0], lift = 0, glow = 0, heat = 0, flangeGlow = 0, axleGlow = 0, occluder = false}) => {
+	const lit = useSteel();
+	const steel = occluder ? {body: depthOnly, band: depthOnly, axle: depthOnly, journal: depthOnly} : lit;
 	const geo = sharedGeometry();
-	const bandMat = useMemo(() => steel.band.clone(), [steel]);
-	const flangeMat = useMemo(() => steel.body.clone(), [steel]);
-	const axleMat = useMemo(() => steel.axle.clone(), [steel]);
-	axleMat.emissive = new THREE.Color(colors.line).multiplyScalar(axleGlow * 0.55);
-	flangeMat.emissive = new THREE.Color(colors.amber).multiplyScalar(flangeGlow * 0.85);
-	const emissive = new THREE.Color(colors.amber).multiplyScalar(glow * 0.6).add(new THREE.Color(colors.crimson).multiplyScalar(heat * 1.1));
-	bandMat.emissive = emissive;
+	const litBand = useMemo(() => lit.band.clone(), [lit]);
+	const litFlange = useMemo(() => lit.body.clone(), [lit]);
+	const litAxle = useMemo(() => lit.axle.clone(), [lit]);
+	litAxle.emissive = new THREE.Color(colors.line).multiplyScalar(axleGlow * 0.55);
+	litFlange.emissive = new THREE.Color(colors.amber).multiplyScalar(flangeGlow * 0.85);
+	litBand.emissive = new THREE.Color(colors.amber).multiplyScalar(glow * 0.6).add(new THREE.Color(colors.crimson).multiplyScalar(heat * 1.1));
 	// lit amber, the steel dims under the glow so it reads as colour, not as white
-	bandMat.color = new THREE.Color('#DCE3EA').lerp(new THREE.Color('#2E2418'), Math.min(1, glow + heat) * 0.85);
+	litBand.color = new THREE.Color('#DCE3EA').lerp(new THREE.Color('#2E2418'), Math.min(1, glow + heat) * 0.85);
+	const bandMat = occluder ? depthOnly : litBand;
+	const flangeMat = occluder ? depthOnly : litFlange;
+	const axleMat = occluder ? depthOnly : litAxle;
 	// the axle sits at the height the contact solver gives for this shift (rail crown at y = 0)
 	const axleY = contact(Math.abs(shift)).axleZ / 1000;
 	const spin = rolled / (WS.r0 / 1000);
@@ -201,7 +210,7 @@ export const Wheelset3D: React.FC<WheelsetPose> = ({rolled = 0, shift = 0, yaw =
 };
 
 /** Rails (solid, dark, with drawn edges) and sleepers as slate lines, along a track path. */
-export const Track3D: React.FC<{path: PathSample[]; draw?: number; edgeOpacity?: number}> = ({path, draw = 1, edgeOpacity = 0.85}) => {
+export const Track3D: React.FC<{path: PathSample[]; draw?: number; edgeOpacity?: number; depthOnlyRails?: boolean}> = ({path, draw = 1, edgeOpacity = 0.85, depthOnlyRails = false}) => {
 	const {rails, edges, sleepers} = useMemo(() => {
 		const r = railGeometries(path);
 		const e = r.map((g) => new THREE.EdgesGeometry(g, 35));
@@ -227,7 +236,7 @@ export const Track3D: React.FC<{path: PathSample[]; draw?: number; edgeOpacity?:
 	return (
 		<group>
 			{rails.map((g, i) => (
-				<mesh key={`r${i}`} geometry={g} material={railMat} />
+				<mesh key={`r${i}`} geometry={g} material={depthOnlyRails ? depthOnlyRail : railMat} />
 			))}
 			{edges.map((g, i) => (
 				<lineSegments key={`e${i}`} geometry={g}>
