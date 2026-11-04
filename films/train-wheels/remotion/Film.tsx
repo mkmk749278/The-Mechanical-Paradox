@@ -9,6 +9,7 @@ import {timing} from './cues';
 import {Drift, driftCues, SelfCentre, selfCentreCues} from './Drift';
 import {Cone, coneCues, FlangeMyth, flangeMythCues} from './FlangeCone';
 import {criticalCues, CriticalSpeed, Hunting, huntingCues} from './Hunting';
+import {FootageLayer} from './Footage';
 import {Landing, landingCues} from './Landing';
 import {CurveLimit, curveLimitCues, Nadal, nadalCues, Screech, screechCues} from './Limits';
 import {ColdOpen, coldOpenCues, Promise as PromiseScene, promiseCues} from './Opening';
@@ -17,7 +18,8 @@ import {SceneId, span, XFADE} from './scenes';
 import {TradeOff, tradeOffCues} from './TradeOff';
 
 // Film 1, the whole picture: every scene on its span from the recorded VO (scenes.ts), each dissolving in over the
-// last over XFADE frames; the channel sting after the last word (channel name only in the outro, CLAUDE.md).
+// last over XFADE frames; real footage inserts over them where the narration describes the real thing (Footage.tsx);
+// the channel sting after the last word (channel name only in the outro, CLAUDE.md).
 
 const SCENES: [SceneId, React.FC][] = [
 	['s01', ColdOpen],
@@ -58,6 +60,7 @@ export const Film: React.FC = () => (
 				</Sequence>
 			);
 		})}
+		<FootageLayer />
 		<Sequence from={VO_FRAMES} durationInFrames={STING_FRAMES} name="sting">
 			<FadeIn first={false}>
 				<ChannelSting />
