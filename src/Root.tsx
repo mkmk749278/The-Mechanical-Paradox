@@ -7,6 +7,7 @@ import {EngineCheck} from './dev/EngineCheck';
 import {BankCard, bankCardSpan} from '../films/train-wheels/remotion/BankCard';
 import {Look3D} from '../films/train-wheels/remotion/dev/Look3D';
 import {CriticalSpeed, Hunting} from '../films/train-wheels/remotion/Hunting';
+import {Drift, SelfCentre} from '../films/train-wheels/remotion/Drift';
 import {span} from '../films/train-wheels/remotion/scenes';
 
 loadBrandFonts();
@@ -18,6 +19,8 @@ export const Root: React.FC = () => (
 			<Composition id="ChannelSting" component={ChannelSting} durationInFrames={STING_FRAMES} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="TrainWheels">
+			<Composition id="TW-S06-Drift" component={Drift} durationInFrames={span('s06').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-S08-SelfCentre" component={SelfCentre} durationInFrames={span('s08').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S12-Hunting" component={Hunting} durationInFrames={span('s12').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S13-Critical" component={CriticalSpeed} durationInFrames={span('s13').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />

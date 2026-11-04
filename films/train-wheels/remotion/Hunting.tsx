@@ -449,13 +449,13 @@ export const Hunting: React.FC = () => {
 					<Formula g={g} />
 				</Svg>
 				<Callout x={hx} y={hy} lx={hx + 180} ly={CY + 220} text="HUNTING" color={colors.emerald} t={Math.min(lin(g, t.hunting, t.hunting + 40, 0, 1), 1 - lin(g, t.stephenson + 60, t.stephenson + 90, 0, 1))} size={44} />
-				<Label x={96} y={H - 128} size={26} color={colors.sub} opacity={Math.min(on(g, t.stephenson + 20), off(g, t.fast, 30))}>
+				<Label x={96} y={H - 156} size={26} color={colors.sub} opacity={Math.min(on(g, t.stephenson + 20), off(g, t.fast, 30))}>
 					GEORGE STEPHENSON · BY 1821
 				</Label>
-				<Tag x={96} y={H - 82} opacity={Math.min(on(g, t.steers - 10, 20), 1 - cam.plot)}>
+				<Tag x={96} y={H - 110} opacity={Math.min(on(g, t.steers - 10, 20), 1 - cam.plot)}>
 					YAW EXAGGERATED
 				</Tag>
-				<Tag x={96} y={H - 82} opacity={cam.plot * on(g, t.above + 100, 30)}>
+				<Tag x={96} y={H - 110} opacity={cam.plot * on(g, t.above + 100, 30)}>
 					NOT TO SCALE · SIDEWAYS MOTION EXAGGERATED
 				</Tag>
 				<Label x={W - 96} y={CY + LIMIT * cam.latPxPerMm + 14} size={26} color={colors.amber} align="right" opacity={cam.plot * on(g, t.above + 140, 30)}>
@@ -503,7 +503,7 @@ export const CriticalSpeed: React.FC = () => {
 				<Svg>
 					<StrikeInset hit={hit} show={on(g, t.hammer - 70, 24)} />
 				</Svg>
-				<Tag x={96} y={H - 82} opacity={1}>
+				<Tag x={96} y={H - 110} opacity={1}>
 					NOT TO SCALE · SIDEWAYS MOTION EXAGGERATED
 				</Tag>
 				<Label x={W - 96} y={CY + LIMIT * cam.latPxPerMm + 14} size={26} color={colors.amber} align="right">
