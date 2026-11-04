@@ -26,9 +26,13 @@ on:
       runners:
         description: "parallel runners (1-20)"
         default: "20"
+      blocks:
+        description: "optional: exact blocks to render, shot:start:end,… (re-render missing frames; overrides runners)"
+        default: ""
 
 permissions:
   contents: read
+  actions: read
 
 env:
   BLENDER_VER: "4.5.14"
@@ -49,13 +53,32 @@ jobs:
           T: ${{ secrets.GDRIVE_RCLONE_TOKEN }}
         run: '[ -n "$T" ] || { echo "::error::repo secret GDRIVE_RCLONE_TOKEN is missing"; exit 1; }'
       - run: npm ci --no-audit --no-fund
+      # Blender is fetched once here and handed to the render jobs as an artifact: 21 runners fetching it at once from
+      # download.blender.org got error pages on 2 of them (run 41858536600)
+      - name: Blender (pinned, checksum verified)
+        run: |
+          for i in 1 2 3 4; do
+            curl -sSfL -m 900 -o blender.tar.xz "https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-${BLENDER_VER}-linux-x64.tar.xz" \
+              && echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c - && break
+            [ "$i" = 4 ] && exit 1; sleep $((i * 15))
+          done
+      - uses: actions/upload-artifact@v4.6.2
+        with:
+          name: blender
+          path: blender.tar.xz
+          compression-level: 0
+          retention-days: 1
       - id: p
         env:
           FILM: ${{ inputs.film }}
           MODULE: ${{ inputs.module }}
           SHOTS: ${{ inputs.shots }}
           RUNNERS: ${{ inputs.runners }}
+          BLOCKS: ${{ inputs.blocks }}
         run: |
+          if [ -n "$BLOCKS" ]; then
+            python3 -c "import json,os;print('blocks='+json.dumps(os.environ['BLOCKS'].split(',')))" >> "$GITHUB_OUTPUT"; exit 0
+          fi
           for s in ${SHOTS//,/ }; do node scripts/export_blender_shot.mjs "films/$FILM/$MODULE" "$s" "export/$s.json"; done
           python3 - <<'EOF' >> "$GITHUB_OUTPUT"
           import json, os
@@ -93,9 +116,11 @@ jobs:
           npm ci --no-audit --no-fund
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 libegl1 > /dev/null
-      - name: Blender (pinned, checksum verified)
+      - uses: actions/download-artifact@v4.1.8
+        with:
+          name: blender
+      - name: Blender
         run: |
-          curl -sSL -m 900 -o blender.tar.xz "https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-${BLENDER_VER}-linux-x64.tar.xz"
           echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c -
           tar -xf blender.tar.xz && rm blender.tar.xz
           echo "BLENDER=$PWD/blender-${BLENDER_VER}-linux-x64/blender" >> "$GITHUB_ENV"
