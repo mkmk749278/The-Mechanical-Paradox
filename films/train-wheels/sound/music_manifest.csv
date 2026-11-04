@@ -1,0 +1,4 @@
+title,file,source,licence,note
+act1,assets/music/act1_t1.wav,Google Lyria 3.5 (Gemini API) 2026-11-04,"Gemini API terms (Google claims no ownership of output); SynthID watermark",prompt in sound/lyria_prompts.json; take 1 of 2; 175.6 s
+act2,assets/music/act2_t1.wav,Google Lyria 3.5 (Gemini API) 2026-11-04,"Gemini API terms (Google claims no ownership of output); SynthID watermark",prompt in sound/lyria_prompts.json; take 1 of 2; 90.2 s
+act3,assets/music/act3_t1.wav,Google Lyria 3.5 (Gemini API) 2026-11-04,"Gemini API terms (Google claims no ownership of output); SynthID watermark",prompt in sound/lyria_prompts.json; take 1 of 2; 132.9 s

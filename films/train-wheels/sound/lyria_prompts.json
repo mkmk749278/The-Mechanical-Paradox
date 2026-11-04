@@ -1,0 +1,19 @@
+{
+ "note": "Film 1 music, one track per act (STATUS next-step 1; music brief). Section times are the film's own beats, measured from each act's start in vo/timing.json. Music sits ducked 11 dB under a narrator, so: no lead melody, no vocals, nothing busy in 300 Hz-3 kHz.",
+ "model": "lyria-3.5",
+ "takes": 2,
+ "tracks": [
+  {
+   "id": "act1",
+   "prompt": "Instrumental only, no vocals. A three-minute cinematic underscore for a calm science documentary section about how a train's wheels steer themselves on a curve. 84 BPM, D minor moving to F major. Curious, precise, quietly fascinated. A light steady pulse of soft plucked synth and felt piano, a warm pad, very soft low strings. No lead melody, no big drums; it must stay under a narrator's voice.\n[0:00-0:15] Sparse intro, a soft low pulse and a quiet ticking pluck, mysterious.\n[0:15-0:55] A steady pulse settles in, a soft pad enters, curious.\n[0:55-1:10] A gentle lift of anticipation.\n[1:10-2:05] Discovery: layers build one at a time, an interlocking plucked pattern, warm and slowly brightening.\n[2:05-2:12] Thins to the pad alone, a held breath.\n[2:12-2:40] Warm and satisfied, the pattern returns softer.\n[2:40-3:00] A calm, slightly open chord, fading gently to silence."
+  },
+  {
+   "id": "act2",
+   "prompt": "Instrumental only, no vocals. A ninety-second cinematic underscore for a science documentary section about the limits of a train wheel and the danger of derailment. 84 BPM, C minor. Darker, investigative tension that builds steadily, serious but never horror. Low string ostinato in sixteenth notes, a deep pulsing synth bass, soft metallic textures, a low cello drone. No lead melody, no vocals, no big drums; it must stay under a narrator's voice.\n[0:00-0:30] Low strings and a soft synth pulse, uneasy, a question hanging.\n[0:30-0:55] Tension rises, a grinding metallic texture and tighter rhythm.\n[0:55-1:10] Building, deeper and heavier, low brass swells.\n[1:10-1:20] Peak of tension, then an abrupt stop on a single low note that rings out.\n[1:20-1:30] Silence fading out."
+  },
+  {
+   "id": "act3",
+   "prompt": "Instrumental only, no vocals. A two-and-a-quarter-minute cinematic underscore for the closing chapter of a science documentary about train wheels: a hidden sway, a fix, and a calm resolution. 84 BPM, A minor resolving to C major. No lead melody, no vocals, no big drums; it must stay under a narrator's voice. Felt piano, soft strings, a warm pad, a subtle plucked synth pulse.\n[0:00-0:20] A gently swaying, rocking figure, side to side, curious.\n[0:20-1:05] The swaying figure grows wider and more insistent, rising tension, strings building.\n[1:05-1:10] Release: tension drops away to a soft held chord.\n[1:10-1:40] Calm, steady and balanced, a clean pulse, quietly confident.\n[1:40-2:05] Warm, resolved and hopeful, full but gentle strings.\n[2:05-2:15] Ends gently on a soft major chord fading to silence."
+  }
+ ]
+}

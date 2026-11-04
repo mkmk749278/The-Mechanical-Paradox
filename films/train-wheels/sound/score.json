@@ -1,6 +1,65 @@
 {
- "note": "Film 1 bed. The sub-bass drone (30-90 Hz, -26 dBFS) runs under the whole film, picture and sting (PLAYBOOK §12). Music slots: pending the owner's choice of source.",
- "slots": [],
- "rooms": [{"what": "drone", "from": 0, "to": 384.9, "gain_db": -20}],
- "quiet": []
+ "note": "Film 1 bed. The sub-bass drone (30-90 Hz, -26 dBFS) runs under the whole film, picture and sting (PLAYBOOK §12). Music: three Lyria 3.5 tracks, one per act (sound/music_manifest.csv), picked by their measured contour against the section plan in sound/lyria_prompts.json. Act 1 is cut twice so the music drops 1 s before 'neither wheel really slips' and before 'Just shape' (§12), and re-enters on the track's own clock. Act 2 runs 9.1 s into its track so its trough sits under 'the flange does the hard work', it rises on 'But how hard can you push it?' and stops dead just before 'That is one way a train comes off the track'. Act 3 runs 1.6 s in so its release falls just after 'until the flanges hammer the rails'. All music is out before the channel sting.",
+ "slots": [
+  {
+   "track": "act1",
+   "from": 0,
+   "to": "w:31:neither-1.2",
+   "offset": 0,
+   "fade_in": 0.5,
+   "fade_out": 1.0,
+   "why": "act 1: the paradox and the cone, up to the drop before 'neither wheel really slips'"
+  },
+  {
+   "track": "act1",
+   "from": "e:31",
+   "to": "w:39:Just-1.0",
+   "offset": "e:31",
+   "fade_in": 2.5,
+   "fade_out": 1.0,
+   "why": "act 1: the size of the difference, up to the drop before 'Just shape'"
+  },
+  {
+   "track": "act1",
+   "from": "e:39",
+   "to": "s:43",
+   "offset": "e:39",
+   "fade_in": 1.5,
+   "fade_out": 2.0,
+   "why": "act 1: straight track, the track's own fade"
+  },
+  {
+   "track": "act2",
+   "from": "s:43",
+   "to": "s:60",
+   "offset": 9.1,
+   "fade_in": 1.5,
+   "fade_out": 0.6,
+   "why": "act 2: where the cone runs out, stop before the derailment line"
+  },
+  {
+   "track": "act3",
+   "from": "s:60",
+   "to": "e:90+1.4",
+   "offset": 1.6,
+   "fade_in": 2.0,
+   "fade_out": 2.5,
+   "why": "act 3: hunting, the fix, the landing; out before the sting"
+  }
+ ],
+ "rooms": [
+  {
+   "what": "drone",
+   "from": 0,
+   "to": 384.9,
+   "gain_db": -20
+  }
+ ],
+ "quiet": [],
+ "music_db": -12,
+ "sfx_db": -7,
+ "sfx_trim": {
+  "glass_tone": -6
+ },
+ "mix_note": "Bus trims set by K-weighted short-term loudness against the voice (2026-11-04): music_db -12 puts the bed (music plus drone) a median 14.5 dB under solid speech and about 5 dB under the voice in the pauses; sfx_db -7 and glass_tone -6 (a sustained 2.4 kHz tone, in the band speech needs) keep the effects under the voice; the only effect that tops the voice is the flange hammer on 'until the flanges hammer the rails', on purpose."
 }

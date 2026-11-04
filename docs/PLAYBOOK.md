@@ -497,6 +497,17 @@ In a faceless, code-driven film, the sound gives the weight.
   shriek + 45 Hz boom (fracture), 50 → 120 Hz transformer buzz (heat), filtered pink-noise sweep (flow). Most can be
   synthesised exactly in Python (`scripts/score_mix.py` is the mixer to extend); recorded foley only with a licence.
 - Silence before a reveal: drop the music 1–1.5 s before the paradox is solved.
+- **Music from Lyria 3.5** (`scripts/lyria_music.py`, prompts in `sound/lyria_prompts.json`; film 1, 2026-11-04):
+  write each act's prompt as timestamped sections on the film's own beats (a quiet intro, a thinning where the music
+  must drop, a hard stop before a grave line); WAV is `response_format {"type": "audio", "mime_type": "audio/wav"}`
+  (48 kHz stereo came back, not the 44.1 kHz the docs say); a song takes ~20 s and costs $0.08. Make two takes per act
+  and pick by the measured 0.5 s loudness contour against the plan, then slide the track (`offset`) so its events land
+  on the words; check every take for vocals with Whisper. *Why:* the picks of film 1 hit three drops and a stop within
+  1–3 s with no editing. One prompt was blocked "for an unspecified policy reason" (no charge); rewording passed.
+- **Balance by K-weighted short-term loudness against the voice, not by bus RMS** (film 1, 2026-11-04): the bed at
+  −23 dBFS RMS ducked 11 dB measured only 6 dB under solid speech; the mix now carries `music_db`, `sfx_db` and per-sound
+  `sfx_trim` in `score.json`. Targets: bed ≥ 14 dB under solid speech (median), effects ≥ 12 dB (median) and never
+  over the voice except a deliberate hit; sustained tones in 1–4 kHz (the `glass_tone`) mask words first.
 
 ## 13. Discovery and packaging
 
