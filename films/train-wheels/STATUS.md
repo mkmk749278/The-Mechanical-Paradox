@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-04, music mixed, Blender hero shots rendering)
+# Film 1 status and handoff (2026-11-04, music mixed, Blender hero shots rendered)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -48,13 +48,17 @@ with the words heard, then full-size stills) found and fixed, all re-checked in 
 rendered on GitHub's runners: s01 the cold open's wheelset (812 frames), s03 the tread lighting amber on "the shape of
 the wheel" (696), s15 the landing's hero wheelset (1,054). Their 3D state is in `remotion/shots3d.ts` (the same driver
 as the HUD); the blueprint lines stay live three.js over the plate. Look settled on test frames: turned steel with
-lathe rings, studio reflections, polished rail running band, Standard view (AgX turned the amber peach). Render: run
-41859965297 (`blender-render.yml`, 1080p, 16 samples) → Drive `render-media/plates/<shot>/`.
+lathe rings, studio reflections, polished rail running band, Standard view (AgX turned the amber peach). **Rendered:**
+run 41859965297 (`blender-render.yml`, 1080p, 16 samples, 23 jobs, all green; the bend's aerial frames took ~110 s each),
+2,562 of 2,562 frames; packed one tar per shot in Drive `render-media/plates_tar/` (single frames kept in
+`plates-frames/`). Checked in the composite at key frames of every shot: plate, live lines, callouts and HUD aligned;
+the s03 glow on "the shape of the wheel"; the s15 axle and slope beats. "OUTER RAIL: FARTHER TO GO" now sits on two
+lines clear of the bend (the rail crossed "GO").
 
 **Next session, in order**
-1. When every plate frame is in Drive (812 + 696 + 1,054): list s01, s03, s15hero in `PLATES` (`remotion/plates.tsx`),
-   render review cut v3 on the farm, gate it (plates aligned with the lines and callouts, no missing frame, the glow
-   timing), then the independent viewer review (§14.2) and the owner's review in `mkmk749278/Review`.
+1. Gate review cut v3 (`train-wheels_review_720p_v3.mp4`, with the three Blender shots): length, audio, black
+   frames, every plate frame in motion (no missing or stuck frame), then the independent viewer review (§14.2) and the
+   owner's review in `mkmk749278/Review`.
    For the 4K master the plates render again at width 3840 (about 4× the time: two runs).
    When the Gemini cap resets or is raised, run the two listeners on the three act tracks (`lyria_library.py` `listen`
    and `voice_check`).
