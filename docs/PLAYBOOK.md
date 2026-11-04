@@ -469,6 +469,10 @@ alignment + word spreader; ported) writes `vo/timing.json` with sentences and wo
 - Every image must hold the frame until it has loaded (sister channel: an SVG `<image>` popped in 3 s late on the
   farm only). A 3D canvas releases its `delayRender` only after its pixels are on screen (sister channel: black flash
   frames from releasing on texture load).
+- **Mount a 3D canvas only while it can be seen** (`{opacity > 0 && <Stage3D …/>}`), never as an opacity-0 layer: a
+  canvas at zero opacity still renders every frame. *Why (film 1, 2026-11-04):* the landing kept its night bend and its
+  hero wheelset both mounted through the scene, and its 720p farm shard ran 3 h+ against ~55 min for the other 3D
+  shards; unmounting halved its frame time with pixel-identical frames (PSNR ∞ before, in and after the crossfade).
 
 ## 11. Assets and references
 - **Code first:** geometry, simulations and schematics are written, not downloaded.

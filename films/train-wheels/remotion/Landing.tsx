@@ -128,6 +128,9 @@ export const Landing: React.FC = () => {
 				/>
 			}
 		>
+			{/* each 3D canvas is mounted only while it can be seen: both mounted on every frame made this the farm's slowest
+			    shard by far (3 h+ at 720p, 2026-11-04) */}
+			{toHero < 1 && (
 			<AbsoluteFill style={{opacity: 1 - toHero}}>
 				<Stage3D width={W} height={H} cam={camNight}>
 					<Track3D path={path} edgeOpacity={0.6} />
@@ -154,6 +157,8 @@ export const Landing: React.FC = () => {
 					LINE DRAWING · NIGHT
 				</Tag>
 			</AbsoluteFill>
+			)}
+			{toHero > 0 && (
 			<AbsoluteFill style={{opacity: toHero}}>
 				<Stage3D width={W} height={H} cam={camHero}>
 					<Track3D path={heroPath} edgeOpacity={0.5} />
@@ -169,6 +174,7 @@ export const Landing: React.FC = () => {
 					A GENTLE SLOPE · 1 : 20
 				</Label>
 			</AbsoluteFill>
+			)}
 		</Stage>
 	);
 };
