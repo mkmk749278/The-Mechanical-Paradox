@@ -22,7 +22,7 @@ registered, so the source is the YouTube Audio Library: the brief is `sound/musi
 tracks to Drive `train-wheels/music/`.
 
 **Next session, in order**
-1. When the music lands: pull it, log each track in `media_manifest.csv` (Pixabay Content License, page URL), set
+1. When the music lands: pull it, log each track in `media_manifest.csv` (YouTube Audio Library, track and artist), set
    the slots in `sound/score.json` (act 1 0:00–2:55, act 2 2:55–4:13, act 3 4:13–end; drop 1–1.5 s before "Just
    shape" and before "neither one really slips"), mix with `--tail-frames 330`, upload `mix.wav` to Drive
    `train-wheels/mix/`, and re-join the picture without re-rendering (`join_from` = the render's run id, within 7 days).
