@@ -614,6 +614,31 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**Film 1 script lock and first scene (2026-11-04).**
+- *The spoken-English gate had been run in `--story` mode.* VO v3 "passed" at 1.0 "you" per 100 words; as an
+  explainer it failed (bar 3.0). **Rule:** explainers run the check without `--story`, with the §7.8 arguments.
+  Raising "you" to 3 per 100 also sharpened lines ("Do you see it?", "So why isn't your train always swaying like
+  that?"), but it costs words: v6 is about 1,040 words (≈ 6½–7 min); trim in the edit only where the picture already
+  says it.
+- *Three fresh panels converged.* v3 → v5 each found no swipe and verified every number; each still found a real
+  gap: the cause of the drift (what pushes the axle?), the inner wheel's "because", a line the film itself
+  contradicted ("Why don't you feel it?" after giving 2.5 sways a second), an ending that contradicted the trade-off.
+  **Rule:** a fresh panel each round (no memory of the last draft), and lock on the bar (no first-minute drift), not
+  on a perfect verdict.
+- *When no source states a cause in one sentence, derive it and label it.* The drift outward follows from two sourced
+  facts (equal radii roll equal distances; the rails curve away); claim C31 says "derived" and why.
+- *True scale beats exaggeration when a drawing convention allows it.* The contact panels draw wheel and rail at
+  3 px/mm with the axle broken out between them (a standard drawing break), so the 1:20 cone, the 7 mm play and the
+  0.70 mm difference are all real on screen; only the flange shape is generic, and the caption says so.
+- *A contact solver is the numeric check for a rolling mechanism.* `profiles.ts` rests the wheel on the inclined,
+  crowned rail by maximising (rail height + wheel radius); the checks assert r = r0 + λy within 0.02 mm and a flange
+  play of 7.04 mm. Tuning the flange root by eye gave 10 mm of play; the solver caught it.
+- *Scenes cue to phrases, not frames* (`lib/remotion/timing.ts`): the provisional 150-wpm timing lets scenes be built
+  before the voice is chosen, and three script revisions changed only cue strings, never scene code. A missing or
+  ambiguous phrase throws at bundle time.
+- *Done:* `Hud.tsx` now meets §6.4a (values 38 px, labels and units 26 px in `sub`, honesty line 36 px in `ink`; rows
+  can share the picture's driver with `at`, and fade in with `from`).
+
 **Picture lessons from an outside visual review (2026-11-03).**
 - *What happened:* the owner shared an outside review of a finished Remotion documentary cut on another production.
   Checked point by point against that film's code, timing and rendered stills: five points right, five real with a
@@ -623,8 +648,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
   each part on its own word (§8.2); HUD and picture on one driver, highlights complete on their word (§8.4); outside
   notes checked before fixing (§14.2). Our HUD makes these matter more here than anywhere: it is small mono text by
   design.
-- *To fix in code before film 1's picture:* `lib/remotion/Hud.tsx` sets its title and units at 15 px and its
-  ILLUSTRATIVE VALUES line at 12 px, all in `muted`; the honesty label is the least readable text in the panel.
+- *Fixed 2026-11-04:* `lib/remotion/Hud.tsx` had set its title and units at 15 px and its ILLUSTRATIVE VALUES line
+  at 12 px, all in `muted`.
 
 **Film 1 script: two audience rounds (2026-10-31).**
 - *A fixed first line can cost trust before second two.* The blueprint's "…without ever derailing" was flagged as false

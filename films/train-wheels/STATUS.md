@@ -1,17 +1,21 @@
-# Film 1 status and handoff (2026-10-31, end of session: weekly usage limit)
+# Film 1 status and handoff (2026-11-04)
 
-**Done:** demand research (US/GB/IN), sources, model.py, claims.csv (30 rows, gate passes), brief (package first),
-treatment, VO v3 (`script/vo.txt`, spoken-English check passes), screenplay with Q column (`build_screenplay.py`),
-audience reviews v1 and v2 (`review/`), voice audition sheet (`vo/voice_audition.md`).
+**Done:** research, claims (31 rows, gate passes; C30 re-quoted verbatim; C31 the drift's cause, derived), brief,
+treatment, **VO v6 locked** (`script/vo.txt`; audience reviews v3, v4, v5 in `review/`; the lock bar met in v5: no
+viewer drifts in the first minute; spoken-English check passes as an explainer), screenplay rebuilt (23 beats),
+recording blocks (`script/blocks_performance.md`, 6 blocks), audition paragraph (`vo/voice_audition.md`).
+Picture: `remotion/model.ts` and `remotion/profiles.ts` (formulas and the wheel–rail contact, checked in code),
+phrase-cued timing (`lib/remotion/timing.ts`, `vo/timing.provisional.json`), scene list (`scenes/README.md`),
+**s07 the bank card built** (`remotion/BankCard.tsx`, composition `TW-BankCard`, stills reviewed in-session).
+Shared: HUD meets the legibility floors.
 
-**Owner decisions taken:** voice = audition 3 international voices; no banner badge; film 1 = train wheels; open on
-the real paradox (rigid axle, longer outer path); locomotive line in beat 2 without "ever derailing".
+**Waiting on the owner:** the voice audition (3 voices × the bank-card paragraph, 2 takes each) and the pick; then the
+six recording blocks with the chosen voice.
 
 **Next session, in order:**
-1. Audience review v3 on `script/vo.txt` (new no-repo session, `prompts/audience_review_v1.md`); lock the script if no
-   viewer drifts in the first minute.
-2. Re-quote C30's exact stability sentence from apt-p.com; re-open the Tanifuji record (C24) when the repository is up.
-3. Send the owner: the final narration as click-to-copy recording blocks, and the voice audition (3 voices × the
-   bank-card paragraph, `vo/voice_audition.md`).
-4. Scene handoff docs (`scenes/`), then the Remotion scenes: the rail race, the bank card, the apex cone, the Klingel
-   wave (signatures 1-4), HUD rows from claims; stills reviewed before any 720p farm render.
+1. Measure the audition takes with `scripts/vo_review.py`; owner picks.
+2. Build the scenes in `scenes/README.md` order of risk: s12 hunting (signature 3), s06 drift and apex cone
+   (signature 4), s02 rail race (signature 2), then the rest; a handoff doc before each.
+3. When the takes land: `scripts/vo_timing.py films/train-wheels`, switch `remotion/cues.ts` to `vo/timing.json`,
+   check signature cues by ear; full film composition; 720p farm render; picture gate (§14.2).
+4. Re-open the Tanifuji record (C24) when the Niigata repository is up (503 again on 2026-11-04).
