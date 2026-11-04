@@ -115,6 +115,9 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   image → fix → render. WebGL uses `swangle`.
 - **Full renders run on GitHub's runners** (`remotion-render.yml`), never in the session; the session renders stills
   and short tests (`scripts/render_shards.mjs`).
+- **Blender hero shots (owner, 2026-11-04):** the one solid object can be a Cycles plate rendered on the runners
+  (`blender-render.yml`, Blender 4.5.14 LTS); its state comes from the film's `shots3d.ts`, the same driver as the HUD,
+  and the blueprint lines stay live three.js over it (PLAYBOOK §10.6).
 - Remotion is free for individuals and companies with up to 3 employees, commercial use included; beyond that a
   company licence is needed (remotion.pro).
 

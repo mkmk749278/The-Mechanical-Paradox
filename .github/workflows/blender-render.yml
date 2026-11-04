@@ -1,0 +1,120 @@
+# A film's Blender hero shots (Cycles) on GitHub's runners (PLAYBOOK §10.6). Each shot's meshes, camera and poses are
+# exported from the film's own picture code (scripts/export_blender_shot.mjs), so a plate lines up with the HUD and every
+# callout; blender/render_shot.py renders frames with a transparent film; the frames go to Drive
+# <film>/render-media/plates/<shot>/ as WebP with alpha, where the Remotion farm pulls them (remotion-render.yml).
+# The runners have no GPU: Cycles on 4 CPU cores, about 75 s a 1080p frame at 16 samples (film 1, 2026-11-04).
+# Needs the repo secret GDRIVE_RCLONE_TOKEN.
+name: blender-render
+on:
+  workflow_dispatch:
+    inputs:
+      film:
+        description: "films/<film>"
+        required: true
+      module:
+        description: "the film's module exporting exportShot(id)"
+        default: "remotion/blenderExport.ts"
+      shots:
+        description: "comma-separated shot ids"
+        required: true
+      width:
+        description: "frame width (1920 for review cuts; 3840 for the 4K master)"
+        default: "1920"
+      samples:
+        description: "Cycles samples (denoised)"
+        default: "16"
+      runners:
+        description: "parallel runners (1-20)"
+        default: "20"
+
+permissions:
+  contents: read
+
+env:
+  BLENDER_VER: "4.5.14"
+  BLENDER_SHA256: "9ba871ff2ecd36526b77432745980b7e6664ecd0c7ca11c48849073dcfe06da3"
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      blocks: ${{ steps.p.outputs.blocks }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version: "22.11.0"
+      - name: Secret present
+        env:
+          T: ${{ secrets.GDRIVE_RCLONE_TOKEN }}
+        run: '[ -n "$T" ] || { echo "::error::repo secret GDRIVE_RCLONE_TOKEN is missing"; exit 1; }'
+      - run: npm ci --no-audit --no-fund
+      - id: p
+        env:
+          FILM: ${{ inputs.film }}
+          MODULE: ${{ inputs.module }}
+          SHOTS: ${{ inputs.shots }}
+          RUNNERS: ${{ inputs.runners }}
+        run: |
+          for s in ${SHOTS//,/ }; do node scripts/export_blender_shot.mjs "films/$FILM/$MODULE" "$s" "export/$s.json"; done
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os
+          shots = os.environ["SHOTS"].split(",")
+          frames = [(s, n) for s in shots for n in range(len(json.load(open(f"export/{s}.json"))["frames"]))]
+          k = max(1, min(20, int(os.environ["RUNNERS"])))
+          size = -(-len(frames) // k)
+          blocks = []
+          for i in range(0, len(frames), size):
+              chunk = frames[i:i + size]
+              for s in dict.fromkeys(x[0] for x in chunk):  # a block may span two shots
+                  ns = [n for (t, n) in chunk if t == s]
+                  blocks.append(f"{s}:{ns[0]}:{ns[-1] + 1}")
+          print("blocks=" + json.dumps(blocks))
+          EOF
+
+  render:
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        block: ${{ fromJson(needs.plan.outputs.blocks) }}
+    env:
+      GDRIVE_RCLONE_TOKEN: ${{ secrets.GDRIVE_RCLONE_TOKEN }}
+      FILM: ${{ inputs.film }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version: "22.11.0"
+      - name: Install
+        run: |
+          npm ci --no-audit --no-fund
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg libxi6 libxxf86vm1 libxfixes3 libxrender1 libgl1 libxkbcommon0 libsm6 libegl1 > /dev/null
+      - name: Blender (pinned, checksum verified)
+        run: |
+          curl -sSL -m 900 -o blender.tar.xz "https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-${BLENDER_VER}-linux-x64.tar.xz"
+          echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c -
+          tar -xf blender.tar.xz && rm blender.tar.xz
+          echo "BLENDER=$PWD/blender-${BLENDER_VER}-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Render
+        shell: bash
+        run: |
+          IFS=: read -r SHOT START END <<< "${{ matrix.block }}"
+          echo "SHOT=$SHOT" >> "$GITHUB_ENV"
+          node scripts/export_blender_shot.mjs "films/$FILM/${{ inputs.module }}" "$SHOT" "export/$SHOT.json"
+          "$BLENDER" -b --factory-startup -P blender/render_shot.py -- "export/$SHOT.json" "out/$SHOT" \
+            --start "$START" --end "$END" --width ${{ inputs.width }} --samples ${{ inputs.samples }} 2>&1 \
+            | grep --line-buffered -E "PLATE|Error|Traceback|line [0-9]+"
+          n=$(ls out/$SHOT/*.png | wc -l); want=$((END - START))
+          [ "$n" -eq "$want" ] || { echo "::error::$n of $want frames"; exit 1; }
+      - name: WebP with alpha → Drive
+        shell: bash
+        run: |
+          mkdir -p webp
+          for f in out/$SHOT/*.png; do
+            ffmpeg -v error -y -i "$f" -c:v libwebp -quality 92 -pix_fmt yuva420p "webp/$(basename "$f" .png).webp"
+          done
+          scripts/upload_gdrive.sh --sub "$FILM/render-media/plates/$SHOT" webp
