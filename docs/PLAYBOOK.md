@@ -616,6 +616,26 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**Film 1 picture built (2026-11-04).**
+- *Exaggerate what keeps the truth, never what breaks it.* Hunting's true sway is 3 mm on a 17 m wave: exaggerating
+  the sideways shift on true rails puts the wheels off the rails (a derailment on screen). Exaggerate the yaw (the
+  wheels stay on the rails) close up, and turn the view into a labelled plot from above. Same for the drift (true
+  sections beside a top view) and the cone (tread sections at true scale, 8 px/mm, then a ×3 true-shape detail).
+- *Real references first.* Commons photos of freight wheelsets set the 3D wheel: journals outboard, hub boss inward,
+  dished web, a bright running band (research/visual_refs.md). A lathed wheel looks the same at every angle: spin
+  must be shown by axle-end bolts and faint web weathering (a sunburst of streaks looked fake).
+- *Cues are searched inside their scene's span* (`scenes.ts` → `cue.within`): "the screech", "On a gentle curve" and
+  "No steering" each occur more than once in the film; a global search threw or picked the wrong one.
+- *The blueprint's micro-push scales the stage by up to 5 %*: type within ~90 px of an edge drifts off frame. Tags sit
+  at x 96, y H−110.
+- *A camera move must never pass through the subject*: s04's dip to rail level crossed the tread and filled the
+  frame with a white blur; put the camera on the final line of sight first, then zoom.
+- *Sound cues come from the picture code*: `scripts/export_cues.mjs` bundles `filmCues()` with esbuild for Node and
+  writes `sound/sfx.json` (77 cues); this channel's foley is synthesized in `score_mix.py`.
+- *A 5 ms limiter let synthesized transients through at +1.4 dBTP*: the master limiter now runs 4× oversampled with
+  a 0.1 ms attack (−1.1 dBTP).
+- *Stills tool:* `scripts/stills.mjs OUT COMP:f1,f2 --scale 0.5` renders many frames from one bundle.
+
 **Film 1 VO recorded (2026-11-04).**
 - *Eleven v4 ignores its speed setting.* b02 at speed 0.80, 0.85 and 0.90 gave the same 13.0 s take, and the voice
   reads at 173–197 wpm (articulation about 230). Multilingual v2 honours speed but changed the voice by 1.8–4.7

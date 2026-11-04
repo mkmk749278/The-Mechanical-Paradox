@@ -1,26 +1,26 @@
-# Film 1 status and handoff (2026-11-04, evening)
+# Film 1 status and handoff (2026-11-04, picture built)
 
-**Done:** research, claims (31 rows, gate passes), brief, treatment, **VO v6 locked** (`script/vo.txt`; audience
-reviews v3–v5), screenplay (23 beats), recording blocks (`script/blocks_performance.md`).
-**VO recorded (2026-11-04):** the account's voice "The Mechanical Paradox" (`q8DzlbH6OkvKn06IxgiA`), Eleven v4
-(owner: v4 and always the newest Eleven after it; `scripts/eleven_tts.py`), stability 0.50, similarity 0.80, style 0,
-speaker boost, two takes a block (seeds 1101, 2202). Kept: b01 t1, b02 t1, b03 t2, b04 t1, b05 t1, b06 t1
-(`scripts/vo_review.py`: every word as written; b02 t2 rejected, 3.9 semitones high). v4 ignores `speed`, so the pace
-is set by edit breaths in `scripts/vo_timing.py`: **379.4 s, 162 wpm, 6 chapters** (0:00, 0:54, 1:11, 2:54, 4:13,
-5:52); 90 joins measured clean. `vo/timing.json`, `vo/timing.md`, `vo/captions.en.srt` in git; all 12 takes with
-sidecars in Drive `train-wheels/vo/takes/`, `vo_full.wav` in Drive `train-wheels/vo/`. Characters used: 11,895
-(10,850 for the 12 takes, 1,045 for the speed and model tests).
-**Picture:** `remotion/cues.ts` now reads `vo/timing.json`. s07 the bank card (`TW-BankCard`) re-checked on the
-recorded clock; HUD overlap, clipped value and scale note fixed (stills at frames 300, 900, 1100, 1700 reviewed).
+**Done**
+- Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
+- **VO recorded and approved by the owner** (no re-recordings): Eleven v4, the channel voice, 379.4 s, 162 wpm
+  (`vo/timing.json`; Drive `train-wheels/vo/`).
+- **Picture: all 15 scenes built and assembled** in `TW-Film` (`remotion/Film.tsx`): 22,765 frames of VO + the
+  330-frame channel sting = 23,095 frames (6:24.9). Stills of every scene reviewed at its key words; a 52-frame
+  contact sheet of the whole film reviewed. 3D wheelset lathed from the true profile (`Wheelset3D.tsx`,
+  research/visual_refs.md); every number on screen from `model.ts` / `profiles.ts` with numeric checks in code.
+- **Sound:** 77 SFX cues exported from the picture code (`sound/sfx.json`), this channel's foley synthesized in
+  `scripts/score_mix.py`, the sub-bass drone bed (`sound/score.json`); master −14.1 LUFS, −1.1 dBTP (VO + SFX + bed).
+- **Farm render started:** 720p review cut, run 41797400057, `train-wheels_review_720p_v1.mp4` → Drive
+  `train-wheels/renders/`.
 
-**For the owner's ear:** b05 "The cone that keeps your train centered also makes it sway." Speech-to-text hears
-"makes its sway" in both takes. At this pace the two run together, so it is probably fine, but only an ear can
-settle it (`vo_full.wav` at 4:14).
+**Owner, 2026-11-04: music = licensed tracks fetched on the phone.** Three Pixabay picks, one per act, in
+`sound/music_brief.md`; the owner downloads them and uploads to Drive `train-wheels/music/`.
 
-**Next session, in order:**
-1. Build the scenes in `scenes/README.md` order of risk: s12 hunting (signature 3), s06 drift and apex cone
-   (signature 4), s02 rail race (signature 2), then the rest; a handoff doc before each. Cue every scene to phrases
-   (`cue.at`), checked against `vo/timing.md`.
-2. Full film composition on `vo/vo_full.wav` (copy to `public/films/train-wheels/` at build time; gitignored);
-   720p farm render; picture gate (§14.2).
-3. Re-open the Tanifuji record (C24) when the Niigata repository is up (503 again on 2026-11-04).
+**Next session, in order**
+1. When the music lands: pull it, log each track in `media_manifest.csv` (Pixabay Content License, page URL), set
+   the slots in `sound/score.json` (act 1 0:00–2:55, act 2 2:55–4:13, act 3 4:13–end; drop 1–1.5 s before "Just
+   shape" and before "neither one really slips"), mix with `--tail-frames 330`, upload `mix.wav` to Drive
+   `train-wheels/mix/`, and re-join the picture without re-rendering (`join_from` = the render's run id, within 7 days).
+2. Picture gate (§14.2) on the 720p cut with music; then the owner's review in `mkmk749278/Review`.
+3. Shorts (2–3), thumbnails (3), title, description, SRT (`vo/captions.en.srt`): the YouTube package (§13.7).
+4. Re-open the Tanifuji record (C24) when the Niigata repository is up.
