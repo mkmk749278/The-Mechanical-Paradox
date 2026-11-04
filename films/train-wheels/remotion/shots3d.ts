@@ -23,6 +23,7 @@ export type Shot3D = {
 export const PATHS: Record<string, () => PathSample[]> = {
 	bend24: () => curvePath(24, 90, 14, -8, 360),
 	hero: () => straightPath(-16, 16, 2),
+	straight14: () => straightPath(-14, 14, 2),
 };
 
 // ---- s01 the cold open ----
@@ -63,6 +64,32 @@ export const coldOpen3D = (f: number): Shot3D => {
 						{lateral: WS.b0 / 1000, from: zw, draw: paths, color: colors.crimson},
 					]
 				: [],
+	};
+};
+
+// ---- s03 the promise: the tread, close, as it lights amber on "the shape of the wheel" ----
+export const T3 = () => ({
+	shape: at('s03', 'the shape of the wheel'),
+	noticed: at('s03', "you've probably never noticed it"),
+	screech: at('s03', 'explains the screech'),
+	sway: at('s03', 'why fast trains sway'),
+	end: span('s03').dur,
+});
+
+export const promise3D = (f: number): Shot3D => {
+	const t = T3();
+	return {
+		cam: camAt(
+			f,
+			[
+				{f: 0, cam: {position: [0.86, 0.1, 3.2], target: [0.76, 0.12, 0], fov: 11}},
+				{f: t.end, cam: {position: [1.05, 0.16, 2.9], target: [0.76, 0.12, 0], fov: 10}},
+			],
+			ease.camera,
+		),
+		track: {path: 'straight14', draw: 1, edgeOpacity: 0.85},
+		wheelsets: [{rolled: (0.35 * f) / 60, glow: tween(f, t.shape, t.shape + 40, 0, 1, ease.draw)}],
+		railPaths: [],
 	};
 };
 
@@ -108,6 +135,7 @@ export const landingHero3D = (f: number): Shot3D => {
 /** The Blender shots: which scene, which of its local frames, and the state function. */
 export const SHOTS = {
 	s01: {scene: 's01' as const, from: () => 0, to: () => span('s01').dur + 18, state: coldOpen3D},
+	s03: {scene: 's03' as const, from: () => 0, to: () => span('s03').dur + 18, state: promise3D},
 	s15hero: {scene: 's15' as const, from: () => T15().axle - 40, to: () => span('s15').dur, state: landingHero3D},
 };
 export type ShotId = keyof typeof SHOTS;
