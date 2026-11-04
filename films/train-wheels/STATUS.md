@@ -17,15 +17,29 @@
 where the narration names the real thing (`remotion/Footage.tsx`), graded to the palette and credited on screen. Files
 in Drive `train-wheels/render-media/footage/` (a stray partial `he.mp4` there is unused; safe to delete).
 
-**Owner, 2026-11-04: music = licensed tracks fetched on the phone.** Every Pixabay pick checked was Content ID
-registered, so the source is the YouTube Audio Library: the brief is `sound/music_brief.md`; the owner uploads three
-tracks to Drive `train-wheels/music/`.
+**Music (owner, 2026-11-04): Google Lyria 3.5 through the Gemini API.** History: Pixabay picks were all Content ID
+registered; the free ElevenLabs account has no commercial licence; Antigravity could not fetch the YouTube Audio
+Library; the owner then chose Lyria and added `GEMINI_API_KEY` as an environment secret (new sessions only). Terms
+checked: Google claims no ownership of output and sets no commercial limit (aistudio.google.com/docs/terms); every
+track carries an inaudible SynthID watermark. Fallback: `scripts/compose_score.py` (code-composed score, measured
+clean; its last edit, chords overlapping across changes, is untested: run it once before relying on it).
+
+**Farm render (720p, with footage):** run 41810631645 on commit 30f4cdc; 8 of 13 shards done at 10:21 UTC, the heavy
+3D shards still running. Output `train-wheels_review_720p_v1.mp4` → Drive `train-wheels/renders/`, joined with the
+current mix (VO + SFX + drone, no music). Shards are kept 7 days: a new mix re-joins without re-rendering
+(`join_from` = 41810631645).
 
 **Next session, in order**
-1. When the music lands: pull it, log each track in `media_manifest.csv` (YouTube Audio Library, track and artist), set
-   the slots in `sound/score.json` (act 1 0:00–2:55, act 2 2:55–4:13, act 3 4:13–end; drop 1–1.5 s before "Just
-   shape" and before "neither one really slips"), mix with `--tail-frames 330`, upload `mix.wav` to Drive
-   `train-wheels/mix/`, and re-join the picture without re-rendering (`join_from` = the render's run id, within 7 days).
-2. Picture gate (§14.2) on the 720p cut with music; then the owner's review in `mkmk749278/Review`.
-3. Shorts (2–3), thumbnails (3), title, description, SRT (`vo/captions.en.srt`): the YouTube package (§13.7).
+1. **Music with Lyria 3.5** (`GEMINI_API_KEY`; docs aistudio.google.com/docs/music-generation; model `lyria-3.5`,
+   `response_format` WAV, 44.1 kHz stereo, "a couple of minutes" per track, prompt for "Instrumental only, no
+   vocals"). Three tracks, one per act, at the film's tempo feel: act 1 (0:00–2:53) curious, precise, a light steady
+   pulse, soft pad, no big melody; act 2 (2:53–4:12) darker tension, low strings or a synth pulse, building, not
+   horror; act 3 (4:12–6:25) building, then warm and resolved, ends gently. Report the cost. Save to
+   `assets/music/`, log in `media_manifest.csv` (Lyria 3.5, Gemini API terms, SynthID), add
+   `sound/music_manifest.csv`, set `sound/score.json` slots (drop 1–1.5 s before "neither one really slips" and
+   before "Just shape"; music out before the sting), mix (`score_mix.py --tail-frames 330`), upload `mix.wav` to
+   Drive `train-wheels/mix/`, re-join the farm render (`join_from` 41810631645 if within 7 days, else re-render).
+2. Picture gate (§14.2) on the 720p cut with music: contact sheet every 4 s, every insert, every dissolve; then the
+   owner's review in `mkmk749278/Review`.
+3. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).
 4. Re-open the Tanifuji record (C24) when the Niigata repository is up.
