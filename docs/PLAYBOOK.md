@@ -741,6 +741,10 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    eleven v4 only and if any latest version come use that"). `scripts/eleven_tts.py` picks the highest `eleven_vN`
    the account offers (v4 or later) at run time and records it in each take's sidecar; no turbo, flash or v2 models.
 9. **2026-11-04: real footage inserts** of the real thing where the narration describes it (§8.8).
+10. **2026-11-04: music from Google Lyria 3.5 through the Gemini API** (`GEMINI_API_KEY`). Why: Pixabay music is
+   mostly Content ID registered (11 of 11 checked for film 1); ElevenLabs' free plan has no commercial licence (its
+   output stays non-commercial even after an upgrade); Lyria output is owned by us under the Gemini API terms and
+   carries an inaudible SynthID watermark. Fallback: `scripts/compose_score.py`, an original code-composed score.
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
