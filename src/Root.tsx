@@ -16,6 +16,7 @@ import {TradeOff} from '../films/train-wheels/remotion/TradeOff';
 import {Landing} from '../films/train-wheels/remotion/Landing';
 import {Film, FILM_FRAMES} from '../films/train-wheels/remotion/Film';
 import {span} from '../films/train-wheels/remotion/scenes';
+import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
 
 loadBrandFonts();
 
@@ -41,6 +42,9 @@ export const Root: React.FC = () => (
 			<Composition id="TW-S13-Critical" component={CriticalSpeed} durationInFrames={span('s13').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S14-TradeOff" component={TradeOff} durationInFrames={span('s14').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-S15-Landing" component={Landing} durationInFrames={span('s15').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-Thumb-A" component={ThumbA} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-Thumb-B" component={ThumbB} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="TW-Thumb-C" component={ThumbC} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
