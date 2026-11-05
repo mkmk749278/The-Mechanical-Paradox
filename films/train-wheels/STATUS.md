@@ -77,7 +77,7 @@ slow final roll-away).
 
 **Review cut v4** (`train-wheels_review_720p_v4.mp4` in Drive `train-wheels/renders/`, run 41975965565, all green):
 6:24.9, −14.1 LUFS, −1.2 dBTP. No hold over 2 s (the longest is the 1:29.3 cone close-up, 2.45 s, under the 2.5 s
-limit). Dark-canvas breaths under 1 s at five scene starts (0:13.5, 2:53.4, 5:19.6, among others) and the planned
+limit). Dark-canvas breaths under 1 s at five scene changes (0:13.5, 2:27.4, 2:53.4, 5:19.6, 6:19.6) and the planned
 0.15 s dip at 6:02; no true black. Every fix seen in the cut's own frames.
 
 **YouTube package (§13.7): done except the owner's upload** (`youtube/`):
