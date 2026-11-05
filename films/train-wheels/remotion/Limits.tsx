@@ -284,6 +284,15 @@ const RingingWheel: React.FC<{f: number; amp: number; cx: number; cy: number; R:
 	);
 };
 
+// TopWheelset's axle runs along its local +x, (cos h, sin h) on screen; at zero attack it must lie on the radius at phi
+// (viewer review v3 found it drawn along the track): the build fails if the convention ever drifts.
+const screechHeading = (phi: number, attackDeg: number): number => phi + (attackDeg * Math.PI) / 180;
+for (const phi of [-1.5, -68 * (Math.PI / 180), -0.4]) {
+	const h = screechHeading(phi, 0);
+	const dot = Math.cos(h) * Math.cos(phi) + Math.sin(h) * Math.sin(phi); // axle · radius
+	if (Math.abs(Math.abs(dot) - 1) > 1e-9) throw new Error(`Screech: axle not radial (dot ${dot})`);
+}
+
 export const Screech: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T10();
@@ -299,7 +308,7 @@ export const Screech: React.FC = () => {
 	// forward is (sin h, −cos h): along the tangent at phi when h = phi, so the axle lies on the radius. The angle of
 	// attack turns the front outward (away from O), which is + here (viewer review v3: the axle had been drawn along the
 	// track, 90° off).
-	const heading = phi + (alpha * Math.PI) / 180;
+	const heading = screechHeading(phi, alpha);
 	const kW = 0.2; // px per mm for the wheelset: its contact lines (±750 mm) land on the drawn rails (R ± b)
 	const toScreen = (lx: number, ly: number) => ({
 		x: wc.x + lx * Math.cos(heading) - ly * Math.sin(heading),

@@ -702,6 +702,25 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**Film 1, the viewer review of cut v3 (2026-11-05).**
+- *A plan view can lie about the one thing it exists to show.* The tight-curve plan view gave `TopWheelset` the heading
+  `phi + π/2`, so the axle ran along the track, 90° off; three picture passes and the farm gate had passed it, but the
+  independent viewer (an "automotive engineer") saw it at once. **Rule:** every drawn pose that carries the physics
+  (axle on the radius, contact on the rail) gets a numeric check in code, like a gear mesh (`screechHeading`, the
+  landing bogie's ±7 mm check).
+- *Stock footage can be interlaced and still say "progressive".* `f01` was 25i top field first, flagged progressive,
+  and the combing was the film's very first picture. **Rule:** run `ffmpeg -vf idet` on every clip before it goes in;
+  deinterlace with `bwdif=mode=send_field` (double rate) and keep the original.
+- *Measure holds one way, over the whole cut.* The v1 gate read three holds as 1.55–1.67 s; `freezedetect`
+  (n = 0.002, d = 1.5 s, on a 320 px copy) read them as 2.7–3.2 s, and found three more. **Rule:** the hold check is
+  that `freezedetect` command on the whole file; anything over 2 s gets visible motion (a push, running sleepers, a
+  move that keeps going).
+- *A push scales from its origin.* A 1.08 push on the bank-card panels drove the inner-radius label off the left
+  edge. **Rule:** set `transformOrigin` near the edge-most label, and still the frame at the end of the push.
+- *Outside notes, checked: 8 confirmed, 2 partly or for another cause, 2 not confirmed* (small text: nothing in the
+  film is under 26 px, and the reviewer had read cap heights at 720p; a wheel "off its rail" sat on it).
+  `review/viewer_v3_check.md`.
+
 **The music library (2026-11-04).**
 - *Lyria adds voices it was told not to.* In the first library run 102 takes were billed for 38 kept tracks (61 rejected, mostly for choir or "ooh" pads and vocal chops
   despite "Instrumental only, no vocals" in the prompt); the stronger second listener caught pads in 3 of the first 15
