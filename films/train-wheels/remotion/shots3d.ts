@@ -132,10 +132,42 @@ export const landingHero3D = (f: number): Shot3D => {
 	};
 };
 
+
+// ---- the YouTube thumbnails (PLAYBOOK §13.3): one still each, the same wheelset, rails and lighting as the film ----
+// Static poses (no roll between the two exported frames, so no motion blur). True geometry: the 0.7 mm and the
+// angle of attack are far too small to see, so the words and 2D marks carry them, never an exaggerated model.
+const still = (s: Shot3D) => (_f: number): Shot3D => s;
+/** A: the hero wheelset, three-quarter front, treads lit amber ("the shape does the steering"). */
+export const thumbA3D = still({
+	cam: {position: [2.05, 0.95, 2.55], target: [-0.3, 0.62, 0.1], fov: 30},
+	track: {path: 'hero', draw: 1, edgeOpacity: 0.5},
+	wheelsets: [{rolled: 0.2, glow: 1}],
+	railPaths: [],
+});
+/** B: head-on, shifted to the flange limit (7 mm, C09): the two rolling circles differ by 0.7 mm (C10). */
+export const thumbB3D = still({
+	cam: {position: [0, 0.9, 4.6], target: [0, 0.78, 0], fov: 27},
+	track: {path: 'hero', draw: 1, edgeOpacity: 0.5},
+	wheelsets: [{rolled: 0.2, shift: WS.clear, glow: 1}],
+	railPaths: [],
+});
+/** C: a tight bend (24 m), the wheelset against the outer rail, its front turned 1° outward from the tangent (the angle
+ * of attack; three.js yaw +θ turns +z toward +x, and this bend turns toward −x), treads hot. */
+export const THUMB_C_AT: [number, number] = [-24 + 24 * Math.cos(0.2), 6 + 24 * Math.sin(0.2)];
+export const thumbC3D = still({
+	cam: {position: [THUMB_C_AT[0] + 2.5, 2.4, THUMB_C_AT[1] - 2.4], target: [THUMB_C_AT[0] - 0.5, 0.75, THUMB_C_AT[1] + 0.3], fov: 34},
+	track: {path: 'bend24', draw: 1, edgeOpacity: 0.6},
+	wheelsets: [{rolled: 0.2, at: THUMB_C_AT, yaw: -0.2 + Math.PI / 180, shift: WS.clear, heat: 1}],
+	railPaths: [],
+});
+
 /** The Blender shots: which scene, which of its local frames, and the state function. */
 export const SHOTS = {
 	s01: {scene: 's01' as const, from: () => 0, to: () => span('s01').dur + 18, state: coldOpen3D},
 	s03: {scene: 's03' as const, from: () => 0, to: () => span('s03').dur + 18, state: promise3D},
 	s15hero: {scene: 's15' as const, from: () => T15().axle - 40, to: () => span('s15').dur, state: landingHero3D},
+	thumbA: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbA3D},
+	thumbB: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbB3D},
+	thumbC: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbC3D},
 };
 export type ShotId = keyof typeof SHOTS;

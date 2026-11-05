@@ -4,7 +4,7 @@ import {colors} from '../../../lib/remotion/brand';
 import {Hud} from '../../../lib/remotion/Hud';
 import {ease, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
-import {H, Label, off, on, pen, Stage, Svg, Tag, TopWheelset} from './kit';
+import {H, Label, off, on, pen, Stage, Svg, Tag, TopWheelset, W} from './kit';
 import {tightestCurve, WS} from './model';
 import {at, span} from './scenes';
 
@@ -41,7 +41,7 @@ const Profiles: React.FC<{f: number; o: number}> = ({f, o}) => {
 	const y0 = 840;
 	const ex = 10; // slope exaggeration
 	const line = (cone: number) => `${x0},${y0} ${x1},${y0 - (x1 - x0) * cone * ex}`;
-	const d20 = pen(f, t.flatter - 30, 40);
+	const d20 = pen(f, t.fix + 10, 60); // the 1:20 line starts on "Fast trains have a fix": no empty frame under it (v3)
 	const d40 = pen(f, t.flatter + 20, 40);
 	const tri = on(f, t.half, 20);
 	return (
@@ -51,9 +51,11 @@ const Profiles: React.FC<{f: number; o: number}> = ({f, o}) => {
 				<polyline points={line(1 / 20)} fill="none" stroke={colors.amber} strokeWidth={6} pathLength={1} strokeDasharray={`${d20} 1`} style={{filter: `drop-shadow(0 0 8px ${colors.amber})`}} />
 				<polyline points={line(1 / 40)} fill="none" stroke={colors.emerald} strokeWidth={6} pathLength={1} strokeDasharray={`${d40} 1`} style={{filter: `drop-shadow(0 0 8px ${colors.emerald})`}} />
 				{/* half as steep: the two rises over the same run */}
+				{/* the rises at the end of the same run, side by side under the line ends (viewer review v3: bars drawn out at
+				    x1 + 330 cut through the bullet-train caption) */}
 				<g opacity={tri}>
-					<line x1={x1 + 330} y1={y0} x2={x1 + 330} y2={y0 - (x1 - x0) * (1 / 20) * ex} stroke={colors.amber} strokeWidth={8} />
-					<line x1={x1 + 380} y1={y0} x2={x1 + 380} y2={y0 - (x1 - x0) * (1 / 40) * ex} stroke={colors.emerald} strokeWidth={8} />
+					<line x1={x1 - 8} y1={y0} x2={x1 - 8} y2={y0 - (x1 - x0) * (1 / 20) * ex * tri} stroke={colors.amber} strokeWidth={8} />
+					<line x1={x1 + 8} y1={y0} x2={x1 + 8} y2={y0 - (x1 - x0) * (1 / 40) * ex * tri} stroke={colors.emerald} strokeWidth={8} />
 				</g>
 			</Svg>
 			<Label x={x1 + 30} y={y0 - (x1 - x0) * (1 / 20) * ex - 30} size={44} color={colors.amber} weight={700} opacity={o * d20}>
@@ -65,13 +67,14 @@ const Profiles: React.FC<{f: number; o: number}> = ({f, o}) => {
 			<Label x={x1 + 30} y={y0 - (x1 - x0) * (1 / 40) * ex + 26} size={36} color={colors.sub} opacity={o * on(f, t.japan, 20)}>
 				JAPAN'S BULLET TRAINS USED IT
 			</Label>
-			<Label x={x1 + 420} y={y0 - 60} size={36} color={colors.line} weight={600} opacity={o * tri}>
+			<Label x={x1 + 40} y={y0 - 70} size={36} color={colors.line} weight={600} opacity={o * tri}>
 				HALF AS STEEP
 			</Label>
 			<Label x={x0 - 40} y={y0 + 30} size={26} color={colors.sub} opacity={o}>
 				AXLE DIRECTION
 			</Label>
-			<Tag x={96} y={H - 110} opacity={o}>
+			{/* bottom right: the footage credit owns the bottom left while the bullet-train insert plays (viewer review v3) */}
+			<Tag x={W - 96} y={H - 110} opacity={o} align="right">
 				NOT TO SCALE · SLOPES ×10
 			</Tag>
 		</>
@@ -170,6 +173,13 @@ const Panel: React.FC<{x: number; y: number; w: number; h: number; kind: 'curve'
 			for (let a = -20; a <= 20; a += 1) out.push(`${(O.x + r * Math.cos((a * Math.PI) / 180)).toFixed(1)},${(O.y + r * Math.sin((a * Math.PI) / 180)).toFixed(1)}`);
 			return out.join(' ');
 		};
+		// sleepers running under the wheelset: the track passes, so the panel moves while it holds (viewer review v3)
+		const run = (f / 60) * 3.2; // degrees of arc a second (ILLUSTRATIVE)
+		for (let i = -6; i <= 6; i++) {
+			const a = i * 3.4 - (run % 3.4); // ties move toward −angle (up the panel), the direction of travel
+			const ar = (a * Math.PI) / 180;
+			inner.push(<line key={`s${i}`} x1={O.x + (R - 82) * Math.cos(ar)} y1={O.y + (R - 82) * Math.sin(ar)} x2={O.x + (R + 82) * Math.cos(ar)} y2={O.y + (R + 82) * Math.sin(ar)} stroke={colors.sub} strokeWidth={5} opacity={0.45} />);
+		}
 		inner.push(<polyline key="a" points={arc(R - 60)} fill="none" stroke={colors.line} strokeWidth={3} />);
 		inner.push(<polyline key="b" points={arc(R + 60)} fill="none" stroke={colors.line} strokeWidth={3} />);
 		inner.push(
@@ -220,7 +230,7 @@ const Matrix: React.FC<{f: number; o: number}> = ({f, o}) => {
 	const xs = [110, 730];
 	const ys = [300, 640];
 	return (
-		<AbsoluteFill style={{opacity: o}}>
+		<AbsoluteFill style={{opacity: o, transform: `scale(${1 + 0.05 * tween(f, t.see, t.end, 0, 1, ease.camera)})`, transformOrigin: '660px 620px'}}>
 			<Label x={xs[0]} y={200} size={36} color={colors.amber} weight={700} opacity={on(f, t.steep - 10, 20)}>
 				STEEP CONE · LOOSE AXLE
 			</Label>
@@ -241,7 +251,7 @@ const Matrix: React.FC<{f: number; o: number}> = ({f, o}) => {
 export const TradeOff: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T();
-	const aO = Math.min(on(f, t.flatter - 40, 30), off(f, t.stiff - 30, 30));
+	const aO = Math.min(on(f, t.fix - 10, 20), off(f, t.stiff - 30, 30));
 	const bO = Math.min(on(f, t.stiff - 30, 30), off(f, t.see - 20, 30));
 	const cO = on(f, t.see - 20, 30);
 	return (
@@ -279,7 +289,7 @@ export const TradeOff: React.FC = () => {
 export const tradeOffCues = (): SfxCue[] => {
 	const t = T();
 	return [
-		{frame: t.flatter - 30, sfx: 'pen_scratch', gainDb: -14},
+		{frame: t.fix + 10, sfx: 'pen_scratch', gainDb: -14},
 		{frame: t.forty, sfx: 'quartz_tick', gainDb: -12},
 		{frame: t.stiff + 30, sfx: 'relay_click', gainDb: -12},
 		{frame: t.harder, sfx: 'metal_jam_sub', gainDb: -16},

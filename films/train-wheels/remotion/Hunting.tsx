@@ -165,7 +165,7 @@ const Formula: React.FC<{g: number}> = ({g}) => {
 	const c = on(g, t.seventeen);
 	if (a1 <= 0) return null;
 	const x = 96;
-	const y = 150;
+	const y = 230; // clear of the top edge under the scene push (viewer review v3: the KLINGEL line sat at the very top)
 	const f = 'JetBrains Mono, monospace';
 	return (
 		<g opacity={fade}>

@@ -284,6 +284,15 @@ const RingingWheel: React.FC<{f: number; amp: number; cx: number; cy: number; R:
 	);
 };
 
+// TopWheelset's axle runs along its local +x, (cos h, sin h) on screen; at zero attack it must lie on the radius at phi
+// (viewer review v3 found it drawn along the track): the build fails if the convention ever drifts.
+const screechHeading = (phi: number, attackDeg: number): number => phi + (attackDeg * Math.PI) / 180;
+for (const phi of [-1.5, -68 * (Math.PI / 180), -0.4]) {
+	const h = screechHeading(phi, 0);
+	const dot = Math.cos(h) * Math.cos(phi) + Math.sin(h) * Math.sin(phi); // axle · radius
+	if (Math.abs(Math.abs(dot) - 1) > 1e-9) throw new Error(`Screech: axle not radial (dot ${dot})`);
+}
+
 export const Screech: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T10();
@@ -295,8 +304,16 @@ export const Screech: React.FC = () => {
 	const phi = (-68 * Math.PI) / 180; // where the wheelset sits on the arc
 	const alpha = tween(f, t.presses + 40, t.angle + 30, 0, 9, ease.camera); // angle of attack, drawn (exaggerated)
 	const wc = {x: O.x + R * Math.cos(phi), y: O.y + R * Math.sin(phi)};
-	const heading = phi + Math.PI / 2 + Math.PI; // travel anticlockwise round O (toward the top-left)
-	void heading;
+	// travel anticlockwise round O (toward the top-left). TopWheelset's heading 0 is up the screen, + clockwise, and its
+	// forward is (sin h, −cos h): along the tangent at phi when h = phi, so the axle lies on the radius. The angle of
+	// attack turns the front outward (away from O), which is + here (viewer review v3: the axle had been drawn along the
+	// track, 90° off).
+	const heading = screechHeading(phi, alpha);
+	const kW = 0.2; // px per mm for the wheelset: its contact lines (±750 mm) land on the drawn rails (R ± b)
+	const toScreen = (lx: number, ly: number) => ({
+		x: wc.x + lx * Math.cos(heading) - ly * Math.sin(heading),
+		y: wc.y + lx * Math.sin(heading) + ly * Math.cos(heading),
+	});
 	const arc = (r: number) => {
 		const out: string[] = [];
 		for (let a = -110; a <= -20; a += 1) out.push(`${(O.x + r * Math.cos((a * Math.PI) / 180)).toFixed(1)},${(O.y + r * Math.sin((a * Math.PI) / 180)).toFixed(1)}`);
@@ -304,7 +321,8 @@ export const Screech: React.FC = () => {
 	};
 	const press = on(f, t.presses, 20);
 	const scrape = on(f, t.scraped, 20);
-	const flangePt = {x: O.x + (R + b) * Math.cos(phi + 0.035), y: O.y + (R + b) * Math.sin(phi + 0.035)};
+	// the leading end of the outer wheel's flange (its wheelset frame: +x outward, −y forward), where it meets the rail
+	const flangePt = toScreen((750 - 70) * kW, -400 * kW);
 	const slipT = (f - t.scraped) / 60;
 	// phase B: stick-slip and the ringing wheel
 	const ring = Math.max(0.4 * on(f, t.screech, 30), on(f, t.bell - 30, 30));
@@ -340,7 +358,7 @@ export const Screech: React.FC = () => {
 					<polyline points={arc(R - b)} fill="none" stroke={colors.line} strokeWidth={5} />
 					{/* the radial line: where an axle would point to follow the curve exactly */}
 					<line x1={O.x + (R - b - 120) * Math.cos(phi)} y1={O.y + (R - b - 120) * Math.sin(phi)} x2={O.x + (R + b + 120) * Math.cos(phi)} y2={O.y + (R + b + 120) * Math.sin(phi)} stroke={colors.sub} strokeWidth={2.5} strokeDasharray="14 10" opacity={on(f, t.angle - 20, 20)} />
-					<TopWheelset pose={{x: wc.x, y: wc.y, heading: phi + Math.PI / 2 - (alpha * Math.PI) / 180, k: 0.2}} heatL={scrape} heatR={scrape} />
+					<TopWheelset pose={{x: wc.x, y: wc.y, heading, k: kW}} heatL={scrape} heatR={scrape} />
 					{/* the flange pressed on the outer rail */}
 					<circle cx={flangePt.x} cy={flangePt.y} r={18 + 6 * Math.sin(f / 5)} fill={colors.crimson} opacity={0.8 * press} style={{filter: `drop-shadow(0 0 12px ${colors.crimson})`}} />
 					{press > 0.01 ? <Arrow x1={flangePt.x + 140 * Math.cos(phi)} y1={flangePt.y + 140 * Math.sin(phi)} x2={flangePt.x + 30 * Math.cos(phi)} y2={flangePt.y + 30 * Math.sin(phi)} color={colors.crimson} width={7} grow={press} /> : null}
@@ -363,7 +381,10 @@ export const Screech: React.FC = () => {
 					ANGLE OF ATTACK
 				</Label>
 				<Label x={1320} y={426} size={26} color={colors.sub} opacity={on(f, t.angle, 20)}>
-					TURNED FROM THE RADIUS · EXAGGERATED
+					TURNED FROM THE RADIUS
+				</Label>
+				<Label x={1320} y={460} size={26} color={colors.sub} opacity={on(f, t.angle, 20)}>
+					ANGLE EXAGGERATED
 				</Label>
 				<Callout x={flangePt.x} y={flangePt.y} lx={1320} ly={560} text="FLANGE PRESSED" color={colors.crimson} t={lin(f, t.presses + 20, t.presses + 60, 0, 1)} />
 				<Callout x={O.x + (R - b) * Math.cos(phi)} y={O.y + (R - b) * Math.sin(phi)} lx={1320} ly={700} text="TREAD SLIDES SIDEWAYS" color={colors.crimson} t={lin(f, t.scraped + 10, t.scraped + 50, 0, 1)} />
@@ -442,7 +463,8 @@ export const Nadal: React.FC = () => {
 	const c = contact(WS.clear);
 	const yq = tween(f, t.push - 10, t.weight + 60, 0.15, NADAL, ease.camera);
 	// the climb (ILLUSTRATION): the wheel lifts and slides outward over the rail head
-	const climb = tween(f, t.climb, t.off + 20, 0, 1, ease.camera);
+	// it keeps rising, slowing, to the end of the scene (viewer review v3: a 2.7 s still after "comes off the track")
+	const climb = tween(f, t.climb, t.end, 0, 1, ease.camera);
 	const lift = 28 * climb; // mm
 	const slide = 12 * climb; // mm
 	const sx = (v: number) => cx + v * k;
@@ -528,10 +550,14 @@ export const Nadal: React.FC = () => {
 					) : null}
 					{/* the formula */}
 					<g opacity={fo}>
-						<text x={1060} y={500} fontFamily={fx} fontSize={38} fontWeight={700} fill={colors.line}>
-							Y / Q ≤ (tan β − μ) / (1 + μ tan β)
+						{/* two lines: on one, the formula ran past the frame's central 90 % (viewer review v3) */}
+						<text x={1060} y={486} fontFamily={fx} fontSize={40} fontWeight={700} fill={colors.line}>
+							Y / Q ≤
 						</text>
-						<text x={1060} y={556} fontFamily={fx} fontSize={30} fill={colors.sub} opacity={on(f, t.push, 20)}>
+						<text x={1060} y={538} fontFamily={fx} fontSize={40} fontWeight={700} fill={colors.line}>
+							(tan β − μ) / (1 + μ tan β)
+						</text>
+						<text x={1060} y={592} fontFamily={fx} fontSize={30} fill={colors.sub} opacity={on(f, t.push, 20)}>
 							β 70° · μ 0.35 → {NADAL.toFixed(2)}
 						</text>
 					</g>

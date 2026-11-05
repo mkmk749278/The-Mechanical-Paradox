@@ -37,6 +37,8 @@ const P = (s: number): {x: number; z: number; yaw: number} => {
 	const th = (s - LEAD) / RB;
 	return {x: -RB + RB * Math.cos(th), z: LEAD + RB * Math.sin(th), yaw: -th};
 };
+const BOGIE_OUT = (1.25 * 1.25) / (2 * RB) / 2; // m
+if (Math.abs((1.25 * 1.25) / (2 * RB) - BOGIE_OUT) * 1000 > WS.clear) throw new Error('landing bogie: axles outside the flange play');
 const bendPath = (): PathSample[] => {
 	const out: PathSample[] = [];
 	for (let s = -20; s <= LEAD + RB * 2.2; s += 0.5) {
@@ -79,18 +81,27 @@ export const Landing: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = T();
 	const toHero = tween(f, t.axle - 40, t.axle - 4, 0, 1, ease.camera);
+	// through the dark, not a dissolve: the two wheelsets overlapping half-transparent read as ghosts (viewer review v3)
+	const nightO = 1 - tween(f, t.axle - 40, t.axle - 24, 0, 1, ease.camera);
+	const heroO = tween(f, t.axle - 22, t.axle - 4, 0, 1, ease.camera);
 	// night bend: the coach rolls round at 2 m/s (ILLUSTRATIVE), its bogies stiff, the leading axles at an angle
 	const sc = 26 + (2 * f) / 60;
 	const path = useMemo(bendPath, []);
 	const bogies = [sc - 7, sc + 7].map(P);
 	// each bogie holds its axles parallel to its frame: on the bend they are not radial (the angle of attack)
-	const wheelsets = bogies.flatMap((b) => [-1.25, 1.25].map((d) => ({x: b.x + Math.sin(b.yaw) * d, z: b.z + Math.cos(b.yaw) * d, yaw: b.yaw})));
+	// the bogie frame sits on the chord, so each axle 1.25 m from its centre would be d²/2R = 13 mm inside the curve's
+	// centreline; the frame is moved out by half that, so both axles stay within the ±7 mm play (C09)
+	const wheelsets = bogies.flatMap((b) =>
+		[-1.25, 1.25].map((d) => ({x: b.x + Math.sin(b.yaw) * d + Math.cos(b.yaw) * BOGIE_OUT, z: b.z + Math.cos(b.yaw) * d - Math.sin(b.yaw) * BOGIE_OUT, yaw: b.yaw})),
+	);
 	const lookAt = P(sc + 7);
 	// outside the bend, ahead of the leading bogie, low: the wheels come toward us
 	const fw = {x: Math.sin(lookAt.yaw), z: Math.cos(lookAt.yaw)};
 	const nr = {x: fw.z, z: -fw.x};
 	const camNight: CameraSpec = {
-		position: [lookAt.x + nr.x * 5.5 + fw.x * 7, 0.8, lookAt.z + nr.z * 5.5 + fw.z * 7],
+		// more ahead, less beside (viewer review v3: from 5.5 m beside, the near wheels of the two axles overlapped and
+		// read as three wheels on one axle)
+		position: [lookAt.x + nr.x * 4.2 + fw.x * 8, 0.8, lookAt.z + nr.z * 4.2 + fw.z * 8],
 		target: [lookAt.x - fw.x * 1.5, 0.6, lookAt.z - fw.z * 1.5],
 		fov: 38,
 	};
@@ -121,7 +132,7 @@ export const Landing: React.FC = () => {
 			{/* each 3D canvas is mounted only while it can be seen: both mounted on every frame made this the farm's slowest
 			    shard by far (3 h+ at 720p, 2026-11-04) */}
 			{toHero < 1 && (
-			<AbsoluteFill style={{opacity: 1 - toHero}}>
+			<AbsoluteFill style={{opacity: nightO}}>
 				<Stage3D width={W} height={H} cam={camNight}>
 					<Track3D path={path} edgeOpacity={0.6} />
 					<Coach sc={sc} />
@@ -144,12 +155,12 @@ export const Landing: React.FC = () => {
 					THE TREADS SLIDE SIDEWAYS
 				</Label>
 				<Tag x={96} y={H - 110} opacity={on(f, 0, 20) * (1 - on(f, t.next, 20))}>
-					LINE DRAWING · NIGHT
+					ILLUSTRATION
 				</Tag>
 			</AbsoluteFill>
 			)}
 			{toHero > 0 && (
-			<AbsoluteFill style={{opacity: toHero}}>
+			<AbsoluteFill style={{opacity: heroO}}>
 				<Shot3DView id="s15hero" f={f} width={W} height={H} />
 				<Label x={W / 2} y={140} size={44} color={colors.line} weight={700} align="center" opacity={Math.min(on(f, t.axle, 16), off(f, t.locked - 10, 16))}>
 					ONE SOLID AXLE
