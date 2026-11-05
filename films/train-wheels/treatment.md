@@ -50,6 +50,12 @@ all your life finally making sense.
 - **Honesty labels:** the cone slope is exaggerated wherever it must be seen → NOT TO SCALE. HUD values from the
   textbook wheelset → MODEL (sources C10, C13, C14, C21). The locomotive is generic, unbranded.
 
+### Edge lights on the hero steel (owner's review of v4, 2026-11-05)
+The review asked for a rim light, blue or orange, so the grey wheelset reads against the dark grid in the opening
+seconds. Done with two cool backlights that follow the wheelset (s01 and the s15 landing). **Not orange:** amber is the
+paradox point; the tread lights amber on "the shape of the wheel" in s03, and a warm rim at 0:02 would spend that
+colour before it means anything. Not on s03 itself: there the backlight turned the rail under the amber tread white.
+
 ## HUD (top-right, ticking with the VO)
 `CURVE R`, `SHIFT y`, `Δr`, `FLANGE GAP`, later `λ (KLINGEL)`, `f`, `SPEED`. Every value from model.py or claims.
 

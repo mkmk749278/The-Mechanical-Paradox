@@ -363,6 +363,37 @@ area("rim", (-4, 1.5, 3), 650, "#9EC9FF", 2.0)
 area("under", (0, -3, 2), 60, "#FF9F1C", 2.0)
 area("strip", (0.5, 6, 2.5), 300, "#E8EEF5", 6.0)  # a long overhead strip: the tread's highlight
 
+
+# the edge lights (viewer review of v4, 2026-11-05: the grey steel sank into the Abyss Black in the cold open): two cool
+# softboxes kept behind the wheelset, opposite the camera, keyed every frame so they follow the roll and every camera
+# move. They draw a thin bright line along the flange crowns, the far wheel's back edge and the axle's top, which
+# separates the silhouette from the dark grid. Cool, never amber or cyan: amber is the paradox point (the tread lights
+# amber on "the shape of the wheel"), cyan is compression and flow; a backlight carries no meaning, so it stays
+# steel-white with a blue cast. No shadows from them (a backlight's shadow would run at the camera across the catcher),
+# and the camera never sees the panels.
+def edge(name, power, color, size):
+    L = bpy.data.lights.new(name, "AREA")
+    L.energy = power
+    L.color = lin(color)[:3]
+    L.size = size
+    L.use_shadow = False
+    ob = bpy.data.objects.new(name, L)
+    ob.rotation_mode = "QUATERNION"
+    ob.visible_camera = False
+    ob.visible_diffuse = False  # reflections only: the faces keep the key's modelling, the edges get the line
+    scene.collection.objects.link(ob)
+    return ob
+
+
+# (light, distance behind, sideways, height above the hub): the high one rims the flange crowns and the far wheel; the
+# low one, on the other side, the near wheel's outer edge and the rail heads
+# only on shots that ask for them (shots3d.ts SHOTS[...].edgeLights): on the s03 close-up they blew the rail head white
+# under the amber tread
+EDGES = [
+    (edge("edge_high", 1400, "#CFE6FF", 2.4), 3.2, 1.1, 1.7),
+    (edge("edge_low", 700, "#B8D4F5", 1.8), 3.0, -1.6, 0.4),
+] if data.get("edgeLights") else []
+
 # ---------------------------------------------------------------- camera
 cam_data = bpy.data.cameras.new("cam")
 cam_data.sensor_fit = "VERTICAL"
@@ -425,6 +456,20 @@ for fr in frames:
         xp = own["axle"][1]
         key_inputs(xp, "Emission Color", (*white, 1.0), n)
         key_inputs(xp, "Emission Strength", 0.9 * w["axleGlow"], n)
+    # edge lights: behind the first wheelset as seen from the camera (horizontal), aimed at its hub
+    if wheelsets and EDGES:
+        hub = wheelsets[0][0].location.copy()  # the axle centre (the root carries the full three.js matrix)
+        back = hub - loc
+        back.z = 0
+        if back.length > 1e-6:
+            back.normalize()
+            side = back.cross(Vector((0, 0, 1)))
+            for ob, dist, sd, up in EDGES:
+                ob.location = hub + back * dist + side * sd + Vector((0, 0, up))
+                eq = (hub - ob.location).to_track_quat("-Z", "Y")
+                ob.rotation_quaternion = eq
+                ob.keyframe_insert("location", frame=n)
+                ob.keyframe_insert("rotation_quaternion", frame=n)
     # track: rails fade with the drawing; edge lines with it
     t = fr["track"]
     key_inputs(rail_p, "Alpha", t["draw"], n)

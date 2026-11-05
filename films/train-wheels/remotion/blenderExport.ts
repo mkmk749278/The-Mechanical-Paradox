@@ -104,6 +104,7 @@ export const exportShot = (id: ShotId) => {
 		frames,
 		wheelset: wheelsetMeshes(),
 		wheelsets: s0.wheelsets.length,
+		edgeLights: 'edgeLights' in shot && shot.edgeLights === true,
 		rails: [mesh('railL', 'rail', railL), mesh('railR', 'rail', railR)],
 		sleepers,
 		railPaths: lines.map((l) => ({color: l.color, pts: l.pts})),

@@ -161,11 +161,14 @@ export const thumbC3D = still({
 	railPaths: [],
 });
 
-/** The Blender shots: which scene, which of its local frames, and the state function. */
+/** The Blender shots: which scene, which of its local frames, and the state function. `edgeLights`: the cool backlight
+ * pair in render_shot.py (owner review of v4, 2026-11-05: the grey steel sank into the dark in the cold open). Not on
+ * s03: there the backlight blew the rail head white under the amber tread and competed with "the shape of the wheel";
+ * not on the thumbnails, already approved. */
 export const SHOTS = {
-	s01: {scene: 's01' as const, from: () => 0, to: () => span('s01').dur + 18, state: coldOpen3D},
+	s01: {scene: 's01' as const, from: () => 0, to: () => span('s01').dur + 18, state: coldOpen3D, edgeLights: true},
 	s03: {scene: 's03' as const, from: () => 0, to: () => span('s03').dur + 18, state: promise3D},
-	s15hero: {scene: 's15' as const, from: () => T15().axle - 40, to: () => span('s15').dur, state: landingHero3D},
+	s15hero: {scene: 's15' as const, from: () => T15().axle - 40, to: () => span('s15').dur, state: landingHero3D, edgeLights: true},
 	thumbA: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbA3D},
 	thumbB: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbB3D},
 	thumbC: {scene: 's01' as const, from: () => 0, to: () => 2, state: thumbC3D},
