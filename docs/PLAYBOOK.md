@@ -493,6 +493,16 @@ plate under the live blueprint layer.
   AgX:** AgX desaturated the amber glow to peach (the brand colour carries a meaning and must land exact); a glowing
   tread also takes the glow colour as its metal colour, so its polish never mirrors the studio in white over the glow.
   Blotchy noise weathering read as camouflage: rejected.
+- **Edge lights for grey steel on the Abyss Black** (owner's review of film 1 v4, 2026-11-05: the cold-open wheelset
+  "sank" into the dark). Two cool softboxes kept *behind* the object, opposite the camera, keyed every frame so they
+  follow the roll and every camera move; reflections only (`visible_diffuse` off, so the faces keep the key's
+  modelling), no shadows, never seen by the camera. Per shot (`SHOTS[…].edgeLights`): on a close-up of a glowing tread
+  they blew the rail head white and competed with the amber beat, so that shot goes without. Cool, never amber or cyan:
+  a backlight carries no meaning, and those colours do. *Why world-fixed lights failed:* the old "rim" sat beside the
+  camera and stayed put while the wheelset rolled ~9 m away from it. 4K at 16 samples: about 6 min a frame on 4 cores
+  (the grain seen at 960 px with these lights is gone at 3840); plan blocks of ≤ 50 frames per job (6 h limit).
+- **Before a plate re-render, move the old tars out of `render-media/`:** the farm unpacks every tar there in name
+  order, and `<shot>_all.tar` sorts after `<shot>_00000.tar`, so old frames would overwrite new ones.
 - **Cost (measured 2026-11-04):** about 75 s a 1080p frame at 16 samples with OpenImageDenoise (albedo + normal) on
   4 cores; clean. 1,870 frames ≈ 1.8 h on 20 runners. The 4K master is 4× that: two runs back to back.
 - **Order:** export and render on the farm → frames land in Drive `<film>/render-media/plates/<shot>/` as WebP with
