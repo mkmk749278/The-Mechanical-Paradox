@@ -57,7 +57,9 @@ export const FlangeMyth: React.FC = () => {
 		[
 			{f: 0, cam: {position: [0.05, 0.3, 1.6], target: [0.66, 0.05, 0.05], fov: 30}},
 			{f: t.guess, cam: {position: [0.3, 0.09, 1.0], target: [0.7, 0.0, 0.05], fov: 26}},
-			{f: t.surprise + 10, cam: {position: [GX, 0.06, 1.7], target: [GX, -0.004, 0], fov: 22}},
+			// the three-quarter view holds through "But here is the surprise", then racks straight in to the gap: the
+			// head-on midpoint read as two grey slabs (viewer review v3, 1:03–1:06)
+			{f: t.surprise + 10, cam: {position: [0.24, 0.12, 1.5], target: [0.69, 0.01, 0.05], fov: 24}},
 			{f: t.gentle + 30, cam: {position: [GX, -0.006, 1.6], target: [GX, -0.008, 0], fov: 4.2}},
 			{f: t.end, cam: {position: [GX, -0.006, 1.5], target: [GX, -0.008, 0], fov: 3.8}},
 		],
@@ -109,6 +111,8 @@ export const FlangeMyth: React.FC = () => {
 							<line x1={gw.x} y1={gw.y + 20} x2={gw.x} y2={gw.y + 150} stroke={colors.amber} strokeWidth={2} strokeDasharray="5 5" />
 							<line x1={gr.x} y1={gr.y + 20} x2={gr.x} y2={gr.y + 150} stroke={colors.amber} strokeWidth={2} strokeDasharray="5 5" />
 							<Dim x1={gw.x} y1={gapPt.y + 160} x2={gr.x} y2={gapPt.y + 160} color={colors.amber} tick={10} />
+							{/* a scrim under the value: the rail's gauge-face edge ran through "2.0" */}
+							<rect x={gapPt.x - 160} y={gapPt.y + 182} width={320} height={56} rx={6} fill={colors.bg} opacity={0.72} />
 						</Svg>
 						<Label x={gapPt.x} y={gapPt.y + 186} size={40} color={colors.amber} weight={700} align="center" opacity={near}>
 							GAP {GAP.toFixed(1)} mm

@@ -1,0 +1,363 @@
+1
+00:00:00,000 --> 00:00:06,807
+On most trains, each pair of wheels is locked to one solid steel axle, so both wheels always turn together.
+
+2
+00:00:07,573 --> 00:00:10,361
+But on a bend, the outer wheel has farther to go.
+
+3
+00:00:11,168 --> 00:00:12,648
+So why doesn't one of them skid?
+
+4
+00:00:13,838 --> 00:00:16,336
+Take a bend that turns the track through a right angle.
+
+5
+00:00:17,053 --> 00:00:18,917
+Here is the part you might not expect.
+
+6
+00:00:19,537 --> 00:00:22,084
+Wide or tight, it makes no difference.
+
+7
+00:00:22,760 --> 00:00:26,215
+The outer rail is about two point four meters longer either way.
+
+8
+00:00:26,850 --> 00:00:29,952
+And a one-hundred-ton locomotive has nothing to fix that.
+
+9
+00:00:30,543 --> 00:00:35,852
+No steering, no differential gears, the box that lets your car's outer wheel spin faster.
+
+10
+00:00:36,478 --> 00:00:41,930
+Yet on a gentle curve, if you could watch the wheels, you would see that neither one really slips.
+
+11
+00:00:43,072 --> 00:00:46,939
+The answer is in the shape of the wheel, and you've probably never noticed it.
+
+12
+00:00:47,571 --> 00:00:52,932
+And that same shape explains the screech you hear on a tight bend, and why fast trains sway.
+
+13
+00:00:54,361 --> 00:00:55,854
+So what steers it?
+
+14
+00:00:56,719 --> 00:00:59,711
+The steel lips on the inside of each wheel, the flanges?
+
+15
+00:01:00,519 --> 00:01:02,519
+That is what you would probably guess.
+
+16
+00:01:03,131 --> 00:01:04,445
+But here is the surprise.
+
+17
+00:01:05,176 --> 00:01:09,276
+On a gentle curve, the flanges do not need to touch the rail at all.
+
+18
+00:01:10,627 --> 00:01:14,418
+Look closely at the tread, the part of the wheel that rolls on the rail.
+
+19
+00:01:15,068 --> 00:01:15,729
+Do you see it?
+
+20
+00:01:16,742 --> 00:01:17,873
+It is not flat.
+
+21
+00:01:18,421 --> 00:01:23,246
+It is tapered, close to a cone, so the wheel gets slightly bigger toward the flange.
+
+22
+00:01:24,063 --> 00:01:26,031
+The slope is about one in twenty.
+
+23
+00:01:26,843 --> 00:01:31,057
+If you move twenty millimeters across, its radius grows by one millimeter.
+
+24
+00:01:32,276 --> 00:01:34,560
+Now watch the axle enter a curve.
+
+25
+00:01:35,321 --> 00:01:38,283
+With both wheels the same size, it rolls straight on.
+
+26
+00:01:39,046 --> 00:01:44,017
+But the rails bend away beneath it, so it drifts a few millimeters toward the outside of the bend.
+
+27
+00:01:44,668 --> 00:01:46,232
+And now you have the trick.
+
+28
+00:01:46,888 --> 00:01:54,026
+That moves the outer wheel onto its fatter part, near the flange, and the inner wheel onto its thinner part, away from its flange.
+
+29
+00:01:54,754 --> 00:01:58,942
+So the outer wheel rolls on a bigger circle, and the inner wheel on a smaller one.
+
+30
+00:01:59,616 --> 00:02:01,584
+Same spin, different distance.
+
+31
+00:02:02,793 --> 00:02:07,291
+It keeps drifting until the outer wheel is just big enough to cover the extra distance.
+
+32
+00:02:07,989 --> 00:02:12,409
+Now neither wheel really slips, and the axle follows the curve by itself.
+
+33
+00:02:13,688 --> 00:02:15,099
+How big is that difference?
+
+34
+00:02:15,920 --> 00:02:17,267
+You might guess centimeters.
+
+35
+00:02:17,963 --> 00:02:22,877
+Take the textbook version, two wheels and their axle, which engineers call a wheelset.
+
+36
+00:02:23,628 --> 00:02:29,412
+If you shift it as far as it can go, its two wheels differ in radius by about seven tenths of a millimeter.
+
+37
+00:02:29,999 --> 00:02:32,300
+About the thickness of the bank card in your wallet.
+
+38
+00:02:33,458 --> 00:02:37,821
+So on a gentle curve, what you are looking at is the whole steering system.
+
+39
+00:02:38,413 --> 00:02:40,264
+No gears, no levers.
+
+40
+00:02:40,731 --> 00:02:41,522
+Just shape.
+
+41
+00:02:42,670 --> 00:02:44,252
+It even works on straight track.
+
+42
+00:02:44,972 --> 00:02:47,366
+Imagine you nudge the axle to one side.
+
+43
+00:02:47,974 --> 00:02:52,388
+The wheel on that side gets bigger, so the axle steers itself back toward the middle.
+
+44
+00:02:53,743 --> 00:02:55,344
+But shape has a limit.
+
+45
+00:02:56,174 --> 00:03:01,832
+The textbook wheelset you just saw can only shift about seven millimeters before the flange meets the rail.
+
+46
+00:03:02,673 --> 00:03:07,507
+If you put it on a curve with a radius of five hundred meters, it would need to shift fifteen.
+
+47
+00:03:08,344 --> 00:03:10,183
+That is about twice what it has.
+
+48
+00:03:11,394 --> 00:03:19,399
+So with a one in twenty cone, the shape alone only works on curves you would call gentle, about a kilometer in radius, or wider.
+
+49
+00:03:20,187 --> 00:03:22,955
+Any tighter, and the flange starts to touch the rail.
+
+50
+00:03:24,133 --> 00:03:25,632
+And on a really tight curve?
+
+51
+00:03:26,644 --> 00:03:31,665
+The flange presses hard against the rail and drags the axle round, but at a slight angle.
+
+52
+00:03:32,417 --> 00:03:35,460
+So the tread is scraped sideways across the top of the rail.
+
+53
+00:03:36,531 --> 00:03:38,414
+And that is the screech you hear.
+
+54
+00:03:39,160 --> 00:03:41,121
+You would think it is the flange rubbing, right?
+
+55
+00:03:42,078 --> 00:03:49,928
+But most researchers say it is the tread, sliding sideways, sticking and slipping so fast that the whole wheel rings like a bell.
+
+56
+00:03:51,154 --> 00:03:53,895
+On tight curves, the flange does the hard work.
+
+57
+00:03:54,591 --> 00:03:56,101
+But how hard can you push it?
+
+58
+00:03:57,194 --> 00:04:00,815
+More than a century ago, an engineer named Nadal worked that out.
+
+59
+00:04:01,624 --> 00:04:08,264
+Once the sideways push gets roughly as big as the weight on that wheel, a typical flange can climb up and over the rail.
+
+60
+00:04:09,041 --> 00:04:11,223
+That is one way a train comes off the track.
+
+61
+00:04:12,590 --> 00:04:14,079
+And here is the twist.
+
+62
+00:04:14,873 --> 00:04:18,146
+The cone that keeps your train centered also makes it sway.
+
+63
+00:04:19,360 --> 00:04:22,791
+If you push the axle to one side, the cone steers it back.
+
+64
+00:04:23,541 --> 00:04:25,736
+But does it stop in the middle, where you want it?
+
+65
+00:04:26,752 --> 00:04:27,276
+No.
+
+66
+00:04:27,833 --> 00:04:30,175
+It overshoots, and steers back again.
+
+67
+00:04:31,115 --> 00:04:35,928
+If you watched from above, you would see the axle snake along the track in a smooth wave.
+
+68
+00:04:36,876 --> 00:04:39,947
+Railway engineers call it hunting, and you can see why.
+
+69
+00:04:41,269 --> 00:04:44,724
+George Stephenson knew about this sway about two hundred years ago.
+
+70
+00:04:45,481 --> 00:04:50,440
+In eighteen eighty-three, an engineer called Klingel worked out how long each wave is.
+
+71
+00:04:51,186 --> 00:04:54,810
+For the textbook wheelset you just saw, about seventeen meters.
+
+72
+00:04:55,576 --> 00:05:01,713
+At a hundred and sixty kilometers an hour, if it kept going, that would be about two and a half sways every second.
+
+73
+00:05:02,937 --> 00:05:05,752
+So why isn't your train always swaying like that?
+
+74
+00:05:06,745 --> 00:05:13,282
+Because below a certain speed, called the critical speed, each sway is smaller than the last, and it dies away.
+
+75
+00:05:14,068 --> 00:05:18,850
+Above it, each sway is bigger than the last, until the flanges hammer the rails.
+
+76
+00:05:20,018 --> 00:05:21,528
+Fast trains have a fix.
+
+77
+00:05:21,917 --> 00:05:23,352
+They use flatter cones.
+
+78
+00:05:24,022 --> 00:05:28,497
+Japan's bullet trains used wheels with a slope of one in forty, half as steep.
+
+79
+00:05:29,287 --> 00:05:32,902
+And holding each axle stiffly in its frame keeps it pointing straight.
+
+80
+00:05:33,612 --> 00:05:36,725
+But that same stiffness makes it harder to turn into a curve.
+
+81
+00:05:37,993 --> 00:05:38,838
+See the trade-off?
+
+82
+00:05:39,913 --> 00:05:43,689
+A steeper cone, or a looser axle, takes tight curves better.
+
+83
+00:05:44,441 --> 00:05:48,110
+A flatter cone, or a stiffer axle, stays calm at speed.
+
+84
+00:05:48,860 --> 00:05:50,977
+No single design is best at both.
+
+85
+00:05:52,366 --> 00:05:56,535
+So the next time you hear that screech on a bend, you will know what it means.
+
+86
+00:05:57,208 --> 00:06:01,444
+The cone has run out, and your train's steel wheels are sliding sideways.
+
+87
+00:06:02,520 --> 00:06:04,006
+One solid axle.
+
+88
+00:06:04,567 --> 00:06:06,106
+Two wheels locked together.
+
+89
+00:06:06,649 --> 00:06:08,858
+And a gentle slope on every wheel.
+
+90
+00:06:09,436 --> 00:06:14,173
+On gentle curves, the shape does the steering, and on tight ones, the flange helps.
+
+91
+00:06:14,820 --> 00:06:17,730
+That is how a train steers with no steering at all.

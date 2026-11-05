@@ -99,7 +99,7 @@ const Bend: React.FC<{f: number; o: number}> = ({f, o}) => {
 	const endIn = P(r - B, Math.PI / 2);
 	const endOut = P(r + B, Math.PI / 2);
 	const raceO = Math.min(on(f, t.expect - 10, 16), off(f, t.loco - 20, 24));
-	const coneO = on(f, t.yet + 30, 20);
+	const coneO = on(f, t.yet - 10, 20); // the wheels are on the bend from "Yet" (viewer review v3: 2 s of a still drawing)
 	return (
 		<g opacity={o}>
 			{/* straights in and out, then the arcs */}
@@ -121,7 +121,7 @@ const Bend: React.FC<{f: number; o: number}> = ({f, o}) => {
 				<polyline points={`${O.x + 40},${O.y} ${O.x + 40},${O.y - 40} ${O.x},${O.y - 40}`} fill="none" stroke={colors.line} strokeWidth={3} />
 			</g>
 			<Race f={f} start={t.expect + 30} dur={150} cone={false} r={r} o={raceO} />
-			<Race f={f} start={t.watch} dur={170} cone r={r} o={coneO} />
+			<Race f={f} start={t.yet + 20} dur={t.neither + 10 - (t.yet + 20)} cone r={r} o={coneO} />
 		</g>
 	);
 };

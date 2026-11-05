@@ -23,7 +23,7 @@ const RIGHT_X = 1040; // outer rail (outside of the bend)
 const LEFT_X = 480; // inner rail
 const MID = (LEFT_X + RIGHT_X) / 2; // the broken-out axle's centreline
 const HUD_W = 440;
-const SCALE_X = 1440; // the scale note's left edge
+const SCALE_X = 1360; // the scale note's left edge
 
 /** The scene's span on the film's clock (scenes.ts tiles the VO; s07 runs from 36 frames before its first word). */
 export const bankCardSpan = (): {from: number; to: number} => ({from: span('s07').from, to: span('s07').to});
@@ -183,10 +183,10 @@ const Panels: React.FC<{f: number; y: number; fps: number}> = ({f, y, fps}) => {
 			<Label x={SCALE_X} y={962} size={26} color={colors.sub} opacity={draw}>
 				GENERIC PROFILES
 			</Label>
-			<Label x={LEFT_X - 160} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
+			<Label x={LEFT_X - 140} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
 				INNER WHEEL
 			</Label>
-			<Label x={LEFT_X - 160} y={180} size={36} color={colors.amber} align="right" opacity={draw} weight={700}>
+			<Label x={LEFT_X - 140} y={180} size={36} color={colors.amber} align="right" opacity={draw} weight={700}>
 				r {rI.toFixed(2)} mm
 			</Label>
 			<Label x={RIGHT_X - 24} y={140} size={26} color={colors.sub} align="right" opacity={draw}>
@@ -303,6 +303,11 @@ export const BankCard: React.FC = () => {
 	const aBack = tween(f, t.whole + 40, t.whole + 64, 0, 1, ease.arrive);
 	const panels = Math.max(aOut, aBack);
 	const ruler = Math.min(tween(f, t.tenths - 36, t.tenths - 12, 0, 1, ease.arrive), 1 - aBack);
+	// a slow push on the panels while they hold (viewer review v3: 2.7 s still at "How big is that difference?" and
+	// 3.2 s at "No gears, no levers"): about 3 % over the first hold, 3.5 % from "the whole steering system" to the end
+	// (the panels are hidden while the ruler plays, so the second push starts again from 1: a 1.08 total pushed the inner
+	// radius label off the left edge)
+	const push = f < t.tenths ? 1 + 0.03 * tween(f, t.draw + 20, t.shift + 40, 0, 1, ease.camera) : 1 + 0.035 * tween(f, t.whole + 40, t.end, 0, 1, ease.camera);
 	const hudRows = [
 		{label: 'SHIFT y', unit: 'mm', at: (fr: number) => shiftAt(fr, fps), decimals: 1, tone: 'emerald' as const, source: 'C09'},
 		{label: 'Δr', unit: 'mm', at: (fr: number) => deltaR(shiftAt(fr, fps)), decimals: 2, tone: 'amber' as const, source: 'C10'},
@@ -311,7 +316,7 @@ export const BankCard: React.FC = () => {
 	return (
 		<AbsoluteFill>
 			<Blueprint duration={t.end} light={{x: 0.5, y: 0.5}}>
-				<AbsoluteFill style={{opacity: panels}}>
+				<AbsoluteFill style={{opacity: panels, transform: `scale(${push})`, transformOrigin: '320px 540px'}}>
 					<Panels f={f} y={y} fps={fps} />
 				</AbsoluteFill>
 				<AbsoluteFill style={{opacity: ruler}}>
