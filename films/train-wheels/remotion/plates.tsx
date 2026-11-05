@@ -9,7 +9,7 @@ import {Stage3D, Track3D, Wheelset3D} from './Wheelset3D';
 // from blender/render_shot.py) when its frames are in public/films/train-wheels/plates/<shot>/, otherwise the same state
 // drawn live in three.js. A plate is listed in PLATES only once every frame of it is in Drive render-media/plates/.
 
-export const PLATES: Partial<Record<ShotId, {ext: 'webp'}>> = {s01: {ext: 'webp'}, s03: {ext: 'webp'}, s15hero: {ext: 'webp'}, thumbA: {ext: 'webp'}, thumbB: {ext: 'webp'}};
+export const PLATES: Partial<Record<ShotId, {ext: 'webp'}>> = {s01: {ext: 'webp'}, s03: {ext: 'webp'}, s15hero: {ext: 'webp'}, thumbA: {ext: 'webp'}, thumbB: {ext: 'webp'}, thumbC: {ext: 'webp'}};
 
 const pad = (n: number) => String(n).padStart(5, '0');
 
