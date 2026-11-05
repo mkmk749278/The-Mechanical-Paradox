@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-04, music mixed, review cut v3 with the Blender hero shots)
+# Film 1 status and handoff (2026-11-05, review cut v4 after the independent viewer review; YouTube package)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -61,11 +61,40 @@ deliberate ones (1:30.0, 2:38.3, 4:10.4); frame-to-frame motion measured through
 frame (isolated near-identical single frames only in the footage insert at 0:09, at scene changes, and once in the
 slow final roll-away).
 
+**Independent viewer review of v3 (2026-11-05)** (`review/viewer_v3.md`, checked point by point in
+`review/viewer_v3_check.md`): needs fixes. 8 points confirmed, 2 partly or with another cause, 2 not confirmed. Fixed:
+- The tight-curve plan view (3:24) had its axle along the track, 90° off. It now lies on the radius, with a numeric
+  check in code.
+- The opening clip `f01` was 25i flagged progressive (combing); it is deinterlaced to 50p in Drive, original in
+  `footage-originals/`.
+- Holds over 2 s, measured with `freezedetect`: motion added at 0:37, 2:14, 2:38, 4:09, 5:42 and 5:46.
+- The empty grid at 5:20; label collisions at 5:24 and 5:28; the clipped label at 3:30; the Klingel label at the top
+  edge; the Nadal formula outside the central 90 %.
+- The 1:03 camera move (grey slab); the landing bogie (axles within the ±7 mm play, camera turned, tag ILLUSTRATION);
+  the 6:02 ghost dissolve, now a dip through the dark.
+- The pen-scratch cue follows the 1:20 line (5:20). The mix was remade: it differs only at 5:20.2–5:22.1, −14.1 LUFS.
+  `mix.wav` is in Drive, the previous one kept as `mix_v3.wav`.
+
+**Review cut v4** (`train-wheels_review_720p_v4.mp4` in Drive `train-wheels/renders/`, run 41975965565, all green):
+6:24.9, −14.1 LUFS, −1.2 dBTP. No hold over 2 s (the longest is the 1:29.3 cone close-up, 2.45 s, under the 2.5 s
+limit). Dark-canvas breaths under 1 s at five scene starts (0:13.5, 2:53.4, 5:19.6, among others) and the planned
+0.15 s dip at 6:02; no true black. Every fix seen in the cut's own frames.
+
+**YouTube package (§13.7): done except the owner's upload** (`youtube/`):
+- `package.md`: title and two alternatives, the thumbnail rationale, settings (synthetic-content disclosure Yes,
+  tags, pinned question, end screen, playlist, launch) and the cut list for three Shorts.
+- `description.md`: chapters from the locked VO.
+- `train-wheels.en.srt`.
+- Three thumbnails (`thumb_main_no-steering.jpg`, `thumb_b_0-7mm.jpg`, `thumb_c_real-screech.jpg`, also in Drive
+  `train-wheels/youtube/`): Blender stills of the film's own wheelset (`shots3d.ts` thumbA/B/C, run 41973290368, 2560
+  px, 128 samples), words in `Thumbs.tsx`. Squint-tested at 168 and 120 px beside 8 competitors from the same search
+  (`review/thumbs_squint_168.png`).
+
 **Next session, in order**
-1. Independent viewer review of v3 (§14.2: a new session, no repo, the cut and the narration with timecodes), then
-   the owner's review in `mkmk749278/Review`.
-   For the 4K master the plates render again at width 3840 (about 4× the time: two runs).
-   When the Gemini cap resets or is raised, run the two listeners on the three act tracks (`lyria_library.py` `listen`
-   and `voice_check`).
-2. The YouTube package (§13.7): Shorts (2–3), 3 thumbnails, title, description, SRT (`vo/captions.en.srt`).
-3. Re-open the Tanifuji record (C24) when the Niigata repository is up.
+1. The owner's review of v4 in `mkmk749278/Review` (the forensic protocol, in a new session with only that repo).
+2. Build the three vertical Shorts from the cut list (1080×1920 compositions over the same scenes).
+3. After the owner approves the cut: the 4K master (plates again at width 3840; about two Blender runs, then
+   `remotion-render.yml` at scale 2).
+4. When the Gemini cap resets: the two listeners on the three act tracks. A person listens once, act 1 around 0:54
+   first.
+5. Re-open the Tanifuji record (C24) when the Niigata repository is up.
