@@ -4,7 +4,7 @@
 // with `ffmpeg -f concat -c copy` and, if given, the master audio is laid under the picture.
 //
 // Usage: node scripts/render_shards.mjs . COMP OUT_DIR [--seconds 30] [--scale 1] [--crf 18]
-//          [--concurrency 4] [--audio MIX.wav] [--maxrate 16M] [--out FILM.mp4] [--frames A-B] [--render-only] [--join-only]
+//          [--concurrency 4] [--audio MIX.wav] [--maxrate 16M] [--out FILM.mp4] [--frames A-B | A,B,C] [--render-only] [--join-only]
 // Shards are encoded with a capped bitrate (--maxrate), so the join never re-encodes: concat + audio in one copy pass.
 // The render farm (.github/workflows/remotion-render.yml) gives each runner --frames A-B --render-only, then one job
 // runs --join-only on all the shards.
@@ -32,7 +32,11 @@ const crf = Number(opt('crf', 18));
 const concurrency = Number(opt('concurrency', 4));
 const audio = opt('audio', null);
 const maxrate = opt('maxrate', scale > 1 ? '30M' : '12M');
-const only = opt('frames', null)?.split('-').map(Number);
+// --frames A-B: the shards starting in A..B; --frames A,B,C: exactly the shards starting at those frames (the farm deals
+// shards round-robin, so a heavy stretch of the film is spread over every runner, not stacked on one)
+const framesArg = opt('frames', null);
+const only = framesArg && framesArg.includes('-') ? framesArg.split('-').map(Number) : null;
+const onlyList = framesArg && !framesArg.includes('-') ? new Set(framesArg.split(',').map(Number)) : null;
 const final = opt('out', path.join(out, `${comp}.mp4`));
 
 const req = createRequire(path.resolve(project, 'package.json'));
@@ -69,6 +73,7 @@ const flashes = (file) => {
 
 for (const [a, b] of rest.includes('--join-only') ? [] : shards) {
 	if (only && (a < only[0] || a > only[1])) continue;
+	if (onlyList && !onlyList.has(a)) continue;
 	const name = `shard_${String(a).padStart(6, '0')}.mp4`;
 	const file = path.join(out, name);
 	if (fs.existsSync(file)) continue;

@@ -90,11 +90,21 @@ limit). Dark-canvas breaths under 1 s at five scene changes (0:13.5, 2:27.4, 2:5
   px, 128 samples), words in `Thumbs.tsx`. Squint-tested at 168 and 120 px beside 8 competitors from the same search
   (`review/thumbs_squint_168.png`).
 
+**Owner's review of v4 (2026-11-05): approved "with fixes; next render in 4K directly and upload to Drive".** The
+one picture fix: the grey wheelset sank into the dark in the cold open (0:02–0:07). Done with cool edge lights that
+follow the wheelset (`render_shot.py`, `SHOTS[…].edgeLights` on s01 and s15hero; not s03, where they blew the rail
+white under the amber tread; PR #23; treatment.md says why not orange). Checked at 960 and 3840 px against the v4
+plates. The review's title and thumbnail ideas match `youtube/package.md` (title "How Trains Turn Without a
+Differential" stays the owner's pick there).
+**4K master in progress:** the 1080p plate tars moved to Drive `train-wheels/plates_1080_tar/` (they sorted after the
+new blocks and would have overwritten them); Blender run 42003405007 at 3840 px, 16 samples, 73 blocks of ≤ 36
+frames. Then `remotion-render.yml` TW-Film, scale 2, tail 330, `train-wheels_master_4k.mp4` → Drive
+`train-wheels/renders/`, then the gate (length, loudness, black frames, plate frames) and a 1080p copy.
+
 **Next session, in order**
 1. The owner's review of v4 in `mkmk749278/Review` (the forensic protocol, in a new session with only that repo).
 2. Build the three vertical Shorts from the cut list (1080×1920 compositions over the same scenes).
-3. After the owner approves the cut: the 4K master (plates again at width 3840; about two Blender runs, then
-   `remotion-render.yml` at scale 2).
+3. The 4K master, if not finished (above).
 4. When the Gemini cap resets: the two listeners on the three act tracks. A person listens once, act 1 around 0:54
    first.
 5. Re-open the Tanifuji record (C24) when the Niigata repository is up.
