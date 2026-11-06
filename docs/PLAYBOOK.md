@@ -501,6 +501,11 @@ plate under the live blueprint layer.
   a backlight carries no meaning, and those colours do. *Why world-fixed lights failed:* the old "rim" sat beside the
   camera and stayed put while the wheelset rolled ~9 m away from it. 4K at 16 samples: about 6 min a frame on 4 cores
   (the grain seen at 960 px with these lights is gone at 3840); plan blocks of ≤ 50 frames per job (6 h limit).
+- **4K master on the Remotion farm: 5 s shards dealt round-robin** (`remotion-render.yml` input `seconds` 5). With
+  30 s contiguous blocks the heaviest 720p shard of film 1 took 99 min; at 4K (9× the pixels) it would pass the 6 h
+  job limit. Round-robin gives every runner a share of the heavy 3D and plate stretches.
+- **Workflow inputs take the bare slug** (`film: train-wheels`, not `films/train-wheels`): the workflows add `films/`
+  themselves. A wrong value fails every job in seconds (film 1's first 4K plate run, 2026-11-05).
 - **Before a plate re-render, move the old tars out of `render-media/`:** the farm unpacks every tar there in name
   order, and `<shot>_all.tar` sorts after `<shot>_00000.tar`, so old frames would overwrite new ones.
 - **Cost (measured 2026-11-04):** about 75 s a 1080p frame at 16 samples with OpenImageDenoise (albedo + normal) on
