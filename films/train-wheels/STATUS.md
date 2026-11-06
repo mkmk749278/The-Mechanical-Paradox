@@ -1,4 +1,4 @@
-# Film 1 status and handoff (2026-11-05, review cut v4 after the independent viewer review; YouTube package)
+# Film 1 status and handoff (2026-11-06: 4K master delivered after the owner's approval of v4)
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
@@ -96,15 +96,22 @@ follow the wheelset (`render_shot.py`, `SHOTS[…].edgeLights` on s01 and s15her
 white under the amber tread; PR #23; treatment.md says why not orange). Checked at 960 and 3840 px against the v4
 plates. The review's title and thumbnail ideas match `youtube/package.md` (title "How Trains Turn Without a
 Differential" stays the owner's pick there).
-**4K master in progress:** the 1080p plate tars moved to Drive `train-wheels/plates_1080_tar/` (they sorted after the
-new blocks and would have overwritten them); Blender run 42003405007 at 3840 px, 16 samples, 73 blocks of ≤ 36
-frames. Then `remotion-render.yml` TW-Film, scale 2, tail 330, `train-wheels_master_4k.mp4` → Drive
-`train-wheels/renders/`, then the gate (length, loudness, black frames, plate frames) and a 1080p copy.
+**4K master: done (2026-11-06).** `train-wheels_master_4k.mp4` and `train-wheels_master_1080p.mp4` in Drive
+`train-wheels/renders/`.
+- Plates: Blender run 42046651457 at 3840 px, 16 samples, 73 blocks of ≤ 36 frames, about 6 min a frame. The first
+  run (42003405007) failed in seconds on a wrong `film` input, and one block was re-run (42140911058) after its runner
+  hung in apt-get. The 1080p plate tars were moved to Drive `train-wheels/plates_1080_tar/`.
+- Film: `remotion-render.yml` run 42180536982, scale 2, 5 s shards dealt round-robin over 20 runners (PR #24).
+  Renders took 12–77 min per job. Four jobs waited 35–45 min on a slow apt mirror; apt now has time limits and retries
+  (PR #25).
+- Gate: 384.92 s, 3840×2160 H.264 High, 60 fps, 13.2 Mb/s; −14.1 LUFS, −1.2 dBTP, LRA 3.3 LU; no black frames.
+  Frames seen at 0:05/0:07 (the edge lights draw the far rim and the flange crowns), 0:25, 1:00, 3:25, 5:52, 6:05 and
+  a 4K crop: lathe rings, HUD and labels crisp.
+- 1080p copy: lanczos, CRF 18, maxrate 12M, audio copied; 3.9 Mb/s, 384.92 s.
 
 **Next session, in order**
-1. The owner's review of v4 in `mkmk749278/Review` (the forensic protocol, in a new session with only that repo).
+1. The owner uploads the 4K master to YouTube with the package in `youtube/` (unlisted at least 3 h before public).
 2. Build the three vertical Shorts from the cut list (1080×1920 compositions over the same scenes).
-3. The 4K master, if not finished (above).
-4. When the Gemini cap resets: the two listeners on the three act tracks. A person listens once, act 1 around 0:54
+3. When the Gemini cap resets: the two listeners on the three act tracks. A person listens once, act 1 around 0:54
    first.
-5. Re-open the Tanifuji record (C24) when the Niigata repository is up.
+4. Re-open the Tanifuji record (C24) when the Niigata repository is up.
