@@ -149,7 +149,10 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
   **The connector downloads at most 10 MB a file** (film 2, 2026-11-07: a 101 MB cut was refused and the panel stopped
   after 24 s). So the cut goes in 20 s parts, stream-copied (`ffmpeg -i CUT -c copy -map 0 -f segment -segment_time 20
   -reset_timestamps 1 parts/<slug>_vN_part%02d.mp4`, each ≈ 4–9 MB at 720p), uploaded to `<slug>/renders/vN_parts/`;
-  the prompt lists every part's file id and start time and asks the reviewer to join them with the concat demuxer.
+  **That failed too (same day):** the tool returns a file as base64 text inside the reply, and a 6.6 MB part closed
+  the connection ("message too large"); `read_file_content` returns nothing for a JPEG. A video cannot reach a no-repo
+  session through the Drive connector at any size that fits a model's context. Open: how the panel gets the cut
+  without sharing it publicly (owner's decision, asked 2026-11-07).
 - **The bar:** nobody drifts in the first minute; every viewer can explain the mechanism back; no physics or fact is
   flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
   at least three of five would watch the channel's next film.

@@ -1,11 +1,9 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 8, the independent viewer panel is watching cut v2 (`elevator-safety_review_720p_v2.mp4`, run
-42394563981) in a fresh no-repo session (session_014pFs6ot4gFVPBhrJxZDJXj, `prompts/viewer_review_v2.md`), from 20
-parts of 20 s in Drive `elevator-safety/renders/v2_parts/` (the connector downloads at most 10 MB a file, PLAYBOOK
-§3a.3; the first panel session stopped on the 101 MB file and was archived). **Next action:** read its report
-(list_events on that session), save it as `review/viewer_v1.md`, check each note in code, timing and a still
-(`review/viewer_v1_check.md`), fix every confirmed must-fix, render v3, a fresh panel; archive the panel session.
+**Now:** step 8, blocked on how the independent viewer panel gets the cut. The Drive connector returns files as base64
+inside the reply: the 101 MB cut, then 6.6 MB parts, were refused (two panel sessions, both archived; PLAYBOOK §3a.3).
+A 27.6 MB review proxy (`proxy_v2.mp4`: 720p, 30 fps, x264 animation tune, text checked sharp) is ready to deliver
+once the owner picks the route. **Next action:** the owner's answer, then the panel on cut v2, `review/viewer_v1.md`.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
