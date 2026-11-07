@@ -153,6 +153,15 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
   the connection ("message too large"); `read_file_content` returns nothing for a JPEG. A video cannot reach a no-repo
   session through the Drive connector at any size that fits a model's context. Open: how the panel gets the cut
   without sharing it publicly (owner's decision, asked 2026-11-07).
+  **The owner's route (2026-11-07): a temporary link.** A review proxy (720p, 30 fps, `-tune animation -crf 26
+  -maxrate 1200k`, AAC 96k: 27.6 MB for 6:40, text still sharp) is uploaded to `<slug>/renders/`, shared "anyone with
+  the link" (`share_file`, `permissionId: anyoneWithLink`), checked with curl
+  (`drive.usercontent.google.com/download?id=ID&export=download&confirm=t`), and handed to the panel as a curl command.
+  As soon as the panel's transcript shows the file downloaded (`list_events` kinds user: its ffprobe output), the proxy
+  is **permanently deleted** with rclone (`deletefile --drive-trashed-only --drive-use-trash=false` after `trash_file`,
+  or `--drive-use-trash=false` directly), and the link is checked to return 404. **Trashing alone does not revoke the
+  link:** the trashed file still downloaded (200, full size) until it was deleted for good. The link is never posted
+  anywhere; the full-quality cut stays private.
 - **The bar:** nobody drifts in the first minute; every viewer can explain the mechanism back; no physics or fact is
   flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
   at least three of five would watch the channel's next film.
