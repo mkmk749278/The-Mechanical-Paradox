@@ -44,10 +44,12 @@ const gear07 = (fr: number): {drop: number; climb: number; slide: number; total:
 	// once the springs are fully loaded the wedges stop climbing and ride down with the car, scraping the rail: the gear
 	// stays in frame (the camera rides with the car) and the rail slides up past it, slowing as the car stops (viewer
 	// review v1: the drop froze at 60 mm, which read as a 6 cm stop)
-	const full = dropAtContact + climbToSpring;
-	const drop = Math.min(raw, full);
-	const slide = Math.max(0, raw - full) + tween(fr, b.harder + 90, b.end, 0, 280, ease.leave);
-	return {drop, climb: Math.min(climbToContact + climbToSpring, climbToContact + (drop - dropAtContact)), slide, total: drop + slide};
+	// the climb runs through "The wedge slides higher… The higher it goes, the harder it squeezes" (viewer review v3: it
+	// had finished before those words); each mm of climb is a mm of car drop, the rail holding the wedge still
+	const climbed = tween(fr, b.higher - 20, b.harder + 70, 0, climbToSpring, ease.camera);
+	const drop = Math.min(raw, dropAtContact) + climbed;
+	const slide = tween(fr, b.harder + 90, b.end, 0, 280, ease.leave);
+	return {drop, climb: climbToContact + climbed, slide, total: drop + slide};
 };
 
 export const WedgeScene: React.FC = () => {
@@ -449,6 +451,11 @@ export const Window: React.FC = () => {
 	const y1 = 140;
 	const gy = (g: number) => y0 - ((y0 - y1) * g) / 11;
 	const band = on(f, b.avg, 20);
+	// a marker for 'your stop' slides from the grab down to the allowed band as the rules are read (viewer review v3:
+	// 6.5 s of an empty scale); the scale itself draws on "And on anything faster?"
+	const markG = tween(f, b.rules, b.avg + 40, hardStopG, 0.6, ease.camera);
+	const markO = on(f, b.rules, 16);
+	const drawScale = pen(f, b.faster - 10, 60);
 	const scale = tween(f, b.feel, b.twice + 40, 1, 2, ease.camera);
 	return (
 		<Stage
@@ -473,7 +480,10 @@ export const Window: React.FC = () => {
 			<AbsoluteFill>
 				<Drift f={f} from={0} to={b.end} ox={980} oy={540} s={1.04}>
 				<Svg>
-					<line x1={x} y1={y0} x2={x} y2={y1} stroke={colors.sub} strokeWidth={3} />
+					<line x1={x} y1={y0} x2={x} y2={y1} stroke={colors.sub} strokeWidth={3} pathLength={1} strokeDasharray={`${drawScale} 1`} />
+					<g opacity={markO}>
+						<polygon points={`${x - 70},${gy(markG) - 16} ${x - 40},${gy(markG)} ${x - 70},${gy(markG) + 16}`} fill={markG > 1.05 ? colors.crimson : colors.emerald} />
+					</g>
 					{Array.from({length: 12}, (_, g) => (
 						<line key={g} x1={x - 16} y1={gy(g)} x2={x + 16} y2={gy(g)} stroke={colors.sub} strokeWidth={2} />
 					))}

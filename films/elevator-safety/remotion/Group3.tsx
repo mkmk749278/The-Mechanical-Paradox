@@ -457,9 +457,11 @@ export const UpBrake: React.FC = () => {
 			<AbsoluteFill>
 				<Drift f={f} from={b.eighteen + 100} to={b.both} ox={780} oy={330} s={1.06} dx={-40} dy={30}>
 				<Svg opacity={sceneA}>
-					<WedgeGear cx={600} cy={560} k={4.6} housingY={0} climb={climb} glowWedge={touching} />
+					{/* the car goes up, so the rail runs down past the gear: its marks scroll down (viewer review v3: nothing moved) */}
+					<WedgeGear cx={600} cy={560} k={4.6} housingY={0} climb={climb} glowWedge={touching} railShift={-tween(f, b.wedges, b.end, 0, 1400, ease.camera)} />
 					<Arrow x1={1100} y1={760} x2={1100} y2={360} color={colors.crimson} width={8} grow={on(f, b.wedges, 20)} />
-					<Arrow x1={760} y1={420} x2={760} y2={640} color={colors.sub} width={5} grow={on(f, b.cannot, 20)} />
+					<Arrow x1={760} y1={420} x2={760} y2={640} color={colors.sub} width={5} grow={on(f, b.cannot + 30, 20)} />
+					<Arrow x1={440} y1={420} x2={440} y2={640} color={colors.sub} width={5} grow={on(f, b.cannot + 30, 20)} />
 				</Svg>
 				<Label x={1140} y={540} size={36} color={colors.crimson} opacity={sceneA * on(f, b.wedges + 10, 14)}>
 					CAR GOING UP
@@ -557,9 +559,11 @@ export const UpBrake: React.FC = () => {
 						</clipPath>
 					</defs>
 					<g opacity={on(f, b.twoway, 20)} clipPath="url(#el-twoway)">
-						<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 10, b.twoway + 70, 0, FULL * 0.6, ease.camera)} glowWedge={on(f, b.twoway + 40, 12)} railTicks={false} />
+						{/* one pair at a time (viewer review v3: both lit at once is impossible): the upward-narrowing pair grips
+						while the car goes down, then lets go; the mirrored pair grips while it goes up */}
+						<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 10, b.twoway + 60, 0, FULL * 0.6, ease.camera) * off(f, b.twoway + 130, 30)} glowWedge={Math.min(on(f, b.twoway + 40, 12), off(f, b.twoway + 130, 20))} railTicks={false} />
 						<g transform="translate(0 1090) scale(1 -1)">
-							<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 10, b.twoway + 70, 0, FULL * 0.6, ease.camera)} glowWedge={on(f, b.twoway + 40, 12)} railTicks={false} />
+							<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 170, b.twoway + 220, 0, FULL * 0.6, ease.camera)} glowWedge={on(f, b.twoway + 200, 12)} railTicks={false} />
 						</g>
 					</g>
 				</Svg>
@@ -571,6 +575,12 @@ export const UpBrake: React.FC = () => {
 				</Label>
 				<Label x={1580} y={920} size={36} color={colors.amber} align="center" opacity={on(f, b.twoway, 20)}>
 					WEDGES BOTH WAYS
+				</Label>
+				<Label x={1790} y={430} size={36} color={colors.amber} weight={700} opacity={Math.min(on(f, b.twoway + 40, 12), off(f, b.twoway + 130, 20))}>
+					↓
+				</Label>
+				<Label x={1790} y={620} size={36} color={colors.amber} weight={700} opacity={on(f, b.twoway + 200, 12)}>
+					↑
 				</Label>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
