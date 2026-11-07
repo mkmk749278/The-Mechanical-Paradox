@@ -1,6 +1,7 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 5, narration review. **Next action:** a fresh no-repo panel (NARRATION) on `script/vo.txt` v5; save as `review/narration_v1.md`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
+**Now:** step 6, voice. **Next action:** `scripts/eleven_tts.py films/elevator-safety --blocks 1`, measure with `scripts/vo_review.py`, fix
+settings until block 1 is right, then every block; takes to Drive `elevator-safety/vo/`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
@@ -9,7 +10,7 @@ the panel drifts.
 - [x] 2 Research, claims, treatment, script                  PR (step 2)
 - [x] 3 Story review (3 rounds: 7.8 → 7.8 → 8.0)              PRs #34, #35, this one
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
-- [ ] 5 Narration review; fixes in                           PR #
+- [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [ ] 6 Voice: block 1 measured, all blocks measured          PR #
 - [ ] 7 Film built (scenes, plates, music, mix)              PR #s
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
@@ -19,6 +20,10 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 5.** Narration panel (`review/narration_v1.md`): 8/9/7/8/7, "Nearly ready"; nobody would leave.
+  VO v6 (locked): the code numbers said as a feeling first, the false ending turned into the promised payoff, the
+  rope-and-lever link made audible, Otis and the mines shortened, plainer words ("kicks in", "scrape"). 1,030 words.
+  Claims C04, C05, C07, C22 updated; both gates pass; recording blocks regenerated.
 - **2026-11-07, steps 3–4, round 3 (bar met).** Fresh panel (`review/audience_v3.md`): 8/9/7/8/8 (avg 8.0), nobody
   below 7, all would watch the next film. VO v5 fixes the rope-attachment contradiction ("hooked to a lever on your
   car"), the step-out logic, the reassurance, the gravity limits and the buried rail cut; adds "It does not care why
