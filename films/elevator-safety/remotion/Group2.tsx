@@ -243,7 +243,7 @@ export const TooHard: React.FC = () => {
 			}
 		>
 			<AbsoluteFill style={{transform: `translateY(${jolt}px)`}}>
-				<Drift f={f} from={b.every} to={b.end} ox={150} oy={150} s={1.1}>
+				<Drift f={f} from={b.every} to={b.end} ox={150} oy={700} s={1.07}>
 				<Svg>
 					<Shaft cam={cam} st={{carY: 4.4, cwY: 8, govRot: 0, ropeTravel: 0, leverDeg: 28, wedge: 1, glowGear: on(f, b.two, 16)}} />
 					{/* every person inside takes the jolt: a stress field rising from the car floor */}

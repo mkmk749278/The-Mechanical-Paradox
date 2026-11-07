@@ -1,10 +1,9 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, cut v4 rendering. v3 (run 42415510636) passed sound and black-frame checks (−14.2 LUFS, −1.3 dBTP,
-channels equal, the sting no longer silent) but `freezedetect` (n 0.002, 2.5 s, 320 px) still found holds of 2.6–5.8 s
-in s07, s12, s13 and s14; fixed with targeted pushes and a longer lift (frame differences checked in stills).
-**Next action:** gate v4 (frames every 2 s, freezedetect), then the fresh viewer panel by the temporary-link route
-(PLAYBOOK §3a.3).
+**Now:** step 9, cut v5 rendering. v4 (run 42417170948) passed every measured gate (no hold over 2.5 s, no black,
+no silence, −14.2 LUFS, −1.3 dBTP, channels equal); the 200-frame review found two small collisions, fixed and checked
+in stills. **Next action:** a quick gate of v5, then the fresh viewer panel by the temporary-link route (PLAYBOOK
+§3a.3).
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -25,6 +24,10 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 9, cut v4.** freezedetect: no hold over 2.5 s; blackdetect, silencedetect clean; −14.2 LUFS,
+  −1.3 dBTP. 200 frames read beside the words: the s09 push carried "SLOWING, IN g" onto the honesty tag at 2:55
+  (re-anchored at y 700, 1.07), and the DISC SPRINGS callout line crossed the squeeze chart from 3:59 (it now leaves
+  before the chart arrives).
 - **2026-11-07, step 9, cut v3.** Gate: sound and black frames clean; seven holds over 2.5 s found by freezedetect at
   2:23.6, 3:46.2, 4:08.9, 4:12, 4:17, 4:41.4, 5:24.9. Pushes added in s07 (from "The higher it goes", anchored right),
   s12 (the opening question, and from "A steady squeeze", anchored right), s13 (the whole scene, two stages), s14 (after
