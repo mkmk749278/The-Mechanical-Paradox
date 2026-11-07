@@ -217,7 +217,7 @@ export const Rail: React.FC = () => {
 				<Label x={1040} y={370} size={36} color={colors.sub} opacity={Math.min(on(f, b.manual + 20, 14), off(f, b.ground, 16))}>
 					FRICTION + STEEL SHAVED OFF
 				</Label>
-				<Label x={1040} y={300} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, b.ground + 10, 14), off(f, b.raised, 16))}>
+				<Label x={1040} y={300} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, b.ground + 10, 14), off(f, b.raised - 14, 14))}>
 					MARKS GROUND SMOOTH
 				</Label>
 				<Label x={1040} y={300} size={44} color={colors.emerald} weight={700} opacity={Math.min(on(f, b.raised + 10, 14), off(f, b.grabs, 16))}>
@@ -396,7 +396,7 @@ export const UpBrake: React.FC = () => {
 	const rise15 = on(f, b.really + 10, 30) * off(f, hitF, 20);
 	const jolt15 = f >= hitF ? shudder(f, 60, hitF, 7, 11) : 0;
 	const heat15 = f < hitF ? 0 : Math.max(0.35, tween(f, hitF, hitF + 50, 1, 0.35, ease.leave));
-	const count = Math.round(tween(f, hitF + 6, hitF + 96, 0, 18, ease.camera));
+	const count = f < hitF + 6 ? 0 : Math.round(tween(f, hitF + 6, hitF + 96, 1, 18, ease.camera));
 	const sceneA = off(f, b.really + 10, 20);
 	const sceneB = Math.min(on(f, b.really + 10, 20), off(f, b.both - 10, 20));
 	const sceneC = on(f, b.both - 10, 20);
@@ -462,7 +462,7 @@ export const UpBrake: React.FC = () => {
 					</g>
 					<Arrow x1={MINE.x1 + 70} y1={760} x2={MINE.x1 + 70} y2={500} color={colors.crimson} width={6} grow={rise15} />
 				</Svg>
-				<Label x={1180} y={200} size={120} color={colors.crimson} weight={700} opacity={sceneB * on(f, b.eighteen, 14)}>
+				<Label x={1180} y={200} size={120} color={colors.crimson} weight={700} opacity={sceneB * on(f, b.eighteen + 6, 8)}>
 					{`${count}`}
 				</Label>
 				<Label x={1180} y={360} size={36} color={colors.line} opacity={sceneB * on(f, b.study, 14)}>
