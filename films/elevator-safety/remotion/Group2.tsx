@@ -301,7 +301,7 @@ export const TooHard: React.FC = () => {
 				<Label x={150} y={210} size={44} color={colors.crimson} weight={700} opacity={Math.min(on(f, b.two + 10, 14), off(f, b.ten, 16))}>
 					→ 0 IN 2 cm
 				</Label>
-				<Label x={150} y={150} size={44} color={colors.crimson} weight={700} opacity={on(f, b.every + 4, 14)}>
+				<Label x={150} y={260} size={44} color={colors.crimson} weight={700} opacity={on(f, b.every + 4, 14)}>
 					EVERY PERSON INSIDE
 				</Label>
 				</Drift>

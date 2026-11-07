@@ -1,8 +1,8 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, round 3 (the last of three, §3a). Panel 2 on v5: 8/7/6/8/7, avg 7.2 (`review/viewer_v2.md`); every
-note checked (`review/viewer_v2_check.md`) and the confirmed ones fixed; cut v6 rendering. **Next action:** gate v6,
-then a fresh panel by the temporary-link route.
+**Now:** step 9, round 3 (the last). v6 (run 42422540409) passed every measured gate and the 200-frame read except one
+clip ("EVERY PERSON INSIDE" pushed past the top at 2:57, moved down); cut v7 rendering. **Next action:** quick gate of
+v7, then the fresh panel by the temporary-link route.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
