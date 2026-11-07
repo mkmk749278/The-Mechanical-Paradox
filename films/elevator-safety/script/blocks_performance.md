@@ -12,66 +12,66 @@ Your elevator's ropes snap. You might expect to fall all the way down. Instead, 
 And there is one danger this brake cannot stop at all. We will get to it.
 ```
 
-## b02 · Not one cable · 181 characters
+## b02 · Not one cable · 135 characters
 
 ```
-First, a snap is rare. An elevator that hangs on ropes usually has several, each many times stronger than its share of the load. But the rare case is exactly what this brake is for.
+Snaps are rare. Elevators usually hang on several ropes, each many times stronger than it needs to be. This brake is for that rare day.
 ```
 
-## b03 · The rope that holds nothing · 944 characters
+## b03 · The rope that holds nothing · 1052 characters
 
 ```
-At the top of the shaft, there is a wheel that lifts nothing at all. So what is it for? Engineers call it the governor. A thin loop of rope runs over it, down to a weighted pulley in the pit, and it is tied to your car. When you move, the rope moves with you, and the wheel spins. A faster car means a faster wheel.
+At the top of the shaft, there is a wheel that lifts nothing at all. So what is it for? Engineers call it the governor. A thin loop of rope runs over it, down to a weighted pulley in the pit. Along the way, it is hooked to a lever on your car. When you move, the rope moves with you, and the wheel spins. A faster car means a faster wheel.
 
-In a classic governor, weights inside the wheel are held in by springs. Spin it faster, and they swing outward. At a set speed, at least fifteen percent above your elevator's normal speed, they swing out far enough to catch, and the wheel locks. Its rope stops.
+In a classic governor, weights inside the wheel are held in by springs. Spin it faster, and they swing outward. At a set speed, at least fifteen percent above your elevator's normal speed, they swing out far enough to catch, and the wheel locks. Its rope stops. It does not care why you are too fast. A snapped rope, or anything else.
 
-But your car does not stop. It keeps falling, past a rope that is no longer moving. And that rope is tied to a lever on your car. The falling car pulls its own brake lever.
+But your car does not stop. It keeps falling, past a rope that is no longer moving. And that lever is still hooked to the rope. The falling car pulls its own brake lever.
 
-Many governors also flip a switch first, to cut the motor. But the brake itself is pure mechanics. Europe's elevator code says nothing electric, and no fluid or air pressure, may set it off.
+Many governors also flip a switch first, to cut the motor. But the brake itself is pure mechanics. The European standard for elevators says nothing electric, and no fluid or air pressure, may set it off.
 ```
 
-## b04 · The wedge · 638 characters
+## b04 · The wedge · 637 characters
 
 ```
-Your car runs between steel guide rails that go the whole height of the shaft. On each rail, the lever lifts a pair of steel wedges, one on each side of it. And each wedge sits in a slot that narrows toward the top.
+Your car runs between steel guide rails that go the whole height of the shaft. On each rail, the lever lifts steel wedges that close on it from both sides. And each wedge sits in a slot that narrows toward the top.
 
 Now watch what your fall does to them. Your car is falling, but the rail stands still. So the moment a wedge touches it, the rail holds the wedge back while the car drops. The wedge slides higher into the narrowing slot. The higher it goes, the harder it squeezes. Can you see the trick? Your fall is feeding its own brake.
 
 So why not let it grab as hard as it can, and stop you instantly? That sounds safest. It is not.
 ```
 
-## b05 · Too hard · 912 characters
+## b05 · Too hard · 885 characters
 
 ```
-Take an example elevator, the kind in many office buildings. Its brake trips at about two meters a second. If you stopped that in two centimeters, you would slow at about ten times the pull of gravity. Every person inside takes that jolt.
+Picture an ordinary office elevator. Its brake trips at about two meters a second. If you stopped that in two centimeters, you would slow at about ten times the pull of gravity. Every person inside takes that jolt.
 
 The first famous safety brake did exactly that. In eighteen fifty-four, in New York, Elisha Otis rode a platform high in the air and had its rope cut. Springs threw hooks into teeth along the guides, and the platform stopped where it was. On a slow machine, that works. Today, a brake that grabs like that is still allowed, but only on slow elevators, built to run at sixty-three centimeters a second or less.
 
-And on anything faster? The code asks for the opposite. It must slow you steadily. On average, at least a fifth of the pull of gravity, and no more than the full pull. And what does that feel like? Even at the hardest, about twice your own weight, for a moment.
+And on anything faster? The code asks for the opposite. It must slow you steadily. On average, by at least a fifth of gravity, and by no more than one full gravity. And what does that feel like? Even at the hardest, about twice your own weight, for a moment.
 ```
 
-## b06 · The spring · 966 characters
+## b06 · The spring · 983 characters
 
 ```
 So how do you stop a wedge from biting too hard? You give it a limit, and the limit is a spring. The jaws that hold the wedge are not rigid. Behind them, stacks of disc springs let the jaws open a little. The wedge climbs only so far, and from then on, the springs decide how hard the jaws squeeze.
 
 A steady squeeze means steady friction, and that means fairly steady slowing. So your car slides down the rail with the wedges biting. Depending on how the springs are set, and how full the car is, you stop somewhere between twenty centimeters and a meter.
 
-Is it gentle on the rail? Not at all. One maker's manual tells you the braking comes from friction, and from metal being cut away from the rail surface. Afterward, the marks are ground smooth. The car can only be released by raising it, and a trained person must check it before it carries you again.
+Is it gentle on the rail? Not at all. The wedges actually cut metal off the rail. One maker's manual says the braking is friction, plus steel being shaved from the rail. Afterward, the marks are ground smooth. The car can only be released by raising it, and a trained person must check it before it carries you again.
 
 The wedge grabs. The spring sets the limit. Together, they turn a grab into a slide. But there is a catch.
 ```
 
-## b07 · The other way · 1003 characters
+## b07 · The other way · 976 characters
 
 ```
 All of this only works one way. Down.
 
 An elevator like yours is balanced by a heavy counterweight on the other side of its ropes. To save energy, it usually weighs as much as the car plus about forty to fifty percent of a full load.
 
-Now imagine you step out, and the car is empty. Which side is lighter? The car. Suppose the machine's brake or its controls fail. The counterweight can drop and pull the empty car up, faster and faster, toward the top of the shaft.
+Now imagine the car is empty. Which side is lighter now? The car. Suppose the machine's brake or its controls fail. The counterweight can drop and pull the empty car up, faster and faster, toward the top of the shaft.
 
-And the wedges you just watched? They cannot help. They only grip going down. Does that really happen? It does. One United States study looked at elevators in mines, and counted at least eighteen that hit the top of their shafts in just five years.
+And the wedges you just watched? They cannot help. They only grip going down. Does that really happen? It does. In United States mines, one study counted at least eighteen elevators that hit the top of their shafts. In just five years.
 
 So the codes added a brake that faces up. Canada made it a rule in nineteen ninety. Europe requires it too. Often the same governor now watches for speed in both directions, and sets off something that grips. For example, a clamp on the ropes themselves, or wedges that grip both ways.
 ```
