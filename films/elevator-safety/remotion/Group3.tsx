@@ -111,7 +111,7 @@ export const Spring: React.FC = () => {
 						))}
 					</g>
 				</Svg>
-				<Callout subSize={30} x={430 + 96 * 4.4} y={600 - 30 * 4.4} lx={1010} ly={820} text="DISC SPRINGS" color={colors.cyan} t={Math.min(on(f, b.behind + 20, 26), off(f, b.steady, 16))} sub="THEY LET THE JAWS OPEN" />
+				<Callout subSize={30} x={430 + 96 * 4.4} y={600 - 30 * 4.4} lx={1010} ly={820} text="DISC SPRINGS" color={colors.cyan} t={Math.min(on(f, b.behind + 20, 26), off(f, b.climbs - 10, 14))} sub="THEY LET THE JAWS OPEN" />
 				<Label x={cx0} y={cy0 - ch - 70} size={36} color={colors.cyan} opacity={chart1}>
 					SQUEEZE ↑
 				</Label>
