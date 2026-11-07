@@ -109,13 +109,13 @@ export const Spring: React.FC = () => {
 					</g>
 				</Svg>
 				<Label x={cx0} y={cy0 - ch - 70} size={36} color={colors.cyan} opacity={chart1}>
-					SQUEEZE (SPRING FORCE)
+					SQUEEZE ↑
 				</Label>
 				<Label x={cx0 + cw} y={cy0 + 16} size={26} color={colors.sub} align="right" opacity={chart1}>
 					WEDGE CLIMB →
 				</Label>
 				<Label x={cx0 + cw} y={cyMap(1) - 64} size={36} color={colors.cyan} weight={600} align="right" opacity={chart1 * on(f, b.climbs + 140, 16)}>
-					FLAT: THE SPRINGS DECIDE
+					THE SPRINGS DECIDE
 				</Label>
 				<Label x={cx0} y={cy0 - ch - 70} size={36} color={colors.amber} opacity={chart2}>
 					SPEED · 2.0 → 0 m/s
@@ -136,7 +136,7 @@ export const Spring: React.FC = () => {
 				<Label x={960} y={960} size={48} color={colors.cyan} weight={700} opacity={Math.min(on(f, b.limit + 10, 14), off(f, b.steady, 16))}>
 					THE LIMIT IS A SPRING
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					MODEL · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -235,7 +235,7 @@ export const Rail: React.FC = () => {
 				<Label x={1040} y={500} size={60} color={colors.amber} weight={700} opacity={on(f, b.slip, 14)}>
 					BUILT TO SLIP
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · SOURCE: SLC BF_D-1 MANUAL
 				</Tag>
 			</AbsoluteFill>
@@ -348,7 +348,7 @@ export const Counterweight: React.FC = () => {
 				<Label x={150} y={560} size={44} color={colors.crimson} weight={700} opacity={on(f, b.drop + 30, 14)}>
 					UP, FASTER AND FASTER
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · MODEL · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -367,6 +367,7 @@ export const counterweightCues = (): SfxCue[] => {
 };
 
 // ---------------- s15: the brake that faces up ----------------
+const MINE = {x0: 560, x1: 1000, beamY: 300, carH: 280, carTop0: 780} as const;
 const b15 = () => ({
 	wedges: at('s15', 'And the wedges you just'),
 	cannot: at('s15', 'They cannot help'),
@@ -388,7 +389,14 @@ export const UpBrake: React.FC = () => {
 	const b = b15();
 	// the car going up drags the wedge down, out of its narrowing slot: the gap opens, no grip
 	const climb = tween(f, b.wedges, b.only + 60, climbToContact, -10, ease.camera);
-	const count = Math.round(tween(f, b.eighteen, b.eighteen + 90, 0, 18, ease.camera));
+	// the strike lands on "In just five years"; the count runs once the beam has been hit
+	const hitF = b.eighteen;
+	const rise = Math.min(1, Math.max(0, (f - (b.really + 10)) / (hitF - (b.really + 10))));
+	const carY15 = MINE.carTop0 + (MINE.beamY - MINE.carTop0) * rise * rise; // from rest, constant acceleration
+	const rise15 = on(f, b.really + 10, 30) * off(f, hitF, 20);
+	const jolt15 = f >= hitF ? shudder(f, 60, hitF, 7, 11) : 0;
+	const heat15 = f < hitF ? 0 : Math.max(0.35, tween(f, hitF, hitF + 50, 1, 0.35, ease.leave));
+	const count = Math.round(tween(f, hitF + 6, hitF + 96, 0, 18, ease.camera));
 	const sceneA = off(f, b.really + 10, 20);
 	const sceneB = Math.min(on(f, b.really + 10, 20), off(f, b.both - 10, 20));
 	const sceneC = on(f, b.both - 10, 20);
@@ -410,22 +418,63 @@ export const UpBrake: React.FC = () => {
 				<Label x={1140} y={690} size={36} color={colors.sub} opacity={sceneA * on(f, b.only, 14)}>
 					NO GRIP GOING UP
 				</Label>
-				{/* the count */}
+				{/* the count: the top of a shaft, an empty car accelerating up into the overhead (uniform acceleration from
+				rest, so it covers the shaft faster and faster), the strike as a stress field in the beam, and the tally as
+				dents along the beam's underside, one per count (not an icon grid) */}
 				<Svg opacity={sceneB}>
-					{Array.from({length: 18}, (_, i) => (
-						<rect key={i} x={360 + (i % 9) * 140} y={430 + Math.floor(i / 9) * 180} width={100} height={130} fill={i < count ? 'rgba(255,59,48,0.35)' : 'none'} stroke={i < count ? colors.crimson : colors.grid} strokeWidth={3} />
+					<defs>
+						<radialGradient id="el-strike">
+							<stop offset="0" stopColor={feaRamp[3]} stopOpacity={0.95} />
+							<stop offset="0.35" stopColor={feaRamp[2]} stopOpacity={0.7} />
+							<stop offset="0.7" stopColor={feaRamp[1]} stopOpacity={0.35} />
+							<stop offset="1" stopColor={feaRamp[0]} stopOpacity={0} />
+						</radialGradient>
+					</defs>
+					<g transform={`translate(0 ${jolt15})`}>
+						{/* overhead beam */}
+						<rect x={MINE.x0 - 60} y={MINE.beamY - 70} width={MINE.x1 - MINE.x0 + 120} height={70} fill="#1A2330" stroke={colors.line} strokeWidth={3} />
+						{Array.from({length: 14}, (_, i) => (
+							<line key={i} x1={MINE.x0 - 40 + i * 44} y1={MINE.beamY - 66} x2={MINE.x0 - 10 + i * 44} y2={MINE.beamY - 4} stroke={colors.grid} strokeWidth={2} />
+						))}
+						<ellipse cx={(MINE.x0 + MINE.x1) / 2} cy={MINE.beamY - 20} rx={260} ry={90} fill="url(#el-strike)" opacity={heat15} />
+						{/* the tally: one strike mark scored into the beam's face per count */}
+						{Array.from({length: 18}, (_, i) => (
+							<line key={i} x1={MINE.x0 - 22 + i * 27} y1={MINE.beamY - 58} x2={MINE.x0 - 10 + i * 27} y2={MINE.beamY - 12} stroke={colors.crimson} strokeWidth={4} strokeLinecap="round" opacity={i < count ? 1 : 0} />
+						))}
+					</g>
+					{/* shaft walls and guides */}
+					{[MINE.x0, MINE.x1].map((x) => (
+						<g key={x}>
+							<line x1={x} y1={MINE.beamY} x2={x} y2={1080} stroke={colors.line} strokeWidth={3} />
+							{Array.from({length: 9}, (_, i) => (
+								<line key={i} x1={x} y1={MINE.beamY + 40 + i * 90} x2={x + (x === MINE.x0 ? 14 : -14)} y2={MINE.beamY + 40 + i * 90} stroke={colors.sub} strokeWidth={2} />
+							))}
+						</g>
 					))}
+					{/* the empty car */}
+					<g transform={`translate(0 ${carY15})`}>
+						<rect x={MINE.x0 + 24} y={0} width={MINE.x1 - MINE.x0 - 48} height={MINE.carH} fill="#141C27" stroke={colors.line} strokeWidth={3} />
+						<rect x={MINE.x0 + 60} y={30} width={MINE.x1 - MINE.x0 - 120} height={MINE.carH - 60} fill="none" stroke={colors.sub} strokeWidth={2} />
+						{/* the brake that faces up: wedges at the car's top corners, narrowing downward */}
+						{[MINE.x0 + 4, MINE.x1 - 4].map((x) => (
+							<path key={x} d={x < 960 ? `M ${x} 20 l 30 0 l 0 90 l -30 -24 z` : `M ${x} 20 l -30 0 l 0 90 l 30 -24 z`} fill="rgba(255,159,28,0.35)" stroke={colors.amber} strokeWidth={3} opacity={on(f, b.codes + 20, 20)} />
+						))}
+					</g>
+					<Arrow x1={MINE.x1 + 70} y1={760} x2={MINE.x1 + 70} y2={500} color={colors.crimson} width={6} grow={rise15} />
 				</Svg>
-				<Label x={960} y={240} size={64} color={colors.crimson} weight={700} align="center" opacity={sceneB * on(f, b.eighteen, 14)}>
+				<Label x={1180} y={200} size={120} color={colors.crimson} weight={700} opacity={sceneB * on(f, b.eighteen, 14)}>
 					{`${count}`}
 				</Label>
-				<Label x={960} y={330} size={36} color={colors.sub} align="center" opacity={sceneB * on(f, b.study, 14)}>
-					US MINE ELEVATORS · HIT THE TOP · 5 YEARS
+				<Label x={1180} y={360} size={36} color={colors.line} opacity={sceneB * on(f, b.study, 14)}>
+					US MINE ELEVATORS HIT THE TOP
 				</Label>
-				<Label x={960} y={810} size={44} color={colors.line} weight={700} align="center" opacity={sceneB * on(f, b.codes, 14)}>
+				<Label x={1180} y={415} size={36} color={colors.sub} opacity={sceneB * on(f, b.eighteen, 14)}>
+					AT LEAST · IN 5 YEARS
+				</Label>
+				<Label x={1180} y={640} size={44} color={colors.amber} weight={700} opacity={sceneB * on(f, b.codes, 14)}>
 					A BRAKE THAT FACES UP
 				</Label>
-				<Label x={960} y={880} size={36} color={colors.sub} align="center" opacity={sceneB * on(f, b.canada, 14)}>
+				<Label x={1180} y={700} size={36} color={colors.sub} opacity={sceneB * on(f, b.canada, 14)}>
 					{f >= b.europe ? 'CANADA 1990 · EUROPE (EN 81-20)' : 'CANADA 1990'}
 				</Label>
 				{/* both directions: the governor, a rope clamp, a two-way gear */}
@@ -451,7 +500,7 @@ export const UpBrake: React.FC = () => {
 				<Label x={1520} y={880} size={36} color={colors.amber} align="center" opacity={on(f, b.twoway, 20)}>
 					WEDGES BOTH WAYS
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -462,7 +511,9 @@ export const upBrakeCues = (): SfxCue[] => {
 	const b = b15();
 	return [
 		{frame: b.cannot, sfx: 'flow_sweep', gainDb: -16},
-		{frame: b.eighteen, sfx: 'typewriter', gainDb: -14},
+		{frame: b.really + 10, sfx: 'torque_whine', gainDb: -16},
+		{frame: b.eighteen, sfx: 'metal_jam_sub', gainDb: -10},
+		{frame: b.eighteen + 6, sfx: 'typewriter', gainDb: -14},
 		{frame: b.codes, sfx: 'relay_click', gainDb: -16},
 		{frame: b.clamp + 40, sfx: 'metal_jam_sub', gainDb: -12},
 	];
