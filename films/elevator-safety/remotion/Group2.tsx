@@ -86,6 +86,7 @@ export const WedgeScene: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={b.higher} to={b.end} ox={1800} oy={640} s={1.06}>
 				<Svg opacity={1 - macro}>
 					<Shaft cam={cam} st={{carY: 4.4, cwY: 8, govRot: 0, ropeTravel: 0, leverDeg: 0, wedge: 0, glowGear: on(f, b.each, 16)}} />
 				</Svg>
@@ -131,6 +132,7 @@ export const WedgeScene: React.FC = () => {
 				<Label x={1480} y={940} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
 					THE FALL FEEDS THE BRAKE
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>

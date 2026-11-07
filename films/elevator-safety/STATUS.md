@@ -1,9 +1,10 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, cut v3 rendering with every confirmed note of viewer review v1 fixed (`review/viewer_v1.md`,
-`review/viewer_v1_check.md`). **Next action:** gate v3 (frames every 2 s, holds, loudness, channels), then a **fresh**
-viewer panel on v3 by the same temporary-link route (PLAYBOOK §3a.3: proxy, share, curl check, panel downloads, delete
-for good, 404 check). Round 1 scored 7.2 (bar 8).
+**Now:** step 9, cut v4 rendering. v3 (run 42415510636) passed sound and black-frame checks (−14.2 LUFS, −1.3 dBTP,
+channels equal, the sting no longer silent) but `freezedetect` (n 0.002, 2.5 s, 320 px) still found holds of 2.6–5.8 s
+in s07, s12, s13 and s14; fixed with targeted pushes and a longer lift (frame differences checked in stills).
+**Next action:** gate v4 (frames every 2 s, freezedetect), then the fresh viewer panel by the temporary-link route
+(PLAYBOOK §3a.3).
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -24,6 +25,11 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 9, cut v3.** Gate: sound and black frames clean; seven holds over 2.5 s found by freezedetect at
+  2:23.6, 3:46.2, 4:08.9, 4:12, 4:17, 4:41.4, 5:24.9. Pushes added in s07 (from "The higher it goes", anchored right),
+  s12 (the opening question, and from "A steady squeeze", anchored right), s13 (the whole scene, two stages), s14 (after
+  the car reaches the top, anchored left); s13's lift now spans its line. Each window re-measured by frame difference
+  (≥ 4 % of pixels change). The s13 summary labels moved 40 px left to stay inside the safe area under the push.
 - **2026-11-07, steps 8–9, viewer panel 1 and its fixes.** The cut reached a no-repo panel only through a temporary
   link (owner's choice: the Drive connector returns files as base64; PLAYBOOK §3a.3). Panel: 8/7/7/6/8, avg 7.2;
   14 must-fix and 9 should-fix points, each checked (`review/viewer_v1_check.md`: 19 confirmed, 5 partly). Fixed: the

@@ -87,6 +87,8 @@ export const Spring: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={0} to={b.behind} ox={1760} oy={540} s={1.05}>
+				<Drift f={f} from={b.steady - 30} to={b.end} ox={1760} oy={540} s={1.07}>
 				<Svg>
 					<WedgeGear cx={430} cy={600} k={4.4} housingY={0} climb={c} glowWedge={on(f, b.how, 16)} springs={on(f, b.limit, 16)} squeeze={ws.gap < 1e-6 ? 0.4 + 0.6 * (ws.jaw / SPRING_TRAVEL) : 0} />
 					{/* chart 1: clamp vs climb, rising then flat */}
@@ -138,6 +140,8 @@ export const Spring: React.FC = () => {
 				<Label x={960} y={960} size={48} color={colors.cyan} weight={700} opacity={Math.min(on(f, b.limit + 10, 14), off(f, b.steady, 16))}>
 					THE LIMIT IS A SPRING
 				</Label>
+				</Drift>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					MODEL · NOT TO SCALE
 				</Tag>
@@ -175,7 +179,8 @@ export const Rail: React.FC = () => {
 	const slide = tween(f, b.gentle, b.manual + 120, 0, 1, ease.camera);
 	const wedgeY = 200 + slide * 520;
 	const grind = tween(f, b.ground, b.ground + 100, 0, 1, ease.camera);
-	const lift = tween(f, b.raised + 20, b.raised + 120, 0, 1, ease.camera);
+	// the car is raised off the wedges over the whole line (viewer review v1: a hold once it had finished)
+	const lift = tween(f, b.raised + 20, b.grabs - 10, 0, 1, ease.camera);
 	const heat = Math.min(on(f, b.scrape, 12), 1 - slide * 0.6) * off(f, b.ground, 30);
 	// the summary beat: the wedge grabs and slips again, slowing to rest (viewer review v1: a 10 s hold here)
 	const slip = tween(f, b.grabs, b.end, 0, 1, ease.leave);
@@ -186,7 +191,8 @@ export const Rail: React.FC = () => {
 	return (
 		<Stage dur={b.end} light={{x: 0.45, y: 0.5}}>
 			<AbsoluteFill>
-				<Drift f={f} from={b.grabs - 20} to={b.end} ox={760} oy={360} s={1.08} dx={30}>
+				<Drift f={f} from={0} to={b.grabs - 20} ox={760} oy={360} s={1.05}>
+				<Drift f={f} from={b.grabs - 20} to={b.end} ox={760} oy={360} s={1.05}>
 				<Svg>
 					<defs>
 						<radialGradient id="el-heat">
@@ -237,15 +243,16 @@ export const Rail: React.FC = () => {
 				<Label x={1040} y={370} size={36} color={colors.emerald} opacity={Math.min(on(f, b.trained, 14), off(f, b.grabs, 16))}>
 					✓ CHECKED BY A TRAINED PERSON
 				</Label>
-				<Label x={1040} y={300} size={46} color={colors.amber} weight={700} opacity={Math.min(on(f, b.grabs, 14), 1)}>
+				<Label x={1000} y={300} size={46} color={colors.amber} weight={700} opacity={Math.min(on(f, b.grabs, 14), 1)}>
 					THE WEDGE GRABS
 				</Label>
-				<Label x={1040} y={380} size={46} color={colors.cyan} weight={700} opacity={on(f, b.grabs + 70, 14)}>
+				<Label x={1000} y={380} size={46} color={colors.cyan} weight={700} opacity={on(f, b.grabs + 70, 14)}>
 					THE SPRING HOLDS IT BACK
 				</Label>
-				<Label x={1040} y={500} size={60} color={colors.amber} weight={700} opacity={on(f, b.slip, 14)}>
+				<Label x={1000} y={500} size={60} color={colors.amber} weight={700} opacity={on(f, b.slip, 14)}>
 					BUILT TO SLIP
 				</Label>
+				</Drift>
 				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · SOURCE: SLC BF_D-1 MANUAL
@@ -326,6 +333,7 @@ export const Counterweight: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={b.drop + 120} to={b.end} ox={150} oy={560} s={1.08}>
 				<Svg>
 					<Shaft cam={cam} st={{carY, cwY, govRot: 0, ropeTravel: -r.d, leverDeg: 0, wedge: 0, glowGear: Math.min(on(f, b.oneway, 14), off(f, b.balanced, 20))}} />
 					{/* the machine brake, fading on "fail" */}
@@ -361,6 +369,7 @@ export const Counterweight: React.FC = () => {
 				<Label x={150} y={560} size={44} color={colors.crimson} weight={700} opacity={on(f, b.drop + 30, 14)}>
 					UP, FASTER AND FASTER
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · MODEL · NOT TO SCALE
 				</Tag>
