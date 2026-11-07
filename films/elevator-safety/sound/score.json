@@ -1,5 +1,5 @@
 {
- "note": "Film 2 bed: library tracks (config/music_library.csv, PLAYBOOK \u00a712.1) placed on the film's beats; silence 1 s before each reveal ('Your own fall pulled the brake', 'Your fall is feeding its own brake', 'So the wedge grabs'); a dead stop before 'It does.' and no music under the mine-study numbers. The sub-bass drone runs under the whole VO.",
+ "note": "Film 2 bed: library tracks (config/music_library.csv, PLAYBOOK \u00a712.1) placed on the film's beats; silence 1 s before each reveal ('Your own fall pulled the brake', 'Your fall is feeding its own brake', 'So the wedge grabs'); a dead stop before 'It does.' and no music under the mine-study numbers. The sub-bass drone runs under the whole VO. The drone runs on under the channel sting to the last frame (viewer review v1: the sting's tail was silent).",
  "slots": [
   {
    "track": "bp01_curious_pulse",
@@ -78,7 +78,7 @@
   {
    "what": "drone",
    "from": 0,
-   "to": "end",
+   "to": "end+5.5",
    "gain_db": -23
   }
  ],

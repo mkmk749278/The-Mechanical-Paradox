@@ -173,7 +173,9 @@ export const Callout: React.FC<{
 	t: number;
 	size?: number;
 	sub?: React.ReactNode;
-}> = ({x, y, lx, ly, text, color = colors.line, t, size = 36, sub}) => {
+	/** The sub-line's size, px (default 26, the §6.4a floor; film 2 uses 30 after its viewer review). */
+	subSize?: number;
+}> = ({x, y, lx, ly, text, color = colors.line, t, size = 36, sub, subSize = 26}) => {
 	if (t <= 0.001) return null;
 	const line = tween(t, 0, 0.6, 0, 1, ease.draw);
 	const txt = tween(t, 0.45, 1, 0, 1, ease.arrive);
@@ -196,7 +198,7 @@ export const Callout: React.FC<{
 				{text}
 			</Label>
 			{sub ? (
-				<Label x={right ? lx + 14 : lx - 14} y={ly + size * 0.55} size={26} color={colors.sub} align={right ? 'left' : 'right'} opacity={txt}>
+				<Label x={right ? lx + 14 : lx - 14} y={ly + size * 0.55} size={subSize} color={colors.sub} align={right ? 'left' : 'right'} opacity={txt}>
 					{sub}
 				</Label>
 			) : null}

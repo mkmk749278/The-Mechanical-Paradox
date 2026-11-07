@@ -1,10 +1,9 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 8, the independent viewer panel is watching cut v2 (session_014pFs6oSX29QcPunipdZVUZ, no repo), from a
-temporary link to a 27.6 MB review proxy (owner's choice, 2026-11-07; PLAYBOOK §3a.3). The panel downloaded it, and the
-proxy was then deleted for good (link checked: 404). **Next action:** read its report (list_events kinds result), save
-it as `review/viewer_v1.md`, check each note in code, timing and a still (`review/viewer_v1_check.md`), fix every
-confirmed must-fix, render v3, a fresh panel; archive the panel session.
+**Now:** step 9, cut v3 rendering with every confirmed note of viewer review v1 fixed (`review/viewer_v1.md`,
+`review/viewer_v1_check.md`). **Next action:** gate v3 (frames every 2 s, holds, loudness, channels), then a **fresh**
+viewer panel on v3 by the same temporary-link route (PLAYBOOK §3a.3: proxy, share, curl check, panel downloads, delete
+for good, 404 check). Round 1 scored 7.2 (bar 8).
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -18,13 +17,22 @@ yet (§12.1); the owner hears them in the cut.
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
 - [x] 7 Film built: 16 scenes, 3 footage inserts, mix (−14.2 LUFS, −1.4 dBTP)   PRs #39, #41, #42, this one
-- [ ] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel running   PR #44, this one
-- [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
+- [x] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel 1 (7.2)   PRs #44–#48, this one
+- [ ] 9 Round 1 fixes in (cut v3); fresh panel next            this PR
 - [ ] 10 4K master gated, on Drive                           PR #
 - [ ] 11 Package: titles, thumbnails, click test, description, tags, SRT   PR #
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, steps 8–9, viewer panel 1 and its fixes.** The cut reached a no-repo panel only through a temporary
+  link (owner's choice: the Drive connector returns files as base64; PLAYBOOK §3a.3). Panel: 8/7/7/6/8, avg 7.2;
+  14 must-fix and 9 should-fix points, each checked (`review/viewer_v1_check.md`: 19 confirmed, 5 partly). Fixed: the
+  wedge's slot now ends in a stop (it stood 2.7 mm proud), the governor label says "SET AT 125 %" with the code's
+  115 %, s07 lost its early springs row and the car now slides on down the rail (CAR DROP to ≈ 340 mm), a true two-way
+  gear, clipped and colliding labels, the stray dimension "cursor", s08's empty frames, slow camera pushes over every
+  hold (`Drift.tsx`) plus the riders pressed down by the jolt, Otis on his platform, DISC SPRINGS labelled, "THE CAR
+  IS LIGHTER" on the answer, the atrium insert dropped, the doors now close on the words, the footage credit
+  bottom-right, sub-lines 30 px, and the drone under the sting (it went silent).
 - **2026-11-07, step 8, cut v1 → v2.** v1 (run 42391160332): 6:39.8, 60 fps, −14.2 LUFS, −1.3 dBTP, channels equal,
   no black frames. The gate (200 frames, one every 2 s, read beside the words) found three: "CAR KEEPS FALLING" under
   the HUD at 1:31 (now left of its arrow), "MARKS GROUND SMOOTH" and "RELEASED BY RAISING THE CAR" crossing at 4:39

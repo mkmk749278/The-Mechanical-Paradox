@@ -23,7 +23,6 @@ type Insert = {
 };
 
 export const INSERTS: Insert[] = [
-	{clip: 'f01_atrium', credit: 'Skylent', scene: 's07', from: 'Your car runs between', pre: 6, to: 'height of the shaft', post: 0},
 	{clip: 'f02_ride', credit: 'Jesehab', scene: 's09', from: 'Picture an ordinary', pre: 6, to: 'Its brake kicks in', post: 10},
 	{clip: 'f03_doors', credit: 'Jesehab', scene: 's16', from: 'So the next time', pre: 6, to: 'picture what is riding', post: 6},
 ];
@@ -59,7 +58,8 @@ const Clip: React.FC<{insert: Insert; dur: number}> = ({insert, dur}) => {
 			<Atmosphere vignette={0.5} />
 			{/* a low scrim under the credit: on bright footage (snow, sky) the credit vanished (picture gate, 2026-11-04) */}
 			<AbsoluteFill style={{background: `linear-gradient(to top, ${colors.bg}D0 0px, ${colors.bg}80 90px, ${colors.bg}00 200px)`}} />
-			<Label x={96} y={1080 - 84} size={26} color={colors.line} opacity={0.85}>
+			{/* bottom-right: the scenes' honesty tags own bottom-left (viewer review v1: the two blended in a dissolve) */}
+			<Label x={1824} y={1080 - 84} size={26} color={colors.line} align="right" opacity={0.85}>
 				FOOTAGE · PIXABAY / {insert.credit}
 			</Label>
 		</AbsoluteFill>
