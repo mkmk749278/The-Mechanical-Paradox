@@ -11,7 +11,8 @@ rules (Indian English voice, India-first topics, HyperFrames, Telugu, real archi
 unless this file says so.
 
 **Contents**
-- Part A: How we work. 1 Owner and delivery · 2 Claude: creative director, and effort · 3 Sessions
+- Part A: How we work. 1 Owner and delivery · 2 Claude: creative director, and effort · 3 Sessions ·
+  **3a The film pipeline (twelve steps, run without waiting)**
 - Part B: The channel. 4 Identity, audience and the evidence (topic gate §4.3, research verdicts §4.5) ·
   5 Story architecture (the five beats §5.4) · 6 The look · 7 Narration ·
   8 Visual explanation toolkit
@@ -45,7 +46,8 @@ unless this file says so.
 - **Git:** all work lands on `main`. Each session uses its own branch, opens a PR to `main` and merges it the same
   day. Sessions can't delete branches: tell the owner which ones to delete. *Why (Creator):* nine stale session
   branches once hid finished work.
-- **Phases:** at the end of each phase, stop and report in plain words: what was built, what was checked, what is left.
+- **Steps, not stops (owner, 2026-11-07):** a film runs through the twelve steps of §3a without waiting for the owner;
+  each step ends with a merged PR and one or two lines in the chat: what was built, what was checked, what runs next.
 - **Once the owner approves a cut, stop editing it.** *Why (Creator):* edits slipped in after approval cost a round.
 - **Ask, don't guess, on the owner's decisions** (voice, topic, cadence, anything paid), with AskUserQuestion: 2–4
   options, the recommended one first with "(Recommended)", one-line reason each. Never ask what a sensible default or
@@ -91,6 +93,74 @@ considered, 1 chosen); the visual world inside the brand (§6); the signature mo
   IP. Idle VMs pause and can be reclaimed: start long jobs detached (`setsid nohup … < /dev/null & disown`), watch them
   with Monitor, make them resumable.
 - **Full renders run on GitHub's runners, never in the session** (§10.5).
+
+## 3a. The film pipeline: twelve steps, run without waiting (owner, 2026-11-07)
+
+The owner's process for every film, refined. **It runs on its own from topic to package:** Claude does not stop for
+approval between steps. Each step ends with its work merged into `main`, so nothing is lost if the usage limit hits
+mid-film. The owner can step in at any point; his notes override the pipeline, and once he approves a cut it is not
+edited again (§1). **Creativity is the top priority inside every step:** the gates below are the floor, never the
+ceiling (§2.1).
+
+### 3a.1 The steps
+Each step: what it makes, the gate it must pass, and the PR that saves it (`Film N · step K: <what>`).
+
+| # | Step | Makes | Passes when |
+|---|---|---|---|
+| 1 | **Pick the topic** | Score at least five candidates on the topic gate (§4.3: the slate §17.3, the pool §17.4, new ideas); check search demand (`scripts/yt_demand.py`, §13.1); pick the highest that passes. `films/<slug>/brief.md` with the scores, the package drafted first (10+ title ideas, 5+ thumbnail concepts, search phrases), `STATUS.md` started. | Score ≥ 35/40 and sourceable. |
+| 2 | **Know it completely; write the story** | `research/` from primary sources; `claims.csv` (the gate passes); `treatment.md` with 3+ angles, 3+ cold opens, 2–3 signature moments and the chosen five beats (§5.4); `script/screenplay.md` with the Q column; `script/vo.txt`; `script/terms.txt`. | `claims_check.py` passes; lean-in test and spoken-English check pass (§7.4, §7.8); script gate §14.1. |
+| 3 | **Story review** | An independent panel of five everyday-physics fans from around the world (§3a.3, `prompts/audience_review_v2.md`, stage SCRIPT). `review/audience_vN.md`. | Report saved. |
+| 4 | **Fix the story and script** | Every fix that keeps the facts true; claims re-checked for every changed line. | The bar of §3a.3. If missed, back to step 3 with a **fresh** panel (at most three rounds; then lock on the bar, never on a perfect verdict). |
+| 5 | **Narration review** | The narration as it will be performed (final words, paragraph rhythm, the reveal holds marked) to a fresh panel (stage NARRATION): simplicity, listenability, satisfaction. | The bar of §3a.3; fixes applied. |
+| 6 | **Voice** | `script/blocks_performance.md` (decision 7). **Block 1 first** with `scripts/eleven_tts.py`, measured with `scripts/vo_review.py` (words as written, pace, pauses, pitch, voice drift, loudness); settings fixed until block 1 is right; **then every block**, measured together (drift across blocks, every join, total pace 145–165 wpm after `scripts/vo_timing.py`). Takes to Drive `<slug>/vo/` at once. | Every block measured clean; `vo/timing.json` accounts for every word. |
+| 7 | **Build the film** | Scenes on the VO clock, Blender plates and music on the runners (§10.5–10.6, §12.1), SFX cues, the mix. Stills of every scene at its key words, looked at. | `tsc` clean; claims gate; every scene's stills pass §14.2's picture points. Merge after each group of scenes, never more than about two hours of work unmerged. |
+| 8 | **720p cut and first picture review** | The review cut on the runners; our own picture gate (§14.2: audio-synced frame sheets, `freezedetect`, loudness, legibility); then an independent viewer panel on the cut (`prompts/viewer_review_v2.md`). `review/viewer_vN.md`. | Report saved. |
+| 9 | **Fix everything; second review** | Every note checked against code, timing and a still (`review/viewer_vN_check.md`, CONFIRMED / PARTLY / NOT CONFIRMED), the confirmed ones fixed; a new 720p cut; a **fresh** viewer panel. | No must-fix left (physics, sync, legibility, a frozen hold), and the bar of §3a.3. Repeat at most three rounds. |
+| 10 | **4K master** | Blender plates at 3840 px and the film at `scale` 2 on the runners; the gate (§14.2: −14 LUFS, −1 dBTP, length, no black frames, frames checked at 4K); `master_4k.mp4` and a 1080p copy to Drive. | Gate passes. |
+| 11 | **The package** | §13.7 in full, built for clicks and search: 10+ titles → 3; 6+ thumbnail concepts → 3 finished (Blender stills of the film's own object + words); an independent click panel against 8 real competitor thumbnails from the same search (`prompts/package_review_v1.md`); the description (search phrases, chapters); tags; SRT; auto-dubbing note. | The panel picks; the squint test passes; every word passes §9.2. |
+| 12 | **Shorts and handoff** | 2–3 vertical Shorts (§13.6) rendered on the runners; `STATUS.md` says "ready to upload" with every Drive link; one short message to the owner. | Shorts gated like the film. |
+
+The owner uploads (outward-facing, §1). The next film's step 1 can start while the owner uploads the last one.
+
+### 3a.2 Never lose work
+- **One PR per step, merged at once** (more often in step 7). After a merge, restart the same session branch from
+  `main` (`git fetch origin main && git checkout -B <branch> origin/main`) for the next step: a merged PR is never
+  reused.
+- **Commit and push within every 30–45 minutes of work**, merged or not, so a cut-off session leaves its work on
+  GitHub.
+- **`films/<slug>/STATUS.md` is the resume point:** the twelve steps as a checklist, the current step, what is
+  running where (workflow run ids, Drive paths), and the next action in one line. Updated in every PR. A session
+  that starts (or restarts after a usage reset) reads it, checks running workflows, and continues from the first
+  open step without redoing finished work.
+- **Media goes to Drive the moment it exists** (takes, plates, mixes, cuts); git keeps the small files only.
+- **Long jobs never wait inside the session.** Renders, Blender plates and Shorts run on GitHub's runners; while they
+  run, the session works on the next step that doesn't depend on them (the package during the 4K render, the
+  Shorts design during a review).
+
+### 3a.3 Independent reviews
+- **Who:** a new cloud session (`create_session`) with **no repository**, so it knows nothing of our rules or research,
+  given one prompt from `prompts/` with the material filled in. It reports, the report is saved in `review/`, and the
+  session is archived (§3). Each round uses a **fresh** session (no memory of the last draft: §16, film 1).
+- **The panel: five viewers from around the world who choose everyday-physics explainers** several times a week
+  (the US, the UK, India, Germany, Australia; two are engineers who catch wrong physics, two speak English as a
+  second language, two watch on a TV). Their **satisfaction** is the point: YouTube ranks on it (§4.5).
+- **Cuts:** the reviewer opens the 720p cut by its Drive file id through the account's Google Drive connector
+  (nothing is shared publicly), with the narration and a timecode on every sentence, and pulls frames with ffmpeg.
+- **The bar:** nobody drifts in the first minute; every viewer can explain the mechanism back; no physics or fact is
+  flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
+  at least three of five would watch the channel's next film.
+- **Outside notes are checked before fixing** (§14.2): reviewers misread small things too.
+
+### 3a.4 Money and the owner
+The pipeline uses only what is set up and approved: the ElevenLabs account and its plan, Lyria inside the Gemini
+monthly cap (§12.1, §16), GitHub's free runners (a public repository: standard runners are free, up to 20 jobs at once
+and 6 hours a job, per GitHub's docs, read 2026-11-07), Drive. **Anything that would cost more** (a higher Gemini cap,
+more ElevenLabs characters than the plan, a paid tool) **is asked with AskUserQuestion, and the pipeline carries on
+with every step that doesn't need it.** Never anything outward-facing beyond our repos and Drive.
+
+### 3a.5 Reporting
+Each merged step gets one or two lines in the chat (what was made, what passed, what runs next). The owner is sent
+only finished things (§1): the 4K master and the package at step 12, never a draft or a test.
 
 ---
 
@@ -433,22 +503,24 @@ signature reveal (2–3 per film) the edit holds the voice for 1.5–2.5 s while
 machine's own sound carries the moment.
 
 ### 7.6 Voice
-**Owner, 2026-10-31: audition three neutral international narrators from the ElevenLabs library** on the same
-paragraph (judged on warmth, low-register depth, pace variation, clarity for non-native listeners); the owner picks. Never synthesise a real
+**The account's own ElevenLabs voice "The Mechanical Paradox"** (owner, 2026-11-04, §17.1 decision 6; it replaced
+the three-voice audition of 2026-10-31), on the newest Eleven flagship model (decision 8). Never synthesise a real
 person's voice.
 
-### 7.7 Recording blocks in the chat
-Whenever a VO is ready or changes, the reply carries every block as its own fenced code block (one-tap copy on the
-phone), each headed with block number, character count, voice, settings and the file name to save. Name the blocks
-to re-record with every change.
+### 7.7 Recording blocks
+Claude generates the voice itself (decision 6). Once the script is final, every block goes in one file,
+`script/blocks_performance.md` (decision 7), each headed with block number, character count, voice, settings and the
+file name; block 1 is generated and measured first, then the rest (§3a, step 6).
 
 ### 7.8 Checks before the owner sees a narration
 1. Fact and physics gate: every factual line maps to a confirmed `claims.csv` row (§9).
 2. The lean-in test on every paragraph.
-3. `scripts/spoken_english_check.py script/vo.txt --terms script/terms.txt --min-words 500 --max-words 900`.
-4. **Independent audience review:** a new cloud session with no repo gets `prompts/audience_review_v1.md` (six
-   viewers across the Tier-1 markets, including two engineers who catch wrong physics). Apply fixes that keep every
-   fact true, save `films/<slug>/review/audience_vN.md`, archive the session.
+3. `scripts/spoken_english_check.py script/vo.txt --terms script/terms.txt --min-words 500 --max-words N`, with N
+   from the treatment's planned length at about 155 wpm (films have no fixed length: decision 12).
+4. **Independent audience review:** a new cloud session with no repo gets `prompts/audience_review_v2.md` (five
+   everyday-physics fans from around the world, judged on satisfaction; §3a.3), once on the story (stage SCRIPT) and
+   once on the performed narration (stage NARRATION). Apply fixes that keep every fact true, save
+   `films/<slug>/review/audience_vN.md`, archive the session. (v1, six viewers, was used for film 1.)
 
 ## 8. Visual explanation toolkit (`lib/remotion/`)
 
@@ -588,8 +660,8 @@ Timed from the recorded VO and the locked script, never from transcription: `scr
 alignment + word spreader; ported) writes `vo/timing.json` with sentences and words in seconds and 60 fps frames.
 
 ### 10.5 Rendering
-- **720p review cuts first, 4K only after the owner approves the cut** (owner's rule on the sister channels,
-  2026-10-28). Review: `scale` `2/3` (written as a fraction: 0.6666667 gives a non-integer frame and Remotion
+- **720p review cuts first; 4K once the second independent review passes** (§3a steps 8–10; owner, 2026-11-07,
+  replacing the sister channels' "4K only after the owner approves"; the owner may still review any cut). Review: `scale` `2/3` (written as a fraction: 0.6666667 gives a non-integer frame and Remotion
   refuses it). Master: `scale` 2 → 3840×2160 at 60 fps.
 - **Where:** full renders on GitHub's runners (`.github/workflows/remotion-render.yml`: 20 runners, 30 s shards,
   joined, mix laid under, film to Drive `<film>/renders/`). The session renders stills and short tests only. *Why
@@ -831,9 +903,10 @@ Nothing reaches the owner without passing these, and §1's "polished only".
   1.5 s, no black frames.
 - **Physics on screen:** speeds follow ratios, contacts touch, nothing interpenetrates that shouldn't, colours follow
   §6.1 meanings, every HUD number has its source or the ILLUSTRATIVE label.
-- **Independent viewer review:** a new session without the repo gets the cut (Drive link) and the narration with
-  timecodes, and returns a verdict, a per-scene score and the top 10 fixes; the `mkmk749278/Review` repo's forensic
-  protocol applies to final cuts.
+- **Independent viewer review:** a new session without the repo gets `prompts/viewer_review_v2.md`: the cut by its
+  Drive file id (through the Google Drive connector) and the narration with timecodes, and returns a verdict, the
+  panel's satisfaction, a per-chapter score, the must-fixes and the top 10 fixes (§3a.3); the `mkmk749278/Review`
+  repo's forensic protocol applies to final cuts.
 - [ ] Text readable on a phone; nothing important under YouTube's overlays.
 - [ ] **§6.4a measured:** ≥ 36 px for what the narration points to, ≥ 26 px for every other fact, no fact in `muted`,
       nothing clipped or on a grid line.
@@ -1054,6 +1127,11 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 13. **2026-11-07: YouTube auto-dubbing** (owner chose it over paid ElevenLabs dubs). Turn it on at upload where
    YouTube offers it; nothing paid. The on-screen labels stay in English. *Why:* YouTube reported that pilot creators
    got over 25% of watch time from other-language audio (§4.5).
+14. **2026-11-07: the twelve-step pipeline, run without waiting** (§3a). Owner: "all this is automatic process you no
+   need to wait … for every step you need to open pr and merge the work … if you can know free machine on GitHub you
+   can use most of the free machine … Top priority creativity". Independent review gates replace the owner's approval
+   of each cut (4K after the second viewer review passes); the owner can still step in, and an approved cut is not
+   edited again.
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
