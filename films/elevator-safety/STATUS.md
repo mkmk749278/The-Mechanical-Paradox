@@ -1,7 +1,7 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 3, story review round 2. **Next action:** a fresh no-repo panel (SCRIPT) on `script/vo.txt` v3; save as
-`review/audience_v2.md`. Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
+**Now:** step 3, story review round 3. **Next action:** a fresh no-repo panel (SCRIPT) on `script/vo.txt` v4 (the last allowed round); save as
+`review/audience_v3.md`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
@@ -20,6 +20,12 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, steps 3–4, round 2.** Fresh panel (`review/audience_v2.md`): 8/9/7/8/7 (avg 7.8), all would watch the
+  next film, "Almost ready"; the engineer re-checked every number. Both near-leavers drifted at the cable detour. VO
+  v4: the opening cut to the snap, the wrong model ("You might expect to fall all the way down") and one teaser line;
+  the rail stands still; the g limits said simply, with "about twice your own weight, for a moment"; wedges on each
+  rail; the mine study introduced; "for example" for the upward brakes; a calmer ending. Claims C04, C13, C18, C29
+  updated; both gates pass.
 - **2026-11-07, steps 3–4, round 1.** Panel (`review/audience_v1.md`): satisfaction 8/9/7/8/7 (avg 7.8), stars
   4/5/4/4/4, all five would watch the next film; nobody would leave; the rewind line, by all five: "the falling car
   pulls its own brake lever". Fixes in VO v3: the cold open rewritten (the panel's version plus the wrong model); the
