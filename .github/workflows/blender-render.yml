@@ -24,8 +24,8 @@ on:
         description: "Cycles samples (denoised)"
         default: "16"
       runners:
-        description: "parallel runners (1-20). 7 = this channel's share: three channels' repos share one account's 20 jobs (PLAYBOOK §3a.4)"
-        default: "7"
+        description: "parallel runners: auto = every runner free across the 3 channels' repos, at least 7 (PLAYBOOK §3a.4); or 1-20"
+        default: "auto"
       blocks:
         description: "optional: exact blocks to render, shot:start:end,… (re-render missing frames; overrides runners)"
         default: ""
@@ -43,8 +43,15 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       blocks: ${{ steps.p.outputs.blocks }}
+      runners: ${{ steps.rs.outputs.n }}
     steps:
       - uses: actions/checkout@v4.2.2
+      - name: Runner share (the account's 20 jobs are shared by three channels; PLAYBOOK §3a.4)
+        id: rs
+        env:
+          RUNNER_SHARE_TOKEN: ${{ secrets.RUNNER_SHARE_TOKEN }}
+          WANT: ${{ inputs.runners }}
+        run: echo "n=$(python3 scripts/runner_share.py --want "$WANT")" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4.1.0
         with:
           node-version: "22.11.0"
@@ -73,8 +80,10 @@ jobs:
           FILM: ${{ inputs.film }}
           MODULE: ${{ inputs.module }}
           SHOTS: ${{ inputs.shots }}
-          RUNNERS: ${{ inputs.runners }}
+          RUNNERS: ${{ steps.rs.outputs.n }}
           BLOCKS: ${{ inputs.blocks }}
+          WIDTH: ${{ inputs.width }}
+          SAMPLES: ${{ inputs.samples }}
         run: |
           if [ -n "$BLOCKS" ]; then
             python3 -c "import json,os;print('blocks='+json.dumps(os.environ['BLOCKS'].split(',')))" >> "$GITHUB_OUTPUT"; exit 0
@@ -85,13 +94,19 @@ jobs:
           shots = os.environ["SHOTS"].split(",")
           frames = [(s, n) for s in shots for n in range(len(json.load(open(f"export/{s}.json"))["frames"]))]
           k = max(1, min(20, int(os.environ["RUNNERS"])))
-          size = -(-len(frames) // k)
+          # a block must finish inside the 350-minute job timeout: film 1 measured ~75 s a frame at 1920 px and ~6 min
+          # at 3840 px, at 16 samples. More blocks than runners is fine: max-parallel runs them as runners free up.
+          base = 36 if int(os.environ["WIDTH"]) > 1920 else 240
+          cap = max(1, base * 16 // max(1, int(os.environ["SAMPLES"])))
+          size = min(-(-len(frames) // k), cap)
           blocks = []
           for i in range(0, len(frames), size):
               chunk = frames[i:i + size]
               for s in dict.fromkeys(x[0] for x in chunk):  # a block may span two shots
                   ns = [n for (t, n) in chunk if t == s]
                   blocks.append(f"{s}:{ns[0]}:{ns[-1] + 1}")
+          if len(blocks) > 256:  # GitHub's matrix limit
+              raise SystemExit(f"{len(blocks)} blocks > 256: split the shots over two runs or lower the samples")
           print("blocks=" + json.dumps(blocks))
           EOF
 
@@ -101,7 +116,7 @@ jobs:
     timeout-minutes: 350
     strategy:
       fail-fast: false
-      max-parallel: ${{ fromJson(inputs.runners) }}
+      max-parallel: ${{ fromJson(needs.plan.outputs.runners) }}
       matrix:
         block: ${{ fromJson(needs.plan.outputs.blocks) }}
     env:

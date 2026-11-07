@@ -160,13 +160,30 @@ and 6 hours a job, per GitHub's docs, read 2026-11-07), Drive.
 the account `mkmk749278`, and this channel's two sister repos run their renders on the same account. GitHub's limits
 page lists the 20 by plan, not per repository; jobs over it wait in the queue instead of failing, so the cost of
 overlap is time, and one channel's 20-runner render can stall the other two for hours. So:
-- **This channel's share is 7 jobs at once:** the `runners` input of both workflows defaults to 7 and is also the
-  matrix's `max-parallel`, so a Blender re-render listing 70 blocks still runs 7 at a time. Three channels at 7/7/6 fit
-  inside 20 with nobody waiting. Take more only when the owner says the sister channels are idle.
-- **Plan for the slower clock:** at 7 runners a 4K Remotion job takes about three times film 1's 12–77 min (still
-  inside the 350-minute job timeout), and film 1's 4K Blender plates (73 blocks of about 3.6 h) take about a day and a
-  half instead of half a day. So start each shot's 4K plates as soon as that shot passes its viewer review (§3a steps
-  8–9), never at the end; the film's 4K render then only waits for the last plates.
+- **Take every free runner, never fewer than 7 (owner, 2026-11-07, decision 15).** Both workflows' `runners` input
+  defaults to `auto`: the plan job runs `scripts/runner_share.py`, which counts the jobs running or queued in all three
+  channels' repos (this run excluded) and takes 20 minus that, at least this channel's fair share of 7. An idle account
+  gives 20; a busy one gives 7. The count is also the matrix's `max-parallel`. A number (1–20) overrides it.
+- **It needs one token** (repo secret `RUNNER_SHARE_TOKEN`, see below); without it, or if GitHub's API fails, the
+  workflows take 7 (fail soft: a render never stops on this).
+- **The count is taken once, at the start.** A sister channel that starts a render later may wait for our blocks to
+  free runners (up to about 3.6 h each for 4K Blender blocks). That is the owner's accepted trade for speed.
+- **Blender blocks always fit the job timeout:** the planner caps a block at 36 frames at 3840 px and 240 at 1920 px
+  (film 1: about 6 min and 75 s a frame at 16 samples), scaled down for more samples. More blocks than runners is
+  fine; they run as runners free up. Over 256 blocks (GitHub's matrix limit) the plan stops with a clear error.
+  *Why:* the old planner cut one block per runner, so a 4K run at 7 runners would have made 366-frame blocks, about
+  36 h each; film 1's 4K plates only worked because their 73 blocks were listed by hand.
+- **Film 1's 4K plates** (about 260 runner-hours): about 13 h at 20 runners, 37 h at 7. Either way, start each shot's
+  4K plates as soon as that shot passes its viewer review (§3a steps 8–9), never at the end.
+
+**Setting up the token (the owner, once, about five minutes in a phone browser with "Desktop site" on):**
+1. github.com → profile picture → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** →
+   Generate new token. Name `runner-share`; expiration 1 year; resource owner `mkmk749278`.
+2. Repository access: **Only select repositories** → `The-Mechanical-Paradox`, `Creator`, `Built-on-Bharat`.
+3. Permissions → Repository permissions → **Actions: Read-only** (Metadata read-only is added by itself). Nothing
+   else. Generate, and copy the token.
+4. `The-Mechanical-Paradox` → Settings → Secrets and variables → Actions → New repository secret: name
+   `RUNNER_SHARE_TOKEN`, paste, Add. The token can only read workflow status; it can't change anything.
 - A queued run is not a failed run: before re-dispatching, check whether the first one is still waiting.
 - The sister repos set their own share; this repo can't change their workflows.
 
@@ -679,8 +696,8 @@ alignment + word spreader; ported) writes `vo/timing.json` with sentences and wo
 - **720p review cuts first; 4K once the second independent review passes** (§3a steps 8–10; owner, 2026-11-07,
   replacing the sister channels' "4K only after the owner approves"; the owner may still review any cut). Review: `scale` `2/3` (written as a fraction:
   0.6666667 gives a non-integer frame and Remotion refuses it). Master: `scale` 2 → 3840×2160 at 60 fps.
-- **Where:** full renders on GitHub's runners (`.github/workflows/remotion-render.yml`: 7 runners, this channel's share of the
-  account's 20 (§3a.4), 30 s shards,
+- **Where:** full renders on GitHub's runners (`.github/workflows/remotion-render.yml`: every runner free across the three
+  channels, at least 7 (§3a.4), 30 s shards,
   joined, mix laid under, film to Drive `<film>/renders/`). The session renders stills and short tests only. *Why
   (sister channel):* the session's VM restarted twice in one night and killed the render each time; the runners are
   free on a public repo and the session spends no usage waiting. Needs the repo secret `GDRIVE_RCLONE_TOKEN`.
@@ -1149,6 +1166,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    can use most of the free machine … Top priority creativity". Independent review gates replace the owner's approval
    of each cut (4K after the second viewer review passes); the owner can still step in, and an approved cut is not
    edited again.
+15. **2026-11-07: renders take every free runner** (§3a.4): `runners: auto` counts the jobs busy across the three
+   channels' repos and takes the rest, never fewer than 7 (owner's choice over "always 20" and "keep 7").
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
