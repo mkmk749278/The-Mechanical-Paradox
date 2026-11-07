@@ -150,6 +150,11 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
   flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
   at least three of five would watch the channel's next film.
 - **Outside notes are checked before fixing** (§14.2): reviewers misread small things too.
+- **Collecting a review (2026-11-07):** a review session that finishes cleanly sends **no** notice back (only a failed
+  or restarted one does), so don't wait on a timer. A panel takes about 2 minutes: check it with `get_session`, then
+  read only its final `result` event (`list_events`, kinds `["result"]`). Save the report in `review/`, archive the
+  session, and delete any reminder you scheduled for it. *Why:* film 2's first panel finished in 2 minutes while an
+  8-minute timer waited, and the owner noticed first.
 
 ### 3a.4 Money and the owner
 The pipeline uses only what is set up and approved: the ElevenLabs account and its plan, Lyria inside the Gemini

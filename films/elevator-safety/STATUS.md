@@ -1,15 +1,14 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 3, story review round 3. **Next action:** a fresh no-repo panel (SCRIPT) on `script/vo.txt` v4 (the last allowed round); save as
-`review/audience_v3.md`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
+**Now:** step 5, narration review. **Next action:** a fresh no-repo panel (NARRATION) on `script/vo.txt` v5; save as `review/narration_v1.md`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
 
 - [x] 1 Topic picked (gate 38/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, script                  PR (step 2)
-- [ ] 3 Story review (round 1 done: 7.8/10, not yet at the bar)   PR (round 1)
-- [ ] 4 Story and script fixed; bar met                      PR #
+- [x] 3 Story review (3 rounds: 7.8 → 7.8 → 8.0)              PRs #34, #35, this one
+- [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [ ] 5 Narration review; fixes in                           PR #
 - [ ] 6 Voice: block 1 measured, all blocks measured          PR #
 - [ ] 7 Film built (scenes, plates, music, mix)              PR #s
@@ -20,6 +19,11 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, steps 3–4, round 3 (bar met).** Fresh panel (`review/audience_v3.md`): 8/9/7/8/8 (avg 8.0), nobody
+  below 7, all would watch the next film. VO v5 fixes the rope-attachment contradiction ("hooked to a lever on your
+  car"), the step-out logic, the reassurance, the gravity limits and the buried rail cut; adds "It does not care why
+  you are too fast". Claims C01, C02, C04, C10, C12, C22 updated; both gates pass. Story locked for the narration
+  review.
 - **2026-11-07, steps 3–4, round 2.** Fresh panel (`review/audience_v2.md`): 8/9/7/8/7 (avg 7.8), all would watch the
   next film, "Almost ready"; the engineer re-checked every number. Both near-leavers drifted at the cable detour. VO
   v4: the opening cut to the snap, the wrong model ("You might expect to fall all the way down") and one teaser line;
