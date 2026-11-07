@@ -154,7 +154,23 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
 ### 3a.4 Money and the owner
 The pipeline uses only what is set up and approved: the ElevenLabs account and its plan, Lyria inside the Gemini
 monthly cap (§12.1, §16), GitHub's free runners (a public repository: standard runners are free, up to 20 jobs at once
-and 6 hours a job, per GitHub's docs, read 2026-11-07), Drive. **Anything that would cost more** (a higher Gemini cap,
+and 6 hours a job, per GitHub's docs, read 2026-11-07), Drive.
+
+**The runners are shared by three channels (owner, 2026-11-07).** The 20 concurrent jobs of GitHub's Free plan belong to
+the account `mkmk749278`, and this channel's two sister repos run their renders on the same account. GitHub's limits
+page lists the 20 by plan, not per repository; jobs over it wait in the queue instead of failing, so the cost of
+overlap is time, and one channel's 20-runner render can stall the other two for hours. So:
+- **This channel's share is 7 jobs at once:** the `runners` input of both workflows defaults to 7 and is also the
+  matrix's `max-parallel`, so a Blender re-render listing 70 blocks still runs 7 at a time. Three channels at 7/7/6 fit
+  inside 20 with nobody waiting. Take more only when the owner says the sister channels are idle.
+- **Plan for the slower clock:** at 7 runners a 4K Remotion job takes about three times film 1's 12–77 min (still
+  inside the 350-minute job timeout), and film 1's 4K Blender plates (73 blocks of about 3.6 h) take about a day and a
+  half instead of half a day. So start each shot's 4K plates as soon as that shot passes its viewer review (§3a steps
+  8–9), never at the end; the film's 4K render then only waits for the last plates.
+- A queued run is not a failed run: before re-dispatching, check whether the first one is still waiting.
+- The sister repos set their own share; this repo can't change their workflows.
+
+**Anything that would cost more** (a higher Gemini cap,
 more ElevenLabs characters than the plan, a paid tool) **is asked with AskUserQuestion, and the pipeline carries on
 with every step that doesn't need it.** Never anything outward-facing beyond our repos and Drive.
 
@@ -661,9 +677,10 @@ alignment + word spreader; ported) writes `vo/timing.json` with sentences and wo
 
 ### 10.5 Rendering
 - **720p review cuts first; 4K once the second independent review passes** (§3a steps 8–10; owner, 2026-11-07,
-  replacing the sister channels' "4K only after the owner approves"; the owner may still review any cut). Review: `scale` `2/3` (written as a fraction: 0.6666667 gives a non-integer frame and Remotion
-  refuses it). Master: `scale` 2 → 3840×2160 at 60 fps.
-- **Where:** full renders on GitHub's runners (`.github/workflows/remotion-render.yml`: 20 runners, 30 s shards,
+  replacing the sister channels' "4K only after the owner approves"; the owner may still review any cut). Review: `scale` `2/3` (written as a fraction:
+  0.6666667 gives a non-integer frame and Remotion refuses it). Master: `scale` 2 → 3840×2160 at 60 fps.
+- **Where:** full renders on GitHub's runners (`.github/workflows/remotion-render.yml`: 7 runners, this channel's share of the
+  account's 20 (§3a.4), 30 s shards,
   joined, mix laid under, film to Drive `<film>/renders/`). The session renders stills and short tests only. *Why
   (sister channel):* the session's VM restarted twice in one night and killed the render each time; the runners are
   free on a public repo and the session spends no usage waiting. Needs the repo secret `GDRIVE_RCLONE_TOKEN`.
