@@ -1,12 +1,13 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 7, all 16 scenes built and assembled as `EL-Film` (Film.tsx, filmCues). **Next action:** review the
-52-frame contact sheet of EL-Film (render with `node scripts/stills.mjs OUT EL-Film:<52 frames> --scale 0.25`), fix
-what it shows; then real-footage inserts (Pixabay API, §8.8) if licensed elevator clips exist; then sound: export cues
-(`scripts/export_cues.mjs` pattern from film 1), music from the library (`scripts/music_pull.sh`, §12.1), mix with
-`scripts/score_mix.py`; then step 8: the 720p cut with `remotion-render.yml` (comp EL-Film, scale 2/3, runners 20).
-**Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
-**Renders:** `runners: 20` on every dispatch (owner, 2026-11-07: all 20 free; decision 16 updated).
+**Now:** step 8, the 720p review cut v1 rendering on the runners (`remotion-render.yml`, comp EL-Film, scale 2/3,
+`extra_frames` 330, runners 20) → Drive `elevator-safety/renders/elevator-safety_review_720p_v1.mp4`. **Next action:** when it
+lands, the picture gate (a frame every 2 s with the words heard, then full-size stills; loudness and channels of the
+MP4), then the independent viewer panel (`prompts/viewer_review_v2.md`, fresh no-repo session).
+**Running:** the v1 render. **Drive:** `The-Mechanical-Paradox/elevator-safety/` (mix in `mix/`, footage in
+`render-media/footage/`). **Renders:** `runners: 20` on every dispatch (owner, 2026-11-07; decision 16 updated).
+**For a person, once:** the six library tracks have passed both Gemini listeners but no person has heard them in a film
+yet (§12.1); the owner hears them in the cut.
 
 - [x] 1 Topic picked (gate 38/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, script                  PR (step 2)
@@ -14,7 +15,7 @@ what it shows; then real-footage inserts (Pixabay API, §8.8) if licensed elevat
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
-- [ ] 7 Film built: all 16 scenes + EL-Film merged; sound, footage, mix next   PRs #39, #41, group 3
+- [x] 7 Film built: 16 scenes, 3 footage inserts, mix (−14.2 LUFS, −1.4 dBTP)   PRs #39, #41, #42, this one
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
 - [ ] 10 4K master gated, on Drive                           PR #
@@ -22,6 +23,28 @@ what it shows; then real-footage inserts (Pixabay API, §8.8) if licensed elevat
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 7 closed (contact sheet, footage, sound).** The 52-frame contact sheet of EL-Film and full-size
+  stills found and fixed: s04 "SPRINGS HOLD THEM IN" and the catch's "≥ 115 %" clipped at the left edge (the speed now
+  36 px in the callout, "CATCH · ≥ 115 %"); s11 "≈ 2 × YOUR WEIGHT" and its note clipped at the right edge (now
+  right-aligned at the safe margin; "0.2 g · NOT TOO GENTLY" moved left of the scale so they don't meet); s12 the axis
+  title ran into "THE SPRINGS DECIDE" ("SQUEEZE ↑"); two honesty tags stacked in every dissolve (tags now clear 2 frames
+  before the next scene arrives); s07 the wedges had no name on "steel wedges" ("STEEL WEDGES · ONE EACH SIDE"). **s15
+  redesigned:** "Does that really happen? … at least eighteen hit the top" sat 8 s on faint empty boxes, an icon grid
+  the look bans; it is now the top of a mine shaft, an empty car accelerating up from rest (constant acceleration, so
+  faster and faster) into the overhead beam on "In just five years", the strike a stress field in the beam with a
+  shudder, the count 1 → 18 scored into the beam's face, and on "a brake that faces up" amber wedges at the car's top
+  corners. **Footage (§8.8):** three Pixabay inserts (`remotion/Footage.tsx`, `media_manifest.csv`): glass cars running
+  their rails in an atrium on "Your car runs between steel guide rails", a ride with the floor indicator ticking on
+  "Picture an ordinary office elevator", landing doors closing on "elevator doors close on you" (the clip played in
+  reverse, logged). **Sound:** 74 cues from the picture code (`sound/sfx.json`); music from the library
+  (`sound/score.json`, `music_manifest.csv`): bp01 under the cold open, silence 1 s before "Your own fall pulled the
+  brake", bp01 again for the governor, bp02 for the lever and wedges dropping before "Your fall is feeding its own
+  brake", bp03 for the doubt (10 g, Otis, the rules), bp05 for the spring dropping before "So the wedge grabs", bp04 for
+  the danger upward stopping dead before "It does.", nothing under the mine numbers, bp05 for the brake that faces up,
+  bp10 for the landing, out before the sting. Balanced by K-weighted momentary loudness: the drone (not the music) set
+  the bed under speech, so it went to −23; bed a median 14.7 dB under solid speech, effects 12.5 dB, the governor's lock
+  the one deliberate hit over the voice. Master −14.2 LUFS, −1.4 dBTP, 399.8 s (VO + sting); `mix.wav` in Drive
+  `elevator-safety/mix/`.
 - **2026-11-07, step 7, group 3 (s12–s16) + Film.tsx.** s12 the spring (clamp trace rises then flat; straight speed
   line; stops 0.20/0.34/1.02 m), s13 the rail scraped, ground smooth, released by raising, built to slip, s14 the
   counterweight (balance tips; empty car runs up at 1.8 m/s², MODEL), s15 the wedge pulled out going up, 18 overhead

@@ -67,7 +67,7 @@ export const Ropes: React.FC = () => {
 				</Label>
 				<Callout x={rx} y={ry} lx={rx + 260} ly={ry - 60} text="SEVERAL ROPES" sub="US CODES: AT LEAST 3" t={Math.min(on(f, b.several, 26), off(f, b.day + 40, 16))} />
 				<Callout x={gx} y={gy} lx={gx + 320} ly={gy - 120} text="FOR THE RARE DAY" color={colors.amber} t={on(f, b.day + 60, 26)} />
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
 				</Tag>
 			</AbsoluteFill>
@@ -155,7 +155,7 @@ export const GovernorIntro: React.FC = () => {
 				<Label x={150} y={150} size={44} color={colors.amber} weight={700} opacity={on(f, b.faster + 10, 16)}>
 					FASTER CAR, FASTER WHEEL
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -232,8 +232,8 @@ export const Flyweights: React.FC = () => {
 					{/* the latch radius, dashed: where the weights catch */}
 					<circle cx={cx} cy={cy} r={(FLY.rLatch + 18) * k} fill="none" stroke={colors.crimson} strokeWidth={2} strokeDasharray="10 8" opacity={Math.min(on(f, b.set, 20), off(f, b.care, 20))} />
 				</Svg>
-				<Callout x={cx - 30 * k} y={cy - 30 * k} lx={480} ly={300} text="SPRINGS HOLD THEM IN" color={colors.cyan} t={Math.min(on(f, b.classic + 60, 26), off(f, b.set, 16))} />
-				<Callout x={cx - (FLY.rLatch + 18) * k * 0.7} y={cy + (FLY.rLatch + 18) * k * 0.7} lx={480} ly={820} text="CATCH" color={colors.crimson} t={Math.min(on(f, b.set + 40, 26), off(f, b.care, 16))} sub="AT ≥ 115 % OF NORMAL SPEED" />
+				<Callout x={cx - 30 * k} y={cy - 30 * k} lx={600} ly={150} text="SPRINGS HOLD THEM IN" color={colors.cyan} t={Math.min(on(f, b.classic + 60, 26), off(f, b.set, 16))} />
+				<Callout x={cx - (FLY.rLatch + 18) * k * 0.7} y={cy + (FLY.rLatch + 18) * k * 0.7} lx={560} ly={820} text="CATCH · ≥ 115 %" color={colors.crimson} t={Math.min(on(f, b.set + 40, 26), off(f, b.care, 16))} sub="OF NORMAL SPEED" />
 				<Label x={150} y={480} size={56} color={colors.amber} weight={700} opacity={Math.min(on(f, b.catch + 6, 10), off(f, b.care - 10, 16))}>
 					LOCKED
 				</Label>
@@ -243,7 +243,7 @@ export const Flyweights: React.FC = () => {
 				<Label x={150} y={540} size={36} color={colors.sub} opacity={on(f, b.snapped + 40, 16)}>
 					SNAPPED ROPE OR NOT
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -321,7 +321,7 @@ export const PullsLever: React.FC = () => {
 				<Label x={150} y={150} size={52} color={colors.amber} weight={700} opacity={on(f, b.pulls + 6, 14)}>
 					THE CAR PULLS ITS OWN BRAKE LEVER
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -385,7 +385,7 @@ export const PureMechanics: React.FC = () => {
 						</Svg>
 					</React.Fragment>
 				))}
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
 				</Tag>
 			</AbsoluteFill>

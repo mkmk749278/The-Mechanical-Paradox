@@ -8,11 +8,13 @@ import {ColdOpen, coldOpenCues} from './ColdOpen';
 import {timing} from './cues';
 import {Flyweights, flyweightsCues, GovernorIntro, governorIntroCues, PullsLever, pullsLeverCues, PureMechanics, pureMechanicsCues, Ropes, ropesCues} from './Group1';
 import {Otis, otisCues, Question, questionCues, TooHard, tooHardCues, WedgeScene, wedgeCues, Window, windowCues} from './Group2';
+import {FootageLayer} from './Footage';
 import {Counterweight, counterweightCues, Landing, landingCues, Rail, railCues, Spring, springCues, UpBrake, upBrakeCues} from './Group3';
 import {SceneId, span, XFADE} from './scenes';
 
 // Film 2, the whole picture: every scene on its span from the recorded VO (scenes.ts), each dissolving in over the
-// last over XFADE frames; the channel sting after the last word (channel name only in the outro, CLAUDE.md).
+// last over XFADE frames; real footage inserts over them where the narration names the real thing (Footage.tsx);
+// the channel sting after the last word (channel name only in the outro, CLAUDE.md).
 
 const SCENES: [SceneId, React.FC, () => SfxCue[]][] = [
 	['s01', ColdOpen, coldOpenCues],
@@ -54,6 +56,7 @@ export const Film: React.FC = () => (
 				</Sequence>
 			);
 		})}
+		<FootageLayer />
 		<Sequence from={VO_FRAMES} durationInFrames={STING_FRAMES} name="sting">
 			<FadeIn first={false}>
 				<ChannelSting />

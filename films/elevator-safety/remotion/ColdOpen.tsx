@@ -166,7 +166,7 @@ export const ColdOpen: React.FC = () => {
 					YOUR FALL PULLED THE BRAKE
 				</Label>
 				<Callout x={gx} y={gy} lx={gx + 300} ly={gy - 160} text="BUILT TO SLIP" size={48} color={colors.amber} t={on(f, b.slip, 26)} sub="WEDGES SLIDE ON THE RAIL" />
-				<Tag x={96} y={970} opacity={Math.min(on(f, b.snap, 14), off(f, b.end - 10, 20))}>
+				<Tag x={96} y={970} opacity={Math.min(on(f, b.snap, 14), off(f, b.end - 16, 14))}>
 					ILLUSTRATION · SIMPLIFIED
 				</Tag>
 			</AbsoluteFill>

@@ -17,6 +17,7 @@ import {WedgeGear} from './Wedge';
 const b07 = () => ({
 	rails: at('s07', 'Your car runs between'),
 	each: at('s07', 'On each rail'),
+	wedges: at('s07', 'steel wedges'),
 	slot: at('s07', 'And each wedge sits'),
 	watch: at('s07', 'Now watch what your fall'),
 	still: at('s07', 'Your car is falling'),
@@ -92,6 +93,9 @@ export const WedgeScene: React.FC = () => {
 							))
 						: null}
 				</Svg>
+				<Label x={1080} y={800} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, b.wedges, 14), off(f, b.slot, 16)) * macro}>
+					STEEL WEDGES · ONE EACH SIDE
+				</Label>
 				<Label x={1080} y={800} size={44} color={colors.amber} weight={700} opacity={Math.min(on(f, b.slot + 20, 14), off(f, b.watch, 16)) * macro}>
 					NARROWS UPWARD · {SLOT_DEG}°
 				</Label>
@@ -121,7 +125,7 @@ export const WedgeScene: React.FC = () => {
 				<Label x={1500} y={940} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
 					THE FALL FEEDS THE BRAKE
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
 			</AbsoluteFill>
@@ -163,7 +167,7 @@ export const Question: React.FC = () => {
 				<Label x={1640} y={510} size={72} color={colors.crimson} weight={700} align="center" opacity={on(f, b.not, 8)}>
 					IT IS NOT.
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
 				</Tag>
 			</AbsoluteFill>
@@ -267,7 +271,7 @@ export const TooHard: React.FC = () => {
 				<Label x={150} y={150} size={44} color={colors.crimson} weight={700} opacity={on(f, b.every + 4, 14)}>
 					EVERY PERSON INSIDE
 				</Label>
-				<Tag x={96} y={970}>MODEL · ILLUSTRATION</Tag>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>MODEL · ILLUSTRATION</Tag>
 			</AbsoluteFill>
 		</Stage>
 	);
@@ -360,7 +364,7 @@ export const Otis: React.FC = () => {
 				<Label x={1450} y={860} size={48} color={colors.emerald} weight={700} align="center" opacity={on(f, b.sixty, 14)}>
 					UP TO 0.63 m/s
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · AFTER US PATENT 31,128 (1861)
 				</Tag>
 			</AbsoluteFill>
@@ -440,7 +444,7 @@ export const Window: React.FC = () => {
 				<Label x={x + 70} y={gy(1) - 22} size={36} color={colors.emerald} weight={600} opacity={band}>
 					1 g · NOT TOO HARD
 				</Label>
-				<Label x={x + 120} y={gy(0.2) - 6} size={36} color={colors.emerald} weight={600} opacity={on(f, b.gently, 16)}>
+				<Label x={x - 70} y={gy(0.2) - 6} size={36} color={colors.emerald} weight={600} align="right" opacity={on(f, b.gently, 16)}>
 					0.2 g · NOT TOO GENTLY
 				</Label>
 				<Label x={x + 70} y={gy(10.2) - 22} size={36} color={colors.crimson} weight={600} opacity={on(f, b.faster, 20)}>
@@ -449,13 +453,13 @@ export const Window: React.FC = () => {
 				<Label x={150} y={150} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, b.steady, 14), off(f, b.feel, 20))}>
 					SLOW DOWN STEADILY
 				</Label>
-				<Label x={1590} y={930} size={48} color={colors.amber} weight={700} align="center" opacity={on(f, b.twice, 14)}>
+				<Label x={1824} y={950} size={48} color={colors.amber} weight={700} align="right" opacity={on(f, b.twice, 14)}>
 					≈ 2 × YOUR WEIGHT
 				</Label>
-				<Label x={1590} y={990} size={26} color={colors.sub} align="center" opacity={on(f, b.twice + 20, 14)}>
+				<Label x={1824} y={1010} size={26} color={colors.sub} align="right" opacity={on(f, b.twice + 20, 14)}>
 					AT 1 g: GRAVITY + BRAKING · FOR A MOMENT
 				</Label>
-				<Tag x={96} y={970} opacity={off(f, b.end - 10, 20)}>
+				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					AVERAGE OVER THE STOP
 				</Tag>
 			</AbsoluteFill>

@@ -1,0 +1,93 @@
+{
+ "note": "Film 2 bed: library tracks (config/music_library.csv, PLAYBOOK \u00a712.1) placed on the film's beats; silence 1 s before each reveal ('Your own fall pulled the brake', 'Your fall is feeding its own brake', 'So the wedge grabs'); a dead stop before 'It does.' and no music under the mine-study numbers. The sub-bass drone runs under the whole VO.",
+ "slots": [
+  {
+   "track": "bp01_curious_pulse",
+   "from": 0,
+   "to": "w:6:Your-1.0",
+   "offset": 0,
+   "fade_in": 0.3,
+   "fade_out": 0.8,
+   "why": "act 1: the snap and the question, out 1 s before 'Your own fall pulled the brake'"
+  },
+  {
+   "track": "bp01_curious_pulse",
+   "from": "e:8",
+   "to": "s:27",
+   "offset": "e:8",
+   "fade_in": 2.0,
+   "fade_out": 1.0,
+   "why": "act 1: the governor, after the silence on 'built to slip'"
+  },
+  {
+   "track": "bp02_clockwork",
+   "from": "s:27",
+   "to": "w:43:Your-1.2",
+   "offset": 22,
+   "fade_in": 0.8,
+   "fade_out": 1.0,
+   "why": "the mechanism: lever, rails, wedges; drops before 'Your fall is feeding its own brake'"
+  },
+  {
+   "track": "bp03_low_tension",
+   "from": "e:43",
+   "to": "s:66",
+   "offset": 20,
+   "fade_in": 2.5,
+   "fade_out": 1.2,
+   "why": "the doubt: grab hard, 10 g, Otis, the rules"
+  },
+  {
+   "track": "bp05_resolve",
+   "from": "s:66",
+   "to": "w:80:So-1.2",
+   "offset": 0,
+   "fade_in": 1.5,
+   "fade_out": 1.0,
+   "why": "the answer: the spring; drops before 'So the wedge grabs, and the spring holds it back'"
+  },
+  {
+   "track": "bp04_stress_build",
+   "from": "s:82",
+   "to": "s:96-0.5",
+   "offset": 30,
+   "fade_in": 1.0,
+   "fade_out": 0.3,
+   "why": "the danger upward; stops dead before 'It does.'"
+  },
+  {
+   "track": "bp05_resolve",
+   "from": "s:99",
+   "to": "s:104",
+   "offset": 88,
+   "fade_in": 2.0,
+   "fade_out": 1.5,
+   "why": "the brake that faces up"
+  },
+  {
+   "track": "bp10_landing",
+   "from": "s:104",
+   "to": "e:109+1.4",
+   "offset": 30,
+   "fade_in": 1.5,
+   "fade_out": 2.5,
+   "why": "the landing; out before the sting"
+  }
+ ],
+ "rooms": [
+  {
+   "what": "drone",
+   "from": 0,
+   "to": "end",
+   "gain_db": -23
+  }
+ ],
+ "quiet": [],
+ "music_db": -13,
+ "sfx_db": -12,
+ "sfx_trim": {
+  "glass_tone": -7,
+  "torque_whine": -5
+ },
+ "mix_note": "Bus trims set by K-weighted momentary loudness against the voice (2026-11-07): the drone sets the bed under speech, so it sits at -23 (at -20 the bed was 12.4 dB under); music_db -13 and the drone put the bed a median 14.7 dB under solid speech; sfx_db -12 with glass_tone -7 and torque_whine -5 (sustained tones mask words) puts effects a median 12.5 dB under; the only effect over the voice is the governor locking at 1:16, on purpose. Master -14.2 LUFS, -1.4 dBTP."
+}
