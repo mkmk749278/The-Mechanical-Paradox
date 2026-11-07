@@ -57,6 +57,9 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   paid, anything outward-facing beyond our repos and Drive, and anything destructive.
 - Build in phases; at the end of each, stop and report what was built, what was checked and what is left.
 - Once the owner approves a cut, stop editing it.
+- **Topic gate first (PLAYBOOK §4.3):** every topic scored 1–10 on familiar-not-understood, drawable, packable and the
+  catch, at the top of `brief.md`: 35–40 greenlight, 28–34 re-angle, under 28 drop; and its mechanism, threshold and
+  catch sourceable before the treatment.
 - **Package first:** title, thumbnail concept and search terms in the film's `brief.md` before the script.
 - **Every final film ends with a YouTube package and a merged PR** (PLAYBOOK §13.7): 3 thumbnails, the title and the
   description in click-to-copy blocks, English SRT, saved in `films/<slug>/youtube/`.
@@ -64,9 +67,12 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
 ## Format
 - **Explainer-documentaries of about 4–6 minutes** (the blueprint's slate); the topic sets the length, never a target.
   2–3 vertical Shorts per film.
-- **Structure:** the broken intuition in motion within **12 s** (no greeting, no logo) → the promise by 0:30 → an open
-  loop by 0:55 → chapters that each add one layer of mechanism (intuition → test → failure → mechanism → proof) → the
-  trade-off → a landing image and one forward line. **Channel name and the `ChannelSting` only in the outro.**
+- **Structure: the five beats (PLAYBOOK §5.4).** **The paradox:** motion from frame 0, the viewer's own wrong model
+  said out loud by about 6 s and broken within **12 s** (no greeting, no logo); the promise by 0:30, an open loop by
+  0:55. **The trick:** chapters that each add one layer of mechanism (intuition → test → failure → mechanism → proof).
+  **The catch:** the trade-off as a beat of its own, around the middle, with its real name. **The truce:** how real
+  engineers live with both problems. **The landing:** an image, one line on the trade-off, one forward line. **Channel
+  name and the `ChannelSting` only in the outro.** No part-naming tours, no orbits that pad the voice.
 - **The look:** Abyss Black canvas, blueprint grid, Blueprint White linework; **colour = meaning** (crimson tension,
   heat, failure; cyan compression and flow; emerald balance; amber friction, boundary layers, the paradox point).
   Tokens only from `config/brand.yaml` → `lib/remotion/brand.ts`. No glass cards, neon dashboards, icon grids, text
@@ -97,6 +103,11 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
 - **Voice:** three neutral international ElevenLabs narrators are auditioned on one paragraph; the owner picks
   (owner, 2026-10-31; PLAYBOOK §17.1). Never synthesise a real person's voice.
 - **Recording blocks go in the chat** as click-to-copy code blocks, every time a VO is ready or changes.
+- **No maths lecture (PLAYBOOK §8.7):** no derivations, no symbol without its physical thing; one or two equations a
+  film at most, only as the proof, built on their words. One tactile analogy per mechanism at most, then the real name
+  and number.
+- **Pace:** about 145–165 wpm after the edit, alive through rhythm, never a slow even read; the voice holds 1.5–2.5 s on
+  each signature reveal while the picture moves. One prediction question before the biggest reveal.
 - Every narration passes the lean-in test, `scripts/spoken_english_check.py --terms`, and an **independent audience
   review** (`prompts/audience_review_v1.md`, a new session with no repo) before the owner sees it.
 
@@ -122,6 +133,8 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   company licence is needed (remotion.pro).
 
 ## Facts, honesty and rights (PLAYBOOK §9, §11)
+- **Outside research is a source like any other (PLAYBOOK §4.5):** each claim checked, a number without a source is
+  never adopted, and a research report's topic dossier is a list of flags, not facts (§17.4).
 - **Facts and physics only from collected sources.** The model's knowledge stops at June 2026; never state a fact or a
   number from memory. Every factual or physical claim has a row in `claims.csv` (claim, source URL, verbatim quote,
   status); `confirmed` needs a primary source (standard, paper, datasheet, patent, accident report) or two independent

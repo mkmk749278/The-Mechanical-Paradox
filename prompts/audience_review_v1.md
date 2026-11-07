@@ -3,7 +3,7 @@
 Adapted from Built-on-Bharat's `prompts/audience_review_story_v1.md` (2026-10-31) for The Mechanical Paradox: a global
 English audience, explainer-documentaries about counter-intuitive engineering, and a pass on whether the mechanism is
 actually understood. Paste into a **new cloud session with no repository attached**, replacing `{TITLE}`, `{THUMB}`
-and `{NARRATION}`.
+and `{NARRATION}`. *2026-11-07: questions h and i added (PLAYBOOK §5.4).*
 
 ---
 
@@ -36,6 +36,10 @@ d) Which lines sound like a textbook, a lecture, a news reader or a flat robot? 
 e) (Jonas, Daniel, Tom) Which statements sound wrong, overstated or too absolute ("never", "always", "impossible")?
 f) What question is still in your head at the end? Did the paradox feel resolved, or just named?
 g) Score 1-10: clarity, interest, wonder, trust, would-share.
+h) Before the film, what did you think made this thing work? Did the film say your idea out loud and show why it
+   fails, or did it feel like it was arguing with an idea nobody holds?
+i) When the film turned to the downside or the catch, did it feel like a new twist that pulled you in, or like an
+   appendix after the real ending? Would you have stayed through it on a TV in your living room?
 
 Then, as a panel, give:
 - The top 7 problems, ranked, each with the exact line and a rewritten line in plain spoken English (same facts, no
