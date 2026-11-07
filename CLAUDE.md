@@ -61,11 +61,15 @@ thumbnail, title and description. Be creative always, be smart, and stick to the
   catch, at the top of `brief.md`: 35–40 greenlight, 28–34 re-angle, under 28 drop; and its mechanism, threshold and
   catch sourceable before the treatment.
 - **Package first:** title, thumbnail concept and search terms in the film's `brief.md` before the script.
+- **Auto-dubbing (owner, 2026-11-07):** turn on YouTube's own auto-dubbing at upload where offered (free); no paid
+  dubbing. Listen to a sample of each dub for wrong technical words before it stays public (PLAYBOOK §13.7).
 - **Every final film ends with a YouTube package and a merged PR** (PLAYBOOK §13.7): 3 thumbnails, the title and the
   description in click-to-copy blocks, English SRT, saved in `films/<slug>/youtube/`.
 
 ## Format
-- **Explainer-documentaries of about 4–6 minutes** (the blueprint's slate); the topic sets the length, never a target.
+- **Explainer-documentaries with no length limit (owner, 2026-11-07):** each film is as long as its physics needs and
+  no longer; say it simply and in the least time that still explains it fully. Never padded, never cut short of the
+  mechanism.
   2–3 vertical Shorts per film.
 - **Structure: the five beats (PLAYBOOK §5.4).** **The paradox:** motion from frame 0, the viewer's own wrong model
   said out loud by about 6 s and broken within **12 s** (no greeting, no logo); the promise by 0:30, an open loop by
