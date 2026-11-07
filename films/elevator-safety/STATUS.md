@@ -1,7 +1,7 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 6, voice. **Next action:** `scripts/eleven_tts.py films/elevator-safety --blocks 1`, measure with `scripts/vo_review.py`, fix
-settings until block 1 is right, then every block; takes to Drive `elevator-safety/vo/`. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
+**Now:** step 7, build the film. **Next action:** build the scenes on `vo/timing.json` (394.3 s): the shaft, the governor, the wedge gear, the 10 g
+shot, the counterweight; Blender plates on the runners with `runners: 10`; music from the library. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
@@ -11,7 +11,7 @@ the panel drifts.
 - [x] 3 Story review (3 rounds: 7.8 → 7.8 → 8.0)              PRs #34, #35, this one
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
-- [ ] 6 Voice: block 1 measured, all blocks measured          PR #
+- [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
 - [ ] 7 Film built (scenes, plates, music, mix)              PR #s
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
@@ -20,6 +20,12 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 6.** Voice: the channel's voice on eleven_v4 (the newest flagship offered), same voice as film 1
+  (pitch −0.3 st, timbre 0.004 vs a film 1 take). Block 1 measured first (100 % words, 169 wpm raw, no drift), then
+  all 8 blocks × 2 takes. "Elisha Otis rode" came back as "Alicia Otis wrote": "rode" → "stood on" and the name
+  respelled for the voice only (`script/say.json`); both models then hear "Elisha Otis". Takes chosen for no flat
+  windows and least drift: b01 t2, b02 t1, b03 t1, b04 t2, b05 t1, b06 t1, b07 t2, b08 t1. `vo/timing.json`: 394.3 s,
+  110 sentences, 1,011 words, 154 wpm; 0 sentences to check; joins −66 dBFS. Audio in Drive `elevator-safety/vo/`.
 - **2026-11-07, step 5.** Narration panel (`review/narration_v1.md`): 8/9/7/8/7, "Nearly ready"; nobody would leave.
   VO v6 (locked): the code numbers said as a feeling first, the false ending turned into the promised payoff, the
   rope-and-lever link made audible, Otis and the mines shortened, plainer words ("kicks in", "scrape"). 1,030 words.

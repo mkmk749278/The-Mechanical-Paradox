@@ -4,9 +4,13 @@
 Blocks are cut from the locked script, never typed by hand, so the recording always matches vo.txt word for word.
 Run: python3 films/elevator-safety/script/build_blocks.py
 """
+import json
 from pathlib import Path
 
 HERE = Path(__file__).parent
+# Said-as spellings for the recording only (vo.txt and the captions keep the real spelling). Each was tested: the voice
+# read "Elisha" as "Alicia" inside block 5 (both takes, small and medium speech-to-text); the respelling fixed it.
+SAY: dict[str, str] = json.loads((HERE / "say.json").read_text()) if (HERE / "say.json").exists() else {}
 chapters: list[tuple[str, list[str]]] = []
 for line in (HERE / "vo.txt").read_text().splitlines():
     if line.startswith("## "):
@@ -20,6 +24,8 @@ out = ["# Film 2: recording blocks (generated from vo.txt by build_blocks.py)", 
        "`scripts/eleven_tts.py films/elevator-safety` (block 1 first, measured, then the rest). Paragraph breaks are kept.", ""]
 for i, (name, paras) in enumerate(chapters, 1):
     text = "\n\n".join(paras)
+    for real, said in SAY.items():
+        text = text.replace(real, said)
     assert not any(c.isdigit() for c in text), f"digits in block {i}: numbers must be words (§7.3)"
     out += [f"## b{i:02d} · {name} · {len(text)} characters", "", "```", text, "```", ""]
 (HERE / "blocks_performance.md").write_text("\n".join(out))

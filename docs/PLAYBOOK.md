@@ -1053,6 +1053,20 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
   a 0.1 ms attack (−1.1 dBTP).
 - *Stills tool:* `scripts/stills.mjs OUT COMP:f1,f2 --scale 0.5` renders many frames from one bundle.
 
+**Film 2 VO recorded (2026-11-07).**
+- *Speech-to-text can't tell a mispronounced name from its own guess, so test the name alone and in its block.* Both
+  takes of block 5 came back "Alicia Otis wrote": the same sentence alone ("Elisha Otis stood on…") transcribed
+  correctly, but inside the block the voice really shifted the vowel. **Rule:** a name the transcript gets wrong is
+  re-tested with small.en and medium.en, alone and in its block; if the block is wrong, respell it for the voice only.
+- *Respellings live in `script/say.json` (real → said)*, applied by the film's `build_blocks.py` and mapped back by
+  `scripts/vo_timing.py`, so `vo.txt` and the captions keep the real spelling ("Elisha", not "Ih-LYE-shuh").
+- *A phrase "inserted" in the last half second of a take is Whisper repeating itself*, not the voice: film 2's
+  landing showed it in all four takes and a clean re-transcription had none. Check pace as script words over the take
+  length (film 2 blocks: 161–195 wpm raw; 154 wpm after the edit breaths).
+- *Joins measured, not trusted:* 109 inserted silences; the loudest 10 ms beside one was −66 dBFS against −28 dBFS
+  speech. ElevenLabs spend for the whole film: about 14,300 characters (two takes a block, two extra landing takes, two
+  re-records of block 5, a 175-character name test).
+
 **Film 1 VO recorded (2026-11-04).**
 - *Eleven v4 ignores its speed setting.* b02 at speed 0.80, 0.85 and 0.90 gave the same 13.0 s take, and the voice
   reads at 173–197 wpm (articulation about 230). Multilingual v2 honours speed but changed the voice by 1.8–4.7

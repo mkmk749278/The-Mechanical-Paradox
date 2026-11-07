@@ -25,7 +25,7 @@ So why not let it grab as hard as it can, and stop you instantly? That sounds sa
 ## Too hard
 Picture an ordinary office elevator. Its brake kicks in at about two meters a second. Now stop that speed in just two centimeters. You would slow at about ten times the pull of gravity. Every person inside takes that jolt.
 
-The first famous safety brake did exactly that. In eighteen fifty-four, in New York, Elisha Otis rode a platform high in the air and had its rope cut. Springs threw hooks into teeth along the guides, and the platform stopped where it was. On a slow machine, that works. That kind of grab is still allowed today. But only on slow elevators. Sixty-three centimeters a second, or slower.
+The first famous safety brake did exactly that. In eighteen fifty-four, in New York, Elisha Otis stood on a platform high in the air and had its rope cut. Springs threw hooks into teeth along the guides, and the platform stopped where it was. On a slow machine, that works. That kind of grab is still allowed today. But only on slow elevators. Sixty-three centimeters a second, or slower.
 
 And on anything faster? The rules ask for the opposite. Slow down steadily. Not too gently, and not too hard. On average, somewhere between a fifth of gravity and one full gravity. And what does that feel like? At the hardest, about twice your own weight, for a moment.
 
