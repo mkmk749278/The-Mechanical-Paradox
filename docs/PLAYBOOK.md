@@ -175,10 +175,10 @@ back, 2026-11-07). Each claim that shapes a rule was checked; this is the verdic
 | Hook within 6 s; confirm the thumbnail within 30 s. | **Adopted as a tightening** | YouTube's key-moments report calls the first 30 s "the intro" [7]; on the sister channel two thirds of leavers were gone by 0:45 (§5.1). | §5.1. |
 | CTR for technical content benchmarks at 4–10%. | **Corrected** | YouTube: "Half of all channels and videos on YouTube have an impressions CTR that can range between 2% and 10%"; home impressions run lower, videos under 100 views vary more [8]. | §13.1: CTR against our own videos, per traffic source. |
 | Viewer satisfaction feeds the recommendations, not only watch time. | **Confirmed** | YouTube: "User surveys that ask you to rate videos that you watched helps the system understand satisfaction, not just watch time"; the home feed "primarily relies on your watch history" [9]. | §13.1 item 7. |
-| Films of 8–12 minutes. | **Open: the owner's decision (§17.5)** | No source in the report. TV sessions run long (a 2024 industry report, not YouTube's own figure: about half of the videos played on TVs were over 11 minutes); in online courses, engagement fell beyond about 6 minutes [5] (a different audience). | Until decided: the blueprint's 4–6 minutes, the topic sets the length. |
+| Films of 8–12 minutes. | **Decided by the owner: no length limit (§17.1 decision 12)** | No source in the report. TV sessions run long (a 2024 industry report, not YouTube's own figure: about half of the videos played on TVs were over 11 minutes); in online courses, engagement fell beyond about 6 minutes [5] (a different audience). | As long as the physics needs, as short as possible. |
 | Small 3D channels fail on structure, not render quality: the assembly-manual tour, the missing trade-off, slow orbits padding the voice, "How X Works" titles. | **Adopted** | The report's analysis (craft); consistent with §5 and §13. | §5.2, §6.5, §13.2. |
 | One tactile analogy grounds an abstract force (shear as a deck of cards; resonance as a swing pushed at the top). | **Adopted within the existing limit** | Craft; blueprint §6.1 still rules. | §7.2.5. |
-| *(Not in the report)* Multi-language audio tracks. | **New opportunity** | YouTube's pilot: creators using multi-language audio got over 25% of their watch time from views in a language other than the video's own (reported at the Sept 2025 rollout) [10]. | §17.5: the owner's decision. |
+| *(Not in the report)* Multi-language audio tracks. | **New opportunity** | YouTube's pilot: creators using multi-language audio got over 25% of their watch time from views in a language other than the video's own (reported at the Sept 2025 rollout) [10]. | §17.1 decision 13: YouTube auto-dubbing. |
 | *(Not in the report)* Title testing. | **New tool** | Test & Compare tests titles as well as thumbnails (wide rollout by Dec 2025, per press reports) and picks the winner on watch-time share, not CTR [11]. | §13.1 item 5. |
 | *(Not in the report)* Ask before you show. | **Adopted** | A question asked before a video segment improves learning of what it asks, but only when the video answers it [12]. | §7.2.10. |
 
@@ -232,7 +232,8 @@ sting and a title card at 0:25–0:45 dropped retention from 47% to 33%. So:
 - **No assembly-manual tour.** Never open a chapter by naming parts; a part arrives when the story needs it to solve
   the problem in front of the viewer. *Why:* the commonest failure of small 3D engineering channels is a beautiful
   exploded view with no conflict (§4.5).
-- Chapters of 1–2 minutes in a 4–6 minute film (the blueprint's lengths; the topic decides, never a target), each with
+- Chapters of about 1–2 minutes, in a film with no length limit (owner, 2026-11-07: as long as the physics needs, as
+  short as it can be while still explaining it fully), each with
   its own question, turn and payoff. Each chapter adds **one layer** of mechanism.
 - **Intuition → test → failure → mechanism → proof.** Show the naive model failing first (a cylinder wheelset
   screeching, a tire that doesn't slip and goes nowhere), then the real mechanism, then a proof the viewer can check
@@ -803,6 +804,7 @@ full film.
 - [ ] Title in a click-to-copy block + 2 alternatives.
 - [ ] Description in a click-to-copy block, chapters from the exact upload file.
 - [ ] English SRT from the locked script.
+- [ ] YouTube auto-dubbing on where offered (§17.1 decision 13); the dubbed tracks' technical words spot-checked.
 - [ ] Synthetic-content disclosure answered; tags only for spellings; pinned question; end-screen target; playlist.
 - [ ] Shorts cut list.
 - [ ] Saved in `films/<slug>/youtube/`; commit, PR to `main`, merge, tell the owner which branch to delete.
@@ -1045,6 +1047,13 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    **The library (owner, 2026-11-04):** general beds are generated once into one Drive folder and reused (§12.1).
 11. **2026-11-04: Blender on GitHub's runners for the hero shots** (owner: "you can even render blender rendering also
    on GitHub machine"; then "Film 1 now"). Film 1's cold open and landing wheelset are Cycles plates (§10.6).
+12. **2026-11-07: no film length limit.** Owner: "Some need more length but some don't, so don't keep any length
+   restrictions … we need to convey the physics in simple and mostly in less time as much as possible." This replaces
+   the blueprint's 4–6 minutes and the research report's 8–12: a film is as long as its five beats (§5.4) need, said
+   as simply and briefly as the physics allows; never padded for watch time.
+13. **2026-11-07: YouTube auto-dubbing** (owner chose it over paid ElevenLabs dubs). Turn it on at upload where
+   YouTube offers it; nothing paid. The on-screen labels stay in English. *Why:* YouTube reported that pilot creators
+   got over 25% of watch time from other-language audio (§4.5).
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
@@ -1110,13 +1119,9 @@ already slate film 4 (§17.3). **Every dossier line below is the report's claim,
 The report's train-wheel dossier is not used: its "centrifugal force shifts the wheelset" and "the flanges almost
 never touch" are the errors film 1's research corrected (`films/train-wheels/claims.csv`).
 
-### 17.5 Open questions for the owner (2026-11-07)
-1. **Film length.** The blueprint says 4–6 minutes; the research report says 8–12, with no source. TV sessions run
-   long, and online-course engagement falls after about 6 minutes (§4.5). Creative director's recommendation: keep
-   "the topic sets the length", with a five-beat film (§5.4) usually landing at 5–8 minutes, never padded.
-2. **Multi-language audio.** Over 25% of pilot creators' watch time came from dubbed languages (§4.5). The choices:
-   YouTube's own auto-dubbing (free where offered to us, but a voice not our own), our own dubbed tracks through the
-   ElevenLabs account (paid; the on-screen labels stay in English), or not yet. Nothing paid without the owner.
+### 17.5 Questions put to the owner (2026-11-07)
+Both answered the same day: film length (no limit, §17.1 decision 12) and multi-language audio (YouTube
+auto-dubbing, §17.1 decision 13).
 
 ---
 
