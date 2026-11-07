@@ -17,6 +17,8 @@ import {Landing} from '../films/train-wheels/remotion/Landing';
 import {Film, FILM_FRAMES} from '../films/train-wheels/remotion/Film';
 import {span} from '../films/train-wheels/remotion/scenes';
 import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
+import {ColdOpen as ElColdOpen} from '../films/elevator-safety/remotion/ColdOpen';
+import {span as elSpan} from '../films/elevator-safety/remotion/scenes';
 
 loadBrandFonts();
 
@@ -46,6 +48,9 @@ export const Root: React.FC = () => (
 			<Composition id="TW-Thumb-B" component={ThumbB} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-Thumb-C" component={ThumbC} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
+		</Folder>
+		<Folder name="ElevatorSafety">
+			<Composition id="EL-S01-ColdOpen" component={ElColdOpen} durationInFrames={elSpan('s01').dur} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
 			<Composition id="TW-Look3D" component={Look3D} durationInFrames={600} fps={video.fps} width={video.width} height={video.height} />
