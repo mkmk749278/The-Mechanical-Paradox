@@ -8,6 +8,7 @@ import {SfxCue} from '../../../lib/remotion/sfx';
 import {camPath} from './camera';
 import {GovernorCloseUp} from './Governor';
 import {flyRadius, FLY, GOV_R, govRpm, LEVER, leverDeg, LIFT} from './model';
+import {Drift} from './Drift';
 import {at, span} from './scenes';
 import {Cam, Shaft, SH, ShaftState, toScreen} from './Shaft';
 
@@ -65,7 +66,7 @@ export const Ropes: React.FC = () => {
 				<Label x={ax + 50} y={ay - 150} size={36} color={colors.sub} opacity={Math.min(on(f, b.later, 14), off(f, b.rare, 20))}>
 					LATER
 				</Label>
-				<Callout x={rx} y={ry} lx={rx + 260} ly={ry - 60} text="SEVERAL ROPES" sub="US CODES: AT LEAST 3" t={Math.min(on(f, b.several, 26), off(f, b.day + 40, 16))} />
+				<Callout subSize={30} x={rx} y={ry} lx={rx + 260} ly={ry - 60} text="SEVERAL ROPES" sub="US CODES: AT LEAST 3" t={Math.min(on(f, b.several, 26), off(f, b.day + 40, 16))} />
 				<Callout x={gx} y={gy} lx={gx + 320} ly={gy - 120} text="FOR THE RARE DAY" color={colors.amber} t={on(f, b.day + 60, 26)} />
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
@@ -136,7 +137,7 @@ export const GovernorIntro: React.FC = () => {
 					start={b.wherever - 20}
 					end={b.end + 20}
 					width={470}
-					note="MODEL"
+					note="MODEL VALUES"
 					rows={[
 						{label: 'CAR', unit: 'm/s', at: (fr) => v03(fr), decimals: 2, tone: 'line', source: 'C09'},
 						{label: 'WHEEL', unit: 'rpm', at: (fr) => govRpm(v03(fr)), decimals: 0, tone: 'amber', source: 'C06'},
@@ -227,13 +228,14 @@ export const Flyweights: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={b.stops} to={b.end} ox={150} oy={600} s={1.12}>
 				<Svg>
 					<GovernorCloseUp cx={cx} cy={cy} k={k} rot={rot} r={r} locked={locked} ropeTravel={dRope} glowWeights={Math.max(on(f, b.spin, 16) * off(f, b.care, 20), locked ? 1 : 0)} glowRope={on(f, b.stops - 6, 12)} />
 					{/* the latch radius, dashed: where the weights catch */}
 					<circle cx={cx} cy={cy} r={(FLY.rLatch + 18) * k} fill="none" stroke={colors.crimson} strokeWidth={2} strokeDasharray="10 8" opacity={Math.min(on(f, b.set, 20), off(f, b.care, 20))} />
 				</Svg>
 				<Callout x={cx - 30 * k} y={cy - 30 * k} lx={600} ly={150} text="SPRINGS HOLD THEM IN" color={colors.cyan} t={Math.min(on(f, b.classic + 60, 26), off(f, b.set, 16))} />
-				<Callout x={cx - (FLY.rLatch + 18) * k * 0.7} y={cy + (FLY.rLatch + 18) * k * 0.7} lx={560} ly={820} text="CATCH · ≥ 115 %" color={colors.crimson} t={Math.min(on(f, b.set + 40, 26), off(f, b.care, 16))} sub="OF NORMAL SPEED" />
+				<Callout subSize={30} x={cx - (FLY.rLatch + 18) * k * 0.7} y={cy + (FLY.rLatch + 18) * k * 0.7} lx={560} ly={820} text="CATCH · SET AT 125 %" color={colors.crimson} t={Math.min(on(f, b.set + 40, 26), off(f, b.care, 16))} sub="THE CODE: AT LEAST 115 %" />
 				<Label x={150} y={480} size={56} color={colors.amber} weight={700} opacity={Math.min(on(f, b.catch + 6, 10), off(f, b.care - 10, 16))}>
 					LOCKED
 				</Label>
@@ -243,6 +245,7 @@ export const Flyweights: React.FC = () => {
 				<Label x={150} y={540} size={36} color={colors.sub} opacity={on(f, b.snapped + 40, 16)}>
 					SNAPPED ROPE OR NOT
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
@@ -308,6 +311,7 @@ export const PullsLever: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={b.pulls - 30} to={b.end} ox={150} oy={480} s={1.1} dy={20}>
 				<Svg>
 					<Shaft cam={cam} st={rest({carY, ropeTravel: 0, leverDeg: lever, wedge: lever / LEVER.maxDeg, glowGovRope: 1, glowLever: on(f, b.still, 16), focus: 0.3})} />
 					<Arrow x1={px + 300} y1={py - 200} x2={px + 300} y2={py - 40} color={colors.line} width={6} grow={Math.min(on(f, b.past, 20), off(f, b.pulls, 20))} />
@@ -321,6 +325,7 @@ export const PullsLever: React.FC = () => {
 				<Label x={150} y={150} size={52} color={colors.amber} weight={700} opacity={on(f, b.pulls + 6, 14)}>
 					THE CAR PULLS ITS OWN BRAKE LEVER
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>

@@ -8,6 +8,7 @@ import {SfxCue} from '../../../lib/remotion/sfx';
 import {camPath} from './camera';
 import {GovernorCloseUp} from './Governor';
 import {climbToContact, climbToSpring, counterweight, flyRadius, LIFT, SPRING_TRAVEL, stop, upAccel, wedgeState} from './model';
+import {Drift} from './Drift';
 import {at, span} from './scenes';
 import {Cam, Shaft, SH, toScreen} from './Shaft';
 import {WedgeGear} from './Wedge';
@@ -104,14 +105,15 @@ export const Spring: React.FC = () => {
 					{/* the stopping distances */}
 					<g opacity={bars}>
 						{stops.map((s, i) => (
-							<rect key={s.g} x={cx0 + 40} y={470 + i * 140} width={(s.d / 1.1) * 640 * tween(f, b.depending + i * 12, b.depending + 40 + i * 12, 0, 1, ease.arrive)} height={44} fill={i === 1 ? colors.amber : colors.emerald} opacity={0.85} />
+							<rect key={s.g} x={cx0 + 40} y={470 + i * 140} width={(s.d / 1.1) * 640 * tween(f, b.depending + i * 12, b.depending + 40 + i * 12, 0, 1, ease.arrive)} height={44} fill={colors.emerald} opacity={0.55 + 0.15 * i} />
 						))}
 					</g>
 				</Svg>
+				<Callout subSize={30} x={430 + 96 * 4.4} y={600 - 30 * 4.4} lx={1010} ly={820} text="DISC SPRINGS" color={colors.cyan} t={Math.min(on(f, b.behind + 20, 26), off(f, b.steady, 16))} sub="THEY LET THE JAWS OPEN" />
 				<Label x={cx0} y={cy0 - ch - 70} size={36} color={colors.cyan} opacity={chart1}>
 					SQUEEZE ↑
 				</Label>
-				<Label x={cx0 + cw} y={cy0 + 16} size={26} color={colors.sub} align="right" opacity={chart1}>
+				<Label x={cx0 + cw} y={cy0 + 16} size={30} color={colors.sub} align="right" opacity={chart1}>
 					WEDGE CLIMB →
 				</Label>
 				<Label x={cx0 + cw} y={cyMap(1) - 64} size={36} color={colors.cyan} weight={600} align="right" opacity={chart1 * on(f, b.climbs + 140, 16)}>
@@ -120,12 +122,12 @@ export const Spring: React.FC = () => {
 				<Label x={cx0} y={cy0 - ch - 70} size={36} color={colors.amber} opacity={chart2}>
 					SPEED · 2.0 → 0 m/s
 				</Label>
-				<Label x={cx0 + cw} y={cy0 + 16} size={26} color={colors.sub} align="right" opacity={chart2}>
+				<Label x={cx0 + cw} y={cy0 + 16} size={30} color={colors.sub} align="right" opacity={chart2}>
 					TIME → (0.34 s AT 0.6 g)
 				</Label>
 				{stops.map((s, i) => (
 					<React.Fragment key={s.g}>
-						<Label x={cx0 + 40} y={428 + i * 140} size={26} color={colors.sub} opacity={bars}>
+						<Label x={cx0 + 40} y={422 + i * 140} size={30} color={colors.sub} opacity={bars}>
 							{`${s.g} g · ${s.label}`}
 						</Label>
 						<Label x={cx0 + 60 + (s.d / 1.1) * 640} y={474 + i * 140} size={36} color={colors.line} weight={600} opacity={on(f, b.depending + 40 + i * 12, 14)}>
@@ -175,11 +177,16 @@ export const Rail: React.FC = () => {
 	const grind = tween(f, b.ground, b.ground + 100, 0, 1, ease.camera);
 	const lift = tween(f, b.raised + 20, b.raised + 120, 0, 1, ease.camera);
 	const heat = Math.min(on(f, b.scrape, 12), 1 - slide * 0.6) * off(f, b.ground, 30);
+	// the summary beat: the wedge grabs and slips again, slowing to rest (viewer review v1: a 10 s hold here)
+	const slip = tween(f, b.grabs, b.end, 0, 1, ease.leave);
+	const slipY = slip * 230;
+	const slipHeat = on(f, b.grabs, 14) * (1 - slip * 0.7);
 	const railX = 760;
 	const railW = 260;
 	return (
 		<Stage dur={b.end} light={{x: 0.45, y: 0.5}}>
 			<AbsoluteFill>
+				<Drift f={f} from={b.grabs - 20} to={b.end} ox={760} oy={360} s={1.08} dx={30}>
 				<Svg>
 					<defs>
 						<radialGradient id="el-heat">
@@ -205,9 +212,13 @@ export const Rail: React.FC = () => {
 						})}
 					</g>
 					{/* the wedge on the face, with heat at the contact */}
-					<g transform={`translate(0 ${-lift * 260})`}>
+					{/* fresh tracks from the slip */}
+					{[-70, -40, -12, 18, 46, 74].map((x, i) => (
+						<line key={`s${x}`} x1={railX + x} y1={wedgeY - 260} x2={railX + x} y2={wedgeY - 260 + slipY} stroke={i % 2 ? '#E8EEF4' : '#B7C3CF'} strokeWidth={i % 3 ? 3 : 5} opacity={on(f, b.grabs, 10) * 0.9} />
+					))}
+					<g transform={`translate(0 ${-lift * 260 + slipY})`}>
 						<rect x={railX - 110} y={wedgeY - 130} width={220} height={130} fill="rgba(255,159,28,0.25)" stroke={colors.amber} strokeWidth={4} opacity={1 - grind * 0.0} />
-						<ellipse cx={railX} cy={wedgeY - 10} rx={150} ry={70} fill="url(#el-heat)" opacity={heat} />
+						<ellipse cx={railX} cy={wedgeY - 10} rx={150} ry={70} fill="url(#el-heat)" opacity={Math.max(heat, slipHeat)} />
 					</g>
 					<Arrow x1={railX + 300} y1={700} x2={railX + 300} y2={460} color={colors.emerald} width={7} grow={Math.min(on(f, b.raised + 10, 20), off(f, b.grabs, 20))} />
 				</Svg>
@@ -235,6 +246,7 @@ export const Rail: React.FC = () => {
 				<Label x={1040} y={500} size={60} color={colors.amber} weight={700} opacity={on(f, b.slip, 14)}>
 					BUILT TO SLIP
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · SOURCE: SLC BF_D-1 MANUAL
 				</Tag>
@@ -262,6 +274,7 @@ const b14 = () => ({
 	save: at('s14', 'To save energy'),
 	empty: at('s14', 'Now imagine the car is empty'),
 	lighter: at('s14', 'Which side is lighter'),
+	answer: at('s14', 'The car', 'Which side is lighter'),
 	fail: at('s14', 'Suppose the'),
 	drop: at('s14', 'The counterweight can drop'),
 	end: span('s14').dur,
@@ -288,7 +301,7 @@ export const Counterweight: React.FC = () => {
 	// the balance: car (+ 45 % of a full load) against the counterweight; the load leaves on "empty"
 	const load = 1 - tween(f, b.empty + 20, b.empty + 60, 0, 1, ease.camera);
 	const tip = tween(f, b.empty + 40, b.lighter + 40, 0, 1, ease.arrive) * 9;
-	const bx = 1350;
+	const bx = 1450;
 	const by = 760;
 	const [cwx, cwy] = toScreen(cam, SH.cwX, cwY + 0.8);
 	const [mx, my] = toScreen(cam, SH.sheave.x, SH.sheave.y);
@@ -303,7 +316,7 @@ export const Counterweight: React.FC = () => {
 					start={b.balanced - 10}
 					end={b.end + 20}
 					width={480}
-					note="MODEL"
+					note="MODEL VALUES"
 					rows={[
 						{label: 'CAR (EMPTY)', unit: 'kg', at: () => LIFT.car, decimals: 0, tone: 'line', source: 'ILLUSTRATIVE'},
 						{label: 'COUNTERWEIGHT', unit: 'kg', at: () => counterweight, decimals: 0, tone: 'emerald', source: 'C24'},
@@ -335,14 +348,14 @@ export const Counterweight: React.FC = () => {
 				<Label x={150} y={220} size={44} color={colors.emerald} weight={700} opacity={Math.min(on(f, b.down, 10), off(f, b.balanced, 16))}>
 					IT ONLY GRIPS GOING DOWN
 				</Label>
-				<Callout x={cwx} y={cwy} lx={cwx + 200} ly={cwy + 260} text="COUNTERWEIGHT" color={colors.emerald} t={Math.min(on(f, b.balanced + 30, 26), off(f, b.empty, 16))} sub="CAR + 40–50 % OF A FULL LOAD" />
-				<Label x={bx - 260} y={by + 90} size={26} color={colors.sub} align="center" opacity={Math.min(on(f, b.save, 20), off(f, b.fail + 40, 20))}>
+				<Callout subSize={30} x={cwx} y={cwy} lx={cwx + 200} ly={cwy + 260} text="COUNTERWEIGHT" color={colors.emerald} t={Math.min(on(f, b.balanced + 30, 26), off(f, b.empty, 16))} sub="CAR + 40–50 % OF A FULL LOAD" />
+				<Label x={bx - 230} y={by + 90} size={30} color={colors.sub} align="center" opacity={Math.min(on(f, b.save, 20), off(f, b.fail + 40, 20))}>
 					CAR {load > 0.5 ? '+ 45 % LOAD' : '(EMPTY)'}
 				</Label>
-				<Label x={bx + 260} y={by + 90} size={26} color={colors.emerald} align="center" opacity={Math.min(on(f, b.save, 20), off(f, b.fail + 40, 20))}>
+				<Label x={bx + 250} y={by + 90} size={30} color={colors.emerald} align="center" opacity={Math.min(on(f, b.save, 20), off(f, b.fail + 40, 20))}>
 					COUNTERWEIGHT
 				</Label>
-				<Label x={bx} y={by - 260} size={48} color={colors.amber} weight={700} align="center" opacity={Math.min(on(f, b.lighter + 40, 14), off(f, b.fail + 40, 16))}>
+				<Label x={bx} y={by - 260} size={48} color={colors.amber} weight={700} align="center" opacity={Math.min(on(f, b.answer, 10), off(f, b.fail + 40, 16))}>
 					THE CAR IS LIGHTER
 				</Label>
 				<Label x={150} y={560} size={44} color={colors.crimson} weight={700} opacity={on(f, b.drop + 30, 14)}>
@@ -404,6 +417,7 @@ export const UpBrake: React.FC = () => {
 	return (
 		<Stage dur={b.end} light={{x: 0.4, y: 0.5}}>
 			<AbsoluteFill>
+				<Drift f={f} from={b.eighteen + 100} to={b.both} ox={780} oy={330} s={1.06} dx={-40} dy={30}>
 				<Svg opacity={sceneA}>
 					<WedgeGear cx={600} cy={560} k={4.6} housingY={0} climb={climb} glowWedge={1} />
 					<Arrow x1={1100} y1={760} x2={1100} y2={360} color={colors.crimson} width={8} grow={on(f, b.wedges, 20)} />
@@ -462,42 +476,56 @@ export const UpBrake: React.FC = () => {
 					</g>
 					<Arrow x1={MINE.x1 + 70} y1={760} x2={MINE.x1 + 70} y2={500} color={colors.crimson} width={6} grow={rise15} />
 				</Svg>
-				<Label x={1180} y={200} size={120} color={colors.crimson} weight={700} opacity={sceneB * on(f, b.eighteen + 6, 8)}>
+				<Label x={1120} y={200} size={120} color={colors.crimson} weight={700} opacity={sceneB * on(f, b.eighteen + 6, 8)}>
 					{`${count}`}
 				</Label>
-				<Label x={1180} y={360} size={36} color={colors.line} opacity={sceneB * on(f, b.study, 14)}>
+				<Label x={1120} y={360} size={36} color={colors.line} opacity={sceneB * on(f, b.study, 14)}>
 					US MINE ELEVATORS HIT THE TOP
 				</Label>
-				<Label x={1180} y={415} size={36} color={colors.sub} opacity={sceneB * on(f, b.eighteen, 14)}>
+				<Label x={1120} y={415} size={36} color={colors.sub} opacity={sceneB * on(f, b.eighteen, 14)}>
 					AT LEAST · IN 5 YEARS
 				</Label>
-				<Label x={1180} y={640} size={44} color={colors.amber} weight={700} opacity={sceneB * on(f, b.codes, 14)}>
+				<Label x={1120} y={640} size={44} color={colors.amber} weight={700} opacity={sceneB * on(f, b.codes, 14)}>
 					A BRAKE THAT FACES UP
 				</Label>
-				<Label x={1180} y={700} size={36} color={colors.sub} opacity={sceneB * on(f, b.canada, 14)}>
-					{f >= b.europe ? 'CANADA 1990 · EUROPE (EN 81-20)' : 'CANADA 1990'}
+				<Label x={1120} y={700} size={36} color={colors.sub} opacity={sceneB * on(f, b.canada, 14)}>
+					CANADA 1990
 				</Label>
+				<Label x={1120} y={750} size={36} color={colors.sub} opacity={sceneB * on(f, b.europe, 14)}>
+					EUROPE · EN 81-20
+				</Label>
+				</Drift>
 				{/* both directions: the governor, a rope clamp, a two-way gear */}
 				<Svg opacity={sceneC}>
 					<GovernorCloseUp cx={460} cy={560} k={1.9} rot={(f - b.both) * 0.16} r={flyRadius(Math.abs(v))} locked={false} ropeTravel={(f - b.both) / 60} glowWeights={1} />
 					<g opacity={on(f, b.clamp, 20)}>
 						{[-0.05, 0, 0.05].map((o) => (
-							<line key={o} x1={1060 + o * 400} y1={300} x2={1060 + o * 400} y2={820} stroke={colors.line} strokeWidth={4} />
+							<line key={o} x1={1100 + o * 400} y1={300} x2={1100 + o * 400} y2={820} stroke={colors.line} strokeWidth={4} />
 						))}
-						<rect x={940 + 40 * on(f, b.clamp + 40, 20)} y={500} width={70} height={140} fill="#2A3544" stroke={colors.amber} strokeWidth={4} />
-						<rect x={1110 - 40 * on(f, b.clamp + 40, 20)} y={500} width={70} height={140} fill="#2A3544" stroke={colors.amber} strokeWidth={4} />
+						<rect x={980 + 40 * on(f, b.clamp + 40, 20)} y={500} width={70} height={140} fill="#2A3544" stroke={colors.amber} strokeWidth={4} />
+						<rect x={1150 - 40 * on(f, b.clamp + 40, 20)} y={500} width={70} height={140} fill="#2A3544" stroke={colors.amber} strokeWidth={4} />
 					</g>
-					<g opacity={on(f, b.twoway, 20)}>
-						<WedgeGear cx={1520} cy={430} k={2.4} housingY={0} climb={FULL * 0.6} glowWedge={1} railTicks={false} />
+					{/* a two-way gear: one pair of wedges in a slot narrowing upward (grips going down), a mirrored pair in a slot
+					narrowing downward (grips going up); the rail is clipped so it stays clear of the label */}
+					<defs>
+						<clipPath id="el-twoway">
+							<rect x={1300} y={200} width={560} height={665} />
+						</clipPath>
+					</defs>
+					<g opacity={on(f, b.twoway, 20)} clipPath="url(#el-twoway)">
+						<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={FULL * 0.6} glowWedge={1} railTicks={false} />
+						<g transform="translate(0 1090) scale(1 -1)">
+							<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={FULL * 0.6} glowWedge={1} railTicks={false} />
+						</g>
 					</g>
 				</Svg>
 				<Label x={460} y={880} size={36} color={colors.amber} align="center" opacity={sceneC}>
 					GOVERNOR: BOTH WAYS
 				</Label>
-				<Label x={1060} y={880} size={36} color={colors.amber} align="center" opacity={on(f, b.clamp, 20)}>
+				<Label x={1100} y={880} size={36} color={colors.amber} align="center" opacity={on(f, b.clamp, 20)}>
 					CLAMP ON THE ROPES
 				</Label>
-				<Label x={1520} y={880} size={36} color={colors.amber} align="center" opacity={on(f, b.twoway, 20)}>
+				<Label x={1580} y={920} size={36} color={colors.amber} align="center" opacity={on(f, b.twoway, 20)}>
 					WEDGES BOTH WAYS
 				</Label>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>

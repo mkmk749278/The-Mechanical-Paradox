@@ -1,6 +1,6 @@
 import React from 'react';
 import {colors} from '../../../lib/remotion/brand';
-import {closePerMm, WEDGE_GAP, wedgeState} from './model';
+import {climbToContact, climbToSpring, closePerMm, WEDGE_GAP, wedgeState} from './model';
 
 // The safety gear on one rail in section (SIMPLIFIED wedge gear, NOT TO SCALE: the 3 mm gap and the 8° taper are drawn
 // true to each other but the parts are enlarged). The rail blade stays fixed (the world); the housing moves with the
@@ -11,6 +11,10 @@ const RAIL_HALF = 8;
 const WB = 22; // wedge width at its foot, mm
 const WH = 70; // wedge height, mm
 const t = closePerMm;
+const SLOT_TOP = WH + 60; // the housing's top, mm above the slot foot
+const STOP = WH + 50; // the stop that caps the slot: the wedge's top can never reach it
+// numeric check (viewer review v1: the wedge stood proud of its housing): a fully climbed wedge stays under the stop
+if (climbToContact + climbToSpring + WH >= STOP) throw new Error('wedge would hit the stop');
 
 export const WedgeGear: React.FC<{
 	cx: number;
@@ -23,7 +27,9 @@ export const WedgeGear: React.FC<{
 	springs?: number;
 	railTicks?: boolean;
 	slotGlow?: number;
-}> = ({cx, cy, k, housingY, climb, glowWedge = 0, squeeze = 0, springs = 0, railTicks = true, slotGlow = 0}) => {
+	/** How far the rail has slid up past the gear, px (the car sliding down with the wedges biting). */
+	railShift?: number;
+}> = ({cx, cy, k, housingY, climb, glowWedge = 0, squeeze = 0, springs = 0, railTicks = true, slotGlow = 0, railShift = 0}) => {
 	const {gap, jaw} = wedgeState(climb);
 	// screen from gear-local mm (x right of the rail centre, y up from the housing's slot foot)
 	const yOff = -housingY; // the housing (and slot foot) is housingY mm below the reference
@@ -38,7 +44,9 @@ export const WedgeGear: React.FC<{
 		const wedge = [pt(x0, yb), pt(x0, yb + WH), pt(x0 + sd * (WB - WH * t), yb + WH), pt(x0 + sd * WB, yb)].join(' ');
 		// the housing's inclined face sits on the wedge's outer face; the housing has moved out by `jaw`
 		const hx = (y: number) => sd * (RAIL_HALF + WEDGE_GAP + jaw + WB - y * t);
-		const housing = [pt(hx(-20), -20), pt(hx(WH + 40), WH + 40), pt(sd * (RAIL_HALF + WEDGE_GAP + jaw + WB + 46), WH + 40), pt(sd * (RAIL_HALF + WEDGE_GAP + jaw + WB + 46), -20)].join(' ');
+		const housing = [pt(hx(-20), -20), pt(hx(SLOT_TOP), SLOT_TOP), pt(sd * (RAIL_HALF + WEDGE_GAP + jaw + WB + 46), SLOT_TOP), pt(sd * (RAIL_HALF + WEDGE_GAP + jaw + WB + 46), -20)].join(' ');
+		// the stop across the slot's top, from just clear of the rail to the housing's inclined face
+		const stop = [pt(sd * (RAIL_HALF + WEDGE_GAP + 2), STOP), pt(hx(STOP), STOP), pt(hx(STOP + 8), STOP + 8), pt(sd * (RAIL_HALF + WEDGE_GAP + 2), STOP + 8)].join(' ');
 		// disc springs behind the housing, compressed by `jaw`
 		const sx = RAIL_HALF + WEDGE_GAP + jaw + WB + 46;
 		const stack = Array.from({length: 6}, (_, i) => {
@@ -49,6 +57,7 @@ export const WedgeGear: React.FC<{
 		return (
 			<g key={sd}>
 				<polygon points={housing} fill="#1A2330" stroke={slotGlow > 0.01 ? colors.amber : colors.line} strokeWidth={2.5} style={slotGlow > 0.01 ? {filter: `drop-shadow(0 0 ${8 * slotGlow}px ${colors.amber})`} : undefined} />
+				<polygon points={stop} fill="#3B4A5C" stroke={colors.line} strokeWidth={2} />
 				{stack}
 				<polygon points={wedge} fill={glowWedge > 0.01 ? 'rgba(255,159,28,0.35)' : '#2A3544'} stroke={wCol} strokeWidth={3} style={glowWedge > 0.01 ? {filter: `drop-shadow(0 0 ${10 * glowWedge}px ${colors.amber})`} : undefined} />
 				{/* serrated face */}
@@ -76,7 +85,10 @@ export const WedgeGear: React.FC<{
 			</defs>
 			{/* the rail blade: fixed in the world; ticks so you can see it stand still */}
 			<rect x={cx - RAIL_HALF * k} y={0} width={RAIL_HALF * 2 * k} height={1080} fill="#3B4A5C" stroke={colors.line} strokeWidth={2} />
-			{railTicks ? Array.from({length: 40}, (_, i) => <line key={i} x1={cx - RAIL_HALF * k} y1={i * 40} x2={cx + RAIL_HALF * k} y2={i * 40} stroke={colors.grid} strokeWidth={2} />) : null}
+			{railTicks ? Array.from({length: 40}, (_, i) => {
+				const y = (((i * 40 - railShift) % 1600) + 1600) % 1600 - 40;
+				return <line key={i} x1={cx - RAIL_HALF * k} y1={y} x2={cx + RAIL_HALF * k} y2={y} stroke={colors.grid} strokeWidth={2} />;
+			}) : null}
 			{side(-1)}
 			{side(1)}
 		</g>

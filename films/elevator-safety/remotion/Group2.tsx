@@ -2,11 +2,12 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {colors} from '../../../lib/remotion/brand';
 import {Hud} from '../../../lib/remotion/Hud';
-import {Arrow, Callout, Dim, Label, lin, off, on, pen, Stage, Svg, Tag} from '../../../lib/remotion/kit';
+import {Arrow, Callout, Label, lin, off, on, pen, Stage, Svg, Tag} from '../../../lib/remotion/kit';
 import {ease, shudder, tween} from '../../../lib/remotion/motion';
 import {SfxCue} from '../../../lib/remotion/sfx';
 import {camPath} from './camera';
 import {climbToContact, climbToSpring, hardStopG, LIFT, SLOT_DEG, wedgeState} from './model';
+import {Drift} from './Drift';
 import {at, span} from './scenes';
 import {Cam, Shaft, SH, toScreen} from './Shaft';
 import {WedgeGear} from './Wedge';
@@ -34,19 +35,25 @@ const b07 = () => ({
  * into contact; from then on the rail holds them still, so each mm the housing drops is a mm of climb, until the
  * springs are fully loaded and the wedges ride down with the car, scraping the rail.
  */
-const gear07 = (fr: number): {drop: number; climb: number} => {
+const gear07 = (fr: number): {drop: number; climb: number; slide: number; total: number} => {
 	const b = b07();
-	const drop = tween(fr, b.still, b.harder + 90, 0, 60, ease.camera);
+	const raw = tween(fr, b.still, b.harder + 90, 0, 60, ease.camera);
 	const contactF = b.touch + 60;
-	if (fr < contactF) return {drop, climb: tween(fr, b.touch, contactF, 0, climbToContact, ease.camera)};
+	if (fr < contactF) return {drop: raw, climb: tween(fr, b.touch, contactF, 0, climbToContact, ease.camera), slide: 0, total: raw};
 	const dropAtContact = tween(contactF, b.still, b.harder + 90, 0, 60, ease.camera);
-	return {drop, climb: Math.min(climbToContact + climbToSpring, climbToContact + (drop - dropAtContact))};
+	// once the springs are fully loaded the wedges stop climbing and ride down with the car, scraping the rail: the gear
+	// stays in frame (the camera rides with the car) and the rail slides up past it, slowing as the car stops (viewer
+	// review v1: the drop froze at 60 mm, which read as a 6 cm stop)
+	const full = dropAtContact + climbToSpring;
+	const drop = Math.min(raw, full);
+	const slide = Math.max(0, raw - full) + tween(fr, b.harder + 90, b.end, 0, 280, ease.leave);
+	return {drop, climb: Math.min(climbToContact + climbToSpring, climbToContact + (drop - dropAtContact)), slide, total: drop + slide};
 };
 
 export const WedgeScene: React.FC = () => {
 	const f = useCurrentFrame();
 	const b = b07();
-	const {drop, climb} = gear07(f);
+	const {drop, climb, slide} = gear07(f);
 	const ws = wedgeState(climb);
 	const macro = tween(f, b.each + 40, b.each + 110, 0, 1, ease.camera);
 	const cam: Cam = camPath(f, [
@@ -71,10 +78,9 @@ export const WedgeScene: React.FC = () => {
 					width={470}
 					note="MODEL · NOT TO SCALE"
 					rows={[
-						{label: 'CAR DROP', unit: 'mm', at: (fr) => gear07(fr).drop, decimals: 0, tone: 'line', source: 'ILLUSTRATIVE'},
+						{label: 'CAR DROP', unit: 'mm', at: (fr) => gear07(fr).total, decimals: 0, tone: 'line', source: 'ILLUSTRATIVE'},
 						{label: 'WEDGE CLIMB', unit: 'mm', at: (fr) => gear07(fr).climb, decimals: 1, tone: 'amber', source: 'ILLUSTRATIVE'},
 						{label: 'GAP', unit: 'mm', at: (fr) => wedgeState(gear07(fr).climb).gap, decimals: 2, tone: 'line', source: 'ILLUSTRATIVE'},
-						{label: 'SPRINGS', unit: 'mm', at: (fr) => wedgeState(gear07(fr).climb).jaw, decimals: 2, tone: 'cyan', source: 'ILLUSTRATIVE'},
 					]}
 				/>
 			}
@@ -85,7 +91,7 @@ export const WedgeScene: React.FC = () => {
 				</Svg>
 				<Callout x={rx} y={ry} lx={rx + 280} ly={ry - 80} text="STEEL GUIDE RAILS" t={Math.min(on(f, b.rails + 20, 26), off(f, b.each + 20, 16)) * (1 - macro)} />
 				<Svg opacity={macro}>
-					<WedgeGear cx={gx} cy={gy} k={k} housingY={drop} climb={climb} glowWedge={on(f, b.touch, 16)} squeeze={ws.gap < 0.001 ? Math.min(1, (climb - climbToContact) / climbToSpring + 0.25) * on(f, b.harder - 10, 16) : 0} springs={on(f, b.harder, 16)} slotGlow={Math.min(on(f, b.slot, 16), off(f, b.watch, 20))} />
+					<WedgeGear cx={gx} cy={gy} k={k} housingY={drop} climb={climb} glowWedge={on(f, b.touch, 16)} squeeze={ws.gap < 0.001 ? Math.min(1, (climb - climbToContact) / climbToSpring + 0.25) * on(f, b.harder - 10, 16) : 0} springs={0} railShift={slide * k} slotGlow={Math.min(on(f, b.slot, 16), off(f, b.watch, 20))} />
 					{/* the rail holds the wedge back: friction arrows up on the wedge faces */}
 					{ws.gap < 0.001
 						? [-1, 1].map((sd) => (
@@ -105,13 +111,13 @@ export const WedgeScene: React.FC = () => {
 				<Label x={1080} y={860} size={36} color={colors.sub} opacity={Math.min(on(f, b.still + 30, 14), off(f, b.touch, 16))}>
 					CAR: FALLING
 				</Label>
-				<Label x={1080} y={800} size={44} color={colors.amber} weight={700} opacity={Math.min(on(f, b.touch + 40, 14), off(f, b.trick, 16))}>
+				<Label x={1240} y={800} size={44} color={colors.amber} weight={700} opacity={Math.min(on(f, b.touch + 40, 14), off(f, b.trick, 16))}>
 					THE RAIL HOLDS IT BACK
 				</Label>
 				{/* the trick: a loop that feeds itself */}
 				{steps.map((s, i) => {
 					const a = -Math.PI / 2 + (i * Math.PI) / 2;
-					const x = 1500 + Math.cos(a) * 170;
+					const x = 1570 + Math.cos(a) * 170;
 					const y = 700 + Math.sin(a) * 170;
 					return (
 						<Label key={s} x={x} y={y - 22} size={36} color={i === 0 ? colors.line : colors.amber} weight={600} align="center" opacity={Math.min(loopO, on(f, b.trick + 10 + i * 14, 14))}>
@@ -120,9 +126,9 @@ export const WedgeScene: React.FC = () => {
 					);
 				})}
 				<Svg opacity={loopO}>
-					<circle cx={1500} cy={700} r={170} fill="none" stroke={colors.amber} strokeWidth={3} strokeDasharray="0.03 0.02" pathLength={1} strokeDashoffset={-f / 240} opacity={0.8} />
+					<circle cx={1570} cy={700} r={170} fill="none" stroke={colors.amber} strokeWidth={3} strokeDasharray="0.03 0.02" pathLength={1} strokeDashoffset={-f / 240} opacity={0.8} />
 				</Svg>
-				<Label x={1500} y={940} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
+				<Label x={1480} y={940} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
 					THE FALL FEEDS THE BRAKE
 				</Label>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
@@ -157,14 +163,15 @@ export const Question: React.FC = () => {
 			<AbsoluteFill>
 				<Svg>
 					{/* a ghost wedge slamming shut on the rail, again and again: the grab-hard idea */}
-					<g opacity={Math.min(on(f, b.q, 20), off(f, b.not + 10, 20)) * 0.9}>
+					{/* on screen for the whole scene (viewer review v1: it faded out 1.4 s early and left an empty frame) */}
+					<g opacity={on(f, 0, 18) * 0.9}>
 						<WedgeGear cx={960} cy={560 + shudder(f, 60, b.q + 72, 8, 12)} k={4} housingY={0} climb={snap * (climbToContact + climbToSpring)} glowWedge={snap} />
 					</g>
 				</Svg>
-				<Label x={1640} y={520} size={60} color={colors.line} weight={700} align="center" opacity={Math.min(on(f, b.safest, 14), off(f, b.not - 4, 10))}>
+				<Label x={1520} y={520} size={60} color={colors.line} weight={700} align="center" opacity={Math.min(on(f, b.safest, 14), off(f, b.not - 4, 10))}>
 					SAFEST?
 				</Label>
-				<Label x={1640} y={510} size={72} color={colors.crimson} weight={700} align="center" opacity={on(f, b.not, 8)}>
+				<Label x={1520} y={510} size={72} color={colors.crimson} weight={700} align="center" opacity={on(f, b.not, 8)}>
 					IT IS NOT.
 				</Label>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
@@ -202,7 +209,9 @@ export const TooHard: React.FC = () => {
 		{f: 0, cam: {cx: 0.6, cy: 5.6, s: 150}},
 		{f: b.end, cam: {cx: 0.55, cy: 5.6, s: 165}},
 	]);
-	const jolt = shudder(f, 60, b.ten + 12, 10, 9);
+	// the jolt: once on "ten times the pull of gravity", again on "Every person inside takes that jolt"
+	const jolt = shudder(f, 60, b.ten + 12, 10, 9) + shudder(f, 60, b.every + 40, 14, 9);
+	const squash = 1 - 0.12 * Math.min(1, Math.abs(shudder(f, 60, b.every + 40, 1, 9)) + Math.abs(shudder(f, 60, b.ten + 12, 0.6, 9)));
 	const field = Math.min(on(f, b.ten + 10, 14), 1) * (0.6 + 0.4 * Math.abs(Math.sin(f / 9)));
 	const [fx, fy] = toScreen(cam, -SH.carHalf, 4.4);
 	const [fx2] = toScreen(cam, SH.carHalf, 4.4);
@@ -222,7 +231,7 @@ export const TooHard: React.FC = () => {
 					start={b.kicks - 10}
 					end={b.end + 20}
 					width={440}
-					note="MODEL"
+					note="MODEL VALUES"
 					rows={[
 						{label: 'TRIP', unit: 'm/s', at: () => LIFT.vTrip, decimals: 2, tone: 'line', source: 'C14'},
 						{label: 'IN', unit: 'cm', at: () => 2, decimals: 0, tone: 'crimson', source: 'C14', from: b.two},
@@ -232,6 +241,7 @@ export const TooHard: React.FC = () => {
 			}
 		>
 			<AbsoluteFill style={{transform: `translateY(${jolt}px)`}}>
+				<Drift f={f} from={b.every} to={b.end} ox={150} oy={150} s={1.1}>
 				<Svg>
 					<Shaft cam={cam} st={{carY: 4.4, cwY: 8, govRot: 0, ropeTravel: 0, leverDeg: 28, wedge: 1, glowGear: on(f, b.two, 16)}} />
 					{/* every person inside takes the jolt: a stress field rising from the car floor */}
@@ -243,6 +253,22 @@ export const TooHard: React.FC = () => {
 						</linearGradient>
 					</defs>
 					<rect x={fx} y={fy - 2.0 * cam.s} width={fx2 - fx} height={2.0 * cam.s} fill="url(#el-jolt)" opacity={field} />
+					{/* the riders: three outline figures, 1.7 m tall, pressed down by each jolt */}
+					<g opacity={on(f, b.office + 30, 20)}>
+						{[0.25, 0.5, 0.75].map((u) => {
+							const x = fx + (fx2 - fx) * u;
+							const h = 1.7 * cam.s * squash;
+							return (
+								<g key={u} stroke={colors.line} strokeWidth={2.5} fill="none">
+									<circle cx={x} cy={fy - h + 0.11 * cam.s} r={0.11 * cam.s} />
+									<line x1={x} y1={fy - h + 0.22 * cam.s} x2={x} y2={fy - 0.85 * cam.s * squash} />
+									<line x1={x} y1={fy - 0.85 * cam.s * squash} x2={x - 0.15 * cam.s} y2={fy} />
+									<line x1={x} y1={fy - 0.85 * cam.s * squash} x2={x + 0.15 * cam.s} y2={fy} />
+									<line x1={x - 0.22 * cam.s} y1={fy - 1.15 * cam.s * squash} x2={x + 0.22 * cam.s} y2={fy - 1.15 * cam.s * squash} />
+								</g>
+							);
+						})}
+					</g>
 					{/* the dial */}
 					<g opacity={on(f, b.kicks, 20)}>
 						<circle cx={dx} cy={dy} r={R} fill="rgba(7,10,15,0.85)" stroke={colors.sub} strokeWidth={2} />
@@ -271,6 +297,7 @@ export const TooHard: React.FC = () => {
 				<Label x={150} y={150} size={44} color={colors.crimson} weight={700} opacity={on(f, b.every + 4, 14)}>
 					EVERY PERSON INSIDE
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>MODEL · ILLUSTRATION</Tag>
 			</AbsoluteFill>
 		</Stage>
@@ -318,6 +345,7 @@ export const Otis: React.FC = () => {
 	return (
 		<Stage dur={b.end} light={{x: 0.35, y: 0.45}}>
 			<AbsoluteFill>
+				<Drift f={f} from={b.springs} to={b.allowed} ox={520} oy={600} s={1.12} dx={40}>
 				<Svg opacity={fade}>
 					{/* two guide posts with racks of teeth facing in */}
 					{[px - W2 - 30, px + W2 + 30].map((x, i) => (
@@ -340,6 +368,15 @@ export const Otis: React.FC = () => {
 					))}
 					<rect x={px - W2} y={py - 50} width={W2 * 2} height={170} fill="#121B27" stroke={colors.line} strokeWidth={3} />
 					<line x1={px - W2} y1={py + 120} x2={px + W2} y2={py + 120} stroke={colors.line} strokeWidth={8} />
+					{/* Otis on his platform: an outline figure (no likeness), standing as the rope is cut */}
+					<g stroke={colors.line} strokeWidth={3} fill="none" opacity={drawing}>
+						<circle cx={px + 120} cy={py - 8} r={14} />
+						<line x1={px + 120} y1={py + 6} x2={px + 120} y2={py + 66} />
+						<line x1={px + 120} y1={py + 66} x2={px + 104} y2={py + 116} />
+						<line x1={px + 120} y1={py + 66} x2={px + 136} y2={py + 116} />
+						<line x1={px + 120} y1={py + 24} x2={px + 96 + 30 * pawl} y2={py + 4 - 30 * pawl} />
+						<line x1={px + 120} y1={py + 24} x2={px + 144} y2={py + 48} />
+					</g>
 				</Svg>
 				<Svg opacity={dialO}>
 					<circle cx={1450} cy={620} r={220} fill="rgba(7,10,15,0.85)" stroke={colors.sub} strokeWidth={2} />
@@ -357,15 +394,16 @@ export const Otis: React.FC = () => {
 				<Label x={1080} y={210} size={36} color={colors.sub} opacity={Math.min(on(f, b.otis + 30, 14), off(f, b.allowed, 20))}>
 					ELISHA OTIS
 				</Label>
-				<Callout x={px + W2 + 30} y={py - 40} lx={1150} ly={py + 60} text="HOOKS INTO TEETH" color={colors.amber} t={Math.min(on(f, b.springs + 20, 26), off(f, b.allowed, 20))} sub="THROWN BY A SPRING" />
+				<Callout subSize={30} x={px + W2 + 30} y={py - 40} lx={1150} ly={py + 60} text="HOOKS INTO TEETH" color={colors.amber} t={Math.min(on(f, b.springs + 20, 26), off(f, b.allowed, 20))} sub="THROWN BY A SPRING" />
 				<Label x={1450} y={330} size={36} color={colors.sub} align="center" opacity={dialO}>
 					INSTANT GRAB ALLOWED
 				</Label>
 				<Label x={1450} y={860} size={48} color={colors.emerald} weight={700} align="center" opacity={on(f, b.sixty, 14)}>
 					UP TO 0.63 m/s
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
-					ILLUSTRATION · AFTER US PATENT 31,128 (1861)
+					ILLUSTRATION · AFTER OTIS'S PATENT DRAWING
 				</Tag>
 			</AbsoluteFill>
 		</Stage>
@@ -423,6 +461,7 @@ export const Window: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={0} to={b.end} ox={980} oy={540} s={1.04}>
 				<Svg>
 					<line x1={x} y1={y0} x2={x} y2={y1} stroke={colors.sub} strokeWidth={3} />
 					{Array.from({length: 12}, (_, g) => (
@@ -430,7 +469,6 @@ export const Window: React.FC = () => {
 					))}
 					<rect x={x - 40} y={gy(1)} width={80} height={gy(0.2) - gy(1)} fill={colors.emerald} opacity={0.75 * band} style={{filter: `drop-shadow(0 0 10px ${colors.emerald})`}} />
 					<line x1={x - 50} y1={gy(10.2)} x2={x + 50} y2={gy(10.2)} stroke={colors.crimson} strokeWidth={6} opacity={on(f, b.faster, 20)} />
-					<Dim x1={x + 90} y1={gy(0)} x2={x + 90} y2={gy(0.2)} color={colors.sub} draw={on(f, b.gently, 20)} tick={8} />
 					{/* twice your weight: a scale under a standing figure (outline only) */}
 					<g opacity={on(f, b.feel, 20)} transform="translate(0 50)">
 						<rect x={1460} y={820} width={260} height={40} rx={8} fill="#141E2C" stroke={colors.line} strokeWidth={2.5} />
@@ -450,15 +488,19 @@ export const Window: React.FC = () => {
 				<Label x={x + 70} y={gy(10.2) - 22} size={36} color={colors.crimson} weight={600} opacity={on(f, b.faster, 20)}>
 					10 g · THE GRAB
 				</Label>
+				<Label x={940} y={420} size={44} color={colors.amber} weight={700} opacity={Math.min(on(f, b.faster + 10, 14), off(f, b.steady - 10, 14))}>
+					FASTER THAN 0.63 m/s?
+				</Label>
 				<Label x={150} y={150} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, b.steady, 14), off(f, b.feel, 20))}>
 					SLOW DOWN STEADILY
 				</Label>
-				<Label x={1824} y={950} size={48} color={colors.amber} weight={700} align="right" opacity={on(f, b.twice, 14)}>
+				<Label x={1780} y={950} size={48} color={colors.amber} weight={700} align="right" opacity={on(f, b.twice, 14)}>
 					≈ 2 × YOUR WEIGHT
 				</Label>
-				<Label x={1824} y={1010} size={26} color={colors.sub} align="right" opacity={on(f, b.twice + 20, 14)}>
+				<Label x={1780} y={1006} size={30} color={colors.sub} align="right" opacity={on(f, b.twice + 20, 14)}>
 					AT 1 g: GRAVITY + BRAKING · FOR A MOMENT
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					AVERAGE OVER THE STOP
 				</Tag>
