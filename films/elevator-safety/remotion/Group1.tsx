@@ -312,7 +312,7 @@ export const PullsLever: React.FC = () => {
 					<Shaft cam={cam} st={rest({carY, ropeTravel: 0, leverDeg: lever, wedge: lever / LEVER.maxDeg, glowGovRope: 1, glowLever: on(f, b.still, 16), focus: 0.3})} />
 					<Arrow x1={px + 300} y1={py - 200} x2={px + 300} y2={py - 40} color={colors.line} width={6} grow={Math.min(on(f, b.past, 20), off(f, b.pulls, 20))} />
 				</Svg>
-				<Label x={px + 330} y={py - 160} size={36} color={colors.line} opacity={Math.min(on(f, b.past + 10, 16), off(f, b.pulls, 20))}>
+				<Label x={px + 300} y={py - 160} size={36} color={colors.line} align="right" opacity={Math.min(on(f, b.past + 10, 16), off(f, b.pulls, 20))}>
 					CAR KEEPS FALLING
 				</Label>
 				<Label x={px - 600} y={py - 330} size={36} color={colors.amber} opacity={Math.min(on(f, b.not, 16), off(f, b.pulls, 20))}>
