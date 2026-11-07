@@ -161,7 +161,8 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
   is **permanently deleted** with rclone (`deletefile --drive-trashed-only --drive-use-trash=false` after `trash_file`,
   or `--drive-use-trash=false` directly), and the link is checked to return 404. **Trashing alone does not revoke the
   link:** the trashed file still downloaded (200, full size) until it was deleted for good. The link is never posted
-  anywhere; the full-quality cut stays private.
+  anywhere; the full-quality cut stays private. The proxy's AAC re-encode reads about +0.2 dBTP where the master is −1.3: a sound note from the
+  panel on peaks is checked on the real cut first.
 - **The bar:** nobody drifts in the first minute; every viewer can explain the mechanism back; no physics or fact is
   flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
   at least three of five would watch the channel's next film.

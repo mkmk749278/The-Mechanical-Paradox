@@ -1,9 +1,11 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, cut v5 rendering. v4 (run 42417170948) passed every measured gate (no hold over 2.5 s, no black,
-no silence, −14.2 LUFS, −1.3 dBTP, channels equal); the 200-frame review found two small collisions, fixed and checked
-in stills. **Next action:** a quick gate of v5, then the fresh viewer panel by the temporary-link route (PLAYBOOK
-§3a.3).
+**Now:** step 9, the fresh viewer panel (round 2) is watching cut v5 (run 42418673046) in session
+session_014pFs6kE74mr37jnfNV6MRq. v5 gate: no hold over 2.5 s, no black, no silence, −14.2 LUFS, −1.3 dBTP, channels
+equal; the two v4 fixes checked in the cut. The 29.1 MB proxy was shared by link, downloaded by the panel, then deleted
+for good (404 checked). **Next action:** read the report, save `review/viewer_v2.md`, check each note
+(`review/viewer_v2_check.md`), fix; the bar is avg ≥ 8, nobody below 6, no must-fix. Note: the panel's proxy re-encode
+(AAC 96k) reads +0.2 dBTP; the real cut is −1.3 dBTP.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -18,7 +20,7 @@ yet (§12.1); the owner hears them in the cut.
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
 - [x] 7 Film built: 16 scenes, 3 footage inserts, mix (−14.2 LUFS, −1.4 dBTP)   PRs #39, #41, #42, this one
 - [x] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel 1 (7.2)   PRs #44–#48, this one
-- [ ] 9 Round 1 fixes in (cut v3); fresh panel next            this PR
+- [ ] 9 Round 1 fixes in (v3–v5); panel 2 on v5 running        PRs #49–#51, this one
 - [ ] 10 4K master gated, on Drive                           PR #
 - [ ] 11 Package: titles, thumbnails, click test, description, tags, SRT   PR #
 - [ ] 12 Shorts; ready to upload                             PR #
