@@ -1,14 +1,14 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 3, story review. **Next action:** a fresh no-repo session with `prompts/audience_review_v2.md` (SCRIPT)
-on `script/vo.txt` v2; save as `review/audience_v1.md`. Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
+**Now:** step 3, story review round 2. **Next action:** a fresh no-repo panel (SCRIPT) on `script/vo.txt` v3; save as
+`review/audience_v2.md`. Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
 
 - [x] 1 Topic picked (gate 38/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, script                  PR (step 2)
-- [ ] 3 Story review (panel round N)                         PR #
+- [ ] 3 Story review (round 1 done: 7.8/10, not yet at the bar)   PR (round 1)
 - [ ] 4 Story and script fixed; bar met                      PR #
 - [ ] 5 Narration review; fixes in                           PR #
 - [ ] 6 Voice: block 1 measured, all blocks measured          PR #
@@ -20,6 +20,13 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, steps 3–4, round 1.** Panel (`review/audience_v1.md`): satisfaction 8/9/7/8/7 (avg 7.8), stars
+  4/5/4/4/4, all five would watch the next film; nobody would leave; the rewind line, by all five: "the falling car
+  pulls its own brake lever". Fixes in VO v3: the cold open rewritten (the panel's version plus the wrong model); the
+  spoiled quiz becomes "So why not let it grab as hard as it can…? It is not."; the false ending becomes "But there is a
+  catch"; "the work of the springs" dropped (springs store energy); "fairly steady" slowing, load-dependent; jargon
+  out (traction, rated at, pneumatic); the mine study named as mine elevators; the upward fix explained (the governor
+  watches both ways). Claims C02, C20–C22, C27, C29 updated; gate passes; English check passes.
 - **2026-11-07, step 2.** Sources (`research/sources.md`): EN 81-20:2020 clauses from the AS 1735.1.2 preview,
   manufacturers' manuals (Bode, SLC, Wittur, PFB), patents (Otis ×2, KONE, Otis 1861), Britannica and Elevator World
   (1854), MSHA (the upward danger). `research/model.py` derives every MODEL number with asserts. `claims.csv` 29/29
