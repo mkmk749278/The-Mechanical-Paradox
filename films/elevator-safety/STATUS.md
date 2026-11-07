@@ -1,11 +1,13 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 8, the 720p review cut v1 rendering on the runners (`remotion-render.yml`, comp EL-Film, scale 2/3,
-`extra_frames` 330, runners 20) → Drive `elevator-safety/renders/elevator-safety_review_720p_v1.mp4`. **Next action:** when it
-lands, the picture gate (a frame every 2 s with the words heard, then full-size stills; loudness and channels of the
-MP4), then the independent viewer panel (`prompts/viewer_review_v2.md`, fresh no-repo session).
-**Running:** the v1 render. **Drive:** `The-Mechanical-Paradox/elevator-safety/` (mix in `mix/`, footage in
-`render-media/footage/`). **Renders:** `runners: 20` on every dispatch (owner, 2026-11-07; decision 16 updated).
+**Now:** step 8, the independent viewer panel is watching cut v2 (`elevator-safety_review_720p_v2.mp4`, Drive id
+`1OqxGdYzzc2cw8Nfm172LvtHPuk4Ksqr8`, run 42394563981) in a fresh no-repo session (session_014pFs6m8hQT3yoFEJQ37z4Z,
+`prompts/viewer_review_v2.md`). **Next action:** read its report (list_events on that session), save it as
+`review/viewer_v1.md`, check each note in code, timing and a still (`review/viewer_v1_check.md`), fix every confirmed
+must-fix, render v3, a fresh panel; archive the panel session. **Renders:** dispatch `remotion-render.yml` with
+`film: elevator-safety` (the slug, not `films/elevator-safety`: run 42388168391 failed on that), `comp: EL-Film`,
+`scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:** `The-Mechanical-Paradox/elevator-safety/` (cuts in
+`renders/`, mix in `mix/`, footage in `render-media/footage/`).
 **For a person, once:** the six library tracks have passed both Gemini listeners but no person has heard them in a film
 yet (§12.1); the owner hears them in the cut.
 
@@ -16,13 +18,18 @@ yet (§12.1); the owner hears them in the cut.
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
 - [x] 7 Film built: 16 scenes, 3 footage inserts, mix (−14.2 LUFS, −1.4 dBTP)   PRs #39, #41, #42, this one
-- [ ] 8 720p cut v1, picture gate, viewer panel              PR #
+- [ ] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel running   PR #44, this one
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
 - [ ] 10 4K master gated, on Drive                           PR #
 - [ ] 11 Package: titles, thumbnails, click test, description, tags, SRT   PR #
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 8, cut v1 → v2.** v1 (run 42391160332): 6:39.8, 60 fps, −14.2 LUFS, −1.3 dBTP, channels equal,
+  no black frames. The gate (200 frames, one every 2 s, read beside the words) found three: "CAR KEEPS FALLING" under
+  the HUD at 1:31 (now left of its arrow), "MARKS GROUND SMOOTH" and "RELEASED BY RAISING THE CAR" crossing at 4:39
+  (now a clean handover), and the mine count showing "0" and one tally mark before the strike at 5:43 (both now start
+  on the strike). v2 (run 42394563981): the same measurements; the three frames checked in the cut.
 - **2026-11-07, step 7 closed (contact sheet, footage, sound).** The 52-frame contact sheet of EL-Film and full-size
   stills found and fixed: s04 "SPRINGS HOLD THEM IN" and the catch's "≥ 115 %" clipped at the left edge (the speed now
   36 px in the callout, "CATCH · ≥ 115 %"); s11 "≈ 2 × YOUR WEIGHT" and its note clipped at the right edge (now
