@@ -4,7 +4,7 @@
 shot, the counterweight; Blender plates on the runners with `runners: 10`; music from the library. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
 the panel drifts.
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
-**Renders:** `runners: 10` on every dispatch (owner, 2026-11-07, decision 16).
+**Renders:** `runners: 20` on every dispatch (owner, 2026-11-07: all 20 free; decision 16 updated).
 
 - [x] 1 Topic picked (gate 38/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, script                  PR (step 2)

@@ -1189,7 +1189,8 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
    channels' repos and takes the rest, never fewer than 7 (owner's choice over "always 20" and "keep 7").
 16. **2026-11-07: film 2 renders on 10 runners** (owner: "For this video use 10 runners"). Every dispatch for film 2
    passes `runners: 10`. The token for `auto` (decision 15), or a separate GitHub account so this channel has all 20,
-   is decided after film 2.
+   is decided after film 2. **Updated 2026-11-07 (owner): "All 20 runners are free you can use all of them": film 2
+   dispatches use `runners: 20`.**
 
 ### 17.2 Decided (2026-10-31, creative director)
 - One Remotion workspace for all films (§10.1); React 19 per the blueprint, on Remotion's own tested set.
