@@ -146,6 +146,10 @@ The owner uploads (outward-facing, §1). The next film's step 1 can start while 
   second language, two watch on a TV). Their **satisfaction** is the point: YouTube ranks on it (§4.5).
 - **Cuts:** the reviewer opens the 720p cut by its Drive file id through the account's Google Drive connector
   (nothing is shared publicly), with the narration and a timecode on every sentence, and pulls frames with ffmpeg.
+  **The connector downloads at most 10 MB a file** (film 2, 2026-11-07: a 101 MB cut was refused and the panel stopped
+  after 24 s). So the cut goes in 20 s parts, stream-copied (`ffmpeg -i CUT -c copy -map 0 -f segment -segment_time 20
+  -reset_timestamps 1 parts/<slug>_vN_part%02d.mp4`, each ≈ 4–9 MB at 720p), uploaded to `<slug>/renders/vN_parts/`;
+  the prompt lists every part's file id and start time and asks the reviewer to join them with the concat demuxer.
 - **The bar:** nobody drifts in the first minute; every viewer can explain the mechanism back; no physics or fact is
   flagged as wrong (or a flag is checked and shown not to apply); average satisfaction ≥ 8/10 and nobody below 6;
   at least three of five would watch the channel's next film.
