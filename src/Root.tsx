@@ -19,6 +19,7 @@ import {span} from '../films/train-wheels/remotion/scenes';
 import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
 import {ColdOpen as ElColdOpen} from '../films/elevator-safety/remotion/ColdOpen';
 import {span as elSpan} from '../films/elevator-safety/remotion/scenes';
+import {Flyweights as ElFlyweights, GovernorIntro as ElGovernor, PullsLever as ElPullsLever, PureMechanics as ElPure, Ropes as ElRopes} from '../films/elevator-safety/remotion/Group1';
 
 loadBrandFonts();
 
@@ -51,6 +52,11 @@ export const Root: React.FC = () => (
 		</Folder>
 		<Folder name="ElevatorSafety">
 			<Composition id="EL-S01-ColdOpen" component={ElColdOpen} durationInFrames={elSpan('s01').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S02-Ropes" component={ElRopes} durationInFrames={elSpan('s02').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S03-Governor" component={ElGovernor} durationInFrames={elSpan('s03').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S04-Flyweights" component={ElFlyweights} durationInFrames={elSpan('s04').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S05-Lever" component={ElPullsLever} durationInFrames={elSpan('s05').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S06-Pure" component={ElPure} durationInFrames={elSpan('s06').dur} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
 			<Composition id="TW-Look3D" component={Look3D} durationInFrames={600} fps={video.fps} width={video.width} height={video.height} />

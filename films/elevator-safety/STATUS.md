@@ -12,7 +12,7 @@ the panel drifts.
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
-- [ ] 7 Film built (scenes, plates, music, mix)              PR #s
+- [ ] 7 Film built: group 1 (s01–s06) merged; s07–s16 next    PRs: group 1
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
 - [ ] 10 4K master gated, on Drive                           PR #
@@ -20,6 +20,15 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 7, group 1 (s01–s06).** Shared drawing kit promoted to `lib/remotion/kit.tsx` (film 1's own copy
+  untouched); `remotion/model.ts` mirrors `research/model.py` and checks every mechanism at import (trip window, fall
+  0.204 s / 0.54 m, stops 0.20–1.02 m, 10.2 g, flyweights reach the latch exactly at 2.0 m/s and stay clear at
+  1.6 m/s, 127 rpm, lever angle = car travel past the stopped rope, 8° slot). `Shaft.tsx`: the section in world
+  metres through a camera; `camera.ts`: one continuous move. Scenes: s01 cold open (snap with frayed ends, the ghost
+  falling the building strip, slow motion ×8 fall on one driver, crane to the machine, down the amber rope to the
+  lever, into the gear), s02 ropes, s03 governor and its loop, s04 flyweights catching, s05 the car pulls its own
+  lever, s06 pure mechanics and EN 81-20. Stills reviewed at key words; fixed: invisible ghost, empty frame, tiny
+  lever, a callout pointing at a sheave as "computer", callouts over the HUD.
 - **2026-11-07, step 6.** Voice: the channel's voice on eleven_v4 (the newest flagship offered), same voice as film 1
   (pitch −0.3 st, timbre 0.004 vs a film 1 take). Block 1 measured first (100 % words, 169 wpm raw, no drift), then
   all 8 blocks × 2 takes. "Elisha Otis rode" came back as "Alicia Otis wrote": "rode" → "stood on" and the name
