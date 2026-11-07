@@ -27,7 +27,7 @@ export const INSERTS: Insert[] = [
 	{clip: 'f03_doors', credit: 'Jesehab', scene: 's16', from: 'So the next time', pre: 6, to: 'picture what is riding', post: 6},
 ];
 
-const FADE = 14;
+const FADE = 30; // a longer dissolve: the cut into bright footage read as a flash (viewer review v2)
 
 /** An insert's window on the film's clock. */
 export const insertWindow = (i: Insert): {from: number; to: number} => {
@@ -50,7 +50,7 @@ const Clip: React.FC<{insert: Insert; dur: number}> = ({insert, dur}) => {
 				<OffthreadVideo
 					src={staticFile(`films/elevator-safety/footage/${insert.clip}.mp4`)}
 					muted
-					style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.66) contrast(1.06) brightness(0.94)'}}
+					style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.66) contrast(1.04) brightness(0.78)'}}
 				/>
 			</AbsoluteFill>
 			{/* the channel's cool, dark grade: a navy wash and a soft falloff to the abyss at the edges */}
@@ -59,7 +59,7 @@ const Clip: React.FC<{insert: Insert; dur: number}> = ({insert, dur}) => {
 			{/* a low scrim under the credit: on bright footage (snow, sky) the credit vanished (picture gate, 2026-11-04) */}
 			<AbsoluteFill style={{background: `linear-gradient(to top, ${colors.bg}D0 0px, ${colors.bg}80 90px, ${colors.bg}00 200px)`}} />
 			{/* bottom-right: the scenes' honesty tags own bottom-left (viewer review v1: the two blended in a dissolve) */}
-			<Label x={1824} y={1080 - 84} size={26} color={colors.line} align="right" opacity={0.85}>
+			<Label x={1824} y={1080 - 88} size={30} color={colors.line} align="right" opacity={0.9}>
 				FOOTAGE · PIXABAY / {insert.credit}
 			</Label>
 		</AbsoluteFill>

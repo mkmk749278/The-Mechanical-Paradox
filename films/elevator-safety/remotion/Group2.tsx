@@ -72,6 +72,7 @@ export const WedgeScene: React.FC = () => {
 			light={{x: 0.4, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE WEDGE"
 					start={b.still - 10}
 					end={b.end + 20}
@@ -118,8 +119,9 @@ export const WedgeScene: React.FC = () => {
 				{/* the trick: a loop that feeds itself */}
 				{steps.map((s, i) => {
 					const a = -Math.PI / 2 + (i * Math.PI) / 2;
-					const x = 1570 + Math.cos(a) * 170;
-					const y = 700 + Math.sin(a) * 170;
+					// the labels sit inside the loop so the dashed ring never crosses them (viewer review v2)
+					const x = 1560 + Math.cos(a) * 105;
+					const y = 690 + Math.sin(a) * 125;
 					return (
 						<Label key={s} x={x} y={y - 22} size={36} color={i === 0 ? colors.line : colors.amber} weight={600} align="center" opacity={Math.min(loopO, on(f, b.trick + 10 + i * 14, 14))}>
 							{s}
@@ -127,9 +129,9 @@ export const WedgeScene: React.FC = () => {
 					);
 				})}
 				<Svg opacity={loopO}>
-					<circle cx={1570} cy={700} r={170} fill="none" stroke={colors.amber} strokeWidth={3} strokeDasharray="0.03 0.02" pathLength={1} strokeDashoffset={-f / 240} opacity={0.8} />
+					<circle cx={1560} cy={690} r={220} fill="none" stroke={colors.amber} strokeWidth={3} strokeDasharray="0.03 0.02" pathLength={1} strokeDashoffset={-f / 240} opacity={0.8} />
 				</Svg>
-				<Label x={1480} y={940} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
+				<Label x={1480} y={965} size={44} color={colors.amber} weight={700} align="center" opacity={on(f, b.feeding + 4, 14)}>
 					THE FALL FEEDS THE BRAKE
 				</Label>
 				</Drift>
@@ -163,6 +165,7 @@ export const Question: React.FC = () => {
 	return (
 		<Stage dur={b.end} light={{x: 0.5, y: 0.5}} grid={0.4}>
 			<AbsoluteFill>
+				<Drift f={f} from={0} to={b.end} ox={960} oy={560} s={1.08}>
 				<Svg>
 					{/* a ghost wedge slamming shut on the rail, again and again: the grab-hard idea */}
 					{/* on screen for the whole scene (viewer review v1: it faded out 1.4 s early and left an empty frame) */}
@@ -176,6 +179,7 @@ export const Question: React.FC = () => {
 				<Label x={1520} y={510} size={72} color={colors.crimson} weight={700} align="center" opacity={on(f, b.not, 8)}>
 					IT IS NOT.
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
 				</Tag>
@@ -229,6 +233,7 @@ export const TooHard: React.FC = () => {
 			light={{x: 0.4, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="HARD STOP"
 					start={b.kicks - 10}
 					end={b.end + 20}
@@ -347,7 +352,8 @@ export const Otis: React.FC = () => {
 	return (
 		<Stage dur={b.end} light={{x: 0.35, y: 0.45}}>
 			<AbsoluteFill>
-				<Drift f={f} from={b.springs} to={b.allowed} ox={520} oy={600} s={1.12} dx={40}>
+				<Drift f={f} from={b.springs} to={b.allowed} ox={520} oy={600} s={1.12} dx={40} release={b.allowed}>
+				<Drift f={f} from={b.allowed} to={b.end} ox={1450} oy={620} s={1.08}>
 				<Svg opacity={fade}>
 					{/* two guide posts with racks of teeth facing in */}
 					{[px - W2 - 30, px + W2 + 30].map((x, i) => (
@@ -404,6 +410,7 @@ export const Otis: React.FC = () => {
 					UP TO 0.63 m/s
 				</Label>
 				</Drift>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · AFTER OTIS'S PATENT DRAWING
 				</Tag>
@@ -449,11 +456,12 @@ export const Window: React.FC = () => {
 			light={{x: 0.45, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE RULE"
 					start={b.avg - 10}
 					end={b.end + 20}
 					width={460}
-					note="EN 81-20 · 5.6.2.1.3"
+					note="EUROPEAN STANDARD · EN 81-20"
 					rows={[
 						{label: 'AVG SLOWING', unit: 'g', at: () => 0.2, decimals: 1, tone: 'emerald', source: 'C18'},
 						{label: 'TO', unit: 'g', at: () => 1.0, decimals: 1, tone: 'emerald', source: 'C18'},

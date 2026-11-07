@@ -19,7 +19,11 @@ export const GovernorCloseUp: React.FC<{
 	glowRope?: number;
 	ropeTravel: number;
 	showSwitch?: boolean;
-}> = ({cx, cy, k, rot, r, locked, switchOn = 0, glowWeights = 0, glowRope = 0, ropeTravel, showSwitch = false}) => {
+	/** the switch's opacity (it fades with its callout: viewer review v2 read it as a leftover box) */
+	switchOpacity?: number;
+	/** the frame plate behind the wheel; off in the close-up, where its edges ran through labels (viewer review v2) */
+	plate?: boolean;
+}> = ({cx, cy, k, rot, r, locked, switchOn = 0, glowWeights = 0, glowRope = 0, ropeTravel, showSwitch = false, switchOpacity = 1, plate = true}) => {
 	const R = GOV_R * 1000; // pitch radius, mm
 	const P = (x: number, y: number): [number, number] => [cx + x * k, cy - y * k];
 	const rotPt = (x: number, y: number, a: number): [number, number] => [x * Math.cos(a) - y * Math.sin(a), x * Math.sin(a) + y * Math.cos(a)];
@@ -45,7 +49,7 @@ export const GovernorCloseUp: React.FC<{
 	return (
 		<g>
 			{/* frame plates */}
-			<rect x={P(-210, 0)[0]} y={P(0, 210)[1]} width={420 * k} height={420 * k} rx={14} fill="rgba(13,20,32,0.65)" stroke={colors.sub} strokeWidth={2} />
+			{plate ? <rect x={P(-210, 0)[0]} y={P(0, 210)[1]} width={420 * k} height={420 * k} rx={14} fill="rgba(13,20,32,0.65)" stroke={colors.sub} strokeWidth={2} /> : null}
 			{/* rope down both sides */}
 			<g style={glowRope > 0.01 ? {filter: `drop-shadow(0 0 8px ${colors.amber})`} : undefined}>
 				{[-R, R].map((x) => {
@@ -97,7 +101,7 @@ export const GovernorCloseUp: React.FC<{
 			})}
 			<circle cx={cx} cy={cy} r={20 * k} fill="#2A3544" stroke={colors.line} strokeWidth={2.5} />
 			{showSwitch ? (
-				(() => {
+				<g opacity={switchOpacity}>{(() => {
 					const [bx, by] = P(150, 150);
 					const ang = (-30 + 50 * switchOn) * (Math.PI / 180);
 					return (
@@ -106,7 +110,7 @@ export const GovernorCloseUp: React.FC<{
 							<line x1={bx} y1={by} x2={bx - 60 * k * Math.cos(ang)} y2={by + 60 * k * Math.sin(ang)} stroke={switchOn > 0.5 ? colors.crimson : colors.line} strokeWidth={4} strokeLinecap="round" />
 						</g>
 					);
-				})()
+				})()}</g>
 			) : null}
 		</g>
 	);

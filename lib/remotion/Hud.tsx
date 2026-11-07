@@ -51,9 +51,11 @@ type HudProps = {
 	width?: number;
 	/** An honesty line under the rows (e.g. 'TEXTBOOK MODEL'). ILLUSTRATIVE VALUES is added automatically. */
 	note?: string;
+	/** row-label and unit size, px (default 26, the §6.4a floor; film 2 uses 30 after its viewer reviews) */
+	labelSize?: number;
 };
 
-export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-right', width = 600, note}) => {
+export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-right', width = 600, note, labelSize = 26}) => {
 	const frame = useCurrentFrame();
 	const o = envelope(frame, start, end, 18, 14);
 	if (o <= 0) return null;
@@ -103,10 +105,10 @@ export const Hud: React.FC<HudProps> = ({title, rows, start, end, corner = 'top-
 							opacity: rv,
 						}}
 					>
-						<span style={{fontSize: 26, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
+						<span style={{fontSize: labelSize, letterSpacing: 1.8, color: colors.sub}}>{r.label}</span>
 						<span style={{fontSize: 38, fontWeight: 700, color: toneColour(r.tone), fontVariantNumeric: 'tabular-nums'}}>
 							{fmt(r.at ? r.at(frame) : valueAt(r.keys ?? [{frame: 0, value: 0}], frame), r.decimals)}
-							{r.unit ? <span style={{fontSize: 26, fontWeight: 500, color: colors.sub, marginLeft: 10}}>{r.unit}</span> : null}
+							{r.unit ? <span style={{fontSize: labelSize, fontWeight: 500, color: colors.sub, marginLeft: 10}}>{r.unit}</span> : null}
 						</span>
 					</div>
 				);

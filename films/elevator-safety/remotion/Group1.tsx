@@ -41,7 +41,7 @@ export const Ropes: React.FC = () => {
 	const cam: Cam = camPath(f, [
 		{f: 0, cam: {cx: 0.6, cy: 6.4, s: 150}},
 		{f: b.rare, cam: {cx: 0.6, cy: 6.9, s: 140}},
-		{f: b.several + 20, cam: {cx: 0.55, cy: 10.6, s: 150}},
+		{f: b.several + 20, cam: {cx: 0.15, cy: 9.9, s: 520}},
 		{f: b.day, cam: {cx: 0.4, cy: 11.4, s: 160}},
 		{f: b.day + 70, cam: {cx: -0.7, cy: 4.4, s: 380}},
 		{f: b.end, cam: {cx: -0.75, cy: 4.35, s: 420}},
@@ -60,13 +60,13 @@ export const Ropes: React.FC = () => {
 						<Arrow x1={ax} y1={ay} x2={ax} y2={ay - 220 * tween(f, b.danger + 10, b.danger + 60, 0, 1, ease.arrive)} color={colors.amber} width={7} dashed />
 					</g>
 				</Svg>
-				<Label x={ax + 50} y={ay - 210} size={44} color={colors.amber} weight={700} opacity={up}>
+				<Label x={ax + 360} y={ay - 210} size={40} color={colors.amber} weight={700} opacity={up}>
 					ONE DANGER IT CAN'T STOP
 				</Label>
-				<Label x={ax + 50} y={ay - 150} size={36} color={colors.sub} opacity={Math.min(on(f, b.later, 14), off(f, b.rare, 20))}>
+				<Label x={ax + 360} y={ay - 150} size={36} color={colors.sub} opacity={Math.min(on(f, b.later, 14), off(f, b.rare, 20))}>
 					LATER
 				</Label>
-				<Callout subSize={30} x={rx} y={ry} lx={rx + 260} ly={ry - 60} text="SEVERAL ROPES" sub="US CODES: AT LEAST 3" t={Math.min(on(f, b.several, 26), off(f, b.day + 40, 16))} />
+				<Callout subSize={30} x={rx} y={ry} lx={rx + 200} ly={ry - 200} text="SEVERAL ROPES" sub="US CODE: 3 OR MORE" t={Math.min(on(f, b.several, 26), off(f, b.day + 40, 16))} />
 				<Callout x={gx} y={gy} lx={gx + 320} ly={gy - 120} text="FOR THE RARE DAY" color={colors.amber} t={on(f, b.day + 60, 26)} />
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED
@@ -133,6 +133,7 @@ export const GovernorIntro: React.FC = () => {
 			light={{x: 0.5, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="GOVERNOR"
 					start={b.wherever - 20}
 					end={b.end + 20}
@@ -146,6 +147,7 @@ export const GovernorIntro: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={0} to={b.gov + 20} ox={gvx} oy={gvy} s={1.1} release={b.loop}>
 				<Svg>
 					<Shaft cam={cam} st={rest({carY, cwY: 8.0 - d, govRot: -d / GOV_R, ropeTravel: d, glowGovRope: glowRope, glowLever: Math.min(on(f, b.hooked, 16), off(f, b.wherever + 40, 20)), focus: glowRope * 0.5})} />
 					<polyline points={loopPts} fill="none" stroke={colors.amber} strokeWidth={5} pathLength={1} strokeDasharray={`${loopT} 1`} opacity={off(f, b.hooked + 40, 20)} style={{filter: `drop-shadow(0 0 10px ${colors.amber})`}} />
@@ -156,6 +158,7 @@ export const GovernorIntro: React.FC = () => {
 				<Label x={150} y={150} size={44} color={colors.amber} weight={700} opacity={on(f, b.faster + 10, 16)}>
 					FASTER CAR, FASTER WHEEL
 				</Label>
+				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					SIMPLIFIED · NOT TO SCALE
 				</Tag>
@@ -205,7 +208,7 @@ export const Flyweights: React.FC = () => {
 	const v = v04(Math.min(f, lockF));
 	const r = flyRadius(v);
 	const k = 2.6;
-	const cx = 950;
+	const cx = 1000;
 	const cy = 600 + shudder(f, 60, lockF, 6, 11);
 	return (
 		<Stage
@@ -213,6 +216,7 @@ export const Flyweights: React.FC = () => {
 			light={{x: 0.4, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="GOVERNOR"
 					start={20}
 					end={b.end + 20}
@@ -230,7 +234,7 @@ export const Flyweights: React.FC = () => {
 			<AbsoluteFill>
 				<Drift f={f} from={b.stops} to={b.end} ox={150} oy={600} s={1.12}>
 				<Svg>
-					<GovernorCloseUp cx={cx} cy={cy} k={k} rot={rot} r={r} locked={locked} ropeTravel={dRope} glowWeights={Math.max(on(f, b.spin, 16) * off(f, b.care, 20), locked ? 1 : 0)} glowRope={on(f, b.stops - 6, 12)} />
+					<GovernorCloseUp plate={false} cx={cx} cy={cy} k={k} rot={rot} r={r} locked={locked} ropeTravel={dRope} glowWeights={Math.max(on(f, b.spin, 16) * off(f, b.care, 20), locked ? 1 : 0)} glowRope={on(f, b.stops - 6, 12)} />
 					{/* the latch radius, dashed: where the weights catch */}
 					<circle cx={cx} cy={cy} r={(FLY.rLatch + 18) * k} fill="none" stroke={colors.crimson} strokeWidth={2} strokeDasharray="10 8" opacity={Math.min(on(f, b.set, 20), off(f, b.care, 20))} />
 				</Svg>
@@ -297,6 +301,7 @@ export const PullsLever: React.FC = () => {
 			light={{x: 0.45, y: 0.45}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE LEVER"
 					start={20}
 					end={b.end + 20}
@@ -316,10 +321,10 @@ export const PullsLever: React.FC = () => {
 					<Shaft cam={cam} st={rest({carY, ropeTravel: 0, leverDeg: lever, wedge: lever / LEVER.maxDeg, glowGovRope: 1, glowLever: on(f, b.still, 16), focus: 0.3})} />
 					<Arrow x1={px + 300} y1={py - 200} x2={px + 300} y2={py - 40} color={colors.line} width={6} grow={Math.min(on(f, b.past, 20), off(f, b.pulls, 20))} />
 				</Svg>
-				<Label x={px + 300} y={py - 160} size={36} color={colors.line} align="right" opacity={Math.min(on(f, b.past + 10, 16), off(f, b.pulls, 20))}>
+				<Label x={px + 270} y={py - 160} size={36} color={colors.line} align="right" opacity={Math.min(on(f, b.past + 10, 16), off(f, b.pulls, 20))}>
 					CAR KEEPS FALLING
 				</Label>
-				<Label x={px - 600} y={py - 330} size={36} color={colors.amber} opacity={Math.min(on(f, b.not, 16), off(f, b.pulls, 20))}>
+				<Label x={px - 600} y={py - 330} size={36} color={colors.amber} opacity={Math.min(on(f, b.past, 16), off(f, b.pulls, 20))}>
 					ROPE: STOPPED
 				</Label>
 				<Label x={150} y={150} size={52} color={colors.amber} weight={700} opacity={on(f, b.pulls + 6, 14)}>
@@ -370,12 +375,12 @@ export const PureMechanics: React.FC = () => {
 		<Stage dur={b.end} light={{x: 0.35, y: 0.5}}>
 			<AbsoluteFill>
 				<Svg>
-					<GovernorCloseUp cx={560} cy={540} k={2.3} rot={rot} r={flyRadius(v)} locked={locked} ropeTravel={0} showSwitch switchOn={swOn} glowWeights={on(f, b.pure, 16)} />
+					<GovernorCloseUp cx={560} cy={540} k={2.3} rot={rot} r={flyRadius(v)} locked={locked} ropeTravel={0} showSwitch switchOpacity={off(f, b.std, 16)} switchOn={swOn} glowWeights={on(f, b.pure, 16)} />
 				</Svg>
 				<Callout x={560 + 150 * 2.3} y={540 - 150 * 2.3} lx={980} ly={190} text="SWITCH: CUTS THE MOTOR" color={swOn ? colors.crimson : colors.sub} t={Math.min(on(f, b.sw + 20, 26), off(f, b.std, 16))} />
 				<Callout x={560 + 40 * 2.3} y={540 + 60 * 2.3} lx={980} ly={820} text="BRAKE: PURE MECHANICS" color={colors.amber} t={Math.min(on(f, b.pure + 10, 26), off(f, b.std + 20, 16))} />
 				<Label x={1060} y={300} size={36} color={colors.sub} opacity={on(f, b.std, 16)}>
-					EN 81-20 · 5.6.2.1.6.4
+					EUROPEAN STANDARD · EN 81-20
 				</Label>
 				<Label x={1060} y={350} size={36} color={colors.line} opacity={on(f, b.std + 20, 16)}>
 					MAY NOT SET OFF THE BRAKE:

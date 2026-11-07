@@ -1,11 +1,8 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, the fresh viewer panel (round 2) is watching cut v5 (run 42418673046) in session
-session_014pFs6kE74mr37jnfNV6MRq. v5 gate: no hold over 2.5 s, no black, no silence, −14.2 LUFS, −1.3 dBTP, channels
-equal; the two v4 fixes checked in the cut. The 29.1 MB proxy was shared by link, downloaded by the panel, then deleted
-for good (404 checked). **Next action:** read the report, save `review/viewer_v2.md`, check each note
-(`review/viewer_v2_check.md`), fix; the bar is avg ≥ 8, nobody below 6, no must-fix. Note: the panel's proxy re-encode
-(AAC 96k) reads +0.2 dBTP; the real cut is −1.3 dBTP.
+**Now:** step 9, round 3 (the last of three, §3a). Panel 2 on v5: 8/7/6/8/7, avg 7.2 (`review/viewer_v2.md`); every
+note checked (`review/viewer_v2_check.md`) and the confirmed ones fixed; cut v6 rendering. **Next action:** gate v6,
+then a fresh panel by the temporary-link route.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -26,6 +23,11 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 9, panel 2 and its fixes.** Avg 7.2 again (Arjun 6: small text on a phone). The last act was
+  rebuilt: the wedges start parked and are dragged out going up; on "a brake that faces up" the run repeats and the
+  up-facing wedges stop the car short of the beam. Labels cleared of lines (the governor close-up lost its plate), the
+  switch fades with its callout, three ropes visible, HUD labels 30 px, footage dissolves longer and darker, plainer
+  standard names, more pushes over near-holds.
 - **2026-11-07, step 9, cut v4.** freezedetect: no hold over 2.5 s; blackdetect, silencedetect clean; −14.2 LUFS,
   −1.3 dBTP. 200 frames read beside the words: the s09 push carried "SLOWING, IN g" onto the honesty tag at 2:55
   (re-anchored at y 700, 1.07), and the DISC SPRINGS callout line crossed the squeeze chart from 3:59 (it now leaves
