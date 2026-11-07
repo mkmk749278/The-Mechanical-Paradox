@@ -12,7 +12,7 @@ the panel drifts.
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
-- [ ] 7 Film built: group 1 (s01–s06) merged; s07–s16 next    PRs: group 1
+- [ ] 7 Film built: groups 1–2 (s01–s11) merged; s12–s16 next  PRs: #39, group 2
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
 - [ ] 10 4K master gated, on Drive                           PR #
@@ -20,6 +20,13 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 7, group 2 (s07–s11).** `Wedge.tsx`: the gear on one rail in mm (8° slot, 3 mm gap, spring-backed
+  jaws); `model.wedgeState` checked (contact at 21.3 mm climb, springs full 21.3 mm later). s07: the rail stands still,
+  the rail holds the wedge back, climb = housing drop after contact, squeeze arrows grow, the feedback loop (fall →
+  friction → climb → squeeze); s08 the question; s09 2 m/s to rest in 2 cm = 10.2 g, a stress field up from the car
+  floor; s10 Otis 1854 after US 31,128 (spring flattens, hooks bite the racks) and the 0.63 m/s dial; s11 the 0.2–1 g
+  band against 10 g and "≈ 2 × your weight". Fixed in review: labels under the HUD, a dial faded with the drawing it
+  sat in, overlapping labels.
 - **2026-11-07, step 7, group 1 (s01–s06).** Shared drawing kit promoted to `lib/remotion/kit.tsx` (film 1's own copy
   untouched); `remotion/model.ts` mirrors `research/model.py` and checks every mechanism at import (trip window, fall
   0.204 s / 0.54 m, stops 0.20–1.02 m, 10.2 g, flyweights reach the latch exactly at 2.0 m/s and stay clear at

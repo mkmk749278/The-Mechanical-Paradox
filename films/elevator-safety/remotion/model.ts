@@ -87,3 +87,15 @@ export const fall = (t: number): {drop: number; v: number; braking: boolean; don
 export const FALL_END = freeFall.t + LIFT.vTrip / (A_BRAKE * G);
 check(Math.abs(fall(FALL_END + 1).drop - (freeFall.d + stop(A_BRAKE).d)) < 1e-6, 'the fall ends where model.py says (0.54 m)');
 check(Math.abs(fall(freeFall.t).v - LIFT.vTrip) < 1e-9, 'the governor trips at 2.0 m/s');
+
+// ---- the wedge in close-up (s07, s12): a 3 mm gap to the rail at rest, NOT TO SCALE in the drawing ----
+export const WEDGE_GAP = 3;
+/** Wedge climb (mm, relative to its housing) at which its face touches the rail. */
+export const climbToContact = WEDGE_GAP / closePerMm;
+/** Inner-face gap (mm) and jaw opening (mm, the springs' compression) for a wedge climb c (mm). */
+export const wedgeState = (c: number): {gap: number; jaw: number} => {
+	const shut = c * closePerMm;
+	return {gap: Math.max(0, WEDGE_GAP - shut), jaw: Math.min(SPRING_TRAVEL, Math.max(0, shut - WEDGE_GAP))};
+};
+check(Math.abs(wedgeState(climbToContact).gap) < 1e-9 && wedgeState(climbToContact).jaw === 0, 'the wedge touches the rail exactly at climbToContact');
+check(Math.abs(wedgeState(climbToContact + climbToSpring).jaw - SPRING_TRAVEL) < 1e-9, 'the springs are fully loaded one spring-climb later');

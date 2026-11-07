@@ -19,6 +19,7 @@ import {span} from '../films/train-wheels/remotion/scenes';
 import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
 import {ColdOpen as ElColdOpen} from '../films/elevator-safety/remotion/ColdOpen';
 import {span as elSpan} from '../films/elevator-safety/remotion/scenes';
+import {Otis as ElOtis, Question as ElQuestion, TooHard as ElTooHard, WedgeScene as ElWedge, Window as ElWindow} from '../films/elevator-safety/remotion/Group2';
 import {Flyweights as ElFlyweights, GovernorIntro as ElGovernor, PullsLever as ElPullsLever, PureMechanics as ElPure, Ropes as ElRopes} from '../films/elevator-safety/remotion/Group1';
 
 loadBrandFonts();
@@ -57,6 +58,11 @@ export const Root: React.FC = () => (
 			<Composition id="EL-S04-Flyweights" component={ElFlyweights} durationInFrames={elSpan('s04').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S05-Lever" component={ElPullsLever} durationInFrames={elSpan('s05').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S06-Pure" component={ElPure} durationInFrames={elSpan('s06').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S07-Wedge" component={ElWedge} durationInFrames={elSpan('s07').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S08-Question" component={ElQuestion} durationInFrames={elSpan('s08').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S09-TooHard" component={ElTooHard} durationInFrames={elSpan('s09').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S10-Otis" component={ElOtis} durationInFrames={elSpan('s10').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S11-Window" component={ElWindow} durationInFrames={elSpan('s11').dur} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
 			<Composition id="TW-Look3D" component={Look3D} durationInFrames={600} fps={video.fps} width={video.width} height={video.height} />
