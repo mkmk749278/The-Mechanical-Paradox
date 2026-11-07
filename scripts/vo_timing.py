@@ -130,6 +130,12 @@ def main() -> None:
     out = film / "assets" / "vo"
     md = (film / "script" / "blocks_performance.md").read_text()
     blocks = re.findall(r"^```\n(.*?)\n```$", md, flags=re.S | re.M)
+    # Said-as spellings (script/say.json: real → said) exist only in the recording text; map them back so every block
+    # sentence matches vo.txt and the captions keep the real spelling (film 2, 2026-11-07: "Elisha" → "Ih-LYE-shuh").
+    say_path = film / "script" / "say.json"
+    if say_path.exists():
+        for real, said in json.loads(say_path.read_text()).items():
+            blocks = [b.replace(said, real) for b in blocks]
     vo = (film / "script" / "vo.txt").read_text()
     # chapter of each beat, from the `## ` headers of vo.txt (beats compared without tags), in spoken order
     norm = lambda t: re.sub(r"\s+", " ", TAG.sub("", t)).strip()  # noqa: E731
