@@ -12,7 +12,8 @@ unless this file says so.
 
 **Contents**
 - Part A: How we work. 1 Owner and delivery · 2 Claude: creative director, and effort · 3 Sessions
-- Part B: The channel. 4 Identity and audience · 5 Story architecture · 6 The look · 7 Narration ·
+- Part B: The channel. 4 Identity, audience and the evidence (topic gate §4.3, research verdicts §4.5) ·
+  5 Story architecture (the five beats §5.4) · 6 The look · 7 Narration ·
   8 Visual explanation toolkit
 - Part C: Production. 9 Facts and honesty · 10 Remotion engine · 11 Assets and references · 12 Sound ·
   13 Discovery and packaging · 14 Review gates · 15 Tools
@@ -123,8 +124,93 @@ common knowledge; people who watch the big engineering explainer channels.
   The paradox is in the physics, not in an exaggeration.
 
 ### 4.3 Topics
-An everyday object or machine + a broken intuition + a mechanism that can be drawn. The test: can the viewer feel the
-question in one second, and can we *show* the answer moving? The launch slate (§17.3) follows the blueprint.
+An everyday object or machine + a broken intuition + a mechanism that can be drawn + a cost. The test: can the viewer
+feel the question in one second, and can we *show* the answer moving? The launch slate (§17.3) follows the blueprint;
+further candidates, scored, are in §17.4.
+
+**The topic gate (owner's research brief, 2026-11-07; Part G.2).** Before a `brief.md` is written, score the topic
+1–10 on four criteria, and put the scores, one line of reason each, at the top of the brief:
+1. **Familiar, not understood.** The viewer meets it often and couldn't draw how it works (the illusion of explanatory
+   depth, §4.5). 1–3: machinery few adults ever see; 8–10: trains, bicycles, lifts, kettles, bolts.
+2. **Drawable.** The paradox resolves into geometry, contact, flow or a stress field we can draw truly (§6.4, §8).
+   1–3: chemistry, software, fields with no geometry to show.
+3. **Packable.** The question fits in 3–6 plain words with no jargon and no false absolute (§9.2, §13.2–13.3), and
+   reads across a living room and on a phone.
+4. **The catch.** Solving the first problem creates a second one with a real name (hunting, shimmy, fatigue,
+   cavitation): the trade-off beat of §5.4. 1–3: a mechanism with no real cost (a scissor lift).
+
+**35–40: greenlight. 28–34: re-angle the package or find the real catch before any animation. Under 28: drop** (or a
+Short). Plus one pass/fail line the brief left out: **5. Sourceable.** The mechanism, its threshold and its catch can
+each be confirmed from a primary source (§9.1) before the treatment. *Why:* the report that proposed the rubric got the
+physics wrong in several of its own top ten (§17.4); a topic we can't source, we can't make.
+
+### 4.4 Who watches, and why (research, 2026-11-07)
+These are working hypotheses for the Studio reads (§13.1) to confirm or kill. None is ever stated in a film.
+- **The big screen matters.** YouTube had 15.8% of all US TV viewing in August 2026, its record and well ahead of the
+  next distributor (Nielsen, *The Gauge*, released 2026-10-22). In a YouTube/Nielsen study, adults watched YouTube on
+  a TV together 26% of the time. So a film must hold a living room as well as a phone held sideways: the phone stays
+  the binding case for text size (§6.4a); the TV is the binding case for pace, picture detail and sound.
+- **Who.** The commissioned report profiles the core viewer as 35–64, practical and STEM-adjacent (engineers,
+  technicians, developers, tradespeople, hobbyists), watching lean-back in the evening and at weekends, and finding
+  most videos on the home feed. Its exact numbers (a 42–55 core, 88% male, over 70% from browse) carry no source:
+  treat them as a guess until our own Studio data shows the real audience. The global, partly non-native audience of
+  §4.1 is unchanged.
+- **Why they watch** (the report's three reasons, which fit the evidence in §4.5): to get back a feel for how the
+  physical world works in an age of sealed boxes; to have their own experience of how things wear, bend and fail
+  taken seriously; and for the click of insight when a complex thing collapses into one simple principle.
+- **What drives them off:** hype, performed excitement, a lecture, hidden sponsorships, being talked down to.
+
+### 4.5 What the evidence says, and what we take from it
+The owner commissioned a deep-research report (brief in Part G.2; a long report and a short production summary came
+back, 2026-11-07). Each claim that shapes a rule was checked; this is the verdict. Sources are listed below the table.
+
+| Claim (report) | Verdict | Evidence | What changes here |
+|---|---|---|---|
+| People think they understand everyday mechanisms far better than they do; exposing the gap wins the click and the watch. | **Confirmed** | Rozenblit & Keil 2002 [1]: the illusion is far stronger for explanations than for facts or procedures. Lawson 2006 [2]: people who ride bicycles make serious errors about how one works (a chain round both wheels). | Topic gate criterion 1 (§4.3); the wrong model said out loud in the cold open (§5.1). |
+| Say the misconception before the explanation. | **Confirmed, and stronger than the report says** | Muller's physics-education research (PhD, Sydney 2008; Muller & Sharma [3]): expository videos left wrong ideas in place and made students more confident in them; videos that voiced the misconception first taught better. | §5.1, §5.4 beat 1. |
+| A formula on screen drops 15–35% of viewers within 30 s; physical intuition holds 60–70% average percentage viewed. | **No source; numbers not adopted** | The report cites nothing for either. What is well evidenced: narration + animation beats the same with redundant on-screen text (redundancy, d ≈ 0.87); words and picture must arrive together (temporal contiguity, d ≈ 1.30); extra material hurts (coherence, d ≈ 0.70); cues help (signaling, d ≈ 0.46) [4]. | §8.7: no derivations, no symbol without its thing. |
+| Narrate at 135–150 wpm. | **Contradicted as a rule** | Guo, Kim & Rubin 2014 [5] (6.9 M edX sessions): engagement rose with speaking rate within each length band; the 145–165 wpm band was the least engaging, which the authors put down to flat, low-energy delivery. A listening study (155 vs 178 wpm) found the faster rate cut comprehension for native and non-native listeners alike [6]. | §7.5: about 145–165 wpm after the edit, with life from rhythm and pace changes. |
+| A 1.5–2.5 s narration pause after a big visual reveal. | **Adopted** | Fits temporal contiguity [4] and our §7.2.8. | §7.5, the reveal hold. |
+| The five beats: paradox → trick → fatal trade-off → industrial compromise → coda. | **Adopted, mapped onto §5** | Craft, not data; it is the blueprint's shape with the trade-off made a beat of its own. | §5.4. |
+| Hook within 6 s; confirm the thumbnail within 30 s. | **Adopted as a tightening** | YouTube's key-moments report calls the first 30 s "the intro" [7]; on the sister channel two thirds of leavers were gone by 0:45 (§5.1). | §5.1. |
+| CTR for technical content benchmarks at 4–10%. | **Corrected** | YouTube: "Half of all channels and videos on YouTube have an impressions CTR that can range between 2% and 10%"; home impressions run lower, videos under 100 views vary more [8]. | §13.1: CTR against our own videos, per traffic source. |
+| Viewer satisfaction feeds the recommendations, not only watch time. | **Confirmed** | YouTube: "User surveys that ask you to rate videos that you watched helps the system understand satisfaction, not just watch time"; the home feed "primarily relies on your watch history" [9]. | §13.1 item 7. |
+| Films of 8–12 minutes. | **Open: the owner's decision (§17.5)** | No source in the report. TV sessions run long (a 2024 industry report, not YouTube's own figure: about half of the videos played on TVs were over 11 minutes); in online courses, engagement fell beyond about 6 minutes [5] (a different audience). | Until decided: the blueprint's 4–6 minutes, the topic sets the length. |
+| Small 3D channels fail on structure, not render quality: the assembly-manual tour, the missing trade-off, slow orbits padding the voice, "How X Works" titles. | **Adopted** | The report's analysis (craft); consistent with §5 and §13. | §5.2, §6.5, §13.2. |
+| One tactile analogy grounds an abstract force (shear as a deck of cards; resonance as a swing pushed at the top). | **Adopted within the existing limit** | Craft; blueprint §6.1 still rules. | §7.2.5. |
+| *(Not in the report)* Multi-language audio tracks. | **New opportunity** | YouTube's pilot: creators using multi-language audio got over 25% of their watch time from views in a language other than the video's own (reported at the Sept 2025 rollout) [10]. | §17.5: the owner's decision. |
+| *(Not in the report)* Title testing. | **New tool** | Test & Compare tests titles as well as thumbnails (wide rollout by Dec 2025, per press reports) and picks the winner on watch-time share, not CTR [11]. | §13.1 item 5. |
+| *(Not in the report)* Ask before you show. | **Adopted** | A question asked before a video segment improves learning of what it asks, but only when the video answers it [12]. | §7.2.10. |
+
+**Sources (read 2026-11-07).**
+[1] Rozenblit & Keil, "The misunderstood limits of folk science", *Cognitive Science* 26(5): 521–562 (2002).
+[2] Lawson, "The science of cycology", *Memory & Cognition* 34(8): 1667–1675 (2006), doi 10.3758/BF03195929.
+[3] Muller & Sharma, "Tackling misconceptions in introductory physics using multimedia presentations",
+https://openjournals.library.sydney.edu.au/IISME/article/view/6345; Muller, *Designing Effective Multimedia for Physics
+Education*, PhD thesis, University of Sydney (2008).
+[4] Mayer, *Multimedia Learning*, 3rd ed. (Cambridge, 2020); Mayer 2017, "Using multimedia for e-learning", *Journal
+of Computer Assisted Learning* 33(5), doi 10.1111/jcal.12197 (effect sizes as summarised by secondary sources; check
+the paper before quoting a number in a film).
+[5] Guo, Kim & Rubin, "How video production affects student engagement: an empirical study of MOOC videos", Learning
+at Scale 2014, https://www.cs.rochester.edu/hci/pubs/pdfs/edX-MOOC-video-production-and-engagement_LAS-2014.pdf
+("for 6–12 minute videos, engagement dips in the middle bucket (145–165 wpm)").
+[6] "Synthesized speech intelligibility and persuasion: speech rate and non-native listeners", Western Sydney
+University, https://researchers.westernsydney.edu.au/en/publications/synthesized-speech-intelligibility-and-persuasion-speech-rate-and/
+[7] YouTube Help, "Measure key moments for audience retention", https://support.google.com/youtube/answer/9314415
+[8] YouTube Help, "Impressions and click-through rate FAQ", https://support.google.com/youtube/answer/7628154
+[9] YouTube Help, "How YouTube recommendations work", https://support.google.com/youtube/answer/16089387
+[10] TechCrunch and others on the multi-language audio rollout (Sept 2025), e.g.
+https://www.businesstoday.in/technology/news/story/youtube-launches-multi-language-audio-for-millions-of-creators-extending-global-reach-with-auto-dubbing-493458-2025-09-11
+[11] Search Engine Journal, "YouTube title A/B testing rolls out globally to creators",
+https://www.searchenginejournal.com/youtube-title-a-b-testing-rolls-out-globally-to-creators/562571/
+[12] Carpenter & Toftness, "The effect of prequestions on learning from video presentations", *JARMAC* (2017);
+St. Hilaire & Carpenter (2020); Pan & Carpenter (2023) meta-analysis (common but not universal).
+Also: Nielsen, *The Gauge*, August 2026 (released 2026-10-22), via https://www.tubefilter.com/2026/10/22/nielsen-the-gauge-youtube-record-watch-time-share-us-tv/amp/;
+the YouTube/Nielsen co-viewing figure via Think with Google,
+https://thinkwithgoogle.com/intl/en-emea/consumer-insights/consumer-trends/future-of-tv-shared-experience
+
+These are channel-level sources for how we work. A film that states any of them on screen still needs its own
+`claims.csv` row (§9.1).
 
 ## 5. Story architecture
 
@@ -132,12 +218,20 @@ question in one second, and can we *show* the answer moving? The launch slate (�
 On the sister channel, about two thirds of the viewers who left were gone in the first 45 seconds; a welcome, a logo
 sting and a title card at 0:25–0:45 dropped retention from 47% to 33%. So:
 - **0:00–0:12: the broken intuition**, in motion, on the thumbnail's own object (blueprint §6.3: within 12 seconds).
-  No greeting, no logo, no channel name, no agenda.
+  No greeting, no logo, no channel name, no agenda. **Tightened (2026-11-07, §4.5):** the picture moves from frame 0
+  and the contradiction is spoken by about 6 s; 12 s is the hard limit, not the target.
+- **Make the viewer's own wrong model visible.** Say what most people think, show it, then show it fail, before the
+  real mechanism. *Why:* in Muller's physics-education studies, plain explanations left wrong ideas in place and made
+  students more sure of them; videos that voiced the misconception first taught better (§4.5). The wrong model must be
+  one a smart adult really holds, never a straw puzzle (film 1, §16).
 - **By 0:30: the promise**: the specific question this film answers.
 - **By 0:55: the open loop**: a turn that makes the obvious answer wrong ("and the flange you think holds it on? It
   almost never touches the rail"), paid off later at a stated point.
 
 ### 5.2 The body
+- **No assembly-manual tour.** Never open a chapter by naming parts; a part arrives when the story needs it to solve
+  the problem in front of the viewer. *Why:* the commonest failure of small 3D engineering channels is a beautiful
+  exploded view with no conflict (§4.5).
 - Chapters of 1–2 minutes in a 4–6 minute film (the blueprint's lengths; the topic decides, never a target), each with
   its own question, turn and payoff. Each chapter adds **one layer** of mechanism.
 - **Intuition → test → failure → mechanism → proof.** Show the naive model failing first (a cylinder wheelset
@@ -151,6 +245,25 @@ sting and a title card at 0:25–0:45 dropped retention from 47% to 33%. So:
 ### 5.3 Story deliverables per film
 `brief.md` (package first, §13.2) → `research/` → `treatment.md` → `claims.csv` → `script/screenplay.md` (TIME | VO |
 VISUAL | HUD | SFX, with the Q column) → `script/vo.txt` → `scenes/<scene_id>.md` handoffs → the Remotion code.
+
+### 5.4 The five beats (owner's research brief, 2026-11-07)
+The story shape of every film, mapped onto §5.1–5.2. Times are shares of the film, since the topic sets its length.
+1. **The paradox (to about 0:45).** The object moving; the viewer's own model said out loud; why, by that model, it
+   can't work. The thumbnail's question confirmed by 0:30, the film's open loop by 0:55.
+2. **The trick (to about 40%).** The simple geometry, contact or force that resolves it, built one layer per chapter
+   (intuition → test → failure → mechanism → proof). The viewer gets the click and believes the problem is solved.
+3. **The catch (about 50–65%).** The same trick creates a second problem with a real name and number (the cone's
+   hunting, a bolt's fatigue, a wedge's deceleration). It arrives as a "but", where retention usually sags, never as
+   an appendix. This is the beat that separates us from the clinical-cutaway channels (§4.5).
+4. **The truce (to about 90%).** How real engineers live with both problems: a tolerance, a damper, a material, a
+   chosen operating range, each with its own cost. A balance, never a victory.
+5. **The landing (the last 20–40 s).** The image the viewer will see next time they meet the object, and one line on
+   what the trade-off means: engineering as choosing which problem you can live with. Written fresh for each film,
+   never a stock slogan and never a summary; then one forward line and the sting.
+*Why:* the report's arc (Part G.2) is the blueprint's shape with the trade-off promoted to a beat of its own, and
+film 1 already followed it (the cone steers; the cone hunts; flatter cones and stiffly held axles calm it, and
+cost it on curves). The report's own coda line
+("Engineering is rarely about discovering a flawless mechanism…") is an example of the feeling, not a line to reuse.
 
 ## 6. The look
 
@@ -240,7 +353,8 @@ about 65–70 mm tall that is a font of about 36 px. At the 1920×1080 authoring
 Glass cards; neon dashboards; a centred title on a gradient; icon grids; bullet lists; text cards; stock "science"
 particles that mean nothing; a flat colour or plain gradient canvas; red flashing icons for failure (use the stress
 field, §8.5); a decorative HUD with numbers that don't match the narration; slow-zoom on a static diagram for more
-than one beat.
+than one beat; a slow 360° orbit around a model while the voice pads for time; a part-naming tour of an exploded
+view (§5.2). Every camera move, cut or colour change must reveal something the narration needs at that moment.
 
 ### 6.6 Branding inside a film
 No logo, name or sting before the outro. A small, low-opacity mark in a corner is optional (decide on the first film).
@@ -269,12 +383,18 @@ the life.
    something and see the gap (Loewenstein 1994, *Psychological Bulletin* 116: 75–98): give the reference point, then
    the gap.
 5. **Physics over metaphor** (blueprint §6.1): an analogy may open a door, then the real mechanism walks through it,
-   with its real name and number. Never stop at "the metal gets stressed".
+   with its real name and number. Never stop at "the metal gets stressed". At most one analogy per mechanism, from the
+   viewer's own hands and adult life (a deck of cards sliding for shear, a swing pushed at the top for resonance),
+   never a cartoon ("angry little electrons"), and it must not be false in the way that matters.
 6. **Ask the viewer's own question out loud**, then answer it ("So why doesn't the outer wheel just slip?").
 7. **Rhythm:** a long, flowing line, then a short punch. The key line on its own.
 8. **Leave room for the picture.** Never describe what is on screen; say what the picture can't: the stakes, the
    number, the irony. Let the machine's own sound carry 1–3 s at big moments.
 9. **End on an image and a feeling,** never a summary, then one forward line into the next film.
+10. **One prediction question before the biggest reveal.** Ask the viewer to guess ("Which wheel has farther to
+   go?"), give a beat, then show the answer on screen. *Why:* questions asked before a video segment improved learning
+   of what they asked about, but only when the video then answered them (Carpenter & Toftness 2017; St. Hilaire &
+   Carpenter 2020). Never a question the film leaves open.
 
 ### 7.3 Words, rhythm and the banned list
 - Plain spoken English: "but" not "however", "so" not "therefore", "about" not "approximately". Technical terms are
@@ -283,7 +403,9 @@ the life.
 - **The breath test:** nothing over about 25 words; never three sentences of the same length in a row.
 - **Banned:** "Hey guys", "Welcome back", "In this video", "Today we'll", "Let's dive in", "Let us understand",
   "Smash that like", "mind-blowing", "insane", "you won't believe", moreover, furthermore, delve, harness,
-  testament to, imperative, in conclusion; regional slang.
+  testament to, imperative, in conclusion; regional slang. **Hand-waving and apology** (2026-11-07): "it works like
+  magic", "without getting too complicated", "don't worry about the maths", "basically just", "scientists can't
+  explain". **Calls to action** in the narration: none before the landing, and the end screen does the asking.
 - **TTS text:** units and symbols spelled the way they are said (blueprint §3.3): `mega-pascals`, `kilo-newtons`,
   `micro-meters`, `kwahn-DAH` (Coandă); numbers as words; letter acronyms with dots (L.E.D., A.B.S.); no digits,
   symbols or brackets in `vo.txt`.
@@ -302,6 +424,12 @@ commas and full stops only. **So, here:** pauses come from full stops, commas an
 depend on the voice. `—` and `...` stay allowed in the screenplay as **edit marks** and are stripped from the
 recording text. **Measured on this channel's voice (2026-11-04):** Eleven v4 ignores its `speed` setting too, so the
 pace is also set in the edit (edit breaths in `scripts/vo_timing.py`, §16).
+**Pace (2026-11-07):** about 145–165 wpm over the film after the edit breaths (film 1: 162). The research report's
+135–150 wpm is not adopted: the largest study we found (Guo et al. 2014, 6.9 million edX sessions) saw the 145–165
+band as the *least* engaging and put it down to flat delivery, not speed (§4.5). So the life comes from the writing's
+rhythm (§7.2.7) and from pace changes inside the film, never from a slow, even read. **The reveal hold:** on each
+signature reveal (2–3 per film) the edit holds the voice for 1.5–2.5 s while the picture keeps moving (§6.4) and the
+machine's own sound carries the moment.
 
 ### 7.6 Voice
 **Owner, 2026-10-31: audition three neutral international narrators from the ElevenLabs library** on the same
@@ -364,8 +492,15 @@ identical. Streamlines follow a real velocity field (potential flow, a boundary-
 never a hand-drawn swoosh.
 
 ### 8.7 Equations
-Equations build term by term as the voice reaches each symbol, with each variable tied by colour to the thing it
-measures on screen. Never a static slide of maths. One equation on screen at a time.
+**No derivations, ever, and no symbol on screen without the physical thing it stands for** (2026-11-07, §4.5). Numbers
+live first on the HUD and the dimension lines. An equation appears only where it is the proof a viewer can check
+(film 1: the radius difference is twice the taper times the shift), one or two per film at most. It builds term by
+term as the voice names each term, each term tied by colour and a leader line to the thing it measures, with its
+unit; a Greek letter only with its word beside it. One equation on screen at a time, never a static slide of maths,
+never an equation as decoration. *Why:* narration with animation teaches better than the same with redundant text,
+and symbols the viewer must hold in memory compete with the narration (Mayer's redundancy and coherence principles);
+the commissioned research names formula-heavy scripts as the main cause of early drop-off in explainers (its
+percentage is uncited, but the direction matches the evidence).
 
 ### 8.8 Real footage and photos
 **Owner, 2026-11-04: use real clips to show the reality of what we describe** ("when they see real footage the
@@ -605,13 +740,27 @@ are against the rules and get punished by the surveys.
    people ask). The main phrase in the title's first ~40 characters, said naturally in the first minute.
 3. **Upload our exact English SRT** from the locked script.
 4. **Series and chains:** end screen to the next film, a series playlist, one pinned question.
-5. **Three thumbnails in Test & Compare** from the first hour.
-6. Read Studio at 48 h, 7 days and 28 days (impressions and CTR per traffic source, retention at 0:30 and 1:00,
-   search terms) and log what was learned in §16.
+5. **Three thumbnails in Test & Compare** from the first hour. Test & Compare also tests **titles** now (widely
+   available by December 2025, per press reports; check Studio for our eligibility): once the thumbnail test ends,
+   test the two title alternatives. It picks the winner on **watch-time share**, not CTR, so a clickbait variant
+   that loses viewers loses the test.
+6. Read Studio at 48 h, 7 days and 28 days and log what was learned in §16:
+   - **CTR per traffic source, against our own videos**, never against a fixed number. YouTube: "Half of all
+     channels and videos on YouTube have an impressions CTR that can range between 2% and 10%"; home-feed
+     impressions run lower, the channel page higher, and new videos under 100 views vary even more (Help 7628154).
+   - **Retention:** the key-moments report's "intro" (who is still there at 0:30), the curve at 1:00, any dip (what
+     was on screen?), and where the catch (§5.4) falls: it should hold. Spikes are rewatches: did our signature
+     moments make them?
+   - Search terms, and the audience hypotheses of §4.4 (age, device, traffic source).
+7. **Satisfaction is a ranking signal.** YouTube surveys viewers to learn "satisfaction, not just watch time" (Help
+   16089387). A package the film doesn't pay off wins clicks and loses the surveys; the landing is part of
+   discovery.
 
 ### 13.2 Title
 Main phrase first, curiosity in the same line, ≤ 60 characters (100 is the limit), no `!`, no ALL-CAPS sentences, no
-channel suffix (sister channel: the suffix used half of what a phone shows). Never an absolute the film contradicts
+channel suffix (sister channel: the suffix used half of what a phone shows). **A tension, not a manual:** "How a
+Cycloidal Drive Works" reaches search only; browse needs the contradiction, so the search phrase and the paradox share
+the line (film 1: "How Train Wheels Turn With No Steering at All"). Never an absolute the film contradicts
 (§9.2). Deliver in a click-to-copy block plus two alternatives.
 
 ### 13.3 Thumbnail (blueprint §5.2 + the sister channels' CTR lessons)
@@ -620,7 +769,9 @@ channel suffix (sister channel: the suffix used half of what a phone shows). Nev
 - **The squint test:** legible at 120×68 px on a phone browse screen and at 168×94 with the duration badge (nothing
   important bottom-right).
 - **Words:** at most 3, bold, high-contrast white/yellow (amber), adding to the title, never repeating or answering
-  it.
+  it, and never a false absolute (§9.2). The research report's own suggestions "NEVER CAN FALL", "PHYSICS WAS WRONG"
+  and "The Siphon That Works in Space" would each fail: lifts have fallen, the physics was refined rather than wrong,
+  and a siphon needs gravity.
 - **Bright subject:** YouTube's app is dark; our abyss works only with a strongly lit subject and one bright accent.
 - **Never:** busy collages, tiny formulas, stock human faces, low contrast, the logo.
 - **Build and test:** 3+ concepts as HTML or Remotion stills shot at 1280×720 JPG, judged beside 8 real competitor
@@ -663,6 +814,10 @@ Nothing reaches the owner without passing these, and §1's "polished only".
 - [ ] `claims.csv` complete, the gate passes; every changed line re-checked.
 - [ ] Broken intuition by 0:12, promise by 0:30, open loop by 0:55; no banned openers; channel name only in the outro.
 - [ ] Every chapter adds one layer of mechanism; the trade-off is said; no false absolutes.
+- [ ] The topic gate (§4.3) scored in `brief.md`; the five beats (§5.4) visible in the screenplay, with the catch as a
+      turn around the middle; the viewer's wrong model said out loud in the first beat.
+- [ ] No derivation, no symbol without its thing (§8.7); at most one analogy per mechanism; one prediction question
+      before the biggest reveal, answered on screen; reveal holds marked in the screenplay (§7.5).
 - [ ] Lean-in test, spoken-English check, audience review with no viewer drifting in the first minute.
 - [ ] Package written first; the main search phrase said in the first minute.
 
@@ -716,6 +871,18 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
+
+**The strategy research (2026-11-07).**
+- *A confident research report can be wrong on its own examples.* The owner's commissioned deep-research report
+  (Part G.2) was right about the big things (the illusion of explanatory depth, the trade-off as drama, no hype, no
+  lecture), but its train-wheel dossier repeats two errors film 1's sources had corrected (centrifugal force as what
+  shifts the wheelset; flanges that "almost never" touch), its key numbers (a 15–35% drop on formulas, 60–70% average
+  viewed, 88% male, 70% from browse) carry no source, and the one claim we could test against a large study (135–150
+  wpm) ran the other way. **Rule:** outside research is a source like any other: each claim is checked, numbers
+  without a source are never adopted, and the verdicts live in §4.5.
+- *The adopted changes:* the topic gate (§4.3), the five beats with the catch as its own beat (§5.4), the wrong model
+  said out loud first (§5.1), the reveal hold (§7.5), the equation rule (§8.7), the prediction question (§7.2), title
+  and watch-time-share testing and the Studio read by traffic source (§13.1).
 
 **Film 1, the viewer review of cut v3 (2026-11-05).**
 - *A plan view can lie about the one thing it exists to show.* The tight-curve plan view gave `TopWheelset` the heading
@@ -923,6 +1090,33 @@ contested or possibly wrong; none is stated here as fact:
    thermal barrier coatings. Check the 1,150 °C / 1,400 °C / 14,000 RPM / 20,000 g / 15 cm figures per engine, and
    the grain selector: grains with a ⟨001⟩ direction along the heat flow win the competitive growth in the starter,
    and the helix then lets one grain through; "the crystal aligned with the spiral axis survives" is likely wrong.
+
+### 17.4 Candidate pool from the strategy research (2026-11-07)
+The report's top ten (Part G.2), re-scored on the §4.3 gate. Its own scores were 34–40; ours are lower where the
+viewer seldom meets the object or the report's catch did not hold up. Film 1 (train wheels) is made; the lift is
+already slate film 4 (§17.3). **Every dossier line below is the report's claim, flagged, not a fact.**
+
+| Topic | Report | Ours (F/D/P/C) | Verdict | Research must check first |
+|---|---|---|---|---|
+| **The bolt is a spring** (preload) | 38 | 37 (9/10/9/9) | **Greenlight** | The joint diagram and how small a share of an external load the bolt feels (VDI 2230, Shigley; cite the numbers); that too little preload exposes the bolt to the full alternating load and fatigue starts at the first engaged thread root (the report's "shearing" is the wrong word); the other side of the catch (too much preload yields the bolt; self-loosening under transverse slip, Junker). "BOLTS ARE SPRINGS" is honest. |
+| **The bicycle that steers itself** | 37 | 35 (10/8/9/8) | **Greenlight** | Kooijman et al. 2011, *Science* 332: 339–342 (confirmed: self-stable with gyroscopic and caster effects cancelled; mass distribution of the front assembly matters). The real catch is likely the narrow stable speed range (weave below it, capsize above it; Meijaard et al. 2007 benchmark), not the report's "shimmy", a different mode. Its thumbnail "PHYSICS WAS WRONG" fails §9.2. |
+| **The rice cooker with no chip** (Curie point) | 35 | 32 (9/8/9/6) | Find the catch | Which part has the Curie point (sources disagree: a ferrite piece by the pot or the magnet itself), and its temperature (the report's 103 °C: cite a patent or datasheet). The report's catch (undercooked rice at altitude "because" of the fixed Curie point) mixes two effects: at altitude the water boils cooler whatever the switch does. |
+| **The helicopter's 90° delay** | 38 | 31 (6/9/8/8) | Re-angle | Phase lag is a resonance of blade flapping, not gyroscopic precession (Leishman, *Principles of Helicopter Aerodynamics*); 90° only with no hinge offset, about 80–90° for articulated rotors and 75–80° for hingeless ones. Its title "The 90-Degree Flaw in Every Helicopter" is false: it isn't a flaw. Few viewers have seen a swashplate. |
+| **The pump that needs no power** (hydraulic ram) | 37 | 31 (4/9/9/9) | Re-angle | The share of water lifted against the share dumped depends on the head ratio (the report's 10% / 90%: cite a manufacturer or a paper), how high it can lift, and the water-hammer fatigue. "Zero power" must say where the energy comes from: the falling water. Low familiarity. |
+| **The siphon that pulls** | 35 | 31 (8/8/8/7) | Re-angle; contested | Boatwright, Hughes & Barry 2015, *Scientific Reports* 5: 16790 (a 15 m siphon at sea level: gravity and cohesion) and its 2017 corrigendum; the debate is live, so attribute both sides (§9.3). Its title "The Siphon That Works in Space" is false: a siphon needs gravity. |
+| **The clock's recoil** (anchor vs deadbeat escapement) | 35 | 31 (6/10/7/8) | Re-angle | The deadbeat's date and maker (Graham, about 1715?), the recoil's effect on timekeeping, and the friction trade-off. |
+| **Ferguson's paradox** (gears that turn three ways) | 34 | 27 (3/10/8/6) | Drop; a Short | Tooth counts (the report's 20 / 21 / 19) and the backlash claim. Great geometry, little familiarity. |
+
+The report's train-wheel dossier is not used: its "centrifugal force shifts the wheelset" and "the flanges almost
+never touch" are the errors film 1's research corrected (`films/train-wheels/claims.csv`).
+
+### 17.5 Open questions for the owner (2026-11-07)
+1. **Film length.** The blueprint says 4–6 minutes; the research report says 8–12, with no source. TV sessions run
+   long, and online-course engagement falls after about 6 minutes (§4.5). Creative director's recommendation: keep
+   "the topic sets the length", with a five-beat film (§5.4) usually landing at 5–8 minutes, never padded.
+2. **Multi-language audio.** Over 25% of pilot creators' watch time came from dubbed languages (§4.5). The choices:
+   YouTube's own auto-dubbing (free where offered to us, but a voice not our own), our own dubbed tracks through the
+   ElevenLabs account (paid; the on-screen labels stay in English), or not yet. Nothing paid without the owner.
 
 ---
 
@@ -1234,3 +1428,87 @@ When creating assets, scripts, or Remotion components for *The Mechanical Parado
    * The hook must state the broken intuition within the first **12 seconds**.
    * No introductory greetings (*"Hey guys, welcome back"*). 
    * The first sentence of Video 1 must begin immediately: *"A one-hundred-ton locomotive has no steering wheel, no differential gears, and a solid steel axle. Yet it rounds high-speed curves without ever derailing."*
+
+---
+
+## G.2 Deep research brief (received 2026-11-07)
+
+The owner's brief for outside deep research, kept word for word below. Two reports came back: *Engineering the
+Mechanical Paradox: Audience Psychology, Retention Architecture, and Algorithmic Strategy for Technical Explainers*
+(18 pages, 40 works cited) and a 4-page production summary. Their originals are in Drive `_Channel/research/`. They
+are research, not the owner's rules: every claim was checked, and the verdicts are in §4.5 (what we adopted, corrected
+or rejected) and §17.4 (the topics). The summary's story arc, which §5.4 adopts, word for word:
+
+```
+[Beat 1: The Intuitive Paradox] ──> "You see this everyday object. Its basic logic is impossible."
+[Beat 2: The Deceptive Trick] ──> "Here is the simple geometric trick that makes it work."
+[Beat 3: The Fatal Trade-Off] ──> "The catch: That exact trick introduces a violent secondary danger."
+[Beat 4: The Industrial Truce] ──> "How real engineers balanced the trade-off (damping, tolerance)."
+[Beat 5: The Philosophical Coda] ──> "Engineering isn't finding perfection; it's choosing which problem you survive."
+```
+
+---
+
+# Deep Research Brief: Engineering & Physical Paradox Content Strategy on YouTube
+
+## Objective
+Identify the highest-performing content sweet spot, narrative architecture, and retention mechanics for a faceless, technical YouTube channel ("The Mechanical Paradox") targeting mature, curious viewers (ages 30–65+, heavy Connected TV/desktop consumption). The goal is to maximize long-form retention (50–70% AVD) and click-through rate (CTR) on algorithmic Browse features by stripping academic math in favor of intuitive, physical engineering contradictions.
+
+---
+
+## Part 1: Audience Psychology & Competitive Gap Analysis
+
+1. **Viewer Motivation Teardown:**
+   - Why do non-academic, adult audiences watch channels like *Practical Engineering*, *Real Engineering*, *Veritasium*, *Technology Connections*, and *Branch Education*?
+   - What triggers viewer fatigue and drop-off in educational/physics content? Specifically, analyze the drop-off delta between theoretical math (equations, derivations) versus physical intuition (tangible scale, visual trade-offs, sensory mechanics).
+   - What specific emotional or psychological hook causes a viewer to click on an explainer about an everyday physical object they usually ignore (e.g., train wheels, differential gears, elevator brakes)?
+
+2. **Competitive Space & Saturation Map:**
+   - Map out the spectrum between "Hyper-Sensational Pop-Sci" (e.g., Bright Side, What If) and "Rigid Academic Lectures" (e.g., Khan Academy, 3Blue1Brown, university lectures).
+   - Where is the open white space on YouTube for dark-slate, CAD/schematic-driven technical explainers that treat viewers like intelligent adults without lecturing them?
+   - What are the common failure modes of smaller engineering channels that fail to gain traction despite having high-quality 3D animations?
+
+---
+
+## Part 2: Narration Architecture & Depth Calibration
+
+1. **The "Goldilocks Depth" Standard:**
+   - How deep should technical explanations go before diminishing returns set in for broad Browse audience retention?
+   - Where is the exact boundary between "satisfyingly technical" and "overwhelmingly academic"?
+   - How should complex engineering phenomena (e.g., resonance, material shear, hydraulic pressure, fluid dynamics) be translated into zero-calculus, sensory metaphors without dumbing down the subject?
+
+2. **Pacing, Voice, and Tone:**
+   - Analyze the vocal posture of high-retention technical narration. Compare:
+     - The "Hype / Fast-Paced YouTuber" voice.
+     - The "Academic Professor" voice.
+     - The "Calm, Investigative Technical Observer / Forensic Analyst" voice.
+   - What structural pauses, delivery cadences (WPM), and sentence structures maximize engagement on large screens (Connected TV) where viewers are not multitasking?
+
+3. **Narrative Beat Framework:**
+   - Formulate an optimal 4-beat or 5-beat story structure for an 8-to-12 minute mechanical paradox video:
+     - *Beat 1 (The Hook / The Contradiction):* Establishing an everyday object that shouldn't work according to basic logic.
+     - *Beat 2 (The Hidden Mechanism):* The deceptively simple geometric or mechanical trick.
+     - *Beat 3 (The Downside / The Catch):* Why this trick introduces a dangerous or costly secondary problem (the engineering trade-off).
+     - *Beat 4 (The Real-World Solution):* How modern industry compromises or balances the paradox.
+
+---
+
+## Part 3: Topic Opportunity Index (Evaluation Criteria)
+
+Establish a scoring rubric (1–10) to evaluate prospective mechanical topics before greenlighting production, based on:
+1. **Everyday Familiarity vs. Hidden Complexity:** Does the viewer interact with or see this object regularly without knowing how it actually functions?
+2. **Visual CAD / Blueprint Potential:** Can the core paradox be rendered cleanly in vector cross-sections and 3D schematics rather than relying on abstract concepts?
+3. **Packaging Simplicity (CTR Factor):** Can the core question be stated in 3 to 6 words on a thumbnail and title without requiring domain-specific jargon?
+4. **Physical Trade-Off (No Free Lunch):** Does solving the initial mechanical problem create a new failure mode (e.g., cone taper solves steering, but induces hunting oscillation)?
+
+---
+
+## Deliverables Required
+1. **Audience Persona & Watch Habit Summary:** Profile of the primary 35–65+ engineering/mechanics enthusiast.
+2. **Scriptwriting Rulebook:** A concrete checklist of what words, formulas, and structural tropes to banned, versus what rhetorical devices and metaphors to enforce.
+3. **Top 10 Ranked Video Candidates:** A curated table of 10 high-potential mechanical/physics topics scored against the Rubric, including:
+   - Topic Name.
+   - The Everyday Assumption.
+   - The Real Mechanical Paradox.
+   - The Primary Sensory/Physical Metaphor.
+   - Proposed Thumbnail Hook & 3-Word Text.
