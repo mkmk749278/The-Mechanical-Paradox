@@ -587,6 +587,7 @@ export const upBrakeCues = (): SfxCue[] => {
 		{frame: b.eighteen, sfx: 'metal_jam_sub', gainDb: -10},
 		{frame: b.eighteen + 6, sfx: 'typewriter', gainDb: -14},
 		{frame: b.codes, sfx: 'relay_click', gainDb: -16},
+		{frame: b.codes + 150, sfx: 'metal_jam_sub', gainDb: -12}, // the up-facing wedges grip (R0 + ACC_F in UpBrake)
 		{frame: b.clamp + 40, sfx: 'metal_jam_sub', gainDb: -12},
 	];
 };

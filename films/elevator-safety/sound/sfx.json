@@ -380,6 +380,12 @@
    "pan": 0
   },
   {
+   "at": 350.233,
+   "sfx": "metal_jam_sub",
+   "gain_db": -12,
+   "pan": 0
+  },
+  {
    "at": 362.767,
    "sfx": "metal_jam_sub",
    "gain_db": -12,
