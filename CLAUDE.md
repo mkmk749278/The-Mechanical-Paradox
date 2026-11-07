@@ -48,9 +48,9 @@ priority in every step;** the gates are the floor.
 - **Resume point:** `films/<slug>/STATUS.md` (the steps, what runs where, the next action), updated in every PR; a
   restarted session continues from the first open step. Commit and push within every 30–45 minutes of work.
 - **Free machines, shared:** the repo is public, so GitHub's standard runners are free (6 h a job), but the **20
-  jobs at once belong to the whole account and are shared with the two sister channels.** This channel takes **7**
-  (the workflows' default and cap); more only when the owner says the others are idle. Extra jobs queue, they don't
-  fail. Every render, Blender plate and Short runs there; the session keeps working on the next step meanwhile, and
+  jobs at once belong to the whole account and are shared with the two sister channels.** Renders default to
+  `runners: auto` (`scripts/runner_share.py`): every runner free across the three repos at start, never fewer than 7
+  (decision 15; needs the `RUNNER_SHARE_TOKEN` secret, else 7). Extra jobs queue, they don't fail. Every render, Blender plate and Short runs there; the session keeps working on the next step meanwhile, and
   starts long jobs (4K plates) as early as their inputs are final.
 - **Ask only for money or the outside world:** anything beyond the approved accounts and caps, or outward-facing, is
   asked with AskUserQuestion while every other step carries on.
