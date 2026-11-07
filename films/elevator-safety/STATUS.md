@@ -1,10 +1,8 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, panel round 3 (the last of three, §3a) watching cut v7 (run 42424013521) in session
-session_014pFs6nmWW79f9go9ZGH7Ly. v7 gate: no hold over 2.5 s, no black, no silence, −14.2 LUFS, −1.3 dBTP, channels
-equal; the 2:56 label checked. The 29.8 MB proxy was downloaded by the panel and deleted for good (404). **Next
-action:** read the report → `review/viewer_v3.md` + `_check.md`; if the bar is met, step 10 (4K master); if not after
-this third round, the owner decides (§3a.3: at most three rounds).
+**Now:** step 9 after three panel rounds: 7.2 → 7.2 → 7.4 (bar 8 not reached; physics confirmed right each round).
+Round 3's confirmed points fixed (`review/viewer_v3_check.md`); cut v8 rendering. **Waiting on the owner:** 4K from v8
+after our own gate, or a fourth panel round (asked 2026-11-07). Meanwhile: step 11, the package.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -25,6 +23,10 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 9, panel 3.** 8/7/7/8/7, avg 7.4; Katrin checked every number and direction and found them right.
+  Fixed: the rope snap now in frame, the s06 callout names the governor parts, the two-way gear grips one pair at a
+  time, the going-up rail scrolls, the wedge climb follows its words, a marker moves down the g scale, the governor
+  rope lights after it is traced, the lock lands on "the wheel locks".
 - **2026-11-07, step 9, panel 2 and its fixes.** Avg 7.2 again (Arjun 6: small text on a phone). The last act was
   rebuilt: the wedges start parked and are dragged out going up; on "a brake that faces up" the run repeats and the
   up-facing wedges stop the car short of the beam. Labels cleared of lines (the governor close-up lost its plate), the

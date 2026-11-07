@@ -149,7 +149,7 @@ export const GovernorIntro: React.FC = () => {
 			<AbsoluteFill>
 				<Drift f={f} from={0} to={b.gov + 20} ox={gvx} oy={gvy} s={1.1} release={b.loop}>
 				<Svg>
-					<Shaft cam={cam} st={rest({carY, cwY: 8.0 - d, govRot: -d / GOV_R, ropeTravel: d, glowGovRope: glowRope, glowLever: Math.min(on(f, b.hooked, 16), off(f, b.wherever + 40, 20)), focus: glowRope * 0.5})} />
+					<Shaft cam={cam} st={rest({carY, cwY: 8.0 - d, govRot: -d / GOV_R, ropeTravel: d, glowGovRope: glowRope * on(f, b.loop + 150, 20), glowLever: Math.min(on(f, b.hooked, 16), off(f, b.wherever + 40, 20)), focus: glowRope * 0.5})} />
 					<polyline points={loopPts} fill="none" stroke={colors.amber} strokeWidth={5} pathLength={1} strokeDasharray={`${loopT} 1`} opacity={off(f, b.hooked + 40, 20)} style={{filter: `drop-shadow(0 0 10px ${colors.amber})`}} />
 				</Svg>
 				<Callout x={gvx} y={gvy} lx={gvx + 300} ly={gvy + 300} text="LIFTS NOTHING" t={Math.min(on(f, b.top + 40, 26), off(f, b.gov, 12))} />
@@ -194,9 +194,9 @@ const v04 = (fr: number): number => {
 	const b = b04();
 	if (fr < b.spin) return LIFT.vRated;
 	if (fr < b.set) return lin(fr, b.spin, b.set, LIFT.vRated, 1.15 * LIFT.vRated);
-	return lin(fr, b.set + 30, b.catch, 1.15 * LIFT.vRated, LIFT.vTrip);
+	return lin(fr, b.set + 30, lockFrame(), 1.15 * LIFT.vRated, LIFT.vTrip);
 };
-const lockFrame = () => b04().catch;
+const lockFrame = () => at('s04', 'the wheel locks');
 
 export const Flyweights: React.FC = () => {
 	const f = useCurrentFrame();
@@ -240,7 +240,7 @@ export const Flyweights: React.FC = () => {
 				</Svg>
 				<Callout x={cx - 30 * k} y={cy - 30 * k} lx={600} ly={150} text="SPRINGS HOLD THEM IN" color={colors.cyan} t={Math.min(on(f, b.classic + 60, 26), off(f, b.set, 16))} />
 				<Callout subSize={30} x={cx - (FLY.rLatch + 18) * k * 0.7} y={cy + (FLY.rLatch + 18) * k * 0.7} lx={560} ly={820} text="CATCH · SET AT 125 %" color={colors.crimson} t={Math.min(on(f, b.set + 40, 26), off(f, b.care, 16))} sub="THE CODE: AT LEAST 115 %" />
-				<Label x={150} y={480} size={56} color={colors.amber} weight={700} opacity={Math.min(on(f, b.catch + 6, 10), off(f, b.care - 10, 16))}>
+				<Label x={150} y={480} size={56} color={colors.amber} weight={700} opacity={Math.min(on(f, lockFrame() + 6, 10), off(f, b.care - 10, 16))}>
 					LOCKED
 				</Label>
 				<Label x={150} y={480} size={44} color={colors.amber} weight={700} opacity={on(f, b.snapped + 20, 16)}>
@@ -263,7 +263,7 @@ export const flyweightsCues = (): SfxCue[] => {
 	return [
 		{frame: b.spin, sfx: 'torque_whine', gainDb: -16},
 		{frame: b.set + 40, sfx: 'pen_scratch', gainDb: -16},
-		{frame: b.catch, sfx: 'metal_jam_sub', gainDb: -8},
+		{frame: lockFrame(), sfx: 'metal_jam_sub', gainDb: -8},
 		{frame: b.stops, sfx: 'quartz_tick', gainDb: -16},
 	];
 };
@@ -378,7 +378,7 @@ export const PureMechanics: React.FC = () => {
 					<GovernorCloseUp cx={560} cy={540} k={2.3} rot={rot} r={flyRadius(v)} locked={locked} ropeTravel={0} showSwitch switchOpacity={off(f, b.std, 16)} switchOn={swOn} glowWeights={on(f, b.pure, 16)} />
 				</Svg>
 				<Callout x={560 + 150 * 2.3} y={540 - 150 * 2.3} lx={980} ly={190} text="SWITCH: CUTS THE MOTOR" color={swOn ? colors.crimson : colors.sub} t={Math.min(on(f, b.sw + 20, 26), off(f, b.std, 16))} />
-				<Callout x={560 + 40 * 2.3} y={540 + 60 * 2.3} lx={980} ly={820} text="BRAKE: PURE MECHANICS" color={colors.amber} t={Math.min(on(f, b.pure + 10, 26), off(f, b.std + 20, 16))} />
+				<Callout x={560 + 40 * 2.3} y={540 + 60 * 2.3} lx={980} ly={820} text="WEIGHTS, ROPE, LEVER: PURE MECHANICS" color={colors.amber} t={Math.min(on(f, b.pure + 10, 26), off(f, b.std + 20, 16))} />
 				<Label x={1060} y={300} size={36} color={colors.sub} opacity={on(f, b.std, 16)}>
 					EUROPEAN STANDARD · EN 81-20
 				</Label>

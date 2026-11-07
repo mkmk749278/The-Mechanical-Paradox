@@ -103,7 +103,9 @@ export const Shaft: React.FC<{cam: Cam; st: ShaftState; opacity?: number}> = ({c
 		return pts.join(' ');
 	};
 	const aN = Math.atan2(ny, nx);
-	const breakY = top + 3.2;
+	// the break sits 1 m above the crosshead, inside the cold open's frame (viewer review v3: at 3.2 m it was off-screen
+	// and the ropes only seemed to bow)
+	const breakY = top + 1.0;
 	const ropes = (
 		<g opacity={dim}>
 			{[-0.05, 0, 0.05].map((o, i) => {
