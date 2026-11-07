@@ -1,5 +1,6 @@
 # A film's Remotion render on GitHub's runners (PLAYBOOK §10.5), ported from Built-on-Bharat (2026-10-31). Free and
-# unlimited on a public repo; up to 20 runners at once, each a fresh 4-CPU / 16 GB VM with up to 6 h per job. One
+# unlimited on a public repo; up to 20 jobs at once for the whole account (shared with the two sister channels:
+# this channel takes 7 by default, PLAYBOOK §3a.4), each a fresh 4-CPU / 16 GB VM with up to 6 h per job. One
 # Remotion workspace serves every film (repo root). Each runner pulls the film's media from Drive
 # (The-Mechanical-Paradox/<film>/render-media → public/films/<film>/), renders its shards (30 s, or 5 s dealt round-robin for a 4K master) with
 # scripts/render_shards.mjs and uploads them as an artifact; one last job joins them, lays the master mix under the
@@ -16,11 +17,11 @@ on:
         description: "composition id"
         required: true
       scale:
-        description: "2/3 = 720p review cut (always first), 1 = 1080p, 2 = 4K master (only after the owner approves)"
+        description: "2/3 = 720p review cut (always first), 1 = 1080p, 2 = 4K master (after the second viewer review passes)"
         default: "2/3"
       runners:
-        description: "parallel runners (1-20)"
-        default: "20"
+        description: "parallel runners (1-20). 7 = this channel's share: three channels' repos share one account's 20 jobs (PLAYBOOK §3a.4)"
+        default: "7"
       crf:
         description: "x264 CRF"
         default: "16"
@@ -78,6 +79,7 @@ jobs:
     timeout-minutes: 350
     strategy:
       fail-fast: false
+      max-parallel: ${{ fromJson(inputs.runners) }}
       matrix:
         block: ${{ fromJson(needs.plan.outputs.blocks) }}
     env:

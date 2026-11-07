@@ -24,8 +24,8 @@ on:
         description: "Cycles samples (denoised)"
         default: "16"
       runners:
-        description: "parallel runners (1-20)"
-        default: "20"
+        description: "parallel runners (1-20). 7 = this channel's share: three channels' repos share one account's 20 jobs (PLAYBOOK §3a.4)"
+        default: "7"
       blocks:
         description: "optional: exact blocks to render, shot:start:end,… (re-render missing frames; overrides runners)"
         default: ""
@@ -101,6 +101,7 @@ jobs:
     timeout-minutes: 350
     strategy:
       fail-fast: false
+      max-parallel: ${{ fromJson(inputs.runners) }}
       matrix:
         block: ${{ fromJson(needs.plan.outputs.blocks) }}
     env:
