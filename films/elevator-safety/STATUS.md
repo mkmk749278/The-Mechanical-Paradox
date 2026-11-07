@@ -1,8 +1,10 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9, round 3 (the last). v6 (run 42422540409) passed every measured gate and the 200-frame read except one
-clip ("EVERY PERSON INSIDE" pushed past the top at 2:57, moved down); cut v7 rendering. **Next action:** quick gate of
-v7, then the fresh panel by the temporary-link route.
+**Now:** step 9, panel round 3 (the last of three, §3a) watching cut v7 (run 42424013521) in session
+session_014pFs6nmWW79f9go9ZGH7Ly. v7 gate: no hold over 2.5 s, no black, no silence, −14.2 LUFS, −1.3 dBTP, channels
+equal; the 2:56 label checked. The 29.8 MB proxy was downloaded by the panel and deleted for good (404). **Next
+action:** read the report → `review/viewer_v3.md` + `_check.md`; if the bar is met, step 10 (4K master); if not after
+this third round, the owner decides (§3a.3: at most three rounds).
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
