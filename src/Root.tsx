@@ -19,6 +19,8 @@ import {span} from '../films/train-wheels/remotion/scenes';
 import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
 import {ColdOpen as ElColdOpen} from '../films/elevator-safety/remotion/ColdOpen';
 import {span as elSpan} from '../films/elevator-safety/remotion/scenes';
+import {Film as ElFilm, FILM_FRAMES as EL_FILM_FRAMES} from '../films/elevator-safety/remotion/Film';
+import {Counterweight as ElCounterweight, Landing as ElLanding, Rail as ElRail, Spring as ElSpring, UpBrake as ElUpBrake} from '../films/elevator-safety/remotion/Group3';
 import {Otis as ElOtis, Question as ElQuestion, TooHard as ElTooHard, WedgeScene as ElWedge, Window as ElWindow} from '../films/elevator-safety/remotion/Group2';
 import {Flyweights as ElFlyweights, GovernorIntro as ElGovernor, PullsLever as ElPullsLever, PureMechanics as ElPure, Ropes as ElRopes} from '../films/elevator-safety/remotion/Group1';
 
@@ -52,6 +54,7 @@ export const Root: React.FC = () => (
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="ElevatorSafety">
+			<Composition id="EL-Film" component={ElFilm} durationInFrames={EL_FILM_FRAMES} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S01-ColdOpen" component={ElColdOpen} durationInFrames={elSpan('s01').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S02-Ropes" component={ElRopes} durationInFrames={elSpan('s02').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S03-Governor" component={ElGovernor} durationInFrames={elSpan('s03').dur} fps={video.fps} width={video.width} height={video.height} />
@@ -63,6 +66,11 @@ export const Root: React.FC = () => (
 			<Composition id="EL-S09-TooHard" component={ElTooHard} durationInFrames={elSpan('s09').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S10-Otis" component={ElOtis} durationInFrames={elSpan('s10').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S11-Window" component={ElWindow} durationInFrames={elSpan('s11').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S12-Spring" component={ElSpring} durationInFrames={elSpan('s12').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S13-Rail" component={ElRail} durationInFrames={elSpan('s13').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S14-Counterweight" component={ElCounterweight} durationInFrames={elSpan('s14').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S15-UpBrake" component={ElUpBrake} durationInFrames={elSpan('s15').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-S16-Landing" component={ElLanding} durationInFrames={elSpan('s16').dur} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
 			<Composition id="TW-Look3D" component={Look3D} durationInFrames={600} fps={video.fps} width={video.width} height={video.height} />

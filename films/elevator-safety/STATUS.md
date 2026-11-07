@@ -1,8 +1,10 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 7, build the film. **Next action:** build the scenes on `vo/timing.json` (394.3 s): the shaft, the governor, the wedge gear, the 10 g
-shot, the counterweight; Blender plates on the runners with `runners: 10`; music from the library. Check finished panels directly after ~2 min (a clean finish sends no notice). Script is about 1,030 words (≈ 6:40 at 160 wpm): trim where
-the panel drifts.
+**Now:** step 7, all 16 scenes built and assembled as `EL-Film` (Film.tsx, filmCues). **Next action:** review the
+52-frame contact sheet of EL-Film (render with `node scripts/stills.mjs OUT EL-Film:<52 frames> --scale 0.25`), fix
+what it shows; then real-footage inserts (Pixabay API, §8.8) if licensed elevator clips exist; then sound: export cues
+(`scripts/export_cues.mjs` pattern from film 1), music from the library (`scripts/music_pull.sh`, §12.1), mix with
+`scripts/score_mix.py`; then step 8: the 720p cut with `remotion-render.yml` (comp EL-Film, scale 2/3, runners 20).
 **Running:** nothing. **Drive:** `The-Mechanical-Paradox/elevator-safety/`.
 **Renders:** `runners: 20` on every dispatch (owner, 2026-11-07: all 20 free; decision 16 updated).
 
@@ -12,7 +14,7 @@ the panel drifts.
 - [x] 4 Story and script fixed; bar met (VO v5)              this PR
 - [x] 5 Narration review; fixes in (VO v6 locked)            this PR
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
-- [ ] 7 Film built: groups 1–2 (s01–s11) merged; s12–s16 next  PRs: #39, group 2
+- [ ] 7 Film built: all 16 scenes + EL-Film merged; sound, footage, mix next   PRs #39, #41, group 3
 - [ ] 8 720p cut v1, picture gate, viewer panel              PR #
 - [ ] 9 Fixes, cut vN, fresh panel; no must-fix              PR #
 - [ ] 10 4K master gated, on Drive                           PR #
@@ -20,6 +22,11 @@ the panel drifts.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-07, step 7, group 3 (s12–s16) + Film.tsx.** s12 the spring (clamp trace rises then flat; straight speed
+  line; stops 0.20/0.34/1.02 m), s13 the rail scraped, ground smooth, released by raising, built to slip, s14 the
+  counterweight (balance tips; empty car runs up at 1.8 m/s², MODEL), s15 the wedge pulled out going up, 18 overhead
+  strikes, the brake that faces up, s16 landing. `Film.tsx` assembles all 16 with dissolves and the sting (EL-Film,
+  6:34 + sting). Paused here for the usage limit (owner, 2026-11-07); a scheduled fresh session continues.
 - **2026-11-07, step 7, group 2 (s07–s11).** `Wedge.tsx`: the gear on one rail in mm (8° slot, 3 mm gap, spring-backed
   jaws); `model.wedgeState` checked (contact at 21.3 mm climb, springs full 21.3 mm later). s07: the rail stands still,
   the rail holds the wedge back, climb = housing drop after contact, squeeze arrows grow, the feedback loop (fall →
