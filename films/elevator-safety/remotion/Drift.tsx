@@ -15,9 +15,11 @@ export const Drift: React.FC<{
 	s?: number;
 	dx?: number;
 	dy?: number;
+	/** optional: the frame the push starts easing back out (over 40 frames), so it never carries into the next move */
+	release?: number;
 	children: React.ReactNode;
-}> = ({f, from, to, ox, oy, s = 1.1, dx = 0, dy = 0, children}) => {
-	const p = tween(f, from, to, 0, 1, ease.camera);
+}> = ({f, from, to, ox, oy, s = 1.1, dx = 0, dy = 0, release, children}) => {
+	const p = tween(f, from, to, 0, 1, ease.camera) * (release === undefined ? 1 : tween(f, release, release + 40, 1, 0, ease.camera));
 	return (
 		<AbsoluteFill style={{transformOrigin: `${ox}px ${oy}px`, transform: `translate(${dx * p}px, ${dy * p}px) scale(${1 + (s - 1) * p})`}}>
 			{children}

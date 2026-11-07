@@ -74,6 +74,7 @@ export const Spring: React.FC = () => {
 			light={{x: 0.3, y: 0.5}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE SPRING"
 					start={b.behind - 10}
 					end={b.end + 20}
@@ -87,7 +88,7 @@ export const Spring: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
-				<Drift f={f} from={0} to={b.behind} ox={1760} oy={540} s={1.05}>
+				<Drift f={f} from={0} to={b.behind} ox={1760} oy={540} s={1.08}>
 				<Drift f={f} from={b.steady - 30} to={b.end} ox={1760} oy={540} s={1.07}>
 				<Svg>
 					<WedgeGear cx={430} cy={600} k={4.4} housingY={0} climb={c} glowWedge={on(f, b.how, 16)} springs={on(f, b.limit, 16)} squeeze={ws.gap < 1e-6 ? 0.4 + 0.6 * (ws.jaw / SPRING_TRAVEL) : 0} />
@@ -228,6 +229,9 @@ export const Rail: React.FC = () => {
 					</g>
 					<Arrow x1={railX + 300} y1={700} x2={railX + 300} y2={460} color={colors.emerald} width={7} grow={Math.min(on(f, b.raised + 10, 20), off(f, b.grabs, 20))} />
 				</Svg>
+				<Label x={1040} y={300} size={44} color={colors.line} weight={700} opacity={Math.min(on(f, 10, 14), off(f, b.scrape - 10, 12))}>
+					THE RAIL, SEEN FROM THE FRONT
+				</Label>
 				<Label x={1040} y={300} size={46} color={colors.crimson} weight={700} opacity={Math.min(on(f, b.scrape, 12), off(f, b.ground, 16))}>
 					IT SCRAPES THE RAIL
 				</Label>
@@ -319,6 +323,7 @@ export const Counterweight: React.FC = () => {
 			light={{x: 0.4, y: 0.4}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE OTHER WAY"
 					start={b.balanced - 10}
 					end={b.end + 20}
@@ -333,6 +338,7 @@ export const Counterweight: React.FC = () => {
 			}
 		>
 			<AbsoluteFill>
+				<Drift f={f} from={b.lighter + 60} to={b.drop + 60} ox={150} oy={560} s={1.05} release={b.drop + 60}>
 				<Drift f={f} from={b.drop + 120} to={b.end} ox={150} oy={560} s={1.08}>
 				<Svg>
 					<Shaft cam={cam} st={{carY, cwY, govRot: 0, ropeTravel: -r.d, leverDeg: 0, wedge: 0, glowGear: Math.min(on(f, b.oneway, 14), off(f, b.balanced, 20))}} />
@@ -356,7 +362,7 @@ export const Counterweight: React.FC = () => {
 				<Label x={150} y={220} size={44} color={colors.emerald} weight={700} opacity={Math.min(on(f, b.down, 10), off(f, b.balanced, 16))}>
 					IT ONLY GRIPS GOING DOWN
 				</Label>
-				<Callout subSize={30} x={cwx} y={cwy} lx={cwx + 200} ly={cwy + 260} text="COUNTERWEIGHT" color={colors.emerald} t={Math.min(on(f, b.balanced + 30, 26), off(f, b.empty, 16))} sub="CAR + 40–50 % OF A FULL LOAD" />
+				<Callout subSize={30} x={cwx} y={cwy} lx={cwx + 200} ly={cwy + 200} text="COUNTERWEIGHT" color={colors.emerald} t={Math.min(on(f, b.balanced + 30, 26), off(f, b.empty, 16))} sub="CAR + 40–50 % OF A FULL LOAD" />
 				<Label x={bx - 230} y={by + 90} size={30} color={colors.sub} align="center" opacity={Math.min(on(f, b.save, 20), off(f, b.fail + 40, 20))}>
 					CAR {load > 0.5 ? '+ 45 % LOAD' : '(EMPTY)'}
 				</Label>
@@ -369,6 +375,7 @@ export const Counterweight: React.FC = () => {
 				<Label x={150} y={560} size={44} color={colors.crimson} weight={700} opacity={on(f, b.drop + 30, 14)}>
 					UP, FASTER AND FASTER
 				</Label>
+				</Drift>
 				</Drift>
 				<Tag x={96} y={970} opacity={off(f, b.end - 16, 14)}>
 					ILLUSTRATION · MODEL · NOT TO SCALE
@@ -409,15 +416,37 @@ const b15 = () => ({
 export const UpBrake: React.FC = () => {
 	const f = useCurrentFrame();
 	const b = b15();
-	// the car going up drags the wedge down, out of its narrowing slot: the gap opens, no grip
-	const climb = tween(f, b.wedges, b.only + 60, climbToContact, -10, ease.camera);
+	// the wedges start parked (viewer review v2: they began orange and gripping). On "They cannot help" the lever lifts
+	// them to the rail, and the rail, moving down past a car going up, drags them back down and out of the slot
+	const lifted = tween(f, b.cannot, b.cannot + 30, 0, climbToContact, ease.camera);
+	const climb = lifted + tween(f, b.cannot + 40, b.only + 60, 0, -10 - climbToContact, ease.camera);
+	const touching = Math.min(on(f, b.cannot + 24, 8), off(f, b.cannot + 60, 20));
 	// the strike lands on "In just five years"; the count runs once the beam has been hit
 	const hitF = b.eighteen;
 	const rise = Math.min(1, Math.max(0, (f - (b.really + 10)) / (hitF - (b.really + 10))));
-	const carY15 = MINE.carTop0 + (MINE.beamY - MINE.carTop0) * rise * rise; // from rest, constant acceleration
-	const rise15 = on(f, b.really + 10, 30) * off(f, hitF, 20);
+	const first = MINE.carTop0 + (MINE.beamY - MINE.carTop0) * rise * rise; // from rest, constant acceleration
+	// on "So the codes added a brake that faces up": the run again, with that brake. The car rewinds to its start, then
+	// rises again from rest at the same acceleration; at the governor's trip point the up-facing wedges grip and it slows
+	// at a steady rate to a stop below the beam (viewer review v2: the brake had been drawn on a car already crashed).
+	const R0 = b.codes + 50;
+	const ACC_F = 100; // frames of acceleration, from rest, before the trip
+	const tripY = MINE.beamY + 260;
+	const stopY = MINE.beamY + 120;
+	const vTrip = (2 * (MINE.carTop0 - tripY)) / ACC_F; // px per frame at the trip
+	const BRK_F = (2 * (tripY - stopY)) / vTrip; // frames to stop at a constant deceleration
+	const second = (fr: number): number => {
+		const t = fr - R0;
+		if (t < 0) return tween(fr, b.codes, b.codes + 40, MINE.beamY, MINE.carTop0, ease.camera);
+		if (t < ACC_F) return MINE.carTop0 - (MINE.carTop0 - tripY) * (t / ACC_F) ** 2;
+		const t2 = Math.min(t - ACC_F, BRK_F);
+		return tripY - (vTrip * t2 - (0.5 * vTrip * t2 * t2) / BRK_F);
+	};
+	const carY15 = f < b.codes ? first : second(f);
+	const grip = on(f, R0 + ACC_F, 10);
+	const stopped = R0 + ACC_F + BRK_F;
+	const rise15 = on(f, b.really + 10, 30) * off(f, hitF, 20) + on(f, R0, 20) * off(f, R0 + ACC_F, 20);
 	const jolt15 = f >= hitF ? shudder(f, 60, hitF, 7, 11) : 0;
-	const heat15 = f < hitF ? 0 : Math.max(0.35, tween(f, hitF, hitF + 50, 1, 0.35, ease.leave));
+	const heat15 = (f < hitF ? 0 : Math.max(0.35, tween(f, hitF, hitF + 50, 1, 0.35, ease.leave))) * off(f, b.codes, 30);
 	const count = f < hitF + 6 ? 0 : Math.round(tween(f, hitF + 6, hitF + 96, 1, 18, ease.camera));
 	const sceneA = off(f, b.really + 10, 20);
 	const sceneB = Math.min(on(f, b.really + 10, 20), off(f, b.both - 10, 20));
@@ -428,7 +457,7 @@ export const UpBrake: React.FC = () => {
 			<AbsoluteFill>
 				<Drift f={f} from={b.eighteen + 100} to={b.both} ox={780} oy={330} s={1.06} dx={-40} dy={30}>
 				<Svg opacity={sceneA}>
-					<WedgeGear cx={600} cy={560} k={4.6} housingY={0} climb={climb} glowWedge={1} />
+					<WedgeGear cx={600} cy={560} k={4.6} housingY={0} climb={climb} glowWedge={touching} />
 					<Arrow x1={1100} y1={760} x2={1100} y2={360} color={colors.crimson} width={8} grow={on(f, b.wedges, 20)} />
 					<Arrow x1={760} y1={420} x2={760} y2={640} color={colors.sub} width={5} grow={on(f, b.cannot, 20)} />
 				</Svg>
@@ -480,7 +509,7 @@ export const UpBrake: React.FC = () => {
 						<rect x={MINE.x0 + 60} y={30} width={MINE.x1 - MINE.x0 - 120} height={MINE.carH - 60} fill="none" stroke={colors.sub} strokeWidth={2} />
 						{/* the brake that faces up: wedges at the car's top corners, narrowing downward */}
 						{[MINE.x0 + 4, MINE.x1 - 4].map((x) => (
-							<path key={x} d={x < 960 ? `M ${x} 20 l 30 0 l 0 90 l -30 -24 z` : `M ${x} 20 l -30 0 l 0 90 l 30 -24 z`} fill="rgba(255,159,28,0.35)" stroke={colors.amber} strokeWidth={3} opacity={on(f, b.codes + 20, 20)} />
+							<path key={x} d={x < 960 ? `M ${x} 20 l 30 0 l 0 90 l -30 -24 z` : `M ${x} 20 l -30 0 l 0 90 l 30 -24 z`} fill={grip > 0.5 ? 'rgba(255,159,28,0.35)' : '#2A3544'} stroke={grip > 0.5 ? colors.amber : colors.line} strokeWidth={3} opacity={on(f, b.codes + 20, 20)} style={grip > 0.5 ? {filter: `drop-shadow(0 0 8px ${colors.amber})`} : undefined} />
 						))}
 					</g>
 					<Arrow x1={MINE.x1 + 70} y1={760} x2={MINE.x1 + 70} y2={500} color={colors.crimson} width={6} grow={rise15} />
@@ -492,7 +521,13 @@ export const UpBrake: React.FC = () => {
 					US MINE ELEVATORS HIT THE TOP
 				</Label>
 				<Label x={1120} y={415} size={36} color={colors.sub} opacity={sceneB * on(f, b.eighteen, 14)}>
-					AT LEAST · IN 5 YEARS
+					IN JUST 5 YEARS
+				</Label>
+				<Label x={1120} y={100} size={36} color={colors.crimson} opacity={sceneB * on(f, b.eighteen + 6, 8)}>
+					AT LEAST
+				</Label>
+				<Label x={1120} y={810} size={36} color={colors.emerald} weight={700} opacity={sceneB * on(f, stopped, 14)}>
+					STOPPED SHORT OF THE TOP
 				</Label>
 				<Label x={1120} y={640} size={44} color={colors.amber} weight={700} opacity={sceneB * on(f, b.codes, 14)}>
 					A BRAKE THAT FACES UP
@@ -522,9 +557,9 @@ export const UpBrake: React.FC = () => {
 						</clipPath>
 					</defs>
 					<g opacity={on(f, b.twoway, 20)} clipPath="url(#el-twoway)">
-						<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={FULL * 0.6} glowWedge={1} railTicks={false} />
+						<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 10, b.twoway + 70, 0, FULL * 0.6, ease.camera)} glowWedge={on(f, b.twoway + 40, 12)} railTicks={false} />
 						<g transform="translate(0 1090) scale(1 -1)">
-							<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={FULL * 0.6} glowWedge={1} railTicks={false} />
+							<WedgeGear cx={1580} cy={500} k={1.8} housingY={0} climb={tween(f, b.twoway + 10, b.twoway + 70, 0, FULL * 0.6, ease.camera)} glowWedge={on(f, b.twoway + 40, 12)} railTicks={false} />
 						</g>
 					</g>
 				</Svg>
@@ -552,6 +587,7 @@ export const upBrakeCues = (): SfxCue[] => {
 		{frame: b.eighteen, sfx: 'metal_jam_sub', gainDb: -10},
 		{frame: b.eighteen + 6, sfx: 'typewriter', gainDb: -14},
 		{frame: b.codes, sfx: 'relay_click', gainDb: -16},
+		{frame: b.codes + 150, sfx: 'metal_jam_sub', gainDb: -12}, // the up-facing wedges grip (R0 + ACC_F in UpBrake)
 		{frame: b.clamp + 40, sfx: 'metal_jam_sub', gainDb: -12},
 	];
 };

@@ -106,6 +106,7 @@ export const ColdOpen: React.FC = () => {
 			light={{x: 0.5, y: 0.45}}
 			overlay={
 				<Hud
+					labelSize={30}
 					title="THE FALL"
 					start={b.instead - 10}
 					end={b.what + 30}
@@ -145,7 +146,7 @@ export const ColdOpen: React.FC = () => {
 					<Dim x1={dx} y1={dy0} x2={dx} y2={dy1} color={colors.amber} draw={tween(f, b.stop, b.stop + 30, 0, 1, ease.draw) * off(f, b.what + 20, 16)} />
 				</Svg>
 				<Label x={dx + 26} y={(dy0 + dy1) / 2 - 22} size={36} color={colors.amber} weight={600} opacity={Math.min(on(f, b.stop + 20, 16), off(f, b.what + 20, 16))}>
-					0.54 m
+					0.54 m · UNDER A METER
 				</Label>
 				<Strip carY={carY} ghostY={CAR0 - CAR0 * ghostT * ghostT} ghostO={ghostO} o={stripO} />
 				<Label x={170} y={500} size={40} color={colors.crimson} weight={700} opacity={Math.min(on(f, b.expect + 10, 14), off(f, b.instead - 10, 12))}>
