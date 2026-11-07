@@ -99,3 +99,8 @@ export const wedgeState = (c: number): {gap: number; jaw: number} => {
 };
 check(Math.abs(wedgeState(climbToContact).gap) < 1e-9 && wedgeState(climbToContact).jaw === 0, 'the wedge touches the rail exactly at climbToContact');
 check(Math.abs(wedgeState(climbToContact + climbToSpring).jaw - SPRING_TRAVEL) < 1e-9, 'the springs are fully loaded one spring-climb later');
+
+// ---- the upward runaway (s14): empty car vs counterweight, no brake, frictionless (MODEL) ----
+/** Acceleration of an empty car pulled up by its heavier counterweight, m/s² (sheave inertia and friction ignored). */
+export const upAccel = ((counterweight - LIFT.car) / (counterweight + LIFT.car)) * G;
+check(upAccel > 1.7 && upAccel < 1.9, 'an empty car runs away upward at ≈ 1.8 m/s² (MODEL)');
