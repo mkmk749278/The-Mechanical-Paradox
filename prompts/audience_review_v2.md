@@ -32,7 +32,8 @@ narrator. Each paragraph is one beat; on-screen animations explain the mechanism
 --- NARRATION END ---
 
 For each viewer, answer briefly, honestly, in their own voice:
-a) First 12 seconds: what is the puzzle, and do you stay? Did it deliver what the title and thumbnail promised?
+a) First sentence: is this what the title and thumbnail promised you? First 12 seconds: what is the puzzle, and do
+   you stay? Did it deliver what the title and thumbnail promised?
 b) Before the video, what did you think made this thing work? Did the video say your idea out loud and show why it
    fails, or argue with an idea nobody holds?
 c) A lean-in map: go through in order and mark each part LEANING IN, NEUTRAL or DRIFTING (quote its first words).
