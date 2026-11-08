@@ -113,7 +113,7 @@ export const GovernorIntro: React.FC = () => {
 		{f: 0, cam: {cx: -1.0, cy: 13.3, s: 520}},
 		{f: b.gov + 30, cam: {cx: -1.1, cy: 13.25, s: 560}},
 		{f: b.loop + 30, cam: {cx: 0.1, cy: 7.0, s: 74}},
-		{f: b.hooked + 10, cam: {cx: 0.1, cy: 7.0, s: 74}},
+		{f: b.hooked + 10, cam: {cx: 0.1, cy: 6.6, s: 84}}, // a slow push while the loop is traced (v9 gate: a 2.6 s hold)
 		{f: b.hooked + 60, cam: {cx: -0.85, cy: carY + SH.cross, s: 360}},
 		{f: b.wherever + 20, cam: (fr) => ({cx: -0.3, cy: 2.0 + travel(fr, v03) + 1.6, s: 150})},
 		{f: b.end, cam: (fr) => ({cx: -0.3, cy: 2.0 + travel(fr, v03) + 1.2, s: 140})},
