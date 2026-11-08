@@ -46,6 +46,9 @@ makes the lift efficient can, in a failure, pull an empty car *up*. All to be co
 10. What Happens If an Elevator Cable Snaps? Not What You Think
 11. Elevators Are Built to Fear Going Up (only if step 2 confirms the ascending danger)
 
+12. Why Falling Elevators Don't Stop Instantly (owner's outside review of v10, 2026-11-08; candidate for step 11)
+13. The Brake Built to Slip (same review; close to 8)
+
 ## Thumbnail concepts (2-element rule, squint test, ≤ 3 words; §13.3)
 1. **The bite:** a lit cutaway of the car's corner on its steel guide rail, the wedge biting, a crimson heat field at
    the contact. Words: IT BRAKES ITSELF.
@@ -56,6 +59,8 @@ makes the lift efficient can, in a failure, pull an empty car *up*. All to be co
 5. **The scar:** a close-up of a guide rail with bright gouge marks a meter long. Words: 1 METER (the real stopping
    distance, once sourced).
 6. **The spring:** the wedge and its spring-loaded taper in section, the spring glowing amber. Words: BUILT TO SLIP.
+   The owner's outside review of v10 (2026-11-08) picked this one: the rail shoe in cutaway, amber friction shavings,
+   the disc-spring stack lit, BUILT TO SLIP. Step 11 tests it against the others.
 
 ## The promise the first 30 seconds must keep
 The cable is gone: what stops the car, with no power and no one at the controls? And why must that brake not stop you
