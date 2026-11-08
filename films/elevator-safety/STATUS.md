@@ -24,6 +24,10 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-08, cut v9 gate.** Run 42437006771: 7:01.9, −14.2 LUFS, −1.3 dBTP, channels equal, no black, no silence.
+  All 211 frames read beside VO v7: the seven inserts, credits and x-ray reveals land on their words; every scene kept
+  its sync after the re-timing. One hold of 2.6 s at 1:00 (the rope loop traced on a still camera): a slow push added.
+  Cut v10 renders with it; v10 goes to the owner.
 - **2026-11-08, owner's revision.** VO v7: five blocks (1, 3, 4, 7, 8) re-recorded on eleven_v4, same voice and
   settings; every take 100 % words; chosen b01 t1, b03 t1, b04 t1, b07 t2, b08 t2. Claims C30 (the counterweight comes
   down as you go up) and C31 (the governor turns whenever the car moves) added, both from sources already in the film.
