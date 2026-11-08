@@ -748,6 +748,11 @@ meaning, labels, SFX cues, and the semantic-lock line: "at 'outer wheel' the con
 ### 10.4 VO timing
 Timed from the recorded VO and the locked script, never from transcription: `scripts/vo_timing.py` (silence-to-script
 alignment + word spreader; ported) writes `vo/timing.json` with sentences and words in seconds and 60 fps frames.
+- **The timing must describe the audio, sample for sample** (2026-11-08). Pieces are cut with `atrim` on the exact
+  sample, and `vo_timing.py` stops if the joined file and the summed timing differ by more than 2 ms. **Before every
+  render, `scripts/vo_sync.py films/<slug> --wav <vo_full.wav>` checks the timing against the voice file** (exit 1 if
+  a sentence is off by more than 30 ms); `--fix` corrects an old `timing.json` from the file's digital-zero gaps. The
+  picture gate reads frames beside the *audio* (Whisper word times), never only beside `timing.json`.
 
 ### 10.5 Rendering
 - **720p review cuts first; 4K once the second independent review passes** (§3a steps 8–10; owner, 2026-11-07,
@@ -1042,6 +1047,22 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
+
+**The drifting voice (film 2, owner's review of cut v10, 2026-11-08).**
+- *The voice slid 2.3 s behind the picture and ten cuts and three panels missed it.* `vo_timing.py` cut every sentence
+  out of its take with `ffmpeg -ss -to -c copy`; ffmpeg starts such a cut on the exact sample but rounds its end up to
+  a whole 2048-sample packet, and the timing counted the nominal length. Up to 43 ms per piece, about 115 pieces: 0 s at
+  0:00, 1.2 s by 3:30, 2.3 s at the landing (film 1: 1.7 s). Every gate read the picture beside `timing.json`, the same
+  wrong clock, so nothing looked wrong; the owner's outside reviewer heard the symptom: the last line ran under the
+  channel slate and was transcribed as a stray "I want that." **Rule:** sample-exact cuts; the join asserts its own
+  length; `vo_sync.py` before every render; the gate checks against the audio (§10.4). **Why:** sync is the contract
+  of the whole film: every reveal, label and music drop lands on a word.
+- *An outside note is a symptom, not a diagnosis.* "An extra whisper after the slate" turned out to be no stray audio
+  at all (Whisper hears nothing after the last word) but a timing bug across the whole film. Check the note in the
+  cut, then ask why it happened.
+- *End screens need room.* The sting alone (5.5 s, centred) left YouTube's cards on top of the mark. Films now end:
+  last word → 2 s hold on the landing → sting → the mark and name settle into the left half and hold 6 s with the right
+  half clear (`ChannelSting endScreen`, `OUTRO_FRAMES` 700); set the end screen to the last 6 s.
 
 **The strategy research (2026-11-07).**
 - *A confident research report can be wrong on its own examples.* The owner's commissioned deep-research report

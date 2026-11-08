@@ -201,7 +201,10 @@ def main() -> None:
             if k:
                 silence(f"gap{n:02d}_{k}", gap_after[k - 1])
             seg = tmp / f"b{n:02d}_{k}.wav"
-            ff(["-ss", f"{c0}", "-to", f"{c1}", "-i", wav.as_posix(), "-c", "copy", seg.as_posix()])
+            # atrim cuts on the exact sample; `-ss -to -c copy` rounded each piece's end up to a 2048-sample packet,
+            # and the uncounted 0–43 ms a piece drifted film 2's voice 2.3 s behind its picture (vo_sync.py).
+            ff(["-i", wav.as_posix(), "-af", f"atrim=start_sample={round(c0 * SR)}:end_sample={round(c1 * SR)}",
+                "-c:a", "pcm_s16le", seg.as_posix()])
             pieces.append(seg)
             off = t0 - c0  # global time = take time + off
             for i, (sent, (ss, se, ratio, margin)) in enumerate(zip(sents, spans)):
@@ -224,6 +227,8 @@ def main() -> None:
     lst.write_text("".join(f"file '{p.resolve().as_posix()}'\n" for p in pieces))
     ff(["-f", "concat", "-safe", "0", "-i", lst.as_posix(), "-c:a", "pcm_s16le", (out / "vo_full.wav").as_posix()])
     total = dur(out / "vo_full.wav")
+    if abs(total - t0) > 0.002:  # the picture is timed on t0; the voice must be exactly that long
+        sys.exit(f"vo_full.wav is {total:.3f} s but the timing adds up to {t0:.3f} s")
     timing["duration"] = round(total, 3)
     timing["durationInFrames"] = round(total * a.fps)
     for key in ("blocks", "sentences", "words", "chapters"):

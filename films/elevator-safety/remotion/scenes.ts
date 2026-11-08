@@ -6,6 +6,9 @@ import {cue, timing} from './cues';
 
 export const LEAD = 30;
 export const XFADE = 18;
+/** The landing image holds after the last word before the sting (owner's review of v10: with the voice in true
+ * sync the last line ran into the channel slate; PLAYBOOK §5.4, the voice holds on the final image). */
+export const LANDING_HOLD = 120;
 
 const OPENINGS = {
 	s01: '',
@@ -34,7 +37,7 @@ const starts = SCENE_IDS.map((id) => (OPENINGS[id] ? cue.sentence(OPENINGS[id]).
 export const span = (id: SceneId): {from: number; to: number; dur: number} => {
 	const i = SCENE_IDS.indexOf(id);
 	const from = starts[i];
-	const to = i + 1 < starts.length ? starts[i + 1] : timing.durationInFrames;
+	const to = i + 1 < starts.length ? starts[i + 1] : timing.durationInFrames + LANDING_HOLD;
 	return {from, to, dur: to - from};
 };
 
