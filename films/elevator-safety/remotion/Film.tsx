@@ -3,18 +3,19 @@ import {AbsoluteFill, interpolate, Sequence, useCurrentFrame} from 'remotion';
 import {colors} from '../../../lib/remotion/brand';
 import {ease} from '../../../lib/remotion/motion';
 import {SfxCue, shiftCues} from '../../../lib/remotion/sfx';
-import {ChannelSting, STING_FRAMES, stingCues} from '../../../src/channel/ChannelSting';
+import {ChannelSting, endScreenCues, OUTRO_FRAMES, stingCues} from '../../../src/channel/ChannelSting';
 import {ColdOpen, coldOpenCues} from './ColdOpen';
 import {timing} from './cues';
 import {Flyweights, flyweightsCues, GovernorIntro, governorIntroCues, PullsLever, pullsLeverCues, PureMechanics, pureMechanicsCues, Ropes, ropesCues} from './Group1';
 import {Otis, otisCues, Question, questionCues, TooHard, tooHardCues, WedgeScene, wedgeCues, Window, windowCues} from './Group2';
 import {FootageLayer} from './Footage';
 import {Counterweight, counterweightCues, Landing, landingCues, Rail, railCues, Spring, springCues, UpBrake, upBrakeCues} from './Group3';
-import {SceneId, span, XFADE} from './scenes';
+import {LANDING_HOLD, SceneId, span, XFADE} from './scenes';
 
 // Film 2, the whole picture: every scene on its span from the recorded VO (scenes.ts), each dissolving in over the
 // last over XFADE frames; real footage inserts over them where the narration names the real thing (Footage.tsx);
-// the channel sting after the last word (channel name only in the outro, CLAUDE.md).
+// the landing holds LANDING_HOLD frames after the last word, then the channel sting, which settles into the end-screen
+// layout (channel name only in the outro, CLAUDE.md).
 
 const SCENES: [SceneId, React.FC, () => SfxCue[]][] = [
 	['s01', ColdOpen, coldOpenCues],
@@ -35,8 +36,9 @@ const SCENES: [SceneId, React.FC, () => SfxCue[]][] = [
 	['s16', Landing, landingCues],
 ];
 
-export const VO_FRAMES = timing.durationInFrames;
-export const FILM_FRAMES = VO_FRAMES + STING_FRAMES;
+/** Picture before the outro: the voice, then the landing's hold. */
+export const VO_FRAMES = timing.durationInFrames + LANDING_HOLD;
+export const FILM_FRAMES = VO_FRAMES + OUTRO_FRAMES;
 
 const FadeIn: React.FC<{children: React.ReactNode; first: boolean}> = ({children, first}) => {
 	const f = useCurrentFrame();
@@ -57,13 +59,13 @@ export const Film: React.FC = () => (
 			);
 		})}
 		<FootageLayer />
-		<Sequence from={VO_FRAMES} durationInFrames={STING_FRAMES} name="sting">
+		<Sequence from={VO_FRAMES} durationInFrames={OUTRO_FRAMES} name="sting">
 			<FadeIn first={false}>
-				<ChannelSting />
+				<ChannelSting endScreen />
 			</FadeIn>
 		</Sequence>
 	</AbsoluteFill>
 );
 
 /** Every scene's sound cues on the film's clock (the mix reads these; picture and sound never drift). */
-export const filmCues = (): SfxCue[] => [...SCENES.flatMap(([id, , cues]) => shiftCues(cues(), span(id).from)), ...shiftCues(stingCues, VO_FRAMES)];
+export const filmCues = (): SfxCue[] => [...SCENES.flatMap(([id, , cues]) => shiftCues(cues(), span(id).from)), ...shiftCues([...stingCues, ...endScreenCues], VO_FRAMES)];
