@@ -74,3 +74,16 @@ Music from the channel's Lyria library; it drops out for the 10 g shot.
 Title lead: *What Happens If an Elevator Cable Snaps? It Brakes Itself*. Thumbnail lead: the gear biting the rail,
 crimson at the contact, words IT BRAKES ITSELF. Challenger: the empty car rising, UP, NOT DOWN (the twist is confirmed:
 C25–C27).
+
+
+## Revision, 2026-11-08 (owner): the everyday hook, in picture and words
+The owner asked that the film open on what people see every day and reveal what is inside it ("we see this every day,
+but we don't know about it"). Narration (VO v7, five blocks re-recorded in the same voice): "You ride one without a
+second thought. The doors close, the numbers climb. Now imagine its ropes snap." · "You have never seen it, but it
+turns every time your car moves." (the governor) · "You never see them. They run just outside the walls of your
+car." (the rails) · "You never see it, but every time you go up, it comes down." (the counterweight) · the landing
+echoes the opening: "So the next time the doors close and the numbers climb, give it a second thought." Picture: real
+inserts on each of those lines (an atrium of glass cars, doors closing and the floor display climbing, a real governor
+and a real guide rail from one Wikimedia photo, the view from a rising glass lift, the doors and numbers again at the
+end), each ending in an x-ray scan into the drawing. Trade-off accepted: the wrong model now lands at 8.7 s instead
+of ~6 s; it is still broken by 11.5 s (under 12 s), and the first 6 s are the hook the owner asked for.

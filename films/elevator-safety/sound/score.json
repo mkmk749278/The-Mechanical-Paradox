@@ -4,7 +4,7 @@
   {
    "track": "bp01_curious_pulse",
    "from": 0,
-   "to": "w:6:Your-1.0",
+   "to": "w:8:Your-1.0",
    "offset": 0,
    "fade_in": 0.3,
    "fade_out": 0.8,
@@ -12,17 +12,17 @@
   },
   {
    "track": "bp01_curious_pulse",
-   "from": "e:8",
-   "to": "s:27",
-   "offset": "e:8",
+   "from": "e:10",
+   "to": "s:30",
+   "offset": "e:10",
    "fade_in": 2.0,
    "fade_out": 1.0,
    "why": "act 1: the governor, after the silence on 'built to slip'"
   },
   {
    "track": "bp02_clockwork",
-   "from": "s:27",
-   "to": "w:43:Your-1.2",
+   "from": "s:30",
+   "to": "w:48:Your-1.2",
    "offset": 22,
    "fade_in": 0.8,
    "fade_out": 1.0,
@@ -30,8 +30,8 @@
   },
   {
    "track": "bp03_low_tension",
-   "from": "e:43",
-   "to": "s:66",
+   "from": "e:48",
+   "to": "s:71",
    "offset": 20,
    "fade_in": 2.5,
    "fade_out": 1.2,
@@ -39,8 +39,8 @@
   },
   {
    "track": "bp05_resolve",
-   "from": "s:66",
-   "to": "w:80:So-1.2",
+   "from": "s:71",
+   "to": "w:85:So-1.2",
    "offset": 0,
    "fade_in": 1.5,
    "fade_out": 1.0,
@@ -48,8 +48,8 @@
   },
   {
    "track": "bp04_stress_build",
-   "from": "s:82",
-   "to": "s:96-0.5",
+   "from": "s:87",
+   "to": "s:102-0.5",
    "offset": 30,
    "fade_in": 1.0,
    "fade_out": 0.3,
@@ -57,8 +57,8 @@
   },
   {
    "track": "bp05_resolve",
-   "from": "s:99",
-   "to": "s:104",
+   "from": "s:105",
+   "to": "s:110",
    "offset": 88,
    "fade_in": 2.0,
    "fade_out": 1.5,
@@ -66,8 +66,8 @@
   },
   {
    "track": "bp10_landing",
-   "from": "s:104",
-   "to": "e:109+1.4",
+   "from": "s:110",
+   "to": "e:116+1.4",
    "offset": 30,
    "fade_in": 1.5,
    "fade_out": 2.5,
@@ -83,8 +83,8 @@
   }
  ],
  "quiet": [],
- "music_db": -13,
- "sfx_db": -12,
+ "music_db": -12,
+ "sfx_db": -14,
  "sfx_trim": {
   "glass_tone": -7,
   "torque_whine": -5

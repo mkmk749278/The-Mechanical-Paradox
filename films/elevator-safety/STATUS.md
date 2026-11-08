@@ -1,8 +1,9 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 9 after three panel rounds: 7.2 → 7.2 → 7.4 (bar 8 not reached; physics confirmed right each round).
-Round 3's confirmed points fixed (`review/viewer_v3_check.md`); cut v8 rendering. **Waiting on the owner:** 4K from v8
-after our own gate, or a fourth panel round (asked 2026-11-07). Meanwhile: step 11, the package.
+**Now:** the owner's revision (2026-11-08): the everyday hook in picture and words (treatment.md, PLAYBOOK §8.8).
+VO v7 (five blocks re-recorded, 416.4 s, 117 sentences), seven real inserts with x-ray reveals, mix rebuilt
+(−14.2 LUFS, −1.4 dBTP); cut v9 rendering. **Next action:** full gate of v9, then send the owner its private Drive
+link. v8 was not sent (superseded). No 4K until the owner approves.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -23,6 +24,12 @@ yet (§12.1); the owner hears them in the cut.
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-08, owner's revision.** VO v7: five blocks (1, 3, 4, 7, 8) re-recorded on eleven_v4, same voice and
+  settings; every take 100 % words; chosen b01 t1, b03 t1, b04 t1, b07 t2, b08 t2. Claims C30 (the counterweight comes
+  down as you go up) and C31 (the governor turns whenever the car moves) added, both from sources already in the film.
+  Inserts: c01 atrium, c02 doors + floor display, s03 governor photo, s07 rail photo (Carlo Ferrari, CC BY-SA 4.0),
+  f02 ride, c14 rising glass lift, c16 doors + display. Music anchors remapped by sentence text; the mix rebalanced
+  (sfx −14, music −12): bed 16.2 dB under speech, effects 12.1 dB.
 - **2026-11-07, step 9, panel 3.** 8/7/7/8/7, avg 7.4; Katrin checked every number and direction and found them right.
   Fixed: the rope snap now in frame, the s06 callout names the governor parts, the two-way gear grips one pair at a
   time, the going-up rail scrolls, the wedge climb follows its words, a marker moves down the g scale, the governor
