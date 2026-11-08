@@ -604,7 +604,7 @@ export const upBrakeCues = (): SfxCue[] => {
 
 // ---------------- s16: landing ----------------
 const b16 = () => ({
-	next: at('s16', 'So the next time elevator'),
+	next: at('s16', 'So the next time the doors'),
 	rope: at('s16', 'A thin rope you will never'),
 	wedges: at('s16', 'Wedges, waiting just clear'),
 	springs: at('s16', 'And springs, set to stop'),

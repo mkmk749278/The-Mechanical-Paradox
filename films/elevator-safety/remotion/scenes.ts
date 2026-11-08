@@ -23,7 +23,7 @@ const OPENINGS = {
 	s13: 'Is it gentle on the rail',
 	s14: 'Now, the danger I promised',
 	s15: 'And the wedges you just watched',
-	s16: 'So the next time elevator doors',
+	s16: 'So the next time the doors close',
 } as const;
 
 export type SceneId = keyof typeof OPENINGS;

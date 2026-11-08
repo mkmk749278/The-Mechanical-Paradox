@@ -641,6 +641,21 @@ The blueprint's rule was **zero stock video**: the channel is 100% code-rendered
 (a real derailment report photo, the 1854 demonstration engraving, a real teardown), the creative director may propose
 it in the treatment; it needs a licence that allows commercial use (§11) and a credit, and is shown as what it is.
 
+**Owner, 2026-11-08: "show what the audience regularly sees, then explain the mechanism inside it — they feel: we
+see this every day but we don't know about it."** This is now the spine of every film, in the picture and in the words:
+- **Open on the everyday thing** (the ride, the doors, the floor numbers, the wheel, the tap, the bulb), real footage,
+  before the paradox; the first line puts the viewer in that moment ("You ride one without a second thought. The
+  doors close, the numbers climb."). Then the paradox.
+- **At each hidden part, the real thing first:** a clip, or a real photo of the part people never see (Wikimedia
+  Commons, CC0 / PD / CC BY / CC BY-SA only; credit with the licence on screen; slow push on stills), on a line that
+  says so ("You have never seen it, but…", "You never see them…"), then an **x-ray reveal** into the drawing: the
+  blueprint grid and a cyan scan line rise through the image in its last 50 frames, then it dissolves (`Footage.tsx`).
+- **The landing echoes the opening** with the same everyday image and words, now seen with the mechanism in mind.
+- Practical: Wikimedia's upload server rate-limits (429) bursts; fetch slowly with a descriptive User-Agent that names
+  the repo (never the owner's email), one file at a time. One good photo can serve two crops (film 2: a single
+  shaft-top photo gave both the governor and the guide rail). Footage must show what the words say (film 2: an atrium
+  clip with no visible rails was cut from "steel guide rails"; the doors clip was re-cut so they close on "close").
+
 ---
 
 # Part C: Production

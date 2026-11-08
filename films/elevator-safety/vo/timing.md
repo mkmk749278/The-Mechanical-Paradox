@@ -1,6 +1,6 @@
 # VO timing: elevator-safety
 
-394.3 s · 110 sentences · 1011 words · 8 chapters
+416.4 s · 117 sentences · 1071 words · 8 chapters
 
 ## Sentences to check (low margin or odd length)
 - none
