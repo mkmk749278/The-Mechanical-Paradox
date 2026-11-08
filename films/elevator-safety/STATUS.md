@@ -1,10 +1,10 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** cut v11 renders on the runners (`renders/elevator-safety_review_720p_v11.mp4`): the owner's two notes on v10
-fixed (the voice back in sync, a landing hold, an end-screen outro). **Next action:** gate v11 (vo_sync, loudness,
-black, silence, holds, frames read beside the Whisper word times), then send it to the owner. The owner's review says
-v10 with the tail fixed is ready for 4K: on the owner's word, step 10, the 4K master (scale 2, seconds 5,
-`tail_frames: 820`). Film 1 has the same drift (1.74 s at its end): the owner decides whether to re-master it.
+**Now:** the owner watches cut v11 (`renders/elevator-safety_review_720p_v11.mp4`, run 42521509665): 7:10.0,
+−14.2 LUFS, no black, no silence, no hold over 2.5 s; voice in sync (Whisper vs timing: −0.17/−0.15/−0.19 s by third,
+the recogniser's constant bias; v10 read +0.2/+1.0/+1.7 s). **Next action:** the owner's word on v11 → step 10, the 4K
+master (scale 2, seconds 5, `tail_frames: 820`); `vo_sync.py` passes first. Film 1 has the same drift (1.74 s at its
+end): the owner decides whether to re-master it.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 820` (2 s landing hold + the 700-frame outro), `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -34,7 +34,8 @@ yet (§12.1); the owner hears them in the cut.
   fixed for good. The landing now holds 2 s after the last word.
   (2) End-screen safe zone: after the sting the mark and name settle into the left half (name x 80–960) and hold 6 s
   with the right half clear; the drone runs under it. Set YouTube's end screen to the last 6 s (7:04–7:10).
-  Mix −14.2 LUFS, −1.4 dBTP, 430.03 s. The review's title and thumbnail ideas are in brief.md for step 11.
+  Mix −14.2 LUFS, −1.4 dBTP, 430.03 s. Gate on v11: sync flat start to end, reveals on their words (It does., a
+  brake that faces up, the two landing lines), end screen clean, nothing heard after "enough.". The review's title and thumbnail ideas are in brief.md for step 11.
 - **2026-11-08, cut v9 gate.** Run 42437006771: 7:01.9, −14.2 LUFS, −1.3 dBTP, channels equal, no black, no silence.
   All 211 frames read beside VO v7: the seven inserts, credits and x-ray reveals land on their words; every scene kept
   its sync after the re-timing. One hold of 2.6 s at 1:00 (the rope loop traced on a still camera): a slow push added.
