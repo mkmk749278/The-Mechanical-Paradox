@@ -1,9 +1,9 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** the owner's revision (2026-11-08): the everyday hook in picture and words (treatment.md, PLAYBOOK §8.8).
-VO v7 (five blocks re-recorded, 416.4 s, 117 sentences), seven real inserts with x-ray reveals, mix rebuilt
-(−14.2 LUFS, −1.4 dBTP); cut v9 rendering. **Next action:** full gate of v9, then send the owner its private Drive
-link. v8 was not sent (superseded). No 4K until the owner approves.
+**Now:** the owner is watching cut v10 (`renders/elevator-safety_review_720p_v10.mp4`, Drive id
+`1I_a34EzFA9SdH3Xt1k2aZdyMXIrGBFdQ`, run 42510156394): 7:01.9, −14.2 LUFS, −1.3 dBTP, channels equal, no black, no
+silence, no hold over 2.5 s. **Next action:** the owner's notes or approval. On approval: step 10, the 4K master
+(scale 2, seconds 5). Nothing goes to 4K before that.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 330`, `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
