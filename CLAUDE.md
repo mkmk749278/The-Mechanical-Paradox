@@ -29,20 +29,22 @@ Every film runs these twelve steps **on its own, without waiting for the owner**
 merged into `main`** (more often during the build), so a usage-limit cut never loses work. **Creativity is the top
 priority in every step;** the gates are the floor.
 1. **Topic:** five or more candidates scored on the topic gate (§4.3) + search demand; the best that passes; `brief.md`
-   with the package drafted first.
+   with the package first and **the title and thumbnail concept locked** (promise first, below).
 2. **Know it completely, write the story:** primary-source research, `claims.csv` passing, treatment (3+ angles,
-   3+ cold opens, signature moments, the five beats), screenplay and `vo.txt`.
+   3+ cold opens, signature moments, the five beats); **the opening (0:00–0:45) first, through the promise check**,
+   then the full screenplay and `vo.txt`.
 3. **Story review:** a fresh no-repo session, five everyday-physics fans from around the world
    (`prompts/audience_review_v2.md`, SCRIPT); their satisfaction is the point.
 4. **Fix the story and script;** another fresh panel until the bar of §3a.3 is met (at most three rounds).
 5. **Narration review:** the performed narration to a fresh panel (NARRATION): simplicity, satisfaction.
-6. **Voice:** block 1 generated and measured (`eleven_tts.py`, `vo_review.py`); when it's right, every block, then
+6. **Voice** (never before the opening has passed the promise check and the narration review): block 1 generated and
+   measured (`eleven_tts.py`, `vo_review.py`); when it's right, every block, then
    all measured together.
 7. **Build the film:** scenes, Blender plates and music on GitHub's runners, sound, stills reviewed.
 8. **720p cut** on the runners; our picture gate; an independent viewer panel (`prompts/viewer_review_v2.md`).
 9. **Fix everything,** each note checked first; a new cut; a fresh viewer panel; repeat until no must-fix.
 10. **4K master** on the runners; gate; Drive.
-11. **The package:** 10+ titles → 3, 6+ thumbnail concepts → 3, an independent click test against real competitors
+11. **The package**, built from the locked promise: 10+ titles → 3, 6+ thumbnail variants → 3, an independent click test against real competitors
     (`prompts/package_review_v1.md`), description for search, tags, SRT, auto-dubbing.
 12. **Shorts and handoff:** 2–3 Shorts; `STATUS.md` "ready to upload"; one message to the owner, who uploads.
 - **Resume point:** `films/<slug>/STATUS.md` (the steps, what runs where, the next action), updated in every PR; a
@@ -92,6 +94,17 @@ priority in every step;** the gates are the floor.
   catch, at the top of `brief.md`: 35–40 greenlight, 28–34 re-angle, under 28 drop; and its mechanism, threshold and
   catch sourceable before the treatment.
 - **Package first:** title, thumbnail concept and search terms in the film's `brief.md` before the script.
+- **Promise first (owner, 2026-11-08; PLAYBOOK §3a, §5.1, §13.1; the same order on all three channels):**
+  1. **Lock the title and thumbnail concept first** (step 1): the promise in one sentence (the object and the broken
+     intuition), the main title and the thumbnail concept (one object, one disruptor, ≤ 3 words). Alternatives vary
+     the words and the composition, never the promise.
+  2. **Write the opening (0:00–0:45) first** (step 2). Sentence 1 confirms the thumbnail's promise on the thumbnail's
+     own object; it passes the promise check (PLAYBOOK §5.1) before the rest of the script is written.
+  3. **Then the full script and storyboard** (screenplay with its VISUAL column), every beat moving toward that
+     promise, the trick and the catch paying it in full.
+  4. **Voice only after the opening is verified** (steps 3–5 passed).
+  5. **Picture and sound built to the locked narration** (step 7).
+  A changed promise reopens the opening (and block 1 of the voice); a changed opening re-runs the promise check.
 - **Auto-dubbing (owner, 2026-11-07):** turn on YouTube's own auto-dubbing at upload where offered (free); no paid
   dubbing. Listen to a sample of each dub for wrong technical words before it stays public (PLAYBOOK §13.7).
 - **Every final film ends with a YouTube package and a merged PR** (PLAYBOOK §13.7): 3 thumbnails, the title and the
@@ -103,8 +116,8 @@ priority in every step;** the gates are the floor.
   mechanism.
   2–3 vertical Shorts per film.
 - **Structure: the five beats (PLAYBOOK §5.4).** **The paradox:** motion from frame 0, the viewer's own wrong model
-  said out loud by about 6 s and broken within **12 s** (no greeting, no logo); the promise by 0:30, an open loop by
-  0:55. **The trick:** chapters that each add one layer of mechanism (intuition → test → failure → mechanism → proof).
+  said out loud by about 6 s and broken within **12 s** (no greeting, no logo); **sentence 1 confirms the thumbnail's
+  promise**; the promise by 0:30, an open loop by 0:45. **The trick:** chapters that each add one layer of mechanism (intuition → test → failure → mechanism → proof).
   **The catch:** the trade-off as a beat of its own, around the middle, with its real name. **The truce:** how real
   engineers live with both problems. **The landing:** an image, one line on the trade-off, one forward line. **Channel
   name and the `ChannelSting` only in the outro.** No part-naming tours, no orbits that pad the voice.

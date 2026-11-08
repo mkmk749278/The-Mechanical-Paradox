@@ -102,22 +102,30 @@ mid-film. The owner can step in at any point; his notes override the pipeline, a
 edited again (§1). **Creativity is the top priority inside every step:** the gates below are the floor, never the
 ceiling (§2.1).
 
+**Promise first (owner, 2026-11-08; the same order on all three channels).** The title and thumbnail concept are locked
+in step 1; the opening (0:00–0:45) is written first in step 2 and verified against them (the promise check, §5.1);
+the full script and its storyboard (the screenplay's VISUAL column) are built to pay that promise off; the voice is
+generated only after the opening is verified (step 6); the picture is built to the locked narration (step 7); the
+finished package (step 11) is built from the lock. *Why:* on the sister channel two thirds of leavers were gone by
+0:45 (§5.1), and viewers leave fastest when the opening doesn't match what they clicked. Writing the package last
+meant writing the opening for a promise nobody had made yet.
+
 ### 3a.1 The steps
 Each step: what it makes, the gate it must pass, and the PR that saves it (`Film N · step K: <what>`).
 
 | # | Step | Makes | Passes when |
 |---|---|---|---|
-| 1 | **Pick the topic** | Score at least five candidates on the topic gate (§4.3: the slate §17.3, the pool §17.4, new ideas); check search demand (`scripts/yt_demand.py`, §13.1); pick the highest that passes. `films/<slug>/brief.md` with the scores, the package drafted first (10+ title ideas, 5+ thumbnail concepts, search phrases), `STATUS.md` started. | Score ≥ 35/40 and sourceable. |
-| 2 | **Know it completely; write the story** | `research/` from primary sources; `claims.csv` (the gate passes); `treatment.md` with 3+ angles, 3+ cold opens, 2–3 signature moments and the chosen five beats (§5.4); `script/screenplay.md` with the Q column; `script/vo.txt`; `script/terms.txt`. | `claims_check.py` passes; lean-in test and spoken-English check pass (§7.4, §7.8); script gate §14.1. |
+| 1 | **Pick the topic** | Score at least five candidates on the topic gate (§4.3: the slate §17.3, the pool §17.4, new ideas); check search demand (`scripts/yt_demand.py`, §13.1); pick the highest that passes. `films/<slug>/brief.md` with the scores, the package drafted first (10+ title ideas, 5+ thumbnail concepts, search phrases) and then **locked**: the promise in one sentence, the main title, the thumbnail concept (object, disruptor, ≤ 3 words), `STATUS.md` started. | Score ≥ 35/40 and sourceable; the promise locked. |
+| 2 | **Know it completely; write the story** | `research/` from primary sources; `claims.csv` (the gate passes); `treatment.md` with 3+ angles, 3+ cold opens (judged by how well each delivers the locked promise), 2–3 signature moments and the chosen five beats (§5.4); **the opening (0:00–0:45) written first and passed through the promise check (§5.1)**; then `script/screenplay.md` with the Q and VISUAL columns (the storyboard); `script/vo.txt`; `script/terms.txt`. | The promise check passes; `claims_check.py` passes; lean-in test and spoken-English check pass (§7.4, §7.8); script gate §14.1. |
 | 3 | **Story review** | An independent panel of five everyday-physics fans from around the world (§3a.3, `prompts/audience_review_v2.md`, stage SCRIPT). `review/audience_vN.md`. | Report saved. |
 | 4 | **Fix the story and script** | Every fix that keeps the facts true; claims re-checked for every changed line. | The bar of §3a.3. If missed, back to step 3 with a **fresh** panel (at most three rounds; then lock on the bar, never on a perfect verdict). |
 | 5 | **Narration review** | The narration as it will be performed (final words, paragraph rhythm, the reveal holds marked) to a fresh panel (stage NARRATION): simplicity, listenability, satisfaction. | The bar of §3a.3; fixes applied. |
-| 6 | **Voice** | `script/blocks_performance.md` (decision 7). **Block 1 first** with `scripts/eleven_tts.py`, measured with `scripts/vo_review.py` (words as written, pace, pauses, pitch, voice drift, loudness); settings fixed until block 1 is right; **then every block**, measured together (drift across blocks, every join, total pace 145–165 wpm after `scripts/vo_timing.py`). Takes to Drive `<slug>/vo/` at once. | Every block measured clean; `vo/timing.json` accounts for every word. |
+| 6 | **Voice** | Only after the opening has passed the promise check and the reviews of steps 3–5. `script/blocks_performance.md` (decision 7). **Block 1 first** with `scripts/eleven_tts.py`, measured with `scripts/vo_review.py` (words as written, pace, pauses, pitch, voice drift, loudness); settings fixed until block 1 is right; **then every block**, measured together (drift across blocks, every join, total pace 145–165 wpm after `scripts/vo_timing.py`). Takes to Drive `<slug>/vo/` at once. | Every block measured clean; `vo/timing.json` accounts for every word. |
 | 7 | **Build the film** | Scenes on the VO clock, Blender plates and music on the runners (§10.5–10.6, §12.1), SFX cues, the mix. Stills of every scene at its key words, looked at. | `tsc` clean; claims gate; every scene's stills pass §14.2's picture points. Merge after each group of scenes, never more than about two hours of work unmerged. |
 | 8 | **720p cut and first picture review** | The review cut on the runners; our own picture gate (§14.2: audio-synced frame sheets, `freezedetect`, loudness, legibility); then an independent viewer panel on the cut (`prompts/viewer_review_v2.md`). `review/viewer_vN.md`. | Report saved. |
 | 9 | **Fix everything; second review** | Every note checked against code, timing and a still (`review/viewer_vN_check.md`, CONFIRMED / PARTLY / NOT CONFIRMED), the confirmed ones fixed; a new 720p cut; a **fresh** viewer panel. | No must-fix left (physics, sync, legibility, a frozen hold), and the bar of §3a.3. Repeat at most three rounds. |
 | 10 | **4K master** | Blender plates at 3840 px and the film at `scale` 2 on the runners; the gate (§14.2: −14 LUFS, −1 dBTP, length, no black frames, frames checked at 4K); `master_4k.mp4` and a 1080p copy to Drive. | Gate passes. |
-| 11 | **The package** | §13.7 in full, built for clicks and search: 10+ titles → 3; 6+ thumbnail concepts → 3 finished (Blender stills of the film's own object + words); an independent click panel against 8 real competitor thumbnails from the same search (`prompts/package_review_v1.md`); the description (search phrases, chapters); tags; SRT; auto-dubbing note. | The panel picks; the squint test passes; every word passes §9.2. |
+| 11 | **The package** | §13.7 in full, built for clicks and search from the promise locked in step 1: 10+ titles → 3; 6+ thumbnail variants → 3 finished, all keeping the promise sentence 1 confirms (Blender stills of the film's own object + words); an independent click panel against 8 real competitor thumbnails from the same search (`prompts/package_review_v1.md`); the description (search phrases, chapters); tags; SRT; auto-dubbing note. | The panel picks; the squint test passes; every word passes §9.2. |
 | 12 | **Shorts and handoff** | 2–3 vertical Shorts (§13.6) rendered on the runners; `STATUS.md` says "ready to upload" with every Drive link; one short message to the owner. | Shorts gated like the film. |
 
 The owner uploads (outward-facing, §1). The next film's step 1 can start while the owner uploads the last one.
@@ -343,15 +351,27 @@ These are channel-level sources for how we work. A film that states any of them 
 On the sister channel, about two thirds of the viewers who left were gone in the first 45 seconds; a welcome, a logo
 sting and a title card at 0:25–0:45 dropped retention from 47% to 33%. So:
 - **0:00–0:12: the broken intuition**, in motion, on the thumbnail's own object (blueprint §6.3: within 12 seconds).
-  No greeting, no logo, no channel name, no agenda. **Tightened (2026-11-07, §4.5):** the picture moves from frame 0
+  No greeting, no logo, no channel name, no agenda. **Sentence 1 confirms the thumbnail's promise** (owner,
+  2026-11-08): it names the thumbnail's object and its contradiction (the conical wheel on its rail → sentence 1 is
+  about that wheel staying on with no steering). Confirm, never answer. **Tightened (2026-11-07, §4.5):** the picture moves from frame 0
   and the contradiction is spoken by about 6 s; 12 s is the hard limit, not the target.
 - **Make the viewer's own wrong model visible.** Say what most people think, show it, then show it fail, before the
   real mechanism. *Why:* in Muller's physics-education studies, plain explanations left wrong ideas in place and made
   students more sure of them; videos that voiced the misconception first taught better (§4.5). The wrong model must be
   one a smart adult really holds, never a straw puzzle (film 1, §16).
 - **By 0:30: the promise**: the specific question this film answers.
-- **By 0:55: the open loop**: a turn that makes the obvious answer wrong ("and the flange you think holds it on? It
+- **By 0:45: the open loop** (was 0:55; tightened 2026-11-08 so the whole opening sits inside the window where viewers
+  leave): a turn that makes the obvious answer wrong ("and the flange you think holds it on? It
   almost never touches the rail"), paid off later at a stated point.
+- **The promise check** (the opening is written first and passes this before the rest of the script, §3a step 2):
+  1. Read only the locked title, the thumbnail concept and sentence 1: does a stranger know they clicked the right
+     film? Is the thumbnail's object (or its contradiction) in sentence 1, said the way the thumbnail says it?
+  2. Is the picture moving on that object from frame 0, the wrong model spoken by about 6 s?
+  3. Promise by 0:30 in the title's own words; open loop by 0:45?
+  4. Does it confirm without answering? (If sentence 1 gives away the trick, the film is over.)
+  5. Do the title alternatives and thumbnail variants still match sentence 1?
+  The result goes at the top of `script/screenplay.md`. A failure is fixed in the opening, or, if the opening is right
+  and the package is wrong, in the package, before step 3.
 
 ### 5.2 The body
 - **No assembly-manual tour.** Never open a chapter by naming parts; a part arrives when the story needs it to solve
@@ -375,7 +395,7 @@ VISUAL | HUD | SFX, with the Q column) → `script/vo.txt` → `scenes/<scene_id
 ### 5.4 The five beats (owner's research brief, 2026-11-07)
 The story shape of every film, mapped onto §5.1–5.2. Times are shares of the film, since the topic sets its length.
 1. **The paradox (to about 0:45).** The object moving; the viewer's own model said out loud; why, by that model, it
-   can't work. The thumbnail's question confirmed by 0:30, the film's open loop by 0:55.
+   can't work. Sentence 1 confirms the thumbnail's promise; its question confirmed by 0:30, the open loop by 0:45.
 2. **The trick (to about 40%).** The simple geometry, contact or force that resolves it, built one layer per chapter
    (intuition → test → failure → mechanism → proof). The viewer gets the click and believes the problem is solved.
 3. **The catch (about 50–65%).** The same trick creates a second problem with a real name and number (the cone's
@@ -504,7 +524,7 @@ the life.
    other line).
 2. **Specific beats general:** one wheel, one curve, one number.
 3. **Chain with "but" and "so", never "and then".** Each beat is caused by the last or works against it.
-4. **Curiosity loops at three sizes:** film (opened by 0:55, paid at the end), chapter (opened and closed inside it),
+4. **Curiosity loops at three sizes:** film (opened by 0:45, paid at the end), chapter (opened and closed inside it),
    and small ones every 20–40 s. Never open a loop the film doesn't close. People get curious when they know some of
    something and see the gap (Loewenstein 1994, *Psychological Bulletin* 116: 75–98): give the reference point, then
    the gap.
@@ -877,8 +897,12 @@ beside watch time; tags barely matter; Test & Compare picks the thumbnail by wat
 are against the rules and get punished by the surveys.
 
 ### 13.1 Rules for us
-1. **Package first:** title, thumbnail concept and search phrases in `brief.md` before the script; the first 12 s
-   deliver the thumbnail's question.
+1. **Package first, locked (owner, 2026-11-08):** title, thumbnail concept and search phrases in `brief.md` before the
+   script, locked as one promise (§3a); sentence 1 confirms it and the first 12 s deliver the thumbnail's question
+   (§5.1). Title alternatives and thumbnail challengers vary the words and composition, never the promise. If the
+   step-11 click test shows the locked promise losing to the competitors, the change goes back through the opening
+   and block 1 of the voice, never the package alone. When two promises are close at step 1, run the click test then,
+   with rough mock thumbnails, rather than at step 11.
 2. **Search words from real searches:** YouTube autocomplete (`hl=en`, `gl=US` and `gl=IN`/`gl=GB`), the top 20
    results, Google Trends; saved in `research/search_terms.md` (main phrase, 2–4 secondary phrases, the question
    people ask). The main phrase in the title's first ~40 characters, said naturally in the first minute.
@@ -957,7 +981,8 @@ Nothing reaches the owner without passing these, and §1's "polished only".
 
 ### 14.1 Script gate
 - [ ] `claims.csv` complete, the gate passes; every changed line re-checked.
-- [ ] Broken intuition by 0:12, promise by 0:30, open loop by 0:55; no banned openers; channel name only in the outro.
+- [ ] Sentence 1 confirms the thumbnail (the promise check, §5.1); broken intuition by 0:12, promise by 0:30, open
+  loop by 0:45; no banned openers; channel name only in the outro.
 - [ ] Every chapter adds one layer of mechanism; the trade-off is said; no false absolutes.
 - [ ] The topic gate (§4.3) scored in `brief.md`; the five beats (§5.4) visible in the screenplay, with the catch as a
       turn around the middle; the viewer's wrong model said out loud in the first beat.
