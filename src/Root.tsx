@@ -19,6 +19,7 @@ import {span} from '../films/train-wheels/remotion/scenes';
 import {ThumbA, ThumbB, ThumbC} from '../films/train-wheels/remotion/Thumbs';
 import {ColdOpen as ElColdOpen} from '../films/elevator-safety/remotion/ColdOpen';
 import {span as elSpan} from '../films/elevator-safety/remotion/scenes';
+import {ThumbA as ElThumbA, ThumbB as ElThumbB, ThumbC as ElThumbC, ThumbD as ElThumbD, ThumbE as ElThumbE, ThumbF as ElThumbF} from '../films/elevator-safety/remotion/Thumbs';
 import {Film as ElFilm, FILM_FRAMES as EL_FILM_FRAMES} from '../films/elevator-safety/remotion/Film';
 import {Counterweight as ElCounterweight, Landing as ElLanding, Rail as ElRail, Spring as ElSpring, UpBrake as ElUpBrake} from '../films/elevator-safety/remotion/Group3';
 import {Otis as ElOtis, Question as ElQuestion, TooHard as ElTooHard, WedgeScene as ElWedge, Window as ElWindow} from '../films/elevator-safety/remotion/Group2';
@@ -54,6 +55,12 @@ export const Root: React.FC = () => (
 			<Composition id="TW-BankCard" component={BankCard} durationInFrames={bankCardSpan().to - bankCardSpan().from} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="ElevatorSafety">
+			<Composition id="EL-Thumb-A" component={ElThumbA} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-Thumb-B" component={ElThumbB} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-Thumb-C" component={ElThumbC} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-Thumb-D" component={ElThumbD} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-Thumb-E" component={ElThumbE} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="EL-Thumb-F" component={ElThumbF} durationInFrames={1} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-Film" component={ElFilm} durationInFrames={EL_FILM_FRAMES} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S01-ColdOpen" component={ElColdOpen} durationInFrames={elSpan('s01').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S02-Ropes" component={ElRopes} durationInFrames={elSpan('s02').dur} fps={video.fps} width={video.width} height={video.height} />
