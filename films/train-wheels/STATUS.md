@@ -1,4 +1,16 @@
-# Film 1 status and handoff (2026-11-06: 4K master delivered after the owner's approval of v4)
+# Film 1 status and handoff (2026-11-09: re-master after the sync fix, owner's choice)
+
+**Now (2026-11-09):** the owner chose to re-master film 1: its voice ran up to 1.74 s behind the picture (the
+`vo_timing.py` drift found in film 2, PLAYBOOK §16). Done and merged (PR #62): `timing.json` corrected by
+`vo_sync.py`, cues, captions, YouTube SRT and chapter times (2:54, 4:13, 5:53) re-timed, a 2 s landing hold, the
+end-screen outro, the mix rebuilt (393.08 s; the approved v4 mix kept as `mix/mix_v4_approved_drift.wav`). Plates:
+the old 4K tars moved to Drive `train-wheels/plates_4k_v4_tar/`; s03 re-indexed from them (695 frames, 1.5 mm worst,
+checked in the composite); s01 and s15hero re-render at 3840 px on the runners (`blender-render.yml`, film
+`train-wheels`, module `remotion/blenderExport.ts`). **Next:** when the plates are in, a 720p check cut
+(`tail_frames: 820`), gate it (vo_sync, Whisper sync, stills at the plate shots), send it to the owner; then the
+4K master (`train-wheels_master_4k_v2.mp4`, scale 2, seconds 5). The Shorts' timecodes in `youtube/package.md` are on
+the old clock (up to +1.7 s).
+
 
 **Done**
 - Research, claims (31 rows; gate passes: 30 confirmed, 1 disputed and worded as such), brief, treatment, VO v6.
