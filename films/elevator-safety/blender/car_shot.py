@@ -83,20 +83,35 @@ for sd in (-1, 1):
     bpy.context.object.data.color = (1.0, 0.55, 0.15)
     bpy.context.object.data.shadow_soft_size = 0.02
 
-# ---- the snapped ropes: four from the crosshead hitch, ending in splayed strands just above the car
+# ---- the snapped ropes (click test v1: "draw a snapped, frayed rope above the car"): four stubs rise from the
+# crosshead hitch and end in splayed strands; their broken upper ends hang from above, frayed the same way, with a
+# clear gap between, so "the cable is gone" reads at phone size. Drawn about 34 mm thick, far thicker than a real
+# lift rope, so it reads at phone size (an illustration, like the rest of the plate).
+ROPE_R = 0.0065 * 2.6
 rnd = _r.Random(3)
-for i, xr in enumerate((-0.09, -0.03, 0.03, 0.09)):
-    top = 2.95 + rnd.uniform(-0.12, 0.12)
-    bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=0.007, depth=top - 2.58, location=(xr, 0, (top + 2.58) / 2))
-    bpy.context.object.data.materials.append(ROPE)
-    for k in range(8):  # the frayed end
-        a_ = k / 8 * 2 * math.pi + rnd.uniform(-0.3, 0.3)
-        tilt = rnd.uniform(0.25, 0.7)
-        L = rnd.uniform(0.04, 0.09)
-        bpy.ops.mesh.primitive_cylinder_add(vertices=6, radius=0.0016, depth=L,
-                                            location=(xr + math.cos(a_) * math.sin(tilt) * L / 2, math.sin(a_) * math.sin(tilt) * L / 2, top + math.cos(tilt) * L / 2),
-                                            rotation=(-math.sin(a_) * tilt, math.cos(a_) * tilt, 0))
+
+
+def fray(xr, z, up):
+    for k in range(9):
+        a_ = k / 9 * 2 * math.pi + rnd.uniform(-0.3, 0.3)
+        tilt = rnd.uniform(0.3, 0.8)
+        L = rnd.uniform(0.07, 0.14)
+        dz = math.cos(tilt) * L / 2 * (1 if up else -1)
+        bpy.ops.mesh.primitive_cylinder_add(vertices=6, radius=0.0045, depth=L * 1.3,
+                                            location=(xr + math.cos(a_) * math.sin(tilt) * L / 2, math.sin(a_) * math.sin(tilt) * L / 2, z + dz),
+                                            rotation=(-math.sin(a_) * tilt * (1 if up else -1), math.cos(a_) * tilt * (1 if up else -1), 0))
         bpy.context.object.data.materials.append(ROPE)
+
+
+for i, xr in enumerate((-0.09, -0.03, 0.03, 0.09)):
+    top = 3.15 + rnd.uniform(-0.15, 0.15)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=ROPE_R, depth=top - 2.58, location=(xr, 0, (top + 2.58) / 2))
+    bpy.context.object.data.materials.append(ROPE)
+    fray(xr, top, True)
+    low = 3.85 + rnd.uniform(-0.15, 0.15)  # the broken upper end, hanging from out of frame
+    bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=ROPE_R, depth=6.0 - low, location=(xr * 1.15, 0, (6.0 + low) / 2))
+    bpy.context.object.data.materials.append(ROPE)
+    fray(xr * 1.15, low, False)
 
 # ---- lights at shaft scale
 def carlight(loc, rot, size, energy, color):

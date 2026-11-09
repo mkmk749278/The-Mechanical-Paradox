@@ -1,11 +1,11 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** step 11, the package. The 4K master is done and gated (`renders/elevator-safety_master_4k.mp4`, run
-42538553828): 3840×2160, 60 fps, 7:10.0, 9.9 Mb/s, −14.2 LUFS, −1.2 dBTP; no black, silence or hold over 2.5 s; voice
-in sync (Whisper vs timing −0.17/−0.15/−0.19 s by third, the recogniser's constant bias); frames at the governor, "It
-does.", the landing lines and the end screen read full size. **Next action:** step 11 (10+ titles → 3, 6+ thumbnails
-→ 3, the click test, description with chapters from `vo/timing.json`, tags, SRT = `vo/captions.en.srt`, end screen on
-the last 6 s, 7:04–7:10).
+**Now:** step 12, the Shorts. The package is done (`youtube/`): title "What Happens If an Elevator Cable Snaps? It
+Brakes Itself", three thumbnails (Cycles stills of the car and the gear, `blender/`; Drive `elevator-safety/youtube/`,
+plates in `render-media/thumbs/`), description with chapters, SRT, tags, settings. Click test v1
+(`review/package_v1.md`): the car with BUILT TO SLIP won with title 1; its one change (the snapped ropes) is in.
+**Next action:** step 12: the three Shorts in `youtube/package.md` (vertical comps from the film's scenes, rendered on
+the runners), then STATUS "ready to upload" and one message to the owner.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 820` (2 s landing hold + the 700-frame outro), `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -22,10 +22,17 @@ yet (§12.1); the owner hears them in the cut.
 - [x] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel 1 (7.2)   PRs #44–#48, this one
 - [x] 9 Fixes through v11 (sync, landing hold, end screen); owner's go  PRs #49–#61
 - [x] 10 4K master gated, on Drive (2026-11-09)               this PR
-- [ ] 11 Package: titles, thumbnails, click test, description, tags, SRT   PR #
+- [x] 11 Package: titles, thumbnails, click test, description, tags, SRT   this PR
 - [ ] 12 Shorts; ready to upload                             PR #
 
 ## Log
+- **2026-11-09, step 11.** Thumbnails: film 2 has no Blender shots, so `blender/gear_still.py` models the gear (T89
+  rail blade, the 8° slots, wedges, disc springs on tie bolts, cut open) and `blender/car_shot.py` the car on its rails
+  with the gears biting, shavings (C22) and the snapped ropes; rendered here (Blender 4.5.14, 128 samples). The cutaway
+  alone read as "grey slabs" against the competitors, so the car became the subject. Six variants to the click panel
+  (fresh no-repo session, sheets through a temporary link deleted after download): A (car, BUILT TO SLIP) + title 1
+  won; the panel's change (show the snapped rope) made. Description chapters from the corrected timing.
+- **2026-11-09, step 10.** 4K master gated (run 42538553828): 7:10.0, −14.2 LUFS, −1.2 dBTP, in sync.
 - **2026-11-08, owner's review of v10 → cut v11.** Two notes, each checked in the cut first.
   (1) "An extra whisper/fragment, 'I want that.', right after the slate": Whisper on the cut hears no speech after the
   last word; the last line itself ended at 6:56.2, 0.17 s before the slate faded in. Cause: the voice drifted behind

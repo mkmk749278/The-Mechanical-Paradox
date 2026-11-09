@@ -34,12 +34,16 @@ const Words: React.FC<{x: number; y: number; size: number; color: string; childr
 	</div>
 );
 
-type PlateId = 'car_hero' | 'gear_hero' | 'gear_tight';
+type PlateId = 'car_ropes' | 'car_hero' | 'gear_hero' | 'gear_tight';
+/** Plates framed centre in Blender move right so the words own the left (the car on the right third). */
+const SHIFT: Partial<Record<PlateId, number>> = {car_ropes: 330};
+/** …and up, so the gears and their shavings sit inside the frame, not on its bottom edge. */
+const LIFT: Partial<Record<PlateId, number>> = {car_ropes: -70};
 
 const Plate: React.FC<{id: PlateId; children?: React.ReactNode}> = ({id, children}) => (
 	<AbsoluteFill>
 		<Blueprint light={{x: 0.66, y: 0.45}} gridOpacity={0.5} duration={1}>
-			<Img src={staticFile(`films/elevator-safety/thumbs/${id}.png`)} style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080}} />
+			<Img src={staticFile(`films/elevator-safety/thumbs/${id}.png`)} style={{position: 'absolute', left: SHIFT[id] ?? 0, top: LIFT[id] ?? 0, width: 1920, height: 1080}} />
 		</Blueprint>
 		<Vignette strength={0.45} />
 		{children}
@@ -57,15 +61,14 @@ const Two: React.FC<{a: string; b: string; bColor: string; size?: number; id?: P
 	</Plate>
 );
 
-/** A (main candidate): the car, BUILT TO SLIP (the opening's own words, 0:20; the owner's review picked them). */
-export const ThumbA: React.FC = () => <Two a="BUILT TO" b="SLIP" bColor={colors.amber} size={200} id="car_hero" />;
-/** B: the car, NOT A COMPUTER (the opening: what stopped you? not a motor, not a computer). */
-export const ThumbB: React.FC = () => <Two a="NOT A" b="COMPUTER" bColor={colors.amber} size={170} id="car_hero" />;
-/** C: the car, CABLE GONE. THEN? (the question itself, 3 words). */
-export const ThumbC: React.FC = () => <Two a="CABLE GONE." b="THEN?" bColor={colors.amber} size={160} id="car_hero" />;
-/** D: the car, JUST HARD ENOUGH (the landing's line: the brake's real job). */
-export const ThumbD: React.FC = () => <Two a="JUST HARD" b="ENOUGH" bColor={colors.amber} size={170} id="car_hero" />;
-/** E: the cutaway, BUILT TO SLIP. */
-export const ThumbE: React.FC = () => <Two a="BUILT TO" b="SLIP" bColor={colors.amber} size={200} id="gear_tight" />;
-/** F: the cutaway, STEEL SHAVED (C22: the maker's manual, "steel being shaved"). */
+/** A (main; click test v1 winner, with the panel's change: the snapped, frayed ropes above the car): BUILT TO SLIP,
+ * the opening's own words (0:20). */
+export const ThumbA: React.FC = () => <Two a="BUILT TO" b="SLIP" bColor={colors.amber} size={200} id="car_ropes" />;
+/** B (challenger, the TV viewers' pick): CABLE GONE. THEN? on the same plate. */
+export const ThumbB: React.FC = () => <Two a="CABLE GONE." b="THEN?" bColor={colors.amber} size={160} id="car_ropes" />;
+/** C (challenger, the engineers' pick): the cutaway, BUILT TO SLIP. */
+export const ThumbC: React.FC = () => <Two a="BUILT TO" b="SLIP" bColor={colors.amber} size={200} id="gear_tight" />;
+/** Click test v1 candidates kept for the record: the car close-up (v1 A, B, D) and the cutaway STEEL SHAVED (v1 F). */
+export const ThumbD: React.FC = () => <Two a="BUILT TO" b="SLIP" bColor={colors.amber} size={200} id="car_hero" />;
+export const ThumbE: React.FC = () => <Two a="NOT A" b="COMPUTER" bColor={colors.amber} size={170} id="car_hero" />;
 export const ThumbF: React.FC = () => <Two a="STEEL" b="SHAVED" bColor={colors.amber} size={200} id="gear_tight" />;
