@@ -8,459 +8,471 @@
    "pan": 0
   },
   {
-   "at": 7.567,
+   "at": 7.617,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 9.267,
+   "at": 9.317,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0.3
   },
   {
-   "at": 11.167,
+   "at": 11.233,
    "sfx": "glass_tone",
    "gain_db": -14,
    "pan": 0.4
   },
   {
-   "at": 13.833,
+   "at": 13.917,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 17.55,
+   "at": 17.65,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 23.95,
+   "at": 24.1,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0.2
   },
   {
-   "at": 26.85,
+   "at": 27.033,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 34.733,
+   "at": 34.917,
    "sfx": "relay_click",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 38.15,
+   "at": 38.35,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 40.5,
+   "at": 40.717,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 43.817,
+   "at": 44.083,
    "sfx": "glass_tone",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 48.783,
+   "at": 49.033,
    "sfx": "relay_click",
    "gain_db": -14,
    "pan": -0.4
   },
   {
-   "at": 51.5,
+   "at": 51.75,
    "sfx": "relay_click",
    "gain_db": -14,
    "pan": 0.4
   },
   {
-   "at": 59.017,
+   "at": 59.283,
    "sfx": "glass_tone",
    "gain_db": -14,
    "pan": 0.3
   },
   {
-   "at": 63.133,
+   "at": 63.433,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 65.85,
+   "at": 66.183,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 72.35,
+   "at": 72.683,
    "sfx": "glass_tone",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 76.75,
+   "at": 77.133,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 84.067,
+   "at": 84.467,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 89.25,
+   "at": 89.667,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 91.683,
+   "at": 92.117,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 97.1,
+   "at": 97.567,
    "sfx": "whoosh",
    "gain_db": -18,
    "pan": -0.3
   },
   {
-   "at": 100.983,
+   "at": 101.5,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0.4
   },
   {
-   "at": 106.883,
+   "at": 107.417,
    "sfx": "quartz_tick",
    "gain_db": -12,
    "pan": 0.5
   },
   {
-   "at": 110.633,
+   "at": 111.167,
    "sfx": "quartz_tick",
    "gain_db": -12,
    "pan": 0.2
   },
   {
-   "at": 119.617,
+   "at": 120.2,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 129.317,
+   "at": 129.95,
    "sfx": "glass_tone",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 133.083,
+   "at": 133.75,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 143.633,
+   "at": 144.35,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0.3
   },
   {
-   "at": 147.183,
+   "at": 147.9,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 149.217,
+   "at": 149.933,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 150.75,
+   "at": 151.517,
    "sfx": "whoosh",
    "gain_db": -14,
    "pan": 0.6
   },
   {
-   "at": 160.733,
+   "at": 161.55,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 165.3,
+   "at": 166.15,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0.2
   },
   {
-   "at": 167.967,
+   "at": 168.833,
    "sfx": "quartz_tick",
    "gain_db": -12,
    "pan": -0.3
   },
   {
-   "at": 169.917,
+   "at": 170.783,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 173.417,
+   "at": 174.267,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 185.85,
+   "at": 186.733,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 197.017,
+   "at": 197.917,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 201.2,
+   "at": 202.117,
    "sfx": "torque_whine",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 206.65,
+   "at": 207.617,
    "sfx": "metal_jam_sub",
    "gain_db": -16,
    "pan": 0.3
   },
   {
-   "at": 212.567,
+   "at": 213.567,
    "sfx": "flow_sweep",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 222.083,
+   "at": 223.117,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 228.15,
+   "at": 229.183,
    "sfx": "glass_tone",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 234.583,
+   "at": 235.7,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0.2
   },
   {
-   "at": 238.867,
+   "at": 240.017,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 241.617,
+   "at": 242.817,
    "sfx": "torque_whine",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 246.267,
+   "at": 247.45,
    "sfx": "metal_snap_sub",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 259.367,
+   "at": 260.567,
    "sfx": "glass_tone",
    "gain_db": -12,
    "pan": 0.2
   },
   {
-   "at": 271.117,
+   "at": 272.417,
    "sfx": "whoosh",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 287.017,
+   "at": 288.367,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 293.25,
+   "at": 294.617,
    "sfx": "quartz_tick",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 295.583,
+   "at": 296.967,
    "sfx": "flow_sweep",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 318.6,
+   "at": 319.983,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": 0.4
   },
   {
-   "at": 318.733,
+   "at": 320.133,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": -0.4
   },
   {
-   "at": 318.883,
+   "at": 320.267,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": 0.4
   },
   {
-   "at": 319.017,
+   "at": 320.4,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": -0.4
   },
   {
-   "at": 319.15,
+   "at": 320.55,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": 0.4
   },
   {
-   "at": 319.3,
+   "at": 320.683,
    "sfx": "metal_snap_sub",
    "gain_db": -9,
    "pan": -0.4
   },
   {
-   "at": 320.183,
+   "at": 320.833,
+   "sfx": "metal_snap_sub",
+   "gain_db": -9,
+   "pan": 0.4
+  },
+  {
+   "at": 321.633,
    "sfx": "pen_scratch",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 326.567,
+   "at": 328.067,
    "sfx": "quartz_tick",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 329.983,
+   "at": 331.483,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 334.717,
+   "at": 336.25,
    "sfx": "metal_jam_sub",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 342.083,
+   "at": 343.65,
    "sfx": "glass_tone",
    "gain_db": -14,
    "pan": -0.4
   },
   {
-   "at": 346.583,
+   "at": 348.167,
    "sfx": "glass_tone",
    "gain_db": -14,
    "pan": 0.4
   },
   {
-   "at": 348.867,
+   "at": 350.467,
    "sfx": "relay_click",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 352.7,
+   "at": 354.3,
    "sfx": "flow_sweep",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 357.2,
+   "at": 358.85,
    "sfx": "metal_jam_sub",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 362.517,
+   "at": 364.183,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 364.567,
+   "at": 366.25,
    "sfx": "relay_click",
    "gain_db": -12,
    "pan": 0
   },
   {
-   "at": 366.817,
+   "at": 368.517,
    "sfx": "glass_tone",
    "gain_db": -10,
    "pan": 0
   },
   {
-   "at": 379.55,
+   "at": 381.55,
    "sfx": "pen_scratch",
    "gain_db": -16,
    "pan": 0
   },
   {
-   "at": 380.45,
+   "at": 382.45,
    "sfx": "relay_click",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 381.15,
+   "at": 383.15,
    "sfx": "torque_whine",
    "gain_db": -14,
    "pan": 0
   },
   {
-   "at": 381.45,
+   "at": 383.45,
    "sfx": "metal_jam_sub",
    "gain_db": -7,
    "pan": 0
   },
   {
-   "at": 381.917,
+   "at": 383.917,
    "sfx": "quartz_tick",
    "gain_db": -12,
+   "pan": 0
+  },
+  {
+   "at": 386.217,
+   "sfx": "relay_click",
+   "gain_db": -22,
    "pan": 0
   }
  ]

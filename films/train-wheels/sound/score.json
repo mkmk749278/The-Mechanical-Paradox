@@ -40,7 +40,7 @@
   {
    "track": "act3",
    "from": "s:60",
-   "to": "e:90+1.4",
+   "to": "e:90+2.0",
    "offset": 1.6,
    "fade_in": 2.0,
    "fade_out": 2.5,
@@ -51,7 +51,7 @@
   {
    "what": "drone",
    "from": 0,
-   "to": 384.9,
+   "to": "end+13.667",
    "gain_db": -20
   }
  ],
