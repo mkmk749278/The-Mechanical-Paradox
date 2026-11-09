@@ -37,6 +37,9 @@ on:
       seconds:
         description: "shard length in s (30 for review cuts; 5 for the 4K master, dealt round-robin over the runners)"
         default: "30"
+      audio:
+        description: "the sound laid under the picture: a file in Drive <film>/mix/ (mix.wav for the film; shortN.wav for a Short)"
+        default: "mix.wav"
 
 permissions:
   contents: read
@@ -155,7 +158,7 @@ jobs:
         shell: bash
         run: |
           node scripts/render_shards.mjs . ${{ inputs.comp }} out --seconds ${{ inputs.seconds }} --join-only \
-            --audio mix/mix.wav --out "${{ inputs.name }}" 2>&1 | grep -vE "differing memory|CGroup|MemAvailable|--memory flag|lower amount of memory"
+            --audio "mix/${{ inputs.audio }}" --out "${{ inputs.name }}" 2>&1 | grep -vE "differing memory|CGroup|MemAvailable|--memory flag|lower amount of memory"
           rm -rf out
           ffprobe -v error -show_entries format=duration,bit_rate:stream=codec_name,width,height,r_frame_rate -of compact "${{ inputs.name }}"
       - name: Film to Drive

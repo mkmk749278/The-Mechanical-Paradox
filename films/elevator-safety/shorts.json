@@ -1,0 +1,93 @@
+{
+ "note": "Film 2's Shorts (PLAYBOOK §13.6): each a complete paradox from the locked VO lines, cut at sentence boundaries. A segment runs from the start of the sentence that opens with `open` to the end of the sentence that opens with `close` (both in vo/timing.json), with LEAD/TAIL frames of pad; the last segment holds END frames for the end card. remotion/Shorts.tsx (picture) and scripts/short_audio.py (sound) read this same file, so they cannot drift. cx: the film-frame x the vertical crop centres on. cont: the segment continues the previous one with no cut and pans the crop to its own cx. credit: a licence credit the crop would cut off, carried by the Short itself. k: the film frame's scale in the crop for a wide beat (default 0.95).",
+ "lead": 9,
+ "tail": 21,
+ "end": 150,
+ "shorts": [
+  {
+   "id": 1,
+   "hook": [
+    "YOUR FALL",
+    "PULLS THE BRAKE"
+   ],
+   "segs": [
+    {
+     "open": "At the top of the shaft",
+     "close": "You have never seen it",
+     "cx": 920
+    },
+    {
+     "open": "A thin loop of rope",
+     "close": "That rope is hooked",
+     "cx": 920
+    },
+    {
+     "open": "In a classic governor",
+     "close": "Its rope stops",
+     "cx": 920
+    },
+    {
+     "open": "But your car does not stop",
+     "close": "The falling car pulls its own",
+     "cx": 920
+    }
+   ],
+   "credit": "PHOTO · CARLO FERRARI / WIKIMEDIA COMMONS · CC BY-SA 4.0"
+  },
+  {
+   "id": 2,
+   "hook": [
+    "WHY THE SAFEST",
+    "BRAKE SLIPS"
+   ],
+   "segs": [
+    {
+     "open": "So why not let it grab",
+     "close": "It is not",
+     "cx": 960
+    },
+    {
+     "open": "Picture an ordinary office",
+     "close": "Every person inside",
+     "cx": 900
+    },
+    {
+     "open": "The rules ask for the opposite",
+     "close": "At the hardest",
+     "cx": 1260,
+     "k": 0.72
+    },
+    {
+     "open": "So the wedge grabs",
+     "close": "That is the brake that is built",
+     "cx": 1100
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "hook": [
+    "THE DANGER",
+    "GOES UP"
+   ],
+   "segs": [
+    {
+     "open": "An elevator like yours is balanced",
+     "close": "You never see it, but every time",
+     "cx": 960
+    },
+    {
+     "open": "Now imagine the car is empty",
+     "close": "They only grip going down",
+     "cx": 1000
+    },
+    {
+     "open": "Does that really happen",
+     "close": "So the codes added a brake",
+     "cx": 1370,
+     "cont": true
+    }
+   ]
+  }
+ ]
+}
