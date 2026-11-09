@@ -1,10 +1,8 @@
 # Film 2: the elevator that brakes itself · status
 
-**Now:** the owner watches cut v11 (`renders/elevator-safety_review_720p_v11.mp4`, run 42521509665): 7:10.0,
-−14.2 LUFS, no black, no silence, no hold over 2.5 s; voice in sync (Whisper vs timing: −0.17/−0.15/−0.19 s by third,
-the recogniser's constant bias; v10 read +0.2/+1.0/+1.7 s). **Next action:** the owner's word on v11 → step 10, the 4K
-master (scale 2, seconds 5, `tail_frames: 820`); `vo_sync.py` passes first. Film 1 has the same drift (1.74 s at its
-end): the owner decides whether to re-master it.
+**Now:** step 10. The owner approved 4K on v11 (2026-11-09): the 4K master renders on the runners from `main`
+(`elevator-safety_master_4k.mp4`, scale 2, seconds 5, `tail_frames: 820`). **Next action:** gate the master (length
+430.03 s, loudness, black, sync), then step 11, the package.
 **Renders:** dispatch `remotion-render.yml` with `film: elevator-safety` (the slug, not `films/elevator-safety`: run
 42388168391 failed on that), `comp: EL-Film`, `scale: 2/3`, `tail_frames: 820` (2 s landing hold + the 700-frame outro), `runners: 20`. **Drive:**
 `The-Mechanical-Paradox/elevator-safety/` (cuts in `renders/`, mix in `mix/`, footage in `render-media/footage/`).
@@ -19,8 +17,8 @@ yet (§12.1); the owner hears them in the cut.
 - [x] 6 Voice: block 1 measured, all blocks measured (394.3 s, 154 wpm)   this PR
 - [x] 7 Film built: 16 scenes, 3 footage inserts, mix (−14.2 LUFS, −1.4 dBTP)   PRs #39, #41, #42, this one
 - [x] 8 720p cut v1 gated (3 fixes), cut v2, viewer panel 1 (7.2)   PRs #44–#48, this one
-- [ ] 9 Round 1 fixes in (v3–v5); panel 2 on v5 running        PRs #49–#51, this one
-- [ ] 10 4K master gated, on Drive                           PR #
+- [x] 9 Fixes through v11 (sync, landing hold, end screen); owner's go  PRs #49–#61
+- [ ] 10 4K master gated, on Drive (rendering 2026-11-09)      PR #
 - [ ] 11 Package: titles, thumbnails, click test, description, tags, SRT   PR #
 - [ ] 12 Shorts; ready to upload                             PR #
 
