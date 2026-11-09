@@ -3,7 +3,7 @@ import {AbsoluteFill, interpolate, Sequence, useCurrentFrame} from 'remotion';
 import {colors} from '../../../lib/remotion/brand';
 import {ease} from '../../../lib/remotion/motion';
 import {SfxCue, shiftCues} from '../../../lib/remotion/sfx';
-import {ChannelSting, STING_FRAMES, stingCues} from '../../../src/channel/ChannelSting';
+import {ChannelSting, endScreenCues, OUTRO_FRAMES, stingCues} from '../../../src/channel/ChannelSting';
 import {BankCard, bankCardCues} from './BankCard';
 import {timing} from './cues';
 import {Drift, driftCues, SelfCentre, selfCentreCues} from './Drift';
@@ -14,7 +14,7 @@ import {Landing, landingCues} from './Landing';
 import {CurveLimit, curveLimitCues, Nadal, nadalCues, Screech, screechCues} from './Limits';
 import {ColdOpen, coldOpenCues, Promise as PromiseScene, promiseCues} from './Opening';
 import {RailRace, railRaceCues} from './RailRace';
-import {SceneId, span, XFADE} from './scenes';
+import {LANDING_HOLD, SceneId, span, XFADE} from './scenes';
 import {TradeOff, tradeOffCues} from './TradeOff';
 
 // Film 1, the whole picture: every scene on its span from the recorded VO (scenes.ts), each dissolving in over the
@@ -39,8 +39,9 @@ const SCENES: [SceneId, React.FC][] = [
 	['s15', Landing],
 ];
 
-export const VO_FRAMES = timing.durationInFrames;
-export const FILM_FRAMES = VO_FRAMES + STING_FRAMES;
+/** Picture before the outro: the voice, then the landing's hold. */
+export const VO_FRAMES = timing.durationInFrames + LANDING_HOLD;
+export const FILM_FRAMES = VO_FRAMES + OUTRO_FRAMES;
 
 const FadeIn: React.FC<{children: React.ReactNode; first: boolean}> = ({children, first}) => {
 	const f = useCurrentFrame();
@@ -61,9 +62,9 @@ export const Film: React.FC = () => (
 			);
 		})}
 		<FootageLayer />
-		<Sequence from={VO_FRAMES} durationInFrames={STING_FRAMES} name="sting">
+		<Sequence from={VO_FRAMES} durationInFrames={OUTRO_FRAMES} name="sting">
 			<FadeIn first={false}>
-				<ChannelSting />
+				<ChannelSting endScreen />
 			</FadeIn>
 		</Sequence>
 	</AbsoluteFill>
@@ -86,5 +87,5 @@ export const filmCues = (): SfxCue[] => [
 	...shiftCues(criticalCues(), span('s12').from),
 	...shiftCues(tradeOffCues(), span('s14').from),
 	...shiftCues(landingCues(), span('s15').from),
-	...shiftCues(stingCues, VO_FRAMES),
+	...shiftCues([...stingCues, ...endScreenCues], VO_FRAMES),
 ];

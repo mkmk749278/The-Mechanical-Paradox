@@ -12,9 +12,9 @@ See the cone steer the axle with no driver, find out where it runs out (curves t
 0:00 Why a solid axle should skid on a curve
 0:54 Do the flanges steer the train?
 1:10 Why train wheels are cones
-2:53 Where the cone runs out: tight curves and the screech
-4:12 Hunting oscillation: why fast trains sway
-5:52 How a train steers itself
+2:54 Where the cone runs out: tight curves and the screech
+4:13 Hunting oscillation: why fast trains sway
+5:53 How a train steers itself
 
 #engineering #physics #trains
 ```

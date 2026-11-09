@@ -6,8 +6,11 @@ import {cue, timing} from './cues';
 
 export const LEAD = 36;
 export const XFADE = 18;
+/** The landing image holds after the last word before the sting (2026-11-09: with the voice in true sync, vo_sync.py,
+ * the last line ended 0.15 s before the slate; film 2's fix, PLAYBOOK §16). */
+export const LANDING_HOLD = 120;
 /** The picture holds this long after the last word before the sting. */
-export const TAIL = timing.durationInFrames - timing.words[timing.words.length - 1].endFrame;
+export const TAIL = timing.durationInFrames + LANDING_HOLD - timing.words[timing.words.length - 1].endFrame;
 
 const OPENINGS = {
 	s01: '',
@@ -35,7 +38,7 @@ const starts = SCENE_IDS.map((id) => (OPENINGS[id] ? cue.sentence(OPENINGS[id]).
 export const span = (id: SceneId): {from: number; to: number; dur: number} => {
 	const i = SCENE_IDS.indexOf(id);
 	const from = starts[i];
-	const to = i + 1 < starts.length ? starts[i + 1] : timing.durationInFrames;
+	const to = i + 1 < starts.length ? starts[i + 1] : timing.durationInFrames + LANDING_HOLD;
 	return {from, to, dur: to - from};
 };
 
