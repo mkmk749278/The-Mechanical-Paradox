@@ -1,0 +1,101 @@
+# Film 3: recording blocks (generated from vo.txt by build_blocks.py)
+
+One block per chapter. The channel voice "The Mechanical Paradox", the newest Eleven flagship model, stability
+0.50, similarity 0.80, style 0, speed 1.0, speaker boost on; no tags (PLAYBOOK §7.5–7.7). Generated with
+`scripts/eleven_tts.py films/seatbelt-lock` (block 1 first, measured, then the rest). Paragraph breaks are kept.
+
+## b01 · Cold open · 767 characters
+
+```
+Your seatbelt can tell the difference between you reaching for your phone and you crashing. So where is the chip that decides?
+
+You would probably guess a crash sensor, wired to the car's computer, like the one that fires the airbag. But the lock inside a seatbelt doesn't need one. Pull the belt slowly, and it lets you lean forward. Jerk it, and it stops dead.
+
+And it has to be right every time. Lock on every tug, and you would fight your belt all day. Lock a moment too late, and in a crash it's just a strap.
+
+So how does a seatbelt know when to lock, with no power at all? The answer is hidden in the reel it winds into.
+
+And in a really hard crash, it makes a second decision, stranger than the first. Just after it locks, it starts to let you go. On purpose.
+```
+
+## b02 · The lock that can't tell · 378 characters
+
+```
+Imagine the simplest lock you could build. A ring of teeth around the reel, and a hook that drops into them. That stops the belt every time. And that's the problem. Lean over to the glovebox, and it holds you like a crash.
+
+The hook can't be the clever part. What decides when to drop it? It has only two clues. How suddenly the belt is pulled. And how hard the car is stopping.
+```
+
+## b03 · The disc that falls behind · 699 characters
+
+```
+Start with the belt. Next to the reel sits a heavy disc. It isn't fixed to the reel. It turns with it, loosely.
+
+Pull the belt slowly, and the reel turns slowly, and the disc keeps up. Nothing happens. But jerk the belt, and the reel spins up in an instant. And the disc? It's heavy. It can't speed up that fast. So for a split second, it falls behind.
+
+That tiny lag is the whole trick. The reel pulls ahead of the disc, and that gap pushes a small arm outward. The arm catches the teeth. Clack. The reel stops.
+
+Does it lock when the reel spins too fast? No. It doesn't care how fast. It cares how suddenly. The belt doesn't measure your speed. It just notices something heavy getting left behind.
+```
+
+## b04 · The ball that keeps going · 762 characters
+
+```
+But now imagine a real crash. You are sitting still, belt on, hands on the wheel. The car hits something. In that first instant, nobody has jerked the belt. The reel hasn't moved at all.
+
+So what locks it?
+
+Below the reel, in one common design, sits a steel ball in a small cup shaped like a cone. When the car brakes hard, the cup stops with the car. The ball doesn't. It keeps going, rolls up the wall of the cup, and lifts a small lever into the teeth. The belt is locked almost as soon as you start to move.
+
+And it's fast. Under the American rule, in a hard stop, less than an inch of belt gets out before it locks. And if the car tips past forty-five degrees, it locks with no crash at all. Gravity rolls the ball, and the belt holds you, even upside down.
+```
+
+## b05 · A lock that is too good · 394 characters
+
+```
+So the lock works. And that is the new problem.
+
+Once the belt locks, your body is still rushing forward, and all of that lands on one strap across your chest. The front of the car crumples to soften the stop. The belt barely gives. It's built to hold.
+
+And chests can break. In bad crashes, older people were often badly hurt by the belt itself. The belt that saved them was also hurting them.
+```
+
+## b06 · Two fixes · 1099 characters
+
+```
+Engineers did two things. And the first? Remember the chip you guessed at the start? It's real. It just has a different job.
+
+At the very start of a crash, the sensors that fire the airbag also fire a charge in the belt, usually a tiny explosive. It snaps the belt tight and pulls out the slack. Now your body starts slowing down with the car, sooner and more gently, instead of being caught late and hard.
+
+And the second fix? It sounds wrong. Inside the reel sits a steel bar that is built to twist.
+
+In a small crash, the bar holds, and the belt stays locked. But when the pull on your chest reaches a set limit, the bar starts to twist. Now the reel can turn a little, even while it's locked. The belt lets out, a little at a time, and the force on you stops climbing. It's called a load limiter.
+
+One carmaker, Renault, set its belts to let go sooner, at four kilo-newtons. That's about the weight of five adults on one strap. And it added an airbag to catch you. With the two together, those cars had about three quarters fewer serious chest injuries than cars with a stiffer limiter, or none.
+```
+
+## b07 · The price · 526 characters
+
+```
+But what does letting go cost you? Every bit of belt it lets out, you travel further forward. That's why the softer limit came with an airbag. And engineers worry about tall or heavy passengers, who might let out too much belt and reach the inside of the car.
+
+Where do you set the limit, then? Too high, and the belt hurts the chest it holds. Too low, and it lets you go too far. Every limit is a choice between the two.
+
+So in a hard crash, your belt makes three moves in a blink. Pull tight. Lock. Then let go, just enough.
+```
+
+## b08 · One last mystery · 291 characters
+
+```
+Ever pulled your belt all the way out, and then it would only go back in? It's not broken. Many belts have a child-seat mode. Pull out every bit of belt, let it wind back a little, and now it can only wind in, so a child seat stays tight. Let it wind all the way back, and it's normal again.
+```
+
+## b09 · The landing · 341 characters
+
+```
+Want to feel it yourself? Next time you put your belt on, pull it slowly, and feel it let you go. Then give it one sharp tug, and feel it stop.
+
+A disc that got left behind just made that decision. And behind it, a steel bar waits for the day the right answer is to hold you, and then let you go.
+
+Next: the plane wing that is built to bend.
+```

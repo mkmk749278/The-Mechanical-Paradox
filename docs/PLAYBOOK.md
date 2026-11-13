@@ -598,6 +598,13 @@ person's voice.
 Claude generates the voice itself (decision 6). Once the script is final, every block goes in one file,
 `script/blocks_performance.md` (decision 7), each headed with block number, character count, voice, settings and the
 file name; block 1 is generated and measured first, then the rest (§3a, step 6).
+**One single block from film 4 (owner, 2026-11-13):** "Eleven v4 supports up to 10,000 characters. Mostly our
+narration doesn't go beyond that, so record everything at once: one single block." So `blocks_performance.md` holds the
+whole narration as one block (film 3's was 5,215 characters), generated in 2 takes and measured whole with
+`vo_review.py`; `vo_timing.py` still puts the chapter gaps and edit breaths in from `vo.txt`'s `##` lines. Only a
+narration over 10,000 characters is split, at a chapter turn. A word a take gets wrong is fixed with a said-as
+respelling and a new take of the whole block. *Why:* one read keeps one voice (film 3: block 8 alone drifted
++1.5–2 semitones in two of four takes), one continuous rhythm, and no joins.
 
 ### 7.8 Checks before the owner sees a narration
 1. Fact and physics gate: every factual line maps to a confirmed `claims.csv` row (§9).
