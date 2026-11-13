@@ -92,7 +92,7 @@ export const ColdOpen: React.FC = () => {
 				<Svg>
 					{mainCabin ? (
 						<Zoom k={dive} x={PILLAR.x} y={PILLAR.reelY}>
-							<Cabin st={{pitch: pitchMain, surge, locked: lockedA, barrier: f >= b.crash - 4 && f < b.chip + 60 ? 1 : 0, reelGlow: on(f, b.how, 20), chest: lockedA * off(f, b.crash + 8, 20)}} />
+							<Cabin st={{stopAt: f >= b.crash && f < b.chip + 60 ? b.crash : undefined, pitch: pitchMain, surge, locked: lockedA, barrier: f >= b.crash - 4 && f < b.chip + 60 ? 1 : 0, reelGlow: on(f, b.how, 20), chest: lockedA * off(f, b.crash + 8, 20)}} />
 						</Zoom>
 					) : null}
 					{/* the wrong model: a wire from a crash sensor to the reel */}
@@ -105,11 +105,11 @@ export const ColdOpen: React.FC = () => {
 					{/* the stakes, two small cabins */}
 					{!mainCabin ? (
 						<>
-							<g opacity={tugA} transform="translate(-120 230) scale(0.62)">
+							<g opacity={tugA} transform="translate(-100 320) scale(0.58)">
 								<Cabin st={{pitch: 4 + 22 * tween(f, b.tug + 10, b.tug + 50, 0, 1, ease.camera), locked: f > b.tug + 40 ? 1 : 0}} />
 							</g>
-							<g opacity={lateA} transform="translate(800 250) scale(0.56)">
-								<Cabin st={{pitch: 6 + 30 * (lateSurge / 150), surge: lateSurge, barrier: 1}} />
+							<g opacity={lateA} transform="translate(800 320) scale(0.56)">
+								<Cabin st={{pitch: 6 + 30 * (lateSurge / 150), surge: lateSurge, barrier: 1, stopAt: b.late + 30}} />
 							</g>
 						</>
 					) : null}
@@ -334,6 +334,7 @@ export const DiscScene: React.FC = () => {
 				<Hud
 					labelSize={30}
 					title="REEL SENSOR"
+					corner="bottom-right"
 					start={b.slow - 20}
 					end={b.end}
 					width={480}
@@ -353,7 +354,7 @@ export const DiscScene: React.FC = () => {
 						{mode === 'jerk' && lagDeg > 0.3 ? <path d={arc} fill="none" stroke={colors.amber} strokeWidth={10} strokeLinecap="round" style={{filter: `drop-shadow(0 0 10px ${colors.amber})`}} /> : null}
 					</g>
 				</Svg>
-				<Callout x={RX - 230} y={RY - 160} lx={RX - 520} ly={RY - 330} text="HEAVY DISC" sub="RIDES LOOSELY ON THE REEL" color={colors.amber} t={Math.min(on(f, b.disc + 10, 20), off(f, b.slow, 14))} subSize={30} />
+				<Callout x={RX - 230} y={RY - 160} lx={RX - 430} ly={RY - 330} text="HEAVY DISC" sub="RIDES LOOSELY" color={colors.amber} t={Math.min(on(f, b.disc + 10, 20), off(f, b.slow, 14))} subSize={30} />
 				<Callout x={am.tx} y={am.ty} lx={RX - 560} ly={RY - 120} text="ARM" color={colors.amber} t={Math.min(on(f, b.gap, 20), off(f, b.fast, 14))} />
 				<Label x={960} y={56} size={48} color={colors.cyan} weight={700} align="center" opacity={Math.min(on(f, b.slow + 30, 14), off(f, b.jerk, 12))}>
 					SLOW PULL: THEY TURN TOGETHER
@@ -434,6 +435,7 @@ export const BallScene: React.FC = () => {
 				<Hud
 					labelSize={30}
 					title="CAR SENSOR"
+					corner="bottom-right"
 					start={b.brakes - 20}
 					end={b.upside}
 					width={520}
@@ -450,7 +452,7 @@ export const BallScene: React.FC = () => {
 		>
 			<AbsoluteFill style={{opacity: cabinA}}>
 				<Svg>
-					<Cabin st={{pitch: frozen ? 7 : 6, barrier: hit ? 1 : 0, reelGlow: on(f, b.reel0, 16)}} />
+					<Cabin st={{pitch: frozen ? 7 : 6, barrier: hit ? 1 : 0, reelGlow: on(f, b.reel0, 16), stopAt: hit ? b.hits : undefined}} />
 				</Svg>
 				<Label x={960} y={56} size={48} color={colors.ink} weight={700} align="center" opacity={Math.min(on(f, b.first, 14), off(f, b.below, 14))}>
 					{f < b.reel0 ? 'NOBODY JERKED THE BELT' : f < b.what ? 'THE REEL HASN’T MOVED' : ''}
@@ -486,7 +488,7 @@ export const BallScene: React.FC = () => {
 			</AbsoluteFill>
 			<AbsoluteFill style={{opacity: on(f, b.upside - 10, 20)}}>
 				<Svg>
-					<Cabin st={{pitch: 4, locked: 1, roll}} />
+					<Cabin st={{pitch: 4, locked: 1, roll, stopAt: 0}} />
 				</Svg>
 				<Tag x={96} y={970}>
 					ILLUSTRATION

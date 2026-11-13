@@ -1112,6 +1112,13 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**The mix must carry the render's tail (film 3, v1 720p join, 2026-11-13).** The mix was made without
+`--tail-frames`, so it ended with the voice (388.1 s) while the picture runs 13.7 s longer (the landing hold and the
+sting, `tail_frames: 820`); the join's `-shortest` cut the picture to the sound and the length check stopped it (391.7
+of 401.8 s). **Rule:** `score_mix.py --tail-frames N` with the same N as the render's `tail_frames`, every time; the
+mix's length is checked against `(durationInFrames + N) / fps` before upload. The shards were kept and only the join
+re-run (`join_from`). **Why:** a short mix silently trims the picture; the gate caught it, the next one may not.
+
 **The first Studio numbers: satisfaction, not lectures (films 1 and 2, owner, 2026-11-13).**
 The owner's read of both films: "too much into physics lecture, we can't hold the audience". His Studio screenshots
 (film 1 at 6 days 16 h, film 2 at 3 days 17 h):

@@ -48,7 +48,6 @@ export const TooGood: React.FC = () => {
 	const crumple = tween(f, b.crumples, b.crumples + 60, 0, 1, ease.arrive);
 	const chest = tween(f, b.lands, b.barely + 30, 0, 1, ease.camera);
 	const surge = 22 * crash + shudder(f, FPS, b.once + 20, 5, 4, 4);
-	const split = on(f, b.saved, 20);
 	return (
 		<Stage
 			dur={b.end}
@@ -57,6 +56,7 @@ export const TooGood: React.FC = () => {
 				<Hud
 					labelSize={30}
 					title="SHOULDER BELT"
+					corner="bottom-right"
 					start={b.once - 10}
 					end={b.end}
 					width={460}
@@ -67,7 +67,7 @@ export const TooGood: React.FC = () => {
 		>
 			<AbsoluteFill>
 				<Svg>
-					<Cabin st={{pitch: 6 + 10 * crash, surge, locked: 1, crumple, chest: chest * (1 - 0.0 * split), barrier: on(f, b.once, 10)}} />
+					<Cabin st={{pitch: 6 + 10 * crash, surge, locked: 1, crumple, chest, barrier: on(f, b.once, 10), stopAt: b.once}} />
 				</Svg>
 				<Label x={960} y={56} size={48} color={colors.crimson} weight={700} align="center" opacity={Math.min(on(f, b.problem, 14), off(f, b.once, 14))}>
 					THE NEW PROBLEM
@@ -283,7 +283,7 @@ export const BarScene: React.FC = () => {
 		const t = tween(fr, b.small, b.climbing, 0, 1, ease.camera);
 		return Math.min(LIMIT_KN, 9 * t);
 	};
-	const reelA = off(f, b.renault - 10, 20);
+	const reelA = off(f, b.four - 6, 20);
 	const fiveA = Math.min(on(f, b.adults, 16), off(f, b.airbag, 16));
 	const cabinA = Math.min(on(f, b.airbag, 16), off(f, b.together, 16));
 	const barsA = on(f, b.together, 20);
@@ -303,6 +303,7 @@ export const BarScene: React.FC = () => {
 				<Hud
 					labelSize={30}
 					title="LOAD LIMITER"
+					corner="bottom-right"
 					start={b.small - 10}
 					end={b.renault}
 					width={460}
@@ -380,7 +381,7 @@ export const BarScene: React.FC = () => {
 			</AbsoluteFill>
 			<AbsoluteFill style={{opacity: cabinA}}>
 				<Svg>
-					<Cabin st={{pitch: 22, surge: 30, locked: 1, airbag: tween(f, b.airbag, b.airbag + 20, 0, 1, ease.arrive), chest: 0.45, barrier: 1}} />
+					<Cabin st={{stopAt: 0, pitch: 22, surge: 30, locked: 1, airbag: tween(f, b.airbag, b.airbag + 20, 0, 1, ease.arrive), chest: 0.45, barrier: 1}} />
 				</Svg>
 				<Label x={960} y={56} size={48} color={colors.ink} weight={700} align="center">
 					+ AN AIRBAG TO CATCH YOU
@@ -393,7 +394,7 @@ export const BarScene: React.FC = () => {
 				<Svg>
 					<line x1={480} y1={820} x2={1440} y2={820} stroke={colors.line} strokeWidth={3} />
 					{bar(560, 520, colors.crimson, 'STIFFER OR NONE', 1)}
-					{bar(1100, 520 * 0.2 * tween(f, b.quarters, b.quarters + 30, 5, 1, ease.arrive), colors.emerald, '4 kN + AIRBAG', on(f, b.together + 20, 16))}
+					{bar(1100, 520 * 0.2 * tween(f, b.together + 20, b.together + 60, 0, 1, ease.arrive), colors.emerald, '4 kN + AIRBAG', on(f, b.together + 20, 16))}
 				</Svg>
 				<Label x={960} y={56} size={44} color={colors.ink} weight={700} align="center">
 					SERIOUS CHEST INJURIES (AIS 3+)
@@ -453,7 +454,7 @@ export const Price: React.FC = () => {
 		<Stage dur={b.end} light={{x: 0.5, y: 0.45}}>
 			<AbsoluteFill style={{opacity: cabinA}}>
 				<Svg>
-					<Cabin st={{pitch: 10 + travel * 0.12, surge: travel, locked: 1, airbag: on(f, b.why, 20), big: 1 + 0.12 * tallA, barrier: 1}} />
+					<Cabin st={{stopAt: 0, pitch: 10 + travel * 0.12, surge: travel, locked: 1, airbag: on(f, b.why, 20), big: 1 + 0.12 * tallA, barrier: 1}} />
 					<line x1={1290} y1={420} x2={1290} y2={660} stroke={colors.amber} strokeWidth={4} strokeDasharray="12 8" opacity={tallA} />
 				</Svg>
 				<Label x={960} y={56} size={48} color={colors.amber} weight={700} align="center" opacity={Math.min(on(f, b.every, 14), off(f, b.where, 14))}>
@@ -484,7 +485,7 @@ export const Price: React.FC = () => {
 			</AbsoluteFill>
 			<AbsoluteFill style={{opacity: replayA}}>
 				<Svg>
-					<Cabin st={{pitch: step >= 3 ? 18 : step >= 1 ? 4 : 10, surge: step >= 3 ? 40 : 0, locked: step >= 2 ? 1 : 0, barrier: 1}} />
+					<Cabin st={{stopAt: b.pull, pitch: step >= 3 ? 18 : step >= 1 ? 4 : 10, surge: step >= 3 ? 40 : 0, locked: step >= 2 ? 1 : 0, barrier: 1}} />
 				</Svg>
 				{(['PULL TIGHT', 'LOCK', 'LET GO, JUST ENOUGH'] as const).map((t, i) => (
 					<Label key={t} x={400 + i * 560} y={56} size={44} color={[colors.cyan, colors.crimson, colors.emerald][i]} weight={800} align="center" opacity={step > i ? 1 : 0.18}>

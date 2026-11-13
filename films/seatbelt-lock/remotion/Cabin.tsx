@@ -1,4 +1,5 @@
 import React from 'react';
+import {useCurrentFrame} from 'remotion';
 import {colors} from '../../../lib/remotion/brand';
 
 // One front seat in side section (ILLUSTRATION): the car's floor, pillar, roof and dash in blueprint lines, the seat,
@@ -27,6 +28,8 @@ export type CabinState = {
 	roll?: number;
 	/** a larger occupant outline (scale) */
 	big?: number;
+	/** the road under the car: the frame it stopped dead (a crash), or undefined = always moving */
+	stopAt?: number;
 };
 
 export const HIP: [number, number] = [860, 700];
@@ -46,6 +49,11 @@ export const shoulder = (pitch: number, surge = 0, big = 1): [number, number] =>
 };
 
 export const Cabin: React.FC<{st: CabinState}> = ({st}) => {
+	const frame = useCurrentFrame();
+	// the road scrolls under the car (14 px a frame, about driving pace on this scale); a crash stops it dead
+	const roadF = st.stopAt !== undefined ? Math.min(frame, st.stopAt) : frame;
+	const roadX = -((roadF * 14) % 160);
+	const push = 1 + 0.03 * Math.min(1, frame / 600);
 	const surge = st.surge ?? 0;
 	const big = st.big ?? 1;
 	const [sx, sy] = shoulder(st.pitch, surge, big);
@@ -67,7 +75,14 @@ export const Cabin: React.FC<{st: CabinState}> = ({st}) => {
 	const buckle: [number, number] = [hx + 40, hy + 30];
 	const guide: [number, number] = [PILLAR.x + 10, PILLAR.guideY];
 	return (
-		<g transform={`rotate(${roll} 1000 600)`}>
+		<g transform={`translate(960 600) scale(${push}) translate(-960 -600) rotate(${roll} 1000 600)`}>
+			{/* road dashes under the car */}
+			<g opacity={0.5}>
+				{Array.from({length: 16}).map((_, i) => (
+					<line key={i} x1={roadX + i * 160} y1={950} x2={roadX + i * 160 + 70} y2={950} stroke={colors.metal} strokeWidth={5} strokeLinecap="round" />
+				))}
+				<line x1={0} y1={940} x2={1920} y2={940} stroke={colors.metal} strokeWidth={2} opacity={0.6} />
+			</g>
 			{/* the car: floor, pillar, roof, windscreen, dash, bonnet (folds with crumple) */}
 			<g fill="none" stroke={colors.line} strokeWidth={3} strokeLinejoin="round" opacity={0.9}>
 				<path d={`M300 820 L${front - 60} 820`} />
