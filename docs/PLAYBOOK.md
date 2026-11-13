@@ -359,6 +359,16 @@ sting and a title card at 0:25–0:45 dropped retention from 47% to 33%. So:
   real mechanism. *Why:* in Muller's physics-education studies, plain explanations left wrong ideas in place and made
   students more sure of them; videos that voiced the misconception first taught better (§4.5). The wrong model must be
   one a smart adult really holds, never a straw puzzle (film 1, §16).
+- **The first 30 s, measured (films 1 and 2 Studio, 2026-11-13, §16):** film 1 said the thumbnail's word
+  ("differential") at 0:32 and had lost 53% of its viewers by 0:30. So:
+  - **The thumbnail's own word in sentence 1**, said the way the thumbnail says it (NO DIFFERENTIAL? → "differential"
+    in the first sentence, not the twelfth).
+  - **The stakes by 0:10:** what would go wrong if the intuition were right, a real, sourced consequence the viewer
+    can see or hear (the wheel grinding, the car falling), never an invented catastrophe.
+  - **No figures in the voice before 0:30.** One object, one contradiction, one question. Numbers wait until the
+    viewer wants them; the HUD may carry them silently.
+  - **Name where the answer lives by 0:20** without giving it ("the answer is in the shape of the wheel"): the
+    viewer knows the payoff exists and that it is close.
 - **By 0:30: the promise**: the specific question this film answers.
 - **By 0:45: the open loop** (was 0:55; tightened 2026-11-08 so the whole opening sits inside the window where viewers
   leave): a turn that makes the obvious answer wrong ("and the flange you think holds it on? It
@@ -552,6 +562,8 @@ the life.
   testament to, imperative, in conclusion; regional slang. **Hand-waving and apology** (2026-11-07): "it works like
   magic", "without getting too complicated", "don't worry about the maths", "basically just", "scientists can't
   explain". **Calls to action** in the narration: none before the landing, and the end screen does the asking.
+  **Classroom voice** (2026-11-13, §7.9): "Do you see it?", "Can you see the trick?", "Now watch", "Look closely",
+  "textbook", "Let us look at".
 - **TTS text:** units and symbols spelled the way they are said (blueprint §3.3): `mega-pascals`, `kilo-newtons`,
   `micro-meters`, `kwahn-DAH` (Coandă); numbers as words; letter acronyms with dots (L.E.D., A.B.S.); no digits,
   symbols or brackets in `vo.txt`.
@@ -596,6 +608,38 @@ file name; block 1 is generated and measured first, then the rest (§3a, step 6)
    everyday-physics fans from around the world, judged on satisfaction; §3a.3), once on the story (stage SCRIPT) and
    once on the performed narration (stage NARRATION). Apply fixes that keep every fact true, save
    `films/<slug>/review/audience_vN.md`, archive the session. (v1, six viewers, was used for film 1.)
+
+### 7.9 Satisfaction, not lectures (owner, 2026-11-13)
+The owner: "Maintaining CTR does matter most and AVD. Use your creativity more. Give the satisfaction to the audience
+than lectures." Film 1's curve (§16) shows viewers stayed for the cone reveal, not for the figures. A viewer comes for
+the click of understanding, a puzzle playing out and a machine beating disaster, never to study. Every rule here is
+a floor; a bolder idea that gives more satisfaction wins (write why in `treatment.md`).
+1. **Stakes before mechanism.** Every chapter opens on what goes wrong without the trick, shown and heard (the
+   cylinder wheelset screeching, the car dropping), then the trick. Never "here is a 1:20 taper" before the viewer
+   needs it.
+2. **Show the obvious fix failing.** The fix a smart adult would try (a differential, a brake that grabs hard), tried
+   on screen and visibly failing, with its real reason and a sourced number. It is the viewer's own idea; watching it
+   break is half the satisfaction.
+3. **A number budget: three or four spoken hero numbers a film.** Each gets its own picture, its own beat and a
+   comparison from the viewer's life (0.7 mm, "the thickness of the bank card in your wallet"). Every other figure
+   lives on the HUD, silently. One figure per paragraph at most; none before 0:30 (§5.1).
+4. **The catch is an event, not a formula.** The second problem arrives as something happening (the axle snaking
+   harder and harder until the flange strikes the rail, with its sound), with its real name. An equation, if any
+   (§8.7), comes after the viewer has felt the problem, never in its place.
+5. **History only as a story.** A person, a problem, a moment ("the first fast trains swayed so hard that…"), and only
+   where it raises the stakes. Never a dated citation ("in eighteen eighty-three, an engineer called X worked out…")
+   and never in the climax slot of the catch.
+6. **No classroom voice.** The narrator is a fellow viewer who has just seen something astonishing, not a teacher at a
+   board. Banned (§7.3): "Do you see it?", "Can you see the trick?", "Now watch", "Look closely", "textbook", "Let us
+   look at", "Engineers call it" twice in a film. A real name comes after the thing is on screen and doing something.
+7. **Every chapter ends on a click.** The last line of a chapter is the payoff the viewer feels ("Same spin, different
+   distance."), held 1.5–2.5 s with the picture moving (§7.5). A chapter with no click is cut or merged.
+8. **The slide test.** Read each paragraph aloud: if it could be a bullet on a lecture slide, rewrite it as something
+   happening to a thing the viewer can see.
+9. **Mass and sound.** Machines are heavy and loud: steel groaning, flanges screeching, wedges biting. The picture
+   shows load (the stress field reddening, the rail flexing), never clean lines turning in empty space for long.
+*Why:* the owner's directive and the first Studio data (§16). CTR comes from a question the viewer already
+half-holds (§13.3); AVD comes from a payoff every minute and a voice that never lectures.
 
 ## 8. Visual explanation toolkit (`lib/remotion/`)
 
@@ -945,6 +989,13 @@ the line (film 1: "How Train Wheels Turn With No Steering at All"). Never an abs
   it, and never a false absolute (§9.2). The research report's own suggestions "NEVER CAN FALL", "PHYSICS WAS WRONG"
   and "The Siphon That Works in Space" would each fail: lifts have fallen, the physics was refined rather than wrong,
   and a siphon needs gravity.
+- **Ask, never answer (films 1 and 2 Studio, 2026-11-13, §16):** NO DIFFERENTIAL? (a question the viewer already
+  half-holds, on one concrete object) earned 5.2% CTR; BUILT TO SLIP (the answer, in a word that means nothing yet)
+  earned 0.6%. The words ask the viewer's own question or name the danger (CABLE GONE. THEN?); the picture shows the
+  moment before disaster or the contradiction, never the mechanism's result. The thumbnail and title together must
+  not give away the trick (§5.1 rule 4 applies to the package too).
+- **Studio judges, not the panel:** the click panel (§13.7) is a floor. After 100+ impressions, a package under half
+  the channel's best CTR is swapped the same day (thumbnail first, then title) and the swap logged in §16.
 - **Bright subject:** YouTube's app is dark; our abyss works only with a strongly lit subject and one bright accent.
 - **Never:** busy collages, tiny formulas, stock human faces, low contrast, the logo.
 - **Build and test:** 3+ concepts as HTML or Remotion stills shot at 1280×720 JPG, judged beside 8 real competitor
@@ -993,6 +1044,9 @@ Nothing reaches the owner without passing these, and §1's "polished only".
       turn around the middle; the viewer's wrong model said out loud in the first beat.
 - [ ] No derivation, no symbol without its thing (§8.7); at most one analogy per mechanism; one prediction question
       before the biggest reveal, answered on screen; reveal holds marked in the screenplay (§7.5).
+- [ ] Satisfaction, not lecture (§7.9): the thumbnail's word in sentence 1, stakes by 0:10, no spoken figure before
+      0:30; three or four hero numbers in the voice; every chapter opens on stakes and ends on a click; the catch
+      shown as an event; no classroom phrases; every paragraph passes the slide test.
 - [ ] Lean-in test, spoken-English check, audience review with no viewer drifting in the first minute.
 - [ ] Package written first; the main search phrase said in the first minute.
 
@@ -1047,6 +1101,42 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
+
+**The first Studio numbers: satisfaction, not lectures (films 1 and 2, owner, 2026-11-13).**
+The owner's read of both films: "too much into physics lecture, we can't hold the audience". His Studio screenshots
+(film 1 at 6 days 16 h, film 2 at 3 days 17 h):
+
+| Film | Title as uploaded | Thumbnail | Impressions | CTR | Views | AVD |
+|---|---|---|---|---|---|---|
+| 1 train wheels | How Trains Steer Without a Differential | NO DIFFERENTIAL? | 974 | 5.2% | 212 (209 from recommendations) | 2:08 of 6:25 (33.4%); 47% left at 0:30 |
+| 2 elevator | Why Falling Elevators Don't Stop Instantly | BUILT TO SLIP | 164 | 0.6% | 3 | (too few views to read) |
+
+- *Film 1 lost half its viewers before it said the thumbnail's word.* The thumbnail asks NO DIFFERENTIAL?; the voice
+  first says "differential" at 0:32, after 53% had gone. Before it: the locked axle, then a right-angle bend and "two
+  point four meters". The answer's place ("the shape of the wheel") came at 0:44. After 0:30 the curve slides slowly,
+  with a rewatch bump at 1:10–1:50 (the cone reveal): the mechanism held the people the opening kept. **Rule (§5.1):**
+  the thumbnail's own word in sentence 1, the stakes by 0:10, no figure in the voice before 0:30. **Why:** viewers
+  from recommendations judge in seconds whether this is the video the thumbnail promised.
+- *Film 2's package failed, not its film.* 0.6% means one click in 164 impressions; YouTube stopped showing it.
+  BUILT TO SLIP and "Don't Stop Instantly" both state the answer, in a word ("slip") that means nothing yet and sounds
+  like a fault; neither shows the danger or asks the viewer's own question, and the uploaded title dropped the searched
+  phrase ("what happens if an elevator cable snaps"). Our five-viewer click panel (`review/package_v1.md`) picked BUILT
+  TO SLIP; real viewers did not. **Rules (§13.3):** the thumbnail asks the viewer's question or shows the danger, it
+  never gives the answer; a panel's pick is a floor, Studio CTR is the judge; a package under half our best CTR after
+  100+ impressions is swapped for its challenger the same day. **Why:** film 1's question-shaped thumbnail on one
+  concrete object earned 5.2% on the same feed.
+- *The lecture feel is real and has four causes in our scripts* (owner's diagnosis, checked line by line): figures in
+  nearly every paragraph; the catch's climax spent on history and a formula (film 1: Stephenson, "in eighteen
+  eighty-three, an engineer called Klingel", the wavelength built term by term, where the axle's wobble should have
+  grown on screen); classroom phrasing ("Do you see it?", "Now watch", "Take the textbook version"); and the
+  mechanism before the stakes. **Rule (§7.9, owner):** satisfaction over lecture: CTR and AVD are the two numbers
+  that matter most, and both come from the viewer feeling the payoff, not from being taught. **Why:** the owner's
+  directive; the curve shows people stayed for the reveal, not for the figures.
+- *Outside advice is a source like any other (§4.5).* The owner's Gemini review was right about the feeling and its
+  "obvious fix that fails → mechanism → revenge of physics" arc is our five beats (§5.4). But its example figures ("40
+  Gs", "shear the gear teeth in three seconds", "grind the rails to dust") have no source (our sourced figure for an
+  instant stop is about 10 g), and its "deadly paradox" tone is hype (§7.1). Adopted: stakes first, show the failure,
+  fewer numbers. Not adopted: unsourced numbers, a fixed 6-minute template, fear words.
 
 **The drifting voice (film 2, owner's review of cut v10, 2026-11-08).**
 - *The voice slid 2.3 s behind the picture and ten cuts and three panels missed it.* `vo_timing.py` cut every sentence

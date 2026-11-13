@@ -14,7 +14,9 @@ The viewers, who all choose everyday-physics explainers: Marcus (54, Ohio, TV), 
 (31, Pune, phone), Katrin (44, Munich, engineer), Liam (23, Brisbane, phone).
 
 For each sheet and each viewer: which ONE video do you tap first, and why, in a sentence? Which thumbnail can't you
-read at this size?
+read at this size? For our thumbnail: in your own words, what question does it make you ask? If it seems to give
+you the answer already, or its words mean nothing to you yet, say so plainly (a real thumbnail that gave its answer
+away, BUILT TO SLIP, earned 0.6% clicks; one that asked the viewer's question, NO DIFFERENTIAL?, earned 5.2%).
 
 Then the titles, each shown under its best thumbnail:
 {TITLES}

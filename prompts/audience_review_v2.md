@@ -41,6 +41,9 @@ c) A lean-in map: go through in order and mark each part LEANING IN, NEUTRAL or 
 d) Explain the mechanism back as you'd tell a friend. Where did you get lost?
 e) Which lines sound like a textbook, a lecture, a news reader, hype or a flat robot? Which words did you not know?
    (NARRATION stage: which sentences are hard to follow by ear, too long, or would trip the narrator?)
+e2) Lecture or story? Mark every line that feels like being taught rather than watching something happen: a figure
+   you didn't need, a date or name you didn't care about, a formula, "do you see it?"-style classroom talk. Where
+   did you feel the satisfying "oh, so THAT's why" click, and where did a chapter end without one?
 f) The downside or catch: a twist that pulled you in, or an appendix after the real ending?
 g) (Marcus, Katrin) Anything wrong, overstated or too absolute ("never", "always", "impossible")?
 h) The ending: did it land? What question is still in your head?
