@@ -1,0 +1,70 @@
+## Cold open
+Your seatbelt can tell the difference between you reaching for your phone and you crashing. So where is the chip that decides?
+
+You would probably guess a crash sensor, wired to the car's computer, like the one that fires the airbag. But the lock inside a seatbelt doesn't need one. Pull the belt slowly, and it lets you lean forward. Jerk it, and it stops dead.
+
+And it has to be right every time. Lock on every tug, and you would fight your belt all day. Lock a moment too late, and in a crash it's just a strap.
+
+So how does a seatbelt know when to lock? Everything happens inside the reel your belt winds into, hidden behind the trim.
+
+And in a really hard crash, it makes a second decision, stranger than the first. Just after it locks, it starts to let you go. On purpose.
+
+## The lock that can't tell
+Imagine the simplest lock you could build. A ring of teeth around the reel, and a hook that drops into them. Does that stop the belt? Every time. And that's the problem. Lean over to the glovebox, and it holds you like a crash.
+
+So the hook can't be the clever part. What decides when to drop it? It has only two things to go on. How fast the belt is moving. And how fast the car is stopping.
+
+## The disc that falls behind
+Start with the belt. Next to the reel sits a heavy disc, and it isn't fixed to the reel. It just rides along.
+
+Pull the belt slowly, and the reel turns slowly, and the disc keeps up. Nothing happens. But jerk the belt, and the reel spins up in an instant. And the disc? It's heavy. It can't speed up that fast. So for a split second, it falls behind.
+
+That tiny lag is the whole trick. As the reel pulls ahead, it swings a small arm out from the disc, and the arm catches the teeth. Clack. The reel stops.
+
+The belt doesn't measure your speed. It just notices something heavy getting left behind.
+
+## The ball that keeps going
+But now imagine a real crash. You are sitting still, belt on, hands on the wheel. The car hits something. In that first instant, nobody has jerked the belt. The reel hasn't moved at all.
+
+So what locks it?
+
+The car stops. The ball doesn't.
+
+Where does that come from? Below the reel, in one common design, sits a steel ball in a small cup shaped like a cone. When the car brakes hard, the cup stops with the car, but the ball keeps going. It rolls up the wall of the cup, and that lifts a small lever into the teeth. The belt is locked almost as soon as you start to move.
+
+The rules are strict. In the United States, the standard says that in a hard stop, a belt like this must lock before one inch of belt comes out. And it must lock if the car tips past forty-five degrees. No crash needed. Gravity rolls the ball over, and the belt locks. Upside down, the belt holds you in your seat. The test even has a name. Gravitational locking.
+
+## Why does my seatbelt keep locking?
+And that explains a small mystery you have probably met. You pull the belt all the way out, and now it won't come back out. It only goes in.
+
+Is it broken? No. Many belts have a second mode, for child seats. Pull out every bit of belt, and let it wind back. Now the reel locks at each stop, so a child seat can be strapped in tight. Let the belt wind all the way in, and it goes back to normal.
+
+## A lock that is too good
+So the lock works. Problem solved? Not quite.
+
+Once the belt stops dead, everything you weigh, moving at the speed of the car, has to stop against a strap across your chest. The front of the car crumples to slow you down. A locked belt is built to hold.
+
+And chests can break. In studies of severe real crashes, older people very often suffered serious chest injuries from the belt itself. The belt that saved them was also hurting them.
+
+## The belt that lets go
+So what did engineers do? They made the belt do something that sounds wrong. Inside the reel, they put a steel bar that is built to twist.
+
+In a small crash, the bar holds, and the belt stays locked. But when the pull on your chest reaches a set limit, the bar starts to twist, and the reel turns against the lock. The belt pays out, a little at a time, and the force on you stops climbing. It's called a load limiter.
+
+One carmaker, Renault, fitted belt limiters to its cars, and then lowered the limit, together with an airbag designed to work with it. The new limit, four kilo-newtons, is about the weight of five adults, pressing on one strap. In real crashes, cars with it had about three quarters fewer serious chest injuries than cars with a stiffer limiter, or none.
+
+And there is one more part, the one with electronics. At the very start of a crash, the same crash sensors that fire the airbag fire a small charge in the belt. It snaps the belt tight, pulling the slack out, so the lock catches you early.
+
+So in a hard crash, your belt makes three moves in a blink. Pull tight. Lock. Then let go, just enough.
+
+## The price
+But letting go has a cost. The more the belt gives, the further you travel. That's why the softer limit came with an airbag. And engineers worry about tall or heavy passengers, who might pay out too much belt and reach the inside of the car.
+
+So where do you set the limit? It's a balance. Too high, and the belt hurts the chest it holds. Too low, and it lets you go too far.
+
+## The landing
+Next time you put your belt on, try it. Pull the belt slowly, and feel it let you go. Then give it one sharp tug, and feel it stop.
+
+Two small weights just made that decision. And behind them, a steel bar waits for the day the right answer is to hold you, and then let you go.
+
+Next: the plane wing that is built to bend.
