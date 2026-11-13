@@ -1,0 +1,54 @@
+{
+ "kind": "youtube#video",
+ "etag": "ylJHSDO3V-zYcOD6jsN2y6YhK08",
+ "id": "b0VBsrpqqRk",
+ "snippet": {
+  "publishedAt": "2026-11-09T12:36:36Z",
+  "channelId": "UCgmnU_XgFuGD2MejCDmAnbA",
+  "title": "Why Falling Elevators Don't Stop Instantly",
+  "description": "If an elevator cable snaps, why don't safety brakes lock the car instantly?\n\nIn 1854, Elisha Otis demonstrated the instant catch: cut the rope, throw teeth into the guide rails, and freeze the platform in place. But inside a modern high-speed elevator, an instant stop would subject passengers to over 10G of deceleration force\u2014causing severe skeletal trauma and internal injury.\n\nModern elevator safety brakes are deliberately designed to do the opposite: they are built to slip.\n\nIn this breakdown, we explore the purely mechanical systems operating inside elevator shafts:\n\u2022 The Overspeed Governor: How a zero-power flyball mechanism trips at 115% rated speed without computers or electricity.\n\u2022 Progressive Safety Wedges: Why falling cars pull their own brake levers into narrowing tapered slots.\n\u2022 Disc Spring Packs: The calibrated metal flex that lets the brake jaws bite and scrape the steel guide rails over 0.5 to 1.0 meter.\n\u2022 The Upward Runaway Paradox: What happens when an empty car is pulled upward by a heavy counterweight, bypassing standard downward safety wedges.\n\nStandards & Regulatory Citations Referenced:\n- EN 81-20 / EN 81-50 (European Elevator Safety Rules)\n- ASME A17.1 / CSA B44 (Safety Code for Elevators and Escalators)\n\nChapters:\n0:00 The Fall You Survive\n0:30 The Overspeed Governor\n1:40 Pure Mechanics (No Electronics)\n2:10 The Tapered Wedge Trap\n2:55 Why Instant Stops Are Dangerous\n4:05 Calibrated Friction: Disc Springs\n5:10 The Hidden Danger: Upward Runaways\n6:30 The Margin of Safety\n\nSubscribe to The Mechanical Paradox for engineering autopsies and physical design principles.\n\n#engineering #mechanics #physics #stem #documentary",
+  "thumbnails": {
+   "default": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/default.jpg",
+    "width": 120,
+    "height": 90
+   },
+   "medium": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/mqdefault.jpg",
+    "width": 320,
+    "height": 180
+   },
+   "high": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/hqdefault.jpg",
+    "width": 480,
+    "height": 360
+   },
+   "standard": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/sddefault.jpg",
+    "width": 640,
+    "height": 480
+   },
+   "maxres": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/maxresdefault.jpg",
+    "width": 1280,
+    "height": 720
+   },
+   "qhd": {
+    "url": "https://i.ytimg.com/vi/b0VBsrpqqRk/qhddefault.jpg",
+    "width": 2560,
+    "height": 1440
+   }
+  },
+  "channelTitle": "The Mechanical Paradox",
+  "tags": [
+   "elevator safety brake,how elevators work,why elevators dont fall,elevator overspeed governor,elevator safety wedge,progressive safety gear,elisha otis,elevator drop test,counterweight runaway,mechanical engineering,engineering paradox,elevator physics,how brakes work,disc springs,EN 81-20,ASME A17.1,the mechanical paradox"
+  ],
+  "categoryId": "28",
+  "liveBroadcastContent": "none",
+  "defaultLanguage": "en",
+  "localized": {
+   "title": "Why Falling Elevators Don't Stop Instantly",
+   "description": "If an elevator cable snaps, why don't safety brakes lock the car instantly?\n\nIn 1854, Elisha Otis demonstrated the instant catch: cut the rope, throw teeth into the guide rails, and freeze the platform in place. But inside a modern high-speed elevator, an instant stop would subject passengers to over 10G of deceleration force\u2014causing severe skeletal trauma and internal injury.\n\nModern elevator safety brakes are deliberately designed to do the opposite: they are built to slip.\n\nIn this breakdown, we explore the purely mechanical systems operating inside elevator shafts:\n\u2022 The Overspeed Governor: How a zero-power flyball mechanism trips at 115% rated speed without computers or electricity.\n\u2022 Progressive Safety Wedges: Why falling cars pull their own brake levers into narrowing tapered slots.\n\u2022 Disc Spring Packs: The calibrated metal flex that lets the brake jaws bite and scrape the steel guide rails over 0.5 to 1.0 meter.\n\u2022 The Upward Runaway Paradox: What happens when an empty car is pulled upward by a heavy counterweight, bypassing standard downward safety wedges.\n\nStandards & Regulatory Citations Referenced:\n- EN 81-20 / EN 81-50 (European Elevator Safety Rules)\n- ASME A17.1 / CSA B44 (Safety Code for Elevators and Escalators)\n\nChapters:\n0:00 The Fall You Survive\n0:30 The Overspeed Governor\n1:40 Pure Mechanics (No Electronics)\n2:10 The Tapered Wedge Trap\n2:55 Why Instant Stops Are Dangerous\n4:05 Calibrated Friction: Disc Springs\n5:10 The Hidden Danger: Upward Runaways\n6:30 The Margin of Safety\n\nSubscribe to The Mechanical Paradox for engineering autopsies and physical design principles.\n\n#engineering #mechanics #physics #stem #documentary"
+  }
+ }
+}
