@@ -1,17 +1,17 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** step 2 done: `research/sources.md` (FMVSS 209 text, Federal Register 2011, NHTSA 2003 and 2013, two
-retractor patents, Stapp 2001), `research/model.py`, `claims.csv` 20 rows (gate passes), `treatment.md`, the opening
-through the promise check (top of `script/screenplay.md`), the screenplay (30 shots) and `script/vo.txt` v1 (1,080
-words, spoken-English check passes).
-**Next action:** step 3/4: story review round 2 (fresh panel, session_019NnLeoViv1GnWkEiQNYyQK, VO v2) is running.
-Round 1 (`review/audience_v1.md`): 7.6, bar not met; every confirmed note fixed in VO v2. Save round 2 as
-`review/audience_v2.md`; if the bar of §3a.3 is met, step 5 (narration review); else fix and a third, last panel.
+**Now:** steps 3–4 done. Three fresh story panels: 7.6 → 7.8 → **8.4** (bar met; `review/audience_v1..3.md`); the
+script is locked on the bar as **VO v4** (`script/vo.txt`, 1,062 words; spoken-English check and claims gate, 22 rows,
+pass). Earlier drafts kept as `vo_v1..3.txt`. The screenplay's shot order follows v1: re-order it to v4 (the
+child-seat mystery moves before the landing; the pretensioner becomes the first of "Two fixes") in step 5.
+**Next action:** step 5: the narration review. Write `script/blocks_performance.md` (the performed narration: final
+words, paragraph rhythm, reveal holds marked) and give it to a fresh panel (stage NARRATION); save
+`review/narration_v1.md`; fix; then step 6, the voice.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
-- [ ] 3 Story review                                          PR #
-- [ ] 4 Story and script fixed                                PR #
+- [x] 3 Story review (3 rounds: 7.6 → 7.8 → 8.4)              PRs #71, #72, this one
+- [x] 4 Story and script fixed; bar met (VO v4 locked)       this PR
 - [ ] 5 Narration review                                      PR #
 - [ ] 6 Voice                                                 PR #
 - [ ] 7 Film built                                            PR #
