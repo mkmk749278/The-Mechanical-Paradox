@@ -1,13 +1,12 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** steps 5–6 done. Step 5: the owner approved the narration (VO v4) himself on 2026-11-13, in place of the
-narration panel. Step 6: the voice: `script/blocks_performance.md` (9 blocks, 5,215 characters, built from vo.txt by
-`script/build_blocks.py`), eleven_v4, the channel voice; every block 100 % words as written; takes chosen b01 t1, b02 t1,
-b03 t1, b04 t1, b05 t1, b06 t1, b07 t1, b08 t3, b09 t2 (`vo/takes_review.md`); `vo/timing.json` 388.1 s, 113 sentences,
-159 wpm; vo_sync 0 frames. Audio in Drive `seatbelt-lock/vo/` (raw takes in `vo/takes_raw/`).
-**Next action:** step 7: build the film. First re-order `script/screenplay.md` to VO v4 and to the real timings
-(the child-seat mystery before the landing; the pretensioner as the first of "Two fixes"), then the scene handoffs,
-the components, the footage search (Pixabay API), the music cut and the sound.
+**Now:** step 7 built. 10 scenes (`remotion/Part1.tsx`, `Part2.tsx`) on the recorded voice; the mechanism from
+`remotion/model.ts` (a spring-coupled inertia disc and a ball-in-cone sensor, with import-time checks: a slow lean
+never locks, a jerk locks within 0.2 s, a fast steady pull never locks, the ball's threshold inside FMVSS 209's window);
+drawings `Reel.tsx` and `Cabin.tsx`; 4 photo inserts (Pixabay, credited, `media_manifest.csv`); 63 sound cues
+(`sound/sfx.json`), the library score (`sound/score.json`), mix −14.3 LUFS, −1.4 dBTP (Drive `seatbelt-lock/mix/`).
+**Next action:** step 8: the 720p cut on the runners (`remotion-render.yml`, film `seatbelt-lock`, comp `SB-Film`,
+scale 2/3, tail_frames 820, name `seatbelt-lock_v1_720p.mp4`), our picture gate on it, then the independent viewer panel.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
@@ -15,7 +14,7 @@ the components, the footage search (Pixabay API), the music cut and the sound.
 - [x] 4 Story and script fixed; bar met (VO v4 locked)       this PR
 - [x] 5 Narration: approved by the owner (2026-11-13)         this PR
 - [x] 6 Voice: 9 blocks measured; 388.1 s, 159 wpm, sync 0 frames  this PR
-- [ ] 7 Film built                                            PR #
+- [x] 7 Film built: 10 scenes, 4 photo inserts, mix (−14.3 LUFS)   this PR
 - [ ] 8 720p cut, viewer panel                                PR #
 - [ ] 9 Fixes, new cuts, panels                               PR #
 - [ ] 10 4K master                                            PR #

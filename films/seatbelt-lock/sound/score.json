@@ -1,0 +1,23 @@
+{
+ "note": "Film 3 bed: library tracks (config/music_library.csv, PLAYBOOK §12.1) on the film's beats. Silence under the slow-motion jerk until 'Clack' (signature 1), 1 s of silence after the prediction question 'So what locks it?' before the ball (signature 2), and the music drops before 'Engineers did two things'. The drone runs under the whole VO, the landing hold and the sting ('end+13.667' = 2 s hold + the 700-frame outro). Sentence ids from vo/timing.json (VO v4).",
+ "slots": [
+  {"track": "bp01_curious_pulse", "from": 0, "to": "s:9-0.6", "offset": 0, "fade_in": 0.3, "fade_out": 0.8, "why": "the cold open: phone vs crash, the chip, the stakes"},
+  {"track": "bp06_wonder", "from": "s:9-0.4", "to": "s:14-0.4", "offset": 0, "fade_in": 1.2, "fade_out": 0.8, "why": "the dive into the reel, the second decision teased"},
+  {"track": "bp02_clockwork", "from": "s:14", "to": "s:30-0.4", "offset": 0, "fade_in": 0.8, "fade_out": 0.6, "why": "the lock that can't tell; the disc; the slow pull"},
+  {"track": "bp09_precision", "from": "e:38+0.3", "to": "s:46-0.6", "offset": 10, "fade_in": 1.0, "fade_out": 0.8, "why": "after 'Clack': not how fast, how suddenly"},
+  {"track": "bp03_low_tension", "from": "s:46", "to": "e:51+0.2", "offset": 0, "fade_in": 0.8, "fade_out": 0.4, "why": "the real crash; stops after the prediction question"},
+  {"track": "bp02_clockwork", "from": "s:52", "to": "s:61-0.6", "offset": 40, "fade_in": 1.0, "fade_out": 0.8, "why": "the ball, the rules, the tilt"},
+  {"track": "bp04_stress_build", "from": "s:61", "to": "s:70-0.6", "offset": 20, "fade_in": 0.8, "fade_out": 0.6, "why": "the catch: the chest field"},
+  {"track": "bp05_resolve", "from": "s:70", "to": "s:90-0.6", "offset": 0, "fade_in": 1.5, "fade_out": 1.0, "why": "two fixes: the pretensioner, the bar, Renault"},
+  {"track": "bp03_low_tension", "from": "s:90", "to": "s:98-0.4", "offset": 30, "fade_in": 1.0, "fade_out": 0.6, "why": "the price: travel, the balance"},
+  {"track": "bp05_resolve", "from": "s:98", "to": "s:102-0.5", "offset": 60, "fade_in": 0.6, "fade_out": 0.8, "why": "three moves in a blink"},
+  {"track": "bp01_curious_pulse", "from": "s:102", "to": "s:107-0.4", "offset": 30, "fade_in": 0.8, "fade_out": 0.6, "why": "one last mystery"},
+  {"track": "bp10_landing", "from": "s:107", "to": "end+2.0", "offset": 20, "fade_in": 1.5, "fade_out": 2.5, "why": "the landing; out before the sting"}
+ ],
+ "rooms": [{"what": "drone", "from": 0, "to": "end+13.667", "gain_db": -23}],
+ "quiet": [],
+ "music_db": -12,
+ "sfx_db": -14,
+ "sfx_trim": {"glass_tone": -7, "torque_whine": -5},
+ "mix_note": "Film 2's bus trims as the start (K-weighted against the voice); re-measured on this film's mix."
+}
