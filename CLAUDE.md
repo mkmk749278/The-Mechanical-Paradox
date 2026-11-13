@@ -154,6 +154,10 @@ priority in every step;** the gates are the floor.
 - **No maths lecture (PLAYBOOK §8.7):** no derivations, no symbol without its physical thing; one or two equations a
   film at most, only as the proof, built on their words. One tactile analogy per mechanism at most, then the real name
   and number.
+- **Satisfaction, not lectures (owner, 2026-11-13; PLAYBOOK §7.9):** CTR and AVD matter most. The thumbnail's word
+  in sentence 1, stakes by 0:10, no spoken figure before 0:30; stakes before mechanism; show the obvious fix failing;
+  three or four spoken hero numbers a film; the catch as an event, not a formula; history only as a story; no
+  classroom voice; every chapter ends on a click. Thumbnails ask the viewer's question, never give the answer.
 - **Pace:** about 145–165 wpm after the edit, alive through rhythm, never a slow even read; the voice holds 1.5–2.5 s on
   each signature reveal while the picture moves. One prediction question before the biggest reveal.
 - Every narration passes the lean-in test, `scripts/spoken_english_check.py --terms`, and an **independent audience

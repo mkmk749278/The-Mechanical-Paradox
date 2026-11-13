@@ -1,5 +1,10 @@
 # Film 2: the elevator that brakes itself · status
 
+**Live (2026-11-13, Studio at 3 days 17 h):** uploaded as "Why Falling Elevators Don't Stop Instantly" with BUILT TO
+SLIP: 164 impressions, 0.6% CTR, 3 views (film 1: 5.2%). The package, not the film, is failing (PLAYBOOK §16, §13.3).
+**Recommended swap:** thumbnail `youtube/thumb_b_cable-gone.jpg` (CABLE GONE. THEN?) and the searched title "What
+Happens If an Elevator Cable Snaps? It Brakes Itself"; owner's call, he uploads.
+
 **Now:** step 12, the Shorts. The package is done (`youtube/`): title "What Happens If an Elevator Cable Snaps? It
 Brakes Itself", three thumbnails (Cycles stills of the car and the gear, `blender/`; Drive `elevator-safety/youtube/`,
 plates in `render-media/thumbs/`), description with chapters, SRT, tags, settings. Click test v1
