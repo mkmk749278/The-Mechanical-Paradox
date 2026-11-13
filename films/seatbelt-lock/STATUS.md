@@ -1,12 +1,14 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** step 7 built. 10 scenes (`remotion/Part1.tsx`, `Part2.tsx`) on the recorded voice; the mechanism from
-`remotion/model.ts` (a spring-coupled inertia disc and a ball-in-cone sensor, with import-time checks: a slow lean
-never locks, a jerk locks within 0.2 s, a fast steady pull never locks, the ball's threshold inside FMVSS 209's window);
-drawings `Reel.tsx` and `Cabin.tsx`; 4 photo inserts (Pixabay, credited, `media_manifest.csv`); 63 sound cues
-(`sound/sfx.json`), the library score (`sound/score.json`), mix −14.3 LUFS, −1.4 dBTP (Drive `seatbelt-lock/mix/`).
-**Next action:** step 8: the 720p cut on the runners (`remotion-render.yml`, film `seatbelt-lock`, comp `SB-Film`,
-scale 2/3, tail_frames 820, name `seatbelt-lock_v1_720p.mp4`), our picture gate on it, then the independent viewer panel.
+**Now:** step 9, rebuilding the picture. Cut v2: our gate passed, the independent viewer panel scored 7.0
+(`review/viewer_v1.md`), and the owner's own review rejected the look: "low level visuals, not at all near to reality;
+still image while saying reaching phone and jerk; use ultra realistic animation for the science, otherwise mostly real
+clips" (PLAYBOOK §16, "Realism over diagrams"). The owner chose photoreal 3D for the everyday shots (Canva's AI video
+limit is spent until 2026-12-01). The voice, timing, music and story stay; the picture is rebuilt.
+**Next action:** build the photoreal scenes in Blender (Cycles on the runners): the retractor in cutaway (frame,
+ratchet ring, spool and webbing, inertia disc, sensor arm, ball-in-cup sensor, torsion bar) driven by `remotion/model.ts`;
+the cabin (seat, pillar, belt, a crash-test dummy occupant) for the reach, the jerk, the crash and the child-seat mode;
+then public-domain crash-test footage where it exists. The blueprint layer becomes callouts and HUD over the plates.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)

@@ -1112,6 +1112,21 @@ In this repo (ported 2026-10-31 from Built-on-Bharat, which ported most from Cre
 ## 16. Lessons log
 *(Newest first. Each lesson: what happened, the rule, why.)*
 
+**Realism over diagrams (owner's review of film 3 cut v2, 2026-11-13).** The owner: "First moment itself feels lost
+interest. Low level visuals. Not at all near to reality. Still image while saying reaching phone and jerk moment, we
+should show there. While saying science behind them use ultra realistic animation, otherwise use mostly real clips."
+The independent panel the same hour scored the cut 7.0 (the engineer 5/10) on the same causes: flat 2D drawings, a
+still photo under the action, geometry an engineer could fault. **Rule (owner, the decision for every film from now):**
+- **Everyday moments are real video;** where none exists with a commercial licence, **photoreal 3D** (Blender Cycles on
+  the runners) or AI video, both labelled ILLUSTRATION. Never a still photo under a line that describes motion.
+- **Science moments are photoreal 3D animation:** real materials (steel, nylon webbing, plastic), real light, true
+  kinematics from the film's model; the blueprint linework becomes the accent layer over it (callouts, dimension
+  lines, HUD), never the picture itself.
+- **The first 10 seconds are the most realistic shots in the film.**
+- Sourcing order for everyday shots (owner, same day): AI video labelled (Canva; its monthly AI limit ran out on the
+  first call, resets 2026-12-01) → photoreal 3D (chosen for film 3) → the owner films → paid stock (asked first).
+*Why:* the owner's review and the panel agree: viewers stay for the real thing; a diagram reads as a lecture (§7.9).
+
 **The mix must carry the render's tail (film 3, v1 720p join, 2026-11-13).** The mix was made without
 `--tail-frames`, so it ended with the voice (388.1 s) while the picture runs 13.7 s longer (the landing hold and the
 sting, `tail_frames: 820`); the join's `-shortest` cut the picture to the sound and the length check stopped it (391.7

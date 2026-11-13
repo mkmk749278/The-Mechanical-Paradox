@@ -138,6 +138,10 @@ priority in every step;** the gates are the floor.
 - **Live telemetry HUD** in every scene, ticking with the narration; every value has a `claims.csv` source or the
   panel says ILLUSTRATIVE VALUES.
 - **Failure is a stress field,** never a flashing icon: the FEA ramp navy → cyan → yellow → red at the notch.
+- **Realism over diagrams (owner, 2026-11-13; PLAYBOOK §16):** everyday moments are real video, else photoreal 3D or
+  labelled AI video, never a still photo under a line that describes motion; science moments are photoreal 3D
+  animation (Blender Cycles on the runners) with the blueprint linework as the accent layer over it; the first 10
+  seconds are the most realistic shots in the film.
 - **Real footage (owner, 2026-11-04):** short inserts of the real thing (track, curves, wheels, trains) where the
   narration describes it, then the drawing explains; commercial-use licence, credited on screen, in
   `media_manifest.csv`; never a render or simulation passed off as real (PLAYBOOK §8.8).
