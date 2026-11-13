@@ -1,0 +1,451 @@
+1
+00:00:00,000 --> 00:00:04,148
+Your seatbelt can tell the difference between you reaching for your phone and you crashing.
+
+2
+00:00:04,898 --> 00:00:07,115
+So where is the chip that decides?
+
+3
+00:00:08,204 --> 00:00:13,390
+You would probably guess a crash sensor, wired to the car's computer, like the one that fires the airbag.
+
+4
+00:00:14,083 --> 00:00:16,519
+But the lock inside a seatbelt doesn't need one.
+
+5
+00:00:17,146 --> 00:00:19,777
+Pull the belt slowly, and it lets you lean forward.
+
+6
+00:00:20,361 --> 00:00:22,205
+Jerk it, and it stops dead.
+
+7
+00:00:23,280 --> 00:00:25,345
+And it has to be right every time.
+
+8
+00:00:25,941 --> 00:00:29,117
+Lock on every tug, and you would fight your belt all day.
+
+9
+00:00:29,752 --> 00:00:33,281
+Lock a moment too late, and in a crash it's just a strap.
+
+10
+00:00:34,344 --> 00:00:38,161
+So how does a seatbelt know when to lock, with no power at all?
+
+11
+00:00:38,975 --> 00:00:41,630
+The answer is hidden in the reel it winds into.
+
+12
+00:00:42,658 --> 00:00:47,106
+And in a really hard crash, it makes a second decision, stranger than the first.
+
+13
+00:00:47,609 --> 00:00:50,261
+Just after it locks, it starts to let you go.
+
+14
+00:00:50,887 --> 00:00:51,839
+On purpose.
+
+15
+00:00:53,200 --> 00:00:55,540
+Imagine the simplest lock you could build.
+
+16
+00:00:56,281 --> 00:00:59,592
+A ring of teeth around the reel, and a hook that drops into them.
+
+17
+00:01:00,329 --> 00:01:02,170
+That stops the belt every time.
+
+18
+00:01:02,890 --> 00:01:04,062
+And that's the problem.
+
+19
+00:01:04,896 --> 00:01:08,038
+Lean over to the glovebox, and it holds you like a crash.
+
+20
+00:01:09,183 --> 00:01:10,815
+The hook can't be the clever part.
+
+21
+00:01:11,480 --> 00:01:12,892
+What decides when to drop it?
+
+22
+00:01:13,875 --> 00:01:15,532
+It has only two clues.
+
+23
+00:01:16,137 --> 00:01:17,869
+How suddenly the belt is pulled.
+
+24
+00:01:18,397 --> 00:01:20,203
+And how hard the car is stopping.
+
+25
+00:01:21,571 --> 00:01:22,733
+Start with the belt.
+
+26
+00:01:23,428 --> 00:01:25,542
+Next to the reel sits a heavy disc.
+
+27
+00:01:26,229 --> 00:01:27,595
+It isn't fixed to the reel.
+
+28
+00:01:28,090 --> 00:01:29,682
+It turns with it, loosely.
+
+29
+00:01:30,964 --> 00:01:35,001
+Pull the belt slowly, and the reel turns slowly, and the disc keeps up.
+
+30
+00:01:35,677 --> 00:01:36,615
+Nothing happens.
+
+31
+00:01:37,330 --> 00:01:40,572
+But jerk the belt, and the reel spins up in an instant.
+
+32
+00:01:41,322 --> 00:01:42,077
+And the disc?
+
+33
+00:01:42,949 --> 00:01:43,641
+It's heavy.
+
+34
+00:01:44,223 --> 00:01:45,684
+It can't speed up that fast.
+
+35
+00:01:46,367 --> 00:01:49,012
+So for a split second, it falls behind.
+
+36
+00:01:50,191 --> 00:01:52,461
+That tiny lag is the whole trick.
+
+37
+00:01:53,184 --> 00:01:57,477
+The reel pulls ahead of the disc, and that gap pushes a small arm outward.
+
+38
+00:01:58,126 --> 00:01:59,372
+The arm catches the teeth.
+
+39
+00:02:00,027 --> 00:02:00,568
+Clack.
+
+40
+00:02:01,281 --> 00:02:02,301
+The reel stops.
+
+41
+00:02:03,505 --> 00:02:05,688
+Does it lock when the reel spins too fast?
+
+42
+00:02:06,622 --> 00:02:07,158
+No.
+
+43
+00:02:07,694 --> 00:02:08,998
+It doesn't care how fast.
+
+44
+00:02:09,502 --> 00:02:10,789
+It cares how suddenly.
+
+45
+00:02:11,569 --> 00:02:13,281
+The belt doesn't measure your speed.
+
+46
+00:02:13,765 --> 00:02:16,394
+It just notices something heavy getting left behind.
+
+47
+00:02:17,746 --> 00:02:20,254
+But now imagine a real crash.
+
+48
+00:02:20,897 --> 00:02:24,003
+You are sitting still, belt on, hands on the wheel.
+
+49
+00:02:24,722 --> 00:02:25,887
+The car hits something.
+
+50
+00:02:26,698 --> 00:02:29,494
+In that first instant, nobody has jerked the belt.
+
+51
+00:02:30,077 --> 00:02:31,622
+The reel hasn't moved at all.
+
+52
+00:02:32,771 --> 00:02:33,701
+So what locks it?
+
+53
+00:02:34,849 --> 00:02:40,310
+Below the reel, in one common design, sits a steel ball in a small cup shaped like a cone.
+
+54
+00:02:41,233 --> 00:02:44,126
+When the car brakes hard, the cup stops with the car.
+
+55
+00:02:44,739 --> 00:02:45,679
+The ball doesn't.
+
+56
+00:02:46,323 --> 00:02:50,984
+It keeps going, rolls up the wall of the cup, and lifts a small lever into the teeth.
+
+57
+00:02:51,838 --> 00:02:54,487
+The belt is locked almost as soon as you start to move.
+
+58
+00:02:55,697 --> 00:02:56,832
+And it's fast.
+
+59
+00:02:57,452 --> 00:03:02,667
+Under the American rule, in a hard stop, less than an inch of belt gets out before it locks.
+
+60
+00:03:03,308 --> 00:03:07,645
+And if the car tips past forty-five degrees, it locks with no crash at all.
+
+61
+00:03:08,351 --> 00:03:12,130
+Gravity rolls the ball, and the belt holds you, even upside down.
+
+62
+00:03:13,482 --> 00:03:15,056
+So the lock works.
+
+63
+00:03:15,695 --> 00:03:17,451
+And that is the new problem.
+
+64
+00:03:18,677 --> 00:03:24,902
+Once the belt locks, your body is still rushing forward, and all of that lands on one strap across your chest.
+
+65
+00:03:25,691 --> 00:03:28,257
+The front of the car crumples to soften the stop.
+
+66
+00:03:28,905 --> 00:03:30,474
+The belt barely gives.
+
+67
+00:03:30,937 --> 00:03:32,065
+It's built to hold.
+
+68
+00:03:33,211 --> 00:03:34,817
+And chests can break.
+
+69
+00:03:35,610 --> 00:03:39,777
+In bad crashes, older people were often badly hurt by the belt itself.
+
+70
+00:03:40,611 --> 00:03:43,174
+The belt that saved them was also hurting them.
+
+71
+00:03:44,552 --> 00:03:46,262
+Engineers did two things.
+
+72
+00:03:46,873 --> 00:03:47,628
+And the first?
+
+73
+00:03:48,592 --> 00:03:50,320
+Remember the chip you guessed at the start?
+
+74
+00:03:51,213 --> 00:03:51,945
+It's real.
+
+75
+00:03:52,449 --> 00:03:53,783
+It just has a different job.
+
+76
+00:03:54,875 --> 00:04:02,063
+At the very start of a crash, the sensors that fire the airbag also fire a charge in the belt, usually a tiny explosive.
+
+77
+00:04:02,833 --> 00:04:05,361
+It snaps the belt tight and pulls out the slack.
+
+78
+00:04:06,089 --> 00:04:12,432
+Now your body starts slowing down with the car, sooner and more gently, instead of being caught late and hard.
+
+79
+00:04:13,608 --> 00:04:14,676
+And the second fix?
+
+80
+00:04:15,563 --> 00:04:16,494
+It sounds wrong.
+
+81
+00:04:17,223 --> 00:04:20,445
+Inside the reel sits a steel bar that is built to twist.
+
+82
+00:04:21,590 --> 00:04:25,008
+In a small crash, the bar holds, and the belt stays locked.
+
+83
+00:04:25,705 --> 00:04:29,749
+But when the pull on your chest reaches a set limit, the bar starts to twist.
+
+84
+00:04:30,465 --> 00:04:33,433
+Now the reel can turn a little, even while it's locked.
+
+85
+00:04:34,125 --> 00:04:38,263
+The belt lets out, a little at a time, and the force on you stops climbing.
+
+86
+00:04:38,949 --> 00:04:40,542
+It's called a load limiter.
+
+87
+00:04:41,736 --> 00:04:46,670
+One carmaker, Renault, set its belts to let go sooner, at four kilo-newtons.
+
+88
+00:04:47,330 --> 00:04:49,964
+That's about the weight of five adults on one strap.
+
+89
+00:04:50,630 --> 00:04:52,536
+And it added an airbag to catch you.
+
+90
+00:04:53,294 --> 00:05:00,518
+With the two together, those cars had about three quarters fewer serious chest injuries than cars with a stiffer limiter, or none.
+
+91
+00:05:01,935 --> 00:05:04,001
+But what does letting go cost you?
+
+92
+00:05:05,044 --> 00:05:08,426
+Every bit of belt it lets out, you travel further forward.
+
+93
+00:05:09,144 --> 00:05:11,545
+That's why the softer limit came with an airbag.
+
+94
+00:05:12,172 --> 00:05:18,604
+And engineers worry about tall or heavy passengers, who might let out too much belt and reach the inside of the car.
+
+95
+00:05:19,823 --> 00:05:21,171
+Where do you set the limit, then?
+
+96
+00:05:22,200 --> 00:05:24,920
+Too high, and the belt hurts the chest it holds.
+
+97
+00:05:25,577 --> 00:05:27,815
+Too low, and it lets you go too far.
+
+98
+00:05:28,595 --> 00:05:30,714
+Every limit is a choice between the two.
+
+99
+00:05:31,927 --> 00:05:35,419
+So in a hard crash, your belt makes three moves in a blink.
+
+100
+00:05:36,130 --> 00:05:36,874
+Pull tight.
+
+101
+00:05:37,510 --> 00:05:38,111
+Lock.
+
+102
+00:05:38,691 --> 00:05:40,440
+Then let go, just enough.
+
+103
+00:05:41,827 --> 00:05:45,435
+Ever pulled your belt all the way out, and then it would only go back in?
+
+104
+00:05:46,439 --> 00:05:47,410
+It's not broken.
+
+105
+00:05:48,138 --> 00:05:50,070
+Many belts have a child-seat mode.
+
+106
+00:05:50,808 --> 00:05:57,611
+Pull out every bit of belt, let it wind back a little, and now it can only wind in, so a child seat stays tight.
+
+107
+00:05:58,360 --> 00:06:00,881
+Let it wind all the way back, and it's normal again.
+
+108
+00:06:02,278 --> 00:06:03,466
+Want to feel it yourself?
+
+109
+00:06:04,604 --> 00:06:08,780
+Next time you put your belt on, pull it slowly, and feel it let you go.
+
+110
+00:06:09,609 --> 00:06:12,669
+Then give it one sharp tug, and feel it stop.
+
+111
+00:06:13,873 --> 00:06:16,853
+A disc that got left behind just made that decision.
+
+112
+00:06:17,603 --> 00:06:23,714
+And behind it, a steel bar waits for the day the right answer is to hold you, and then let you go.
+
+113
+00:06:25,219 --> 00:06:28,141
+Next: the plane wing that is built to bend.

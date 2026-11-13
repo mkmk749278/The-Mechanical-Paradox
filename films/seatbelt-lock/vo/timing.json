@@ -1,0 +1,9830 @@
+{
+ "fps": 60,
+ "blocks": [
+  {
+   "block": 1,
+   "start": 0.0,
+   "end": 51.8,
+   "startFrame": 0,
+   "endFrame": 3108
+  },
+  {
+   "block": 2,
+   "start": 53.2,
+   "end": 80.171,
+   "startFrame": 3192,
+   "endFrame": 4810
+  },
+  {
+   "block": 3,
+   "start": 81.571,
+   "end": 136.346,
+   "startFrame": 4894,
+   "endFrame": 8181
+  },
+  {
+   "block": 4,
+   "start": 137.746,
+   "end": 192.082,
+   "startFrame": 8265,
+   "endFrame": 11525
+  },
+  {
+   "block": 5,
+   "start": 193.482,
+   "end": 223.152,
+   "startFrame": 11609,
+   "endFrame": 13389
+  },
+  {
+   "block": 6,
+   "start": 224.552,
+   "end": 300.535,
+   "startFrame": 13473,
+   "endFrame": 18032
+  },
+  {
+   "block": 7,
+   "start": 301.935,
+   "end": 340.427,
+   "startFrame": 18116,
+   "endFrame": 20426
+  },
+  {
+   "block": 8,
+   "start": 341.827,
+   "end": 360.878,
+   "startFrame": 20510,
+   "endFrame": 21653
+  },
+  {
+   "block": 9,
+   "start": 362.278,
+   "end": 388.093,
+   "startFrame": 21737,
+   "endFrame": 23286
+  }
+ ],
+ "sentences": [
+  {
+   "id": 0,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Your seatbelt can tell the difference between you reaching for your phone and you crashing.",
+   "tagged": "Your seatbelt can tell the difference between you reaching for your phone and you crashing.",
+   "start": 0.0,
+   "end": 3.948,
+   "ratio": 0.85,
+   "margin": 0.234,
+   "startFrame": 0,
+   "endFrame": 237
+  },
+  {
+   "id": 1,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "So where is the chip that decides?",
+   "tagged": "So where is the chip that decides?",
+   "start": 4.898,
+   "end": 6.915,
+   "ratio": 1.12,
+   "margin": 0.234,
+   "startFrame": 294,
+   "endFrame": 415
+  },
+  {
+   "id": 2,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "You would probably guess a crash sensor, wired to the car's computer, like the one that fires the airbag.",
+   "tagged": "You would probably guess a crash sensor, wired to the car's computer, like the one that fires the airbag.",
+   "start": 8.204,
+   "end": 13.19,
+   "ratio": 0.89,
+   "margin": 0.622,
+   "startFrame": 492,
+   "endFrame": 791
+  },
+  {
+   "id": 3,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "But the lock inside a seatbelt doesn't need one.",
+   "tagged": "But the lock inside a seatbelt doesn't need one.",
+   "start": 14.083,
+   "end": 16.319,
+   "ratio": 0.89,
+   "margin": 0.407,
+   "startFrame": 845,
+   "endFrame": 979
+  },
+  {
+   "id": 4,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Pull the belt slowly, and it lets you lean forward.",
+   "tagged": "Pull the belt slowly, and it lets you lean forward.",
+   "start": 17.146,
+   "end": 19.577,
+   "ratio": 0.91,
+   "margin": 0.222,
+   "startFrame": 1029,
+   "endFrame": 1175
+  },
+  {
+   "id": 5,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Jerk it, and it stops dead.",
+   "tagged": "Jerk it, and it stops dead.",
+   "start": 20.361,
+   "end": 22.005,
+   "ratio": 1.1,
+   "margin": 0.222,
+   "startFrame": 1222,
+   "endFrame": 1320
+  },
+  {
+   "id": 6,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "And it has to be right every time.",
+   "tagged": "And it has to be right every time.",
+   "start": 23.28,
+   "end": 25.145,
+   "ratio": 1.04,
+   "margin": 0.299,
+   "startFrame": 1397,
+   "endFrame": 1509
+  },
+  {
+   "id": 7,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Lock on every tug, and you would fight your belt all day.",
+   "tagged": "Lock on every tug, and you would fight your belt all day.",
+   "start": 25.941,
+   "end": 28.917,
+   "ratio": 0.97,
+   "margin": 0.299,
+   "startFrame": 1556,
+   "endFrame": 1735
+  },
+  {
+   "id": 8,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Lock a moment too late, and in a crash it's just a strap.",
+   "tagged": "Lock a moment too late, and in a crash it's just a strap.",
+   "start": 29.752,
+   "end": 33.081,
+   "ratio": 1.21,
+   "margin": 0.312,
+   "startFrame": 1785,
+   "endFrame": 1985
+  },
+  {
+   "id": 9,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "So how does a seatbelt know when to lock, with no power at all?",
+   "tagged": "So how does a seatbelt know when to lock, with no power at all?",
+   "start": 34.344,
+   "end": 37.961,
+   "ratio": 1.16,
+   "margin": 0.443,
+   "startFrame": 2061,
+   "endFrame": 2278
+  },
+  {
+   "id": 10,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "The answer is hidden in the reel it winds into.",
+   "tagged": "The answer is hidden in the reel it winds into.",
+   "start": 38.975,
+   "end": 41.43,
+   "ratio": 1.08,
+   "margin": 0.443,
+   "startFrame": 2338,
+   "endFrame": 2486
+  },
+  {
+   "id": 11,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "And in a really hard crash, it makes a second decision, stranger than the first.",
+   "tagged": "And in a really hard crash, it makes a second decision, stranger than the first.",
+   "start": 42.658,
+   "end": 46.906,
+   "ratio": 0.96,
+   "margin": 0.423,
+   "startFrame": 2559,
+   "endFrame": 2814
+  },
+  {
+   "id": 12,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "Just after it locks, it starts to let you go.",
+   "tagged": "Just after it locks, it starts to let you go.",
+   "start": 47.609,
+   "end": 50.061,
+   "ratio": 1.09,
+   "margin": 0.423,
+   "startFrame": 2857,
+   "endFrame": 3004
+  },
+  {
+   "id": 13,
+   "block": 1,
+   "chapter": "Cold open",
+   "text": "On purpose.",
+   "tagged": "On purpose.",
+   "start": 50.887,
+   "end": 51.639,
+   "ratio": 1.37,
+   "margin": 1.42,
+   "startFrame": 3053,
+   "endFrame": 3098
+  },
+  {
+   "id": 14,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "Imagine the simplest lock you could build.",
+   "tagged": "Imagine the simplest lock you could build.",
+   "start": 53.2,
+   "end": 55.34,
+   "ratio": 1.01,
+   "margin": 0.945,
+   "startFrame": 3192,
+   "endFrame": 3320
+  },
+  {
+   "id": 15,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "A ring of teeth around the reel, and a hook that drops into them.",
+   "tagged": "A ring of teeth around the reel, and a hook that drops into them.",
+   "start": 56.281,
+   "end": 59.392,
+   "ratio": 0.93,
+   "margin": 0.687,
+   "startFrame": 3377,
+   "endFrame": 3564
+  },
+  {
+   "id": 16,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "That stops the belt every time.",
+   "tagged": "That stops the belt every time.",
+   "start": 60.329,
+   "end": 61.97,
+   "ratio": 0.95,
+   "margin": 0.535,
+   "startFrame": 3620,
+   "endFrame": 3718
+  },
+  {
+   "id": 17,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "And that's the problem.",
+   "tagged": "And that's the problem.",
+   "start": 62.89,
+   "end": 63.862,
+   "ratio": 0.89,
+   "margin": 0.535,
+   "startFrame": 3773,
+   "endFrame": 3832
+  },
+  {
+   "id": 18,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "Lean over to the glovebox, and it holds you like a crash.",
+   "tagged": "Lean over to the glovebox, and it holds you like a crash.",
+   "start": 64.896,
+   "end": 67.838,
+   "ratio": 1.11,
+   "margin": 9.9,
+   "startFrame": 3894,
+   "endFrame": 4070
+  },
+  {
+   "id": 19,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "The hook can't be the clever part.",
+   "tagged": "The hook can't be the clever part.",
+   "start": 69.183,
+   "end": 70.615,
+   "ratio": 0.91,
+   "margin": 9.9,
+   "startFrame": 4151,
+   "endFrame": 4237
+  },
+  {
+   "id": 20,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "What decides when to drop it?",
+   "tagged": "What decides when to drop it?",
+   "start": 71.48,
+   "end": 72.692,
+   "ratio": 0.87,
+   "margin": 9.9,
+   "startFrame": 4289,
+   "endFrame": 4362
+  },
+  {
+   "id": 21,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "It has only two clues.",
+   "tagged": "It has only two clues.",
+   "start": 73.875,
+   "end": 75.332,
+   "ratio": 1.42,
+   "margin": 9.9,
+   "startFrame": 4432,
+   "endFrame": 4520
+  },
+  {
+   "id": 22,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "How suddenly the belt is pulled.",
+   "tagged": "How suddenly the belt is pulled.",
+   "start": 76.137,
+   "end": 77.669,
+   "ratio": 0.97,
+   "margin": 9.9,
+   "startFrame": 4568,
+   "endFrame": 4660
+  },
+  {
+   "id": 23,
+   "block": 2,
+   "chapter": "The lock that can't tell",
+   "text": "And how hard the car is stopping.",
+   "tagged": "And how hard the car is stopping.",
+   "start": 78.397,
+   "end": 80.003,
+   "ratio": 1.02,
+   "margin": 9.9,
+   "startFrame": 4704,
+   "endFrame": 4800
+  },
+  {
+   "id": 24,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Start with the belt.",
+   "tagged": "Start with the belt.",
+   "start": 81.571,
+   "end": 82.533,
+   "ratio": 0.97,
+   "margin": 9.9,
+   "startFrame": 4894,
+   "endFrame": 4952
+  },
+  {
+   "id": 25,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Next to the reel sits a heavy disc.",
+   "tagged": "Next to the reel sits a heavy disc.",
+   "start": 83.428,
+   "end": 85.342,
+   "ratio": 1.14,
+   "margin": 9.9,
+   "startFrame": 5006,
+   "endFrame": 5121
+  },
+  {
+   "id": 26,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It isn't fixed to the reel.",
+   "tagged": "It isn't fixed to the reel.",
+   "start": 86.229,
+   "end": 87.395,
+   "ratio": 0.94,
+   "margin": 0.926,
+   "startFrame": 5174,
+   "endFrame": 5244
+  },
+  {
+   "id": 27,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It turns with it, loosely.",
+   "tagged": "It turns with it, loosely.",
+   "start": 88.09,
+   "end": 89.482,
+   "ratio": 0.93,
+   "margin": 0.498,
+   "startFrame": 5285,
+   "endFrame": 5369
+  },
+  {
+   "id": 28,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Pull the belt slowly, and the reel turns slowly, and the disc keeps up.",
+   "tagged": "Pull the belt slowly, and the reel turns slowly, and the disc keeps up.",
+   "start": 90.964,
+   "end": 94.801,
+   "ratio": 0.99,
+   "margin": 0.498,
+   "startFrame": 5458,
+   "endFrame": 5688
+  },
+  {
+   "id": 29,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Nothing happens.",
+   "tagged": "Nothing happens.",
+   "start": 95.677,
+   "end": 96.415,
+   "ratio": 0.85,
+   "margin": 0.669,
+   "startFrame": 5741,
+   "endFrame": 5785
+  },
+  {
+   "id": 30,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "But jerk the belt, and the reel spins up in an instant.",
+   "tagged": "But jerk the belt, and the reel spins up in an instant.",
+   "start": 97.33,
+   "end": 100.372,
+   "ratio": 1.09,
+   "margin": 0.669,
+   "startFrame": 5840,
+   "endFrame": 6022
+  },
+  {
+   "id": 31,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "And the disc?",
+   "tagged": "And the disc?",
+   "start": 101.322,
+   "end": 101.877,
+   "ratio": 0.89,
+   "margin": 2.21,
+   "startFrame": 6079,
+   "endFrame": 6113
+  },
+  {
+   "id": 32,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It's heavy.",
+   "tagged": "It's heavy.",
+   "start": 102.949,
+   "end": 103.441,
+   "ratio": 0.99,
+   "margin": 9.9,
+   "startFrame": 6177,
+   "endFrame": 6206
+  },
+  {
+   "id": 33,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It can't speed up that fast.",
+   "tagged": "It can't speed up that fast.",
+   "start": 104.223,
+   "end": 105.484,
+   "ratio": 0.97,
+   "margin": 1.107,
+   "startFrame": 6253,
+   "endFrame": 6329
+  },
+  {
+   "id": 34,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "So for a split second, it falls behind.",
+   "tagged": "So for a split second, it falls behind.",
+   "start": 106.367,
+   "end": 108.812,
+   "ratio": 1.12,
+   "margin": 0.446,
+   "startFrame": 6382,
+   "endFrame": 6529
+  },
+  {
+   "id": 35,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "That tiny lag is the whole trick.",
+   "tagged": "That tiny lag is the whole trick.",
+   "start": 110.191,
+   "end": 112.261,
+   "ratio": 1.18,
+   "margin": 0.261,
+   "startFrame": 6611,
+   "endFrame": 6736
+  },
+  {
+   "id": 36,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "The reel pulls ahead of the disc, and that gap pushes a small arm outward.",
+   "tagged": "The reel pulls ahead of the disc, and that gap pushes a small arm outward.",
+   "start": 113.184,
+   "end": 117.277,
+   "ratio": 1.06,
+   "margin": 0.261,
+   "startFrame": 6791,
+   "endFrame": 7037
+  },
+  {
+   "id": 37,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "The arm catches the teeth.",
+   "tagged": "The arm catches the teeth.",
+   "start": 118.126,
+   "end": 119.172,
+   "ratio": 0.8,
+   "margin": 1.494,
+   "startFrame": 7088,
+   "endFrame": 7150
+  },
+  {
+   "id": 38,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Clack.",
+   "tagged": "Clack.",
+   "start": 120.027,
+   "end": 120.368,
+   "ratio": 1.1,
+   "margin": 9.9,
+   "startFrame": 7202,
+   "endFrame": 7222
+  },
+  {
+   "id": 39,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "The reel stops.",
+   "tagged": "The reel stops.",
+   "start": 121.281,
+   "end": 122.101,
+   "ratio": 1.1,
+   "margin": 9.9,
+   "startFrame": 7277,
+   "endFrame": 7326
+  },
+  {
+   "id": 40,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "Does it lock when the reel spins too fast?",
+   "tagged": "Does it lock when the reel spins too fast?",
+   "start": 123.505,
+   "end": 125.488,
+   "ratio": 0.97,
+   "margin": 9.9,
+   "startFrame": 7410,
+   "endFrame": 7529
+  },
+  {
+   "id": 41,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "No.",
+   "tagged": "No.",
+   "start": 126.622,
+   "end": 126.958,
+   "ratio": 2.71,
+   "margin": 9.9,
+   "startFrame": 7597,
+   "endFrame": 7617
+  },
+  {
+   "id": 42,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It doesn't care how fast.",
+   "tagged": "It doesn't care how fast.",
+   "start": 127.694,
+   "end": 128.798,
+   "ratio": 0.94,
+   "margin": 9.9,
+   "startFrame": 7662,
+   "endFrame": 7728
+  },
+  {
+   "id": 43,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It cares how suddenly.",
+   "tagged": "It cares how suddenly.",
+   "start": 129.502,
+   "end": 130.589,
+   "ratio": 0.97,
+   "margin": 9.9,
+   "startFrame": 7770,
+   "endFrame": 7835
+  },
+  {
+   "id": 44,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "The belt doesn't measure your speed.",
+   "tagged": "The belt doesn't measure your speed.",
+   "start": 131.569,
+   "end": 133.081,
+   "ratio": 0.84,
+   "margin": 9.9,
+   "startFrame": 7894,
+   "endFrame": 7985
+  },
+  {
+   "id": 45,
+   "block": 3,
+   "chapter": "The disc that falls behind",
+   "text": "It just notices something heavy getting left behind.",
+   "tagged": "It just notices something heavy getting left behind.",
+   "start": 133.765,
+   "end": 136.194,
+   "ratio": 0.89,
+   "margin": 9.9,
+   "startFrame": 8026,
+   "endFrame": 8172
+  },
+  {
+   "id": 46,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "But now imagine a real crash.",
+   "tagged": "But now imagine a real crash.",
+   "start": 137.746,
+   "end": 140.054,
+   "ratio": 1.49,
+   "margin": 0.601,
+   "startFrame": 8265,
+   "endFrame": 8403
+  },
+  {
+   "id": 47,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "You are sitting still, belt on, hands on the wheel.",
+   "tagged": "You are sitting still, belt on, hands on the wheel.",
+   "start": 140.897,
+   "end": 143.803,
+   "ratio": 0.94,
+   "margin": 0.509,
+   "startFrame": 8454,
+   "endFrame": 8628
+  },
+  {
+   "id": 48,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "The car hits something.",
+   "tagged": "The car hits something.",
+   "start": 144.722,
+   "end": 145.687,
+   "ratio": 0.81,
+   "margin": 0.256,
+   "startFrame": 8683,
+   "endFrame": 8741
+  },
+  {
+   "id": 49,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "In that first instant, nobody has jerked the belt.",
+   "tagged": "In that first instant, nobody has jerked the belt.",
+   "start": 146.698,
+   "end": 149.294,
+   "ratio": 0.83,
+   "margin": 0.256,
+   "startFrame": 8802,
+   "endFrame": 8958
+  },
+  {
+   "id": 50,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "The reel hasn't moved at all.",
+   "tagged": "The reel hasn't moved at all.",
+   "start": 150.077,
+   "end": 151.422,
+   "ratio": 0.98,
+   "margin": 1.163,
+   "startFrame": 9005,
+   "endFrame": 9085
+  },
+  {
+   "id": 51,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "So what locks it?",
+   "tagged": "So what locks it?",
+   "start": 152.771,
+   "end": 153.501,
+   "ratio": 0.9,
+   "margin": 0.574,
+   "startFrame": 9166,
+   "endFrame": 9210
+  },
+  {
+   "id": 52,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "Below the reel, in one common design, sits a steel ball in a small cup shaped like a cone.",
+   "tagged": "Below the reel, in one common design, sits a steel ball in a small cup shaped like a cone.",
+   "start": 154.849,
+   "end": 160.11,
+   "ratio": 1.1,
+   "margin": 0.574,
+   "startFrame": 9291,
+   "endFrame": 9607
+  },
+  {
+   "id": 53,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "When the car brakes hard, the cup stops with the car.",
+   "tagged": "When the car brakes hard, the cup stops with the car.",
+   "start": 161.233,
+   "end": 163.926,
+   "ratio": 0.94,
+   "margin": 0.738,
+   "startFrame": 9674,
+   "endFrame": 9836
+  },
+  {
+   "id": 54,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "The ball doesn't.",
+   "tagged": "The ball doesn't.",
+   "start": 164.739,
+   "end": 165.479,
+   "ratio": 0.91,
+   "margin": 0.577,
+   "startFrame": 9884,
+   "endFrame": 9929
+  },
+  {
+   "id": 55,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "It keeps going, rolls up the wall of the cup, and lifts a small lever into the teeth.",
+   "tagged": "It keeps going, rolls up the wall of the cup, and lifts a small lever into the teeth.",
+   "start": 166.323,
+   "end": 170.784,
+   "ratio": 0.96,
+   "margin": 0.577,
+   "startFrame": 9979,
+   "endFrame": 10247
+  },
+  {
+   "id": 56,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "The belt is locked almost as soon as you start to move.",
+   "tagged": "The belt is locked almost as soon as you start to move.",
+   "start": 171.838,
+   "end": 174.287,
+   "ratio": 0.91,
+   "margin": 0.842,
+   "startFrame": 10310,
+   "endFrame": 10457
+  },
+  {
+   "id": 57,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "And it's fast.",
+   "tagged": "And it's fast.",
+   "start": 175.697,
+   "end": 176.632,
+   "ratio": 1.5,
+   "margin": 1.151,
+   "startFrame": 10542,
+   "endFrame": 10598
+  },
+  {
+   "id": 58,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "Under the American rule, in a hard stop, less than an inch of belt gets out before it locks.",
+   "tagged": "Under the American rule, in a hard stop, less than an inch of belt gets out before it locks.",
+   "start": 177.452,
+   "end": 182.467,
+   "ratio": 1.01,
+   "margin": 0.868,
+   "startFrame": 10647,
+   "endFrame": 10948
+  },
+  {
+   "id": 59,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "And if the car tips past forty-five degrees, it locks with no crash at all.",
+   "tagged": "And if the car tips past forty-five degrees, it locks with no crash at all.",
+   "start": 183.308,
+   "end": 187.445,
+   "ratio": 1.05,
+   "margin": 0.54,
+   "startFrame": 10998,
+   "endFrame": 11247
+  },
+  {
+   "id": 60,
+   "block": 4,
+   "chapter": "The ball that keeps going",
+   "text": "Gravity rolls the ball, and the belt holds you, even upside down.",
+   "tagged": "Gravity rolls the ball, and the belt holds you, even upside down.",
+   "start": 188.351,
+   "end": 191.93,
+   "ratio": 0.95,
+   "margin": 0.54,
+   "startFrame": 11301,
+   "endFrame": 11516
+  },
+  {
+   "id": 61,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "So the lock works.",
+   "tagged": "So the lock works.",
+   "start": 193.482,
+   "end": 194.856,
+   "ratio": 1.48,
+   "margin": 9.9,
+   "startFrame": 11609,
+   "endFrame": 11691
+  },
+  {
+   "id": 62,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "And that is the new problem.",
+   "tagged": "And that is the new problem.",
+   "start": 195.695,
+   "end": 197.251,
+   "ratio": 1.07,
+   "margin": 1.789,
+   "startFrame": 11742,
+   "endFrame": 11835
+  },
+  {
+   "id": 63,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "Once the belt locks, your body is still rushing forward, and all of that lands on one strap across your chest.",
+   "tagged": "Once the belt locks, your body is still rushing forward, and all of that lands on one strap across your chest.",
+   "start": 198.677,
+   "end": 204.702,
+   "ratio": 0.97,
+   "margin": 1.122,
+   "startFrame": 11921,
+   "endFrame": 12282
+  },
+  {
+   "id": 64,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "The front of the car crumples to soften the stop.",
+   "tagged": "The front of the car crumples to soften the stop.",
+   "start": 205.691,
+   "end": 208.057,
+   "ratio": 0.92,
+   "margin": 0.235,
+   "startFrame": 12341,
+   "endFrame": 12483
+  },
+  {
+   "id": 65,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "The belt barely gives.",
+   "tagged": "The belt barely gives.",
+   "start": 208.905,
+   "end": 210.274,
+   "ratio": 0.98,
+   "margin": 0.235,
+   "startFrame": 12534,
+   "endFrame": 12616
+  },
+  {
+   "id": 66,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "It's built to hold.",
+   "tagged": "It's built to hold.",
+   "start": 210.937,
+   "end": 211.865,
+   "ratio": 1.0,
+   "margin": 1.167,
+   "startFrame": 12656,
+   "endFrame": 12712
+  },
+  {
+   "id": 67,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "And chests can break.",
+   "tagged": "And chests can break.",
+   "start": 213.211,
+   "end": 214.617,
+   "ratio": 1.25,
+   "margin": 0.701,
+   "startFrame": 12793,
+   "endFrame": 12877
+  },
+  {
+   "id": 68,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "In bad crashes, older people were often badly hurt by the belt itself.",
+   "tagged": "In bad crashes, older people were often badly hurt by the belt itself.",
+   "start": 215.61,
+   "end": 219.577,
+   "ratio": 0.98,
+   "margin": 0.701,
+   "startFrame": 12937,
+   "endFrame": 13175
+  },
+  {
+   "id": 69,
+   "block": 5,
+   "chapter": "A lock that is too good",
+   "text": "The belt that saved them was also hurting them.",
+   "tagged": "The belt that saved them was also hurting them.",
+   "start": 220.611,
+   "end": 222.974,
+   "ratio": 0.88,
+   "margin": 0.788,
+   "startFrame": 13237,
+   "endFrame": 13378
+  },
+  {
+   "id": 70,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "Engineers did two things.",
+   "tagged": "Engineers did two things.",
+   "start": 224.552,
+   "end": 226.062,
+   "ratio": 1.08,
+   "margin": 0.176,
+   "startFrame": 13473,
+   "endFrame": 13564
+  },
+  {
+   "id": 71,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "And the first?",
+   "tagged": "And the first?",
+   "start": 226.873,
+   "end": 227.428,
+   "ratio": 0.85,
+   "margin": 0.176,
+   "startFrame": 13612,
+   "endFrame": 13646
+  },
+  {
+   "id": 72,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "Remember the chip you guessed at the start?",
+   "tagged": "Remember the chip you guessed at the start?",
+   "start": 228.592,
+   "end": 230.12,
+   "ratio": 0.73,
+   "margin": 9.9,
+   "startFrame": 13716,
+   "endFrame": 13807
+  },
+  {
+   "id": 73,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "It's real.",
+   "tagged": "It's real.",
+   "start": 231.213,
+   "end": 231.745,
+   "ratio": 1.28,
+   "margin": 9.9,
+   "startFrame": 13873,
+   "endFrame": 13905
+  },
+  {
+   "id": 74,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "It just has a different job.",
+   "tagged": "It just has a different job.",
+   "start": 232.449,
+   "end": 233.583,
+   "ratio": 0.87,
+   "margin": 0.529,
+   "startFrame": 13947,
+   "endFrame": 14015
+  },
+  {
+   "id": 75,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "At the very start of a crash, the sensors that fire the airbag also fire a charge in the belt, usually a tiny explosive.",
+   "tagged": "At the very start of a crash, the sensors that fire the airbag also fire a charge in the belt, usually a tiny explosive.",
+   "start": 234.875,
+   "end": 241.863,
+   "ratio": 1.12,
+   "margin": 0.345,
+   "startFrame": 14092,
+   "endFrame": 14512
+  },
+  {
+   "id": 76,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "It snaps the belt tight and pulls out the slack.",
+   "tagged": "It snaps the belt tight and pulls out the slack.",
+   "start": 242.833,
+   "end": 245.161,
+   "ratio": 1.03,
+   "margin": 0.345,
+   "startFrame": 14570,
+   "endFrame": 14710
+  },
+  {
+   "id": 77,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "Now your body starts slowing down with the car, sooner and more gently, instead of being caught late and hard.",
+   "tagged": "Now your body starts slowing down with the car, sooner and more gently, instead of being caught late and hard.",
+   "start": 246.089,
+   "end": 252.232,
+   "ratio": 1.04,
+   "margin": 0.893,
+   "startFrame": 14765,
+   "endFrame": 15134
+  },
+  {
+   "id": 78,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "And the second fix?",
+   "tagged": "And the second fix?",
+   "start": 253.608,
+   "end": 254.476,
+   "ratio": 0.97,
+   "margin": 1.238,
+   "startFrame": 15216,
+   "endFrame": 15269
+  },
+  {
+   "id": 79,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "It sounds wrong.",
+   "tagged": "It sounds wrong.",
+   "start": 255.563,
+   "end": 256.294,
+   "ratio": 0.94,
+   "margin": 9.9,
+   "startFrame": 15334,
+   "endFrame": 15378
+  },
+  {
+   "id": 80,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "Inside the reel sits a steel bar that is built to twist.",
+   "tagged": "Inside the reel sits a steel bar that is built to twist.",
+   "start": 257.223,
+   "end": 260.245,
+   "ratio": 1.15,
+   "margin": 0.535,
+   "startFrame": 15433,
+   "endFrame": 15615
+  },
+  {
+   "id": 81,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "In a small crash, the bar holds, and the belt stays locked.",
+   "tagged": "In a small crash, the bar holds, and the belt stays locked.",
+   "start": 261.59,
+   "end": 264.808,
+   "ratio": 1.08,
+   "margin": 0.358,
+   "startFrame": 15695,
+   "endFrame": 15888
+  },
+  {
+   "id": 82,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "But when the pull on your chest reaches a set limit, the bar starts to twist.",
+   "tagged": "But when the pull on your chest reaches a set limit, the bar starts to twist.",
+   "start": 265.705,
+   "end": 269.549,
+   "ratio": 0.98,
+   "margin": 0.358,
+   "startFrame": 15942,
+   "endFrame": 16173
+  },
+  {
+   "id": 83,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "Now the reel can turn a little, even while it's locked.",
+   "tagged": "Now the reel can turn a little, even while it's locked.",
+   "start": 270.465,
+   "end": 273.233,
+   "ratio": 1.01,
+   "margin": 0.313,
+   "startFrame": 16228,
+   "endFrame": 16394
+  },
+  {
+   "id": 84,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "The belt lets out, a little at a time, and the force on you stops climbing.",
+   "tagged": "The belt lets out, a little at a time, and the force on you stops climbing.",
+   "start": 274.125,
+   "end": 278.063,
+   "ratio": 0.91,
+   "margin": 0.313,
+   "startFrame": 16448,
+   "endFrame": 16684
+  },
+  {
+   "id": 85,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "It's called a load limiter.",
+   "tagged": "It's called a load limiter.",
+   "start": 278.949,
+   "end": 280.342,
+   "ratio": 1.11,
+   "margin": 0.551,
+   "startFrame": 16737,
+   "endFrame": 16821
+  },
+  {
+   "id": 86,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "One carmaker, Renault, set its belts to let go sooner, at four kilo-newtons.",
+   "tagged": "One carmaker, Renault, set its belts to let go sooner, at four kilo-newtons.",
+   "start": 281.736,
+   "end": 286.47,
+   "ratio": 0.99,
+   "margin": 0.144,
+   "startFrame": 16904,
+   "endFrame": 17188
+  },
+  {
+   "id": 87,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "That's about the weight of five adults on one strap.",
+   "tagged": "That's about the weight of five adults on one strap.",
+   "start": 287.33,
+   "end": 289.764,
+   "ratio": 0.91,
+   "margin": 0.144,
+   "startFrame": 17240,
+   "endFrame": 17386
+  },
+  {
+   "id": 88,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "And it added an airbag to catch you.",
+   "tagged": "And it added an airbag to catch you.",
+   "start": 290.63,
+   "end": 292.336,
+   "ratio": 1.02,
+   "margin": 0.318,
+   "startFrame": 17438,
+   "endFrame": 17540
+  },
+  {
+   "id": 89,
+   "block": 6,
+   "chapter": "Two fixes",
+   "text": "With the two together, those cars had about three quarters fewer serious chest injuries than cars with a stiffer limiter, or none.",
+   "tagged": "With the two together, those cars had about three quarters fewer serious chest injuries than cars with a stiffer limiter, or none.",
+   "start": 293.294,
+   "end": 300.318,
+   "ratio": 0.93,
+   "margin": 0.318,
+   "startFrame": 17598,
+   "endFrame": 18019
+  },
+  {
+   "id": 90,
+   "block": 7,
+   "chapter": "The price",
+   "text": "But what does letting go cost you?",
+   "tagged": "But what does letting go cost you?",
+   "start": 301.935,
+   "end": 303.801,
+   "ratio": 1.1,
+   "margin": 1.105,
+   "startFrame": 18116,
+   "endFrame": 18228
+  },
+  {
+   "id": 91,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Every bit of belt it lets out, you travel further forward.",
+   "tagged": "Every bit of belt it lets out, you travel further forward.",
+   "start": 305.044,
+   "end": 308.226,
+   "ratio": 0.94,
+   "margin": 0.358,
+   "startFrame": 18303,
+   "endFrame": 18494
+  },
+  {
+   "id": 92,
+   "block": 7,
+   "chapter": "The price",
+   "text": "That's why the softer limit came with an airbag.",
+   "tagged": "That's why the softer limit came with an airbag.",
+   "start": 309.144,
+   "end": 311.345,
+   "ratio": 0.93,
+   "margin": 0.358,
+   "startFrame": 18549,
+   "endFrame": 18681
+  },
+  {
+   "id": 93,
+   "block": 7,
+   "chapter": "The price",
+   "text": "And engineers worry about tall or heavy passengers, who might let out too much belt and reach the inside of the car.",
+   "tagged": "And engineers worry about tall or heavy passengers, who might let out too much belt and reach the inside of the car.",
+   "start": 312.172,
+   "end": 318.404,
+   "ratio": 0.99,
+   "margin": 0.987,
+   "startFrame": 18730,
+   "endFrame": 19104
+  },
+  {
+   "id": 94,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Where do you set the limit, then?",
+   "tagged": "Where do you set the limit, then?",
+   "start": 319.823,
+   "end": 320.971,
+   "ratio": 0.73,
+   "margin": 0.252,
+   "startFrame": 19189,
+   "endFrame": 19258
+  },
+  {
+   "id": 95,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Too high, and the belt hurts the chest it holds.",
+   "tagged": "Too high, and the belt hurts the chest it holds.",
+   "start": 322.2,
+   "end": 324.72,
+   "ratio": 1.0,
+   "margin": 0.252,
+   "startFrame": 19332,
+   "endFrame": 19483
+  },
+  {
+   "id": 96,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Too low, and it lets you go too far.",
+   "tagged": "Too low, and it lets you go too far.",
+   "start": 325.577,
+   "end": 327.615,
+   "ratio": 1.12,
+   "margin": 0.377,
+   "startFrame": 19535,
+   "endFrame": 19657
+  },
+  {
+   "id": 97,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Every limit is a choice between the two.",
+   "tagged": "Every limit is a choice between the two.",
+   "start": 328.595,
+   "end": 330.514,
+   "ratio": 0.96,
+   "margin": 1.082,
+   "startFrame": 19716,
+   "endFrame": 19831
+  },
+  {
+   "id": 98,
+   "block": 7,
+   "chapter": "The price",
+   "text": "So in a hard crash, your belt makes three moves in a blink.",
+   "tagged": "So in a hard crash, your belt makes three moves in a blink.",
+   "start": 331.927,
+   "end": 335.219,
+   "ratio": 1.17,
+   "margin": 9.9,
+   "startFrame": 19916,
+   "endFrame": 20113
+  },
+  {
+   "id": 99,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Pull tight.",
+   "tagged": "Pull tight.",
+   "start": 336.13,
+   "end": 336.674,
+   "ratio": 0.97,
+   "margin": 9.9,
+   "startFrame": 20168,
+   "endFrame": 20200
+  },
+  {
+   "id": 100,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Lock.",
+   "tagged": "Lock.",
+   "start": 337.51,
+   "end": 337.911,
+   "ratio": 1.6,
+   "margin": 1.342,
+   "startFrame": 20251,
+   "endFrame": 20275
+  },
+  {
+   "id": 101,
+   "block": 7,
+   "chapter": "The price",
+   "text": "Then let go, just enough.",
+   "tagged": "Then let go, just enough.",
+   "start": 338.691,
+   "end": 340.24,
+   "ratio": 0.96,
+   "margin": 1.342,
+   "startFrame": 20321,
+   "endFrame": 20414
+  },
+  {
+   "id": 102,
+   "block": 8,
+   "chapter": "One last mystery",
+   "text": "Ever pulled your belt all the way out, and then it would only go back in?",
+   "tagged": "Ever pulled your belt all the way out, and then it would only go back in?",
+   "start": 341.827,
+   "end": 345.235,
+   "ratio": 0.93,
+   "margin": 1.384,
+   "startFrame": 20510,
+   "endFrame": 20714
+  },
+  {
+   "id": 103,
+   "block": 8,
+   "chapter": "One last mystery",
+   "text": "It's not broken.",
+   "tagged": "It's not broken.",
+   "start": 346.439,
+   "end": 347.21,
+   "ratio": 1.07,
+   "margin": 1.384,
+   "startFrame": 20786,
+   "endFrame": 20833
+  },
+  {
+   "id": 104,
+   "block": 8,
+   "chapter": "One last mystery",
+   "text": "Many belts have a child-seat mode.",
+   "tagged": "Many belts have a child-seat mode.",
+   "start": 348.138,
+   "end": 349.87,
+   "ratio": 1.07,
+   "margin": 0.517,
+   "startFrame": 20888,
+   "endFrame": 20992
+  },
+  {
+   "id": 105,
+   "block": 8,
+   "chapter": "One last mystery",
+   "text": "Pull out every bit of belt, let it wind back a little, and now it can only wind in, so a child seat stays tight.",
+   "tagged": "Pull out every bit of belt, let it wind back a little, and now it can only wind in, so a child seat stays tight.",
+   "start": 350.808,
+   "end": 357.411,
+   "ratio": 1.07,
+   "margin": 0.393,
+   "startFrame": 21048,
+   "endFrame": 21445
+  },
+  {
+   "id": 106,
+   "block": 8,
+   "chapter": "One last mystery",
+   "text": "Let it wind all the way back, and it's normal again.",
+   "tagged": "Let it wind all the way back, and it's normal again.",
+   "start": 358.36,
+   "end": 360.681,
+   "ratio": 0.88,
+   "margin": 0.393,
+   "startFrame": 21502,
+   "endFrame": 21641
+  },
+  {
+   "id": 107,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "Want to feel it yourself?",
+   "tagged": "Want to feel it yourself?",
+   "start": 362.278,
+   "end": 363.266,
+   "ratio": 0.79,
+   "margin": 0.725,
+   "startFrame": 21737,
+   "endFrame": 21796
+  },
+  {
+   "id": 108,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "Next time you put your belt on, pull it slowly, and feel it let you go.",
+   "tagged": "Next time you put your belt on, pull it slowly, and feel it let you go.",
+   "start": 364.604,
+   "end": 368.58,
+   "ratio": 0.96,
+   "margin": 0.293,
+   "startFrame": 21876,
+   "endFrame": 22115
+  },
+  {
+   "id": 109,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "Then give it one sharp tug, and feel it stop.",
+   "tagged": "Then give it one sharp tug, and feel it stop.",
+   "start": 369.609,
+   "end": 372.469,
+   "ratio": 1.06,
+   "margin": 0.293,
+   "startFrame": 22177,
+   "endFrame": 22348
+  },
+  {
+   "id": 110,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "A disc that got left behind just made that decision.",
+   "tagged": "A disc that got left behind just made that decision.",
+   "start": 373.873,
+   "end": 376.653,
+   "ratio": 0.98,
+   "margin": 0.146,
+   "startFrame": 22432,
+   "endFrame": 22599
+  },
+  {
+   "id": 111,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "And behind it, a steel bar waits for the day the right answer is to hold you, and then let you go.",
+   "tagged": "And behind it, a steel bar waits for the day the right answer is to hold you, and then let you go.",
+   "start": 377.603,
+   "end": 383.514,
+   "ratio": 1.02,
+   "margin": 0.146,
+   "startFrame": 22656,
+   "endFrame": 23011
+  },
+  {
+   "id": 112,
+   "block": 9,
+   "chapter": "The landing",
+   "text": "Next: the plane wing that is built to bend.",
+   "tagged": "Next: the plane wing that is built to bend.",
+   "start": 385.219,
+   "end": 387.941,
+   "ratio": 1.12,
+   "margin": 0.323,
+   "startFrame": 23113,
+   "endFrame": 23276
+  }
+ ],
+ "words": [
+  {
+   "s": 0,
+   "w": "Your",
+   "start": 0.0,
+   "end": 0.216,
+   "startFrame": 0,
+   "endFrame": 13
+  },
+  {
+   "s": 0,
+   "w": "seatbelt",
+   "start": 0.216,
+   "end": 0.589,
+   "startFrame": 13,
+   "endFrame": 35
+  },
+  {
+   "s": 0,
+   "w": "can",
+   "start": 0.589,
+   "end": 0.766,
+   "startFrame": 35,
+   "endFrame": 46
+  },
+  {
+   "s": 0,
+   "w": "tell",
+   "start": 0.766,
+   "end": 0.982,
+   "startFrame": 46,
+   "endFrame": 59
+  },
+  {
+   "s": 0,
+   "w": "the",
+   "start": 0.982,
+   "end": 1.159,
+   "startFrame": 59,
+   "endFrame": 70
+  },
+  {
+   "s": 0,
+   "w": "difference",
+   "start": 1.159,
+   "end": 1.611,
+   "startFrame": 70,
+   "endFrame": 97
+  },
+  {
+   "s": 0,
+   "w": "between",
+   "start": 1.611,
+   "end": 1.945,
+   "startFrame": 97,
+   "endFrame": 117
+  },
+  {
+   "s": 0,
+   "w": "you",
+   "start": 1.945,
+   "end": 2.121,
+   "startFrame": 117,
+   "endFrame": 127
+  },
+  {
+   "s": 0,
+   "w": "reaching",
+   "start": 2.121,
+   "end": 2.495,
+   "startFrame": 127,
+   "endFrame": 150
+  },
+  {
+   "s": 0,
+   "w": "for",
+   "start": 2.495,
+   "end": 2.671,
+   "startFrame": 150,
+   "endFrame": 160
+  },
+  {
+   "s": 0,
+   "w": "your",
+   "start": 2.671,
+   "end": 2.887,
+   "startFrame": 160,
+   "endFrame": 173
+  },
+  {
+   "s": 0,
+   "w": "phone",
+   "start": 2.887,
+   "end": 3.143,
+   "startFrame": 173,
+   "endFrame": 189
+  },
+  {
+   "s": 0,
+   "w": "and",
+   "start": 3.143,
+   "end": 3.319,
+   "startFrame": 189,
+   "endFrame": 199
+  },
+  {
+   "s": 0,
+   "w": "you",
+   "start": 3.319,
+   "end": 3.496,
+   "startFrame": 199,
+   "endFrame": 210
+  },
+  {
+   "s": 0,
+   "w": "crashing.",
+   "start": 3.496,
+   "end": 3.948,
+   "startFrame": 210,
+   "endFrame": 237
+  },
+  {
+   "s": 1,
+   "w": "So",
+   "start": 4.898,
+   "end": 5.086,
+   "startFrame": 294,
+   "endFrame": 305
+  },
+  {
+   "s": 1,
+   "w": "where",
+   "start": 5.086,
+   "end": 5.436,
+   "startFrame": 305,
+   "endFrame": 326
+  },
+  {
+   "s": 1,
+   "w": "is",
+   "start": 5.436,
+   "end": 5.624,
+   "startFrame": 326,
+   "endFrame": 337
+  },
+  {
+   "s": 1,
+   "w": "the",
+   "start": 5.624,
+   "end": 5.866,
+   "startFrame": 337,
+   "endFrame": 352
+  },
+  {
+   "s": 1,
+   "w": "chip",
+   "start": 5.866,
+   "end": 6.162,
+   "startFrame": 352,
+   "endFrame": 370
+  },
+  {
+   "s": 1,
+   "w": "that",
+   "start": 6.162,
+   "end": 6.458,
+   "startFrame": 370,
+   "endFrame": 387
+  },
+  {
+   "s": 1,
+   "w": "decides?",
+   "start": 6.458,
+   "end": 6.915,
+   "startFrame": 387,
+   "endFrame": 415
+  },
+  {
+   "s": 2,
+   "w": "You",
+   "start": 8.204,
+   "end": 8.399,
+   "startFrame": 492,
+   "endFrame": 504
+  },
+  {
+   "s": 2,
+   "w": "would",
+   "start": 8.399,
+   "end": 8.68,
+   "startFrame": 504,
+   "endFrame": 521
+  },
+  {
+   "s": 2,
+   "w": "probably",
+   "start": 8.68,
+   "end": 9.092,
+   "startFrame": 521,
+   "endFrame": 546
+  },
+  {
+   "s": 2,
+   "w": "guess",
+   "start": 9.092,
+   "end": 9.373,
+   "startFrame": 546,
+   "endFrame": 562
+  },
+  {
+   "s": 2,
+   "w": "a",
+   "start": 9.373,
+   "end": 9.481,
+   "startFrame": 562,
+   "endFrame": 569
+  },
+  {
+   "s": 2,
+   "w": "crash",
+   "start": 9.481,
+   "end": 9.763,
+   "startFrame": 569,
+   "endFrame": 586
+  },
+  {
+   "s": 2,
+   "w": "sensor,",
+   "start": 9.763,
+   "end": 10.087,
+   "startFrame": 586,
+   "endFrame": 605
+  },
+  {
+   "s": 2,
+   "w": "wired",
+   "start": 10.375,
+   "end": 10.649,
+   "startFrame": 622,
+   "endFrame": 639
+  },
+  {
+   "s": 2,
+   "w": "to",
+   "start": 10.649,
+   "end": 10.796,
+   "startFrame": 639,
+   "endFrame": 648
+  },
+  {
+   "s": 2,
+   "w": "the",
+   "start": 10.796,
+   "end": 10.985,
+   "startFrame": 648,
+   "endFrame": 659
+  },
+  {
+   "s": 2,
+   "w": "car's",
+   "start": 10.985,
+   "end": 11.258,
+   "startFrame": 659,
+   "endFrame": 675
+  },
+  {
+   "s": 2,
+   "w": "computer,",
+   "start": 11.258,
+   "end": 11.658,
+   "startFrame": 675,
+   "endFrame": 699
+  },
+  {
+   "s": 2,
+   "w": "like",
+   "start": 11.841,
+   "end": 12.024,
+   "startFrame": 710,
+   "endFrame": 721
+  },
+  {
+   "s": 2,
+   "w": "the",
+   "start": 12.024,
+   "end": 12.174,
+   "startFrame": 721,
+   "endFrame": 730
+  },
+  {
+   "s": 2,
+   "w": "one",
+   "start": 12.174,
+   "end": 12.324,
+   "startFrame": 730,
+   "endFrame": 739
+  },
+  {
+   "s": 2,
+   "w": "that",
+   "start": 12.324,
+   "end": 12.507,
+   "startFrame": 739,
+   "endFrame": 750
+  },
+  {
+   "s": 2,
+   "w": "fires",
+   "start": 12.507,
+   "end": 12.724,
+   "startFrame": 750,
+   "endFrame": 763
+  },
+  {
+   "s": 2,
+   "w": "the",
+   "start": 12.724,
+   "end": 12.874,
+   "startFrame": 763,
+   "endFrame": 772
+  },
+  {
+   "s": 2,
+   "w": "airbag.",
+   "start": 12.874,
+   "end": 13.19,
+   "startFrame": 772,
+   "endFrame": 791
+  },
+  {
+   "s": 3,
+   "w": "But",
+   "start": 14.083,
+   "end": 14.268,
+   "startFrame": 845,
+   "endFrame": 856
+  },
+  {
+   "s": 3,
+   "w": "the",
+   "start": 14.268,
+   "end": 14.452,
+   "startFrame": 856,
+   "endFrame": 867
+  },
+  {
+   "s": 3,
+   "w": "lock",
+   "start": 14.452,
+   "end": 14.678,
+   "startFrame": 867,
+   "endFrame": 881
+  },
+  {
+   "s": 3,
+   "w": "inside",
+   "start": 14.678,
+   "end": 14.986,
+   "startFrame": 881,
+   "endFrame": 899
+  },
+  {
+   "s": 3,
+   "w": "a",
+   "start": 14.986,
+   "end": 15.088,
+   "startFrame": 899,
+   "endFrame": 905
+  },
+  {
+   "s": 3,
+   "w": "seatbelt",
+   "start": 15.088,
+   "end": 15.478,
+   "startFrame": 905,
+   "endFrame": 929
+  },
+  {
+   "s": 3,
+   "w": "doesn't",
+   "start": 15.478,
+   "end": 15.827,
+   "startFrame": 929,
+   "endFrame": 950
+  },
+  {
+   "s": 3,
+   "w": "need",
+   "start": 15.827,
+   "end": 16.052,
+   "startFrame": 950,
+   "endFrame": 963
+  },
+  {
+   "s": 3,
+   "w": "one.",
+   "start": 16.052,
+   "end": 16.319,
+   "startFrame": 963,
+   "endFrame": 979
+  },
+  {
+   "s": 4,
+   "w": "Pull",
+   "start": 17.146,
+   "end": 17.389,
+   "startFrame": 1029,
+   "endFrame": 1043
+  },
+  {
+   "s": 4,
+   "w": "the",
+   "start": 17.389,
+   "end": 17.588,
+   "startFrame": 1043,
+   "endFrame": 1055
+  },
+  {
+   "s": 4,
+   "w": "belt",
+   "start": 17.588,
+   "end": 17.831,
+   "startFrame": 1055,
+   "endFrame": 1070
+  },
+  {
+   "s": 4,
+   "w": "slowly,",
+   "start": 17.831,
+   "end": 18.162,
+   "startFrame": 1070,
+   "endFrame": 1090
+  },
+  {
+   "s": 4,
+   "w": "and",
+   "start": 18.363,
+   "end": 18.523,
+   "startFrame": 1102,
+   "endFrame": 1111
+  },
+  {
+   "s": 4,
+   "w": "it",
+   "start": 18.523,
+   "end": 18.648,
+   "startFrame": 1111,
+   "endFrame": 1119
+  },
+  {
+   "s": 4,
+   "w": "lets",
+   "start": 18.648,
+   "end": 18.845,
+   "startFrame": 1119,
+   "endFrame": 1131
+  },
+  {
+   "s": 4,
+   "w": "you",
+   "start": 18.845,
+   "end": 19.006,
+   "startFrame": 1131,
+   "endFrame": 1140
+  },
+  {
+   "s": 4,
+   "w": "lean",
+   "start": 19.006,
+   "end": 19.202,
+   "startFrame": 1140,
+   "endFrame": 1152
+  },
+  {
+   "s": 4,
+   "w": "forward.",
+   "start": 19.202,
+   "end": 19.577,
+   "startFrame": 1152,
+   "endFrame": 1175
+  },
+  {
+   "s": 5,
+   "w": "Jerk",
+   "start": 20.361,
+   "end": 20.591,
+   "startFrame": 1222,
+   "endFrame": 1235
+  },
+  {
+   "s": 5,
+   "w": "it,",
+   "start": 20.591,
+   "end": 20.737,
+   "startFrame": 1235,
+   "endFrame": 1244
+  },
+  {
+   "s": 5,
+   "w": "and",
+   "start": 21.035,
+   "end": 21.234,
+   "startFrame": 1262,
+   "endFrame": 1274
+  },
+  {
+   "s": 5,
+   "w": "it",
+   "start": 21.234,
+   "end": 21.388,
+   "startFrame": 1274,
+   "endFrame": 1283
+  },
+  {
+   "s": 5,
+   "w": "stops",
+   "start": 21.388,
+   "end": 21.674,
+   "startFrame": 1283,
+   "endFrame": 1300
+  },
+  {
+   "s": 5,
+   "w": "dead.",
+   "start": 21.674,
+   "end": 22.005,
+   "startFrame": 1300,
+   "endFrame": 1320
+  },
+  {
+   "s": 6,
+   "w": "And",
+   "start": 23.28,
+   "end": 23.49,
+   "startFrame": 1397,
+   "endFrame": 1409
+  },
+  {
+   "s": 6,
+   "w": "it",
+   "start": 23.49,
+   "end": 23.653,
+   "startFrame": 1409,
+   "endFrame": 1419
+  },
+  {
+   "s": 6,
+   "w": "has",
+   "start": 23.653,
+   "end": 23.863,
+   "startFrame": 1419,
+   "endFrame": 1432
+  },
+  {
+   "s": 6,
+   "w": "to",
+   "start": 23.863,
+   "end": 24.026,
+   "startFrame": 1432,
+   "endFrame": 1442
+  },
+  {
+   "s": 6,
+   "w": "be",
+   "start": 24.026,
+   "end": 24.189,
+   "startFrame": 1442,
+   "endFrame": 1451
+  },
+  {
+   "s": 6,
+   "w": "right",
+   "start": 24.189,
+   "end": 24.492,
+   "startFrame": 1451,
+   "endFrame": 1470
+  },
+  {
+   "s": 6,
+   "w": "every",
+   "start": 24.492,
+   "end": 24.795,
+   "startFrame": 1470,
+   "endFrame": 1488
+  },
+  {
+   "s": 6,
+   "w": "time.",
+   "start": 24.795,
+   "end": 25.145,
+   "startFrame": 1488,
+   "endFrame": 1509
+  },
+  {
+   "s": 7,
+   "w": "Lock",
+   "start": 25.941,
+   "end": 26.257,
+   "startFrame": 1556,
+   "endFrame": 1575
+  },
+  {
+   "s": 7,
+   "w": "on",
+   "start": 26.257,
+   "end": 26.458,
+   "startFrame": 1575,
+   "endFrame": 1587
+  },
+  {
+   "s": 7,
+   "w": "every",
+   "start": 26.458,
+   "end": 26.832,
+   "startFrame": 1587,
+   "endFrame": 1610
+  },
+  {
+   "s": 7,
+   "w": "tug,",
+   "start": 26.832,
+   "end": 27.09,
+   "startFrame": 1610,
+   "endFrame": 1625
+  },
+  {
+   "s": 7,
+   "w": "and",
+   "start": 27.305,
+   "end": 27.47,
+   "startFrame": 1638,
+   "endFrame": 1648
+  },
+  {
+   "s": 7,
+   "w": "you",
+   "start": 27.47,
+   "end": 27.634,
+   "startFrame": 1648,
+   "endFrame": 1658
+  },
+  {
+   "s": 7,
+   "w": "would",
+   "start": 27.634,
+   "end": 27.873,
+   "startFrame": 1658,
+   "endFrame": 1672
+  },
+  {
+   "s": 7,
+   "w": "fight",
+   "start": 27.873,
+   "end": 28.111,
+   "startFrame": 1672,
+   "endFrame": 1687
+  },
+  {
+   "s": 7,
+   "w": "your",
+   "start": 28.111,
+   "end": 28.312,
+   "startFrame": 1687,
+   "endFrame": 1699
+  },
+  {
+   "s": 7,
+   "w": "belt",
+   "start": 28.312,
+   "end": 28.514,
+   "startFrame": 1699,
+   "endFrame": 1711
+  },
+  {
+   "s": 7,
+   "w": "all",
+   "start": 28.514,
+   "end": 28.679,
+   "startFrame": 1711,
+   "endFrame": 1721
+  },
+  {
+   "s": 7,
+   "w": "day.",
+   "start": 28.679,
+   "end": 28.917,
+   "startFrame": 1721,
+   "endFrame": 1735
+  },
+  {
+   "s": 8,
+   "w": "Lock",
+   "start": 29.752,
+   "end": 29.999,
+   "startFrame": 1785,
+   "endFrame": 1800
+  },
+  {
+   "s": 8,
+   "w": "a",
+   "start": 29.999,
+   "end": 30.111,
+   "startFrame": 1800,
+   "endFrame": 1807
+  },
+  {
+   "s": 8,
+   "w": "moment",
+   "start": 30.111,
+   "end": 30.448,
+   "startFrame": 1807,
+   "endFrame": 1827
+  },
+  {
+   "s": 8,
+   "w": "too",
+   "start": 30.448,
+   "end": 30.65,
+   "startFrame": 1827,
+   "endFrame": 1839
+  },
+  {
+   "s": 8,
+   "w": "late,",
+   "start": 30.65,
+   "end": 30.897,
+   "startFrame": 1839,
+   "endFrame": 1854
+  },
+  {
+   "s": 8,
+   "w": "and",
+   "start": 31.123,
+   "end": 31.349,
+   "startFrame": 1867,
+   "endFrame": 1881
+  },
+  {
+   "s": 8,
+   "w": "in",
+   "start": 31.349,
+   "end": 31.525,
+   "startFrame": 1881,
+   "endFrame": 1892
+  },
+  {
+   "s": 8,
+   "w": "a",
+   "start": 31.525,
+   "end": 31.65,
+   "startFrame": 1892,
+   "endFrame": 1899
+  },
+  {
+   "s": 8,
+   "w": "crash",
+   "start": 31.65,
+   "end": 31.977,
+   "startFrame": 1899,
+   "endFrame": 1919
+  },
+  {
+   "s": 8,
+   "w": "it's",
+   "start": 31.977,
+   "end": 32.253,
+   "startFrame": 1919,
+   "endFrame": 1935
+  },
+  {
+   "s": 8,
+   "w": "just",
+   "start": 32.253,
+   "end": 32.529,
+   "startFrame": 1935,
+   "endFrame": 1952
+  },
+  {
+   "s": 8,
+   "w": "a",
+   "start": 32.529,
+   "end": 32.654,
+   "startFrame": 1952,
+   "endFrame": 1959
+  },
+  {
+   "s": 8,
+   "w": "strap.",
+   "start": 32.654,
+   "end": 33.081,
+   "startFrame": 1959,
+   "endFrame": 1985
+  },
+  {
+   "s": 9,
+   "w": "So",
+   "start": 34.344,
+   "end": 34.52,
+   "startFrame": 2061,
+   "endFrame": 2071
+  },
+  {
+   "s": 9,
+   "w": "how",
+   "start": 34.52,
+   "end": 34.747,
+   "startFrame": 2071,
+   "endFrame": 2085
+  },
+  {
+   "s": 9,
+   "w": "does",
+   "start": 34.747,
+   "end": 35.024,
+   "startFrame": 2085,
+   "endFrame": 2101
+  },
+  {
+   "s": 9,
+   "w": "a",
+   "start": 35.024,
+   "end": 35.149,
+   "startFrame": 2101,
+   "endFrame": 2109
+  },
+  {
+   "s": 9,
+   "w": "seatbelt",
+   "start": 35.149,
+   "end": 35.628,
+   "startFrame": 2109,
+   "endFrame": 2138
+  },
+  {
+   "s": 9,
+   "w": "know",
+   "start": 35.628,
+   "end": 35.904,
+   "startFrame": 2138,
+   "endFrame": 2154
+  },
+  {
+   "s": 9,
+   "w": "when",
+   "start": 35.904,
+   "end": 36.181,
+   "startFrame": 2154,
+   "endFrame": 2171
+  },
+  {
+   "s": 9,
+   "w": "to",
+   "start": 36.181,
+   "end": 36.357,
+   "startFrame": 2171,
+   "endFrame": 2181
+  },
+  {
+   "s": 9,
+   "w": "lock,",
+   "start": 36.357,
+   "end": 36.634,
+   "startFrame": 2181,
+   "endFrame": 2198
+  },
+  {
+   "s": 9,
+   "w": "with",
+   "start": 36.846,
+   "end": 37.107,
+   "startFrame": 2211,
+   "endFrame": 2226
+  },
+  {
+   "s": 9,
+   "w": "no",
+   "start": 37.107,
+   "end": 37.273,
+   "startFrame": 2226,
+   "endFrame": 2236
+  },
+  {
+   "s": 9,
+   "w": "power",
+   "start": 37.273,
+   "end": 37.581,
+   "startFrame": 2236,
+   "endFrame": 2255
+  },
+  {
+   "s": 9,
+   "w": "at",
+   "start": 37.581,
+   "end": 37.747,
+   "startFrame": 2255,
+   "endFrame": 2265
+  },
+  {
+   "s": 9,
+   "w": "all?",
+   "start": 37.747,
+   "end": 37.961,
+   "startFrame": 2265,
+   "endFrame": 2278
+  },
+  {
+   "s": 10,
+   "w": "The",
+   "start": 38.975,
+   "end": 39.18,
+   "startFrame": 2338,
+   "endFrame": 2351
+  },
+  {
+   "s": 10,
+   "w": "answer",
+   "start": 39.18,
+   "end": 39.521,
+   "startFrame": 2351,
+   "endFrame": 2371
+  },
+  {
+   "s": 10,
+   "w": "is",
+   "start": 39.521,
+   "end": 39.68,
+   "startFrame": 2371,
+   "endFrame": 2381
+  },
+  {
+   "s": 10,
+   "w": "hidden",
+   "start": 39.68,
+   "end": 40.021,
+   "startFrame": 2381,
+   "endFrame": 2401
+  },
+  {
+   "s": 10,
+   "w": "in",
+   "start": 40.021,
+   "end": 40.18,
+   "startFrame": 2401,
+   "endFrame": 2411
+  },
+  {
+   "s": 10,
+   "w": "the",
+   "start": 40.18,
+   "end": 40.384,
+   "startFrame": 2411,
+   "endFrame": 2423
+  },
+  {
+   "s": 10,
+   "w": "reel",
+   "start": 40.384,
+   "end": 40.634,
+   "startFrame": 2423,
+   "endFrame": 2438
+  },
+  {
+   "s": 10,
+   "w": "it",
+   "start": 40.634,
+   "end": 40.794,
+   "startFrame": 2438,
+   "endFrame": 2448
+  },
+  {
+   "s": 10,
+   "w": "winds",
+   "start": 40.794,
+   "end": 41.089,
+   "startFrame": 2448,
+   "endFrame": 2465
+  },
+  {
+   "s": 10,
+   "w": "into.",
+   "start": 41.089,
+   "end": 41.43,
+   "startFrame": 2465,
+   "endFrame": 2486
+  },
+  {
+   "s": 11,
+   "w": "And",
+   "start": 42.658,
+   "end": 42.873,
+   "startFrame": 2559,
+   "endFrame": 2572
+  },
+  {
+   "s": 11,
+   "w": "in",
+   "start": 42.873,
+   "end": 43.04,
+   "startFrame": 2572,
+   "endFrame": 2582
+  },
+  {
+   "s": 11,
+   "w": "a",
+   "start": 43.04,
+   "end": 43.16,
+   "startFrame": 2582,
+   "endFrame": 2590
+  },
+  {
+   "s": 11,
+   "w": "really",
+   "start": 43.16,
+   "end": 43.518,
+   "startFrame": 2590,
+   "endFrame": 2611
+  },
+  {
+   "s": 11,
+   "w": "hard",
+   "start": 43.518,
+   "end": 43.78,
+   "startFrame": 2611,
+   "endFrame": 2627
+  },
+  {
+   "s": 11,
+   "w": "crash,",
+   "start": 43.78,
+   "end": 44.091,
+   "startFrame": 2627,
+   "endFrame": 2645
+  },
+  {
+   "s": 11,
+   "w": "it",
+   "start": 44.247,
+   "end": 44.384,
+   "startFrame": 2655,
+   "endFrame": 2663
+  },
+  {
+   "s": 11,
+   "w": "makes",
+   "start": 44.384,
+   "end": 44.639,
+   "startFrame": 2663,
+   "endFrame": 2678
+  },
+  {
+   "s": 11,
+   "w": "a",
+   "start": 44.639,
+   "end": 44.737,
+   "startFrame": 2678,
+   "endFrame": 2684
+  },
+  {
+   "s": 11,
+   "w": "second",
+   "start": 44.737,
+   "end": 45.03,
+   "startFrame": 2684,
+   "endFrame": 2702
+  },
+  {
+   "s": 11,
+   "w": "decision,",
+   "start": 45.03,
+   "end": 45.402,
+   "startFrame": 2702,
+   "endFrame": 2724
+  },
+  {
+   "s": 11,
+   "w": "stranger",
+   "start": 45.784,
+   "end": 46.164,
+   "startFrame": 2747,
+   "endFrame": 2770
+  },
+  {
+   "s": 11,
+   "w": "than",
+   "start": 46.164,
+   "end": 46.385,
+   "startFrame": 2770,
+   "endFrame": 2783
+  },
+  {
+   "s": 11,
+   "w": "the",
+   "start": 46.385,
+   "end": 46.565,
+   "startFrame": 2783,
+   "endFrame": 2794
+  },
+  {
+   "s": 11,
+   "w": "first.",
+   "start": 46.565,
+   "end": 46.906,
+   "startFrame": 2794,
+   "endFrame": 2814
+  },
+  {
+   "s": 12,
+   "w": "Just",
+   "start": 47.609,
+   "end": 47.832,
+   "startFrame": 2857,
+   "endFrame": 2870
+  },
+  {
+   "s": 12,
+   "w": "after",
+   "start": 47.832,
+   "end": 48.096,
+   "startFrame": 2870,
+   "endFrame": 2886
+  },
+  {
+   "s": 12,
+   "w": "it",
+   "start": 48.096,
+   "end": 48.238,
+   "startFrame": 2886,
+   "endFrame": 2894
+  },
+  {
+   "s": 12,
+   "w": "locks,",
+   "start": 48.238,
+   "end": 48.501,
+   "startFrame": 2894,
+   "endFrame": 2910
+  },
+  {
+   "s": 12,
+   "w": "it",
+   "start": 48.588,
+   "end": 48.765,
+   "startFrame": 2915,
+   "endFrame": 2926
+  },
+  {
+   "s": 12,
+   "w": "starts",
+   "start": 48.765,
+   "end": 49.146,
+   "startFrame": 2926,
+   "endFrame": 2949
+  },
+  {
+   "s": 12,
+   "w": "to",
+   "start": 49.146,
+   "end": 49.324,
+   "startFrame": 2949,
+   "endFrame": 2959
+  },
+  {
+   "s": 12,
+   "w": "let",
+   "start": 49.324,
+   "end": 49.553,
+   "startFrame": 2959,
+   "endFrame": 2973
+  },
+  {
+   "s": 12,
+   "w": "you",
+   "start": 49.553,
+   "end": 49.782,
+   "startFrame": 2973,
+   "endFrame": 2987
+  },
+  {
+   "s": 12,
+   "w": "go.",
+   "start": 49.782,
+   "end": 50.061,
+   "startFrame": 2987,
+   "endFrame": 3004
+  },
+  {
+   "s": 13,
+   "w": "On",
+   "start": 50.887,
+   "end": 51.075,
+   "startFrame": 3053,
+   "endFrame": 3064
+  },
+  {
+   "s": 13,
+   "w": "purpose.",
+   "start": 51.075,
+   "end": 51.639,
+   "startFrame": 3064,
+   "endFrame": 3098
+  },
+  {
+   "s": 14,
+   "w": "Imagine",
+   "start": 53.2,
+   "end": 53.583,
+   "startFrame": 3192,
+   "endFrame": 3215
+  },
+  {
+   "s": 14,
+   "w": "the",
+   "start": 53.583,
+   "end": 53.786,
+   "startFrame": 3215,
+   "endFrame": 3227
+  },
+  {
+   "s": 14,
+   "w": "simplest",
+   "start": 53.786,
+   "end": 54.214,
+   "startFrame": 3227,
+   "endFrame": 3253
+  },
+  {
+   "s": 14,
+   "w": "lock",
+   "start": 54.214,
+   "end": 54.461,
+   "startFrame": 3253,
+   "endFrame": 3268
+  },
+  {
+   "s": 14,
+   "w": "you",
+   "start": 54.461,
+   "end": 54.664,
+   "startFrame": 3268,
+   "endFrame": 3280
+  },
+  {
+   "s": 14,
+   "w": "could",
+   "start": 54.664,
+   "end": 54.957,
+   "startFrame": 3280,
+   "endFrame": 3297
+  },
+  {
+   "s": 14,
+   "w": "build.",
+   "start": 54.957,
+   "end": 55.34,
+   "startFrame": 3297,
+   "endFrame": 3320
+  },
+  {
+   "s": 15,
+   "w": "A",
+   "start": 56.281,
+   "end": 56.381,
+   "startFrame": 3377,
+   "endFrame": 3383
+  },
+  {
+   "s": 15,
+   "w": "ring",
+   "start": 56.381,
+   "end": 56.602,
+   "startFrame": 3383,
+   "endFrame": 3396
+  },
+  {
+   "s": 15,
+   "w": "of",
+   "start": 56.602,
+   "end": 56.742,
+   "startFrame": 3396,
+   "endFrame": 3405
+  },
+  {
+   "s": 15,
+   "w": "teeth",
+   "start": 56.742,
+   "end": 57.003,
+   "startFrame": 3405,
+   "endFrame": 3420
+  },
+  {
+   "s": 15,
+   "w": "around",
+   "start": 57.003,
+   "end": 57.304,
+   "startFrame": 3420,
+   "endFrame": 3438
+  },
+  {
+   "s": 15,
+   "w": "the",
+   "start": 57.304,
+   "end": 57.485,
+   "startFrame": 3438,
+   "endFrame": 3449
+  },
+  {
+   "s": 15,
+   "w": "reel,",
+   "start": 57.485,
+   "end": 57.705,
+   "startFrame": 3449,
+   "endFrame": 3462
+  },
+  {
+   "s": 15,
+   "w": "and",
+   "start": 58.006,
+   "end": 58.172,
+   "startFrame": 3480,
+   "endFrame": 3490
+  },
+  {
+   "s": 15,
+   "w": "a",
+   "start": 58.172,
+   "end": 58.264,
+   "startFrame": 3490,
+   "endFrame": 3496
+  },
+  {
+   "s": 15,
+   "w": "hook",
+   "start": 58.264,
+   "end": 58.468,
+   "startFrame": 3496,
+   "endFrame": 3508
+  },
+  {
+   "s": 15,
+   "w": "that",
+   "start": 58.468,
+   "end": 58.671,
+   "startFrame": 3508,
+   "endFrame": 3520
+  },
+  {
+   "s": 15,
+   "w": "drops",
+   "start": 58.671,
+   "end": 58.911,
+   "startFrame": 3520,
+   "endFrame": 3535
+  },
+  {
+   "s": 15,
+   "w": "into",
+   "start": 58.911,
+   "end": 59.115,
+   "startFrame": 3535,
+   "endFrame": 3547
+  },
+  {
+   "s": 15,
+   "w": "them.",
+   "start": 59.115,
+   "end": 59.392,
+   "startFrame": 3547,
+   "endFrame": 3564
+  },
+  {
+   "s": 16,
+   "w": "That",
+   "start": 60.329,
+   "end": 60.58,
+   "startFrame": 3620,
+   "endFrame": 3635
+  },
+  {
+   "s": 16,
+   "w": "stops",
+   "start": 60.58,
+   "end": 60.876,
+   "startFrame": 3635,
+   "endFrame": 3653
+  },
+  {
+   "s": 16,
+   "w": "the",
+   "start": 60.876,
+   "end": 61.081,
+   "startFrame": 3653,
+   "endFrame": 3665
+  },
+  {
+   "s": 16,
+   "w": "belt",
+   "start": 61.081,
+   "end": 61.332,
+   "startFrame": 3665,
+   "endFrame": 3680
+  },
+  {
+   "s": 16,
+   "w": "every",
+   "start": 61.332,
+   "end": 61.628,
+   "startFrame": 3680,
+   "endFrame": 3698
+  },
+  {
+   "s": 16,
+   "w": "time.",
+   "start": 61.628,
+   "end": 61.97,
+   "startFrame": 3698,
+   "endFrame": 3718
+  },
+  {
+   "s": 17,
+   "w": "And",
+   "start": 62.89,
+   "end": 63.052,
+   "startFrame": 3773,
+   "endFrame": 3783
+  },
+  {
+   "s": 17,
+   "w": "that's",
+   "start": 63.052,
+   "end": 63.322,
+   "startFrame": 3783,
+   "endFrame": 3799
+  },
+  {
+   "s": 17,
+   "w": "the",
+   "start": 63.322,
+   "end": 63.484,
+   "startFrame": 3799,
+   "endFrame": 3809
+  },
+  {
+   "s": 17,
+   "w": "problem.",
+   "start": 63.484,
+   "end": 63.862,
+   "startFrame": 3809,
+   "endFrame": 3832
+  },
+  {
+   "s": 18,
+   "w": "Lean",
+   "start": 64.896,
+   "end": 65.139,
+   "startFrame": 3894,
+   "endFrame": 3908
+  },
+  {
+   "s": 18,
+   "w": "over",
+   "start": 65.139,
+   "end": 65.382,
+   "startFrame": 3908,
+   "endFrame": 3923
+  },
+  {
+   "s": 18,
+   "w": "to",
+   "start": 65.382,
+   "end": 65.537,
+   "startFrame": 3923,
+   "endFrame": 3932
+  },
+  {
+   "s": 18,
+   "w": "the",
+   "start": 65.537,
+   "end": 65.736,
+   "startFrame": 3932,
+   "endFrame": 3944
+  },
+  {
+   "s": 18,
+   "w": "glovebox,",
+   "start": 65.736,
+   "end": 66.156,
+   "startFrame": 3944,
+   "endFrame": 3969
+  },
+  {
+   "s": 18,
+   "w": "and",
+   "start": 66.257,
+   "end": 66.458,
+   "startFrame": 3975,
+   "endFrame": 3987
+  },
+  {
+   "s": 18,
+   "w": "it",
+   "start": 66.458,
+   "end": 66.614,
+   "startFrame": 3987,
+   "endFrame": 3997
+  },
+  {
+   "s": 18,
+   "w": "holds",
+   "start": 66.614,
+   "end": 66.903,
+   "startFrame": 3997,
+   "endFrame": 4014
+  },
+  {
+   "s": 18,
+   "w": "you",
+   "start": 66.903,
+   "end": 67.103,
+   "startFrame": 4014,
+   "endFrame": 4026
+  },
+  {
+   "s": 18,
+   "w": "like",
+   "start": 67.103,
+   "end": 67.348,
+   "startFrame": 4026,
+   "endFrame": 4041
+  },
+  {
+   "s": 18,
+   "w": "a",
+   "start": 67.348,
+   "end": 67.46,
+   "startFrame": 4041,
+   "endFrame": 4048
+  },
+  {
+   "s": 18,
+   "w": "crash.",
+   "start": 67.46,
+   "end": 67.838,
+   "startFrame": 4048,
+   "endFrame": 4070
+  },
+  {
+   "s": 19,
+   "w": "The",
+   "start": 69.183,
+   "end": 69.346,
+   "startFrame": 4151,
+   "endFrame": 4161
+  },
+  {
+   "s": 19,
+   "w": "hook",
+   "start": 69.346,
+   "end": 69.546,
+   "startFrame": 4161,
+   "endFrame": 4173
+  },
+  {
+   "s": 19,
+   "w": "can't",
+   "start": 69.546,
+   "end": 69.781,
+   "startFrame": 4173,
+   "endFrame": 4187
+  },
+  {
+   "s": 19,
+   "w": "be",
+   "start": 69.781,
+   "end": 69.908,
+   "startFrame": 4187,
+   "endFrame": 4194
+  },
+  {
+   "s": 19,
+   "w": "the",
+   "start": 69.908,
+   "end": 70.071,
+   "startFrame": 4194,
+   "endFrame": 4204
+  },
+  {
+   "s": 19,
+   "w": "clever",
+   "start": 70.071,
+   "end": 70.343,
+   "startFrame": 4204,
+   "endFrame": 4221
+  },
+  {
+   "s": 19,
+   "w": "part.",
+   "start": 70.343,
+   "end": 70.615,
+   "startFrame": 4221,
+   "endFrame": 4237
+  },
+  {
+   "s": 20,
+   "w": "What",
+   "start": 71.48,
+   "end": 71.688,
+   "startFrame": 4289,
+   "endFrame": 4301
+  },
+  {
+   "s": 20,
+   "w": "decides",
+   "start": 71.688,
+   "end": 72.01,
+   "startFrame": 4301,
+   "endFrame": 4321
+  },
+  {
+   "s": 20,
+   "w": "when",
+   "start": 72.01,
+   "end": 72.219,
+   "startFrame": 4321,
+   "endFrame": 4333
+  },
+  {
+   "s": 20,
+   "w": "to",
+   "start": 72.219,
+   "end": 72.351,
+   "startFrame": 4333,
+   "endFrame": 4341
+  },
+  {
+   "s": 20,
+   "w": "drop",
+   "start": 72.351,
+   "end": 72.559,
+   "startFrame": 4341,
+   "endFrame": 4354
+  },
+  {
+   "s": 20,
+   "w": "it?",
+   "start": 72.559,
+   "end": 72.692,
+   "startFrame": 4354,
+   "endFrame": 4362
+  },
+  {
+   "s": 21,
+   "w": "It",
+   "start": 73.875,
+   "end": 74.067,
+   "startFrame": 4432,
+   "endFrame": 4444
+  },
+  {
+   "s": 21,
+   "w": "has",
+   "start": 74.067,
+   "end": 74.315,
+   "startFrame": 4444,
+   "endFrame": 4459
+  },
+  {
+   "s": 21,
+   "w": "only",
+   "start": 74.315,
+   "end": 74.617,
+   "startFrame": 4459,
+   "endFrame": 4477
+  },
+  {
+   "s": 21,
+   "w": "two",
+   "start": 74.617,
+   "end": 74.865,
+   "startFrame": 4477,
+   "endFrame": 4492
+  },
+  {
+   "s": 21,
+   "w": "clues.",
+   "start": 74.865,
+   "end": 75.332,
+   "startFrame": 4492,
+   "endFrame": 4520
+  },
+  {
+   "s": 22,
+   "w": "How",
+   "start": 76.137,
+   "end": 76.323,
+   "startFrame": 4568,
+   "endFrame": 4579
+  },
+  {
+   "s": 22,
+   "w": "suddenly",
+   "start": 76.323,
+   "end": 76.717,
+   "startFrame": 4579,
+   "endFrame": 4603
+  },
+  {
+   "s": 22,
+   "w": "the",
+   "start": 76.717,
+   "end": 76.903,
+   "startFrame": 4603,
+   "endFrame": 4614
+  },
+  {
+   "s": 22,
+   "w": "belt",
+   "start": 76.903,
+   "end": 77.131,
+   "startFrame": 4614,
+   "endFrame": 4628
+  },
+  {
+   "s": 22,
+   "w": "is",
+   "start": 77.131,
+   "end": 77.276,
+   "startFrame": 4628,
+   "endFrame": 4637
+  },
+  {
+   "s": 22,
+   "w": "pulled.",
+   "start": 77.276,
+   "end": 77.669,
+   "startFrame": 4637,
+   "endFrame": 4660
+  },
+  {
+   "s": 23,
+   "w": "And",
+   "start": 78.397,
+   "end": 78.585,
+   "startFrame": 4704,
+   "endFrame": 4715
+  },
+  {
+   "s": 23,
+   "w": "how",
+   "start": 78.585,
+   "end": 78.772,
+   "startFrame": 4715,
+   "endFrame": 4726
+  },
+  {
+   "s": 23,
+   "w": "hard",
+   "start": 78.772,
+   "end": 79.002,
+   "startFrame": 4726,
+   "endFrame": 4740
+  },
+  {
+   "s": 23,
+   "w": "the",
+   "start": 79.002,
+   "end": 79.19,
+   "startFrame": 4740,
+   "endFrame": 4751
+  },
+  {
+   "s": 23,
+   "w": "car",
+   "start": 79.19,
+   "end": 79.377,
+   "startFrame": 4751,
+   "endFrame": 4763
+  },
+  {
+   "s": 23,
+   "w": "is",
+   "start": 79.377,
+   "end": 79.523,
+   "startFrame": 4763,
+   "endFrame": 4771
+  },
+  {
+   "s": 23,
+   "w": "stopping.",
+   "start": 79.523,
+   "end": 80.003,
+   "startFrame": 4771,
+   "endFrame": 4800
+  },
+  {
+   "s": 24,
+   "w": "Start",
+   "start": 81.571,
+   "end": 81.832,
+   "startFrame": 4894,
+   "endFrame": 4910
+  },
+  {
+   "s": 24,
+   "w": "with",
+   "start": 81.832,
+   "end": 82.052,
+   "startFrame": 4910,
+   "endFrame": 4923
+  },
+  {
+   "s": 24,
+   "w": "the",
+   "start": 82.052,
+   "end": 82.232,
+   "startFrame": 4923,
+   "endFrame": 4934
+  },
+  {
+   "s": 24,
+   "w": "belt.",
+   "start": 82.232,
+   "end": 82.533,
+   "startFrame": 4934,
+   "endFrame": 4952
+  },
+  {
+   "s": 25,
+   "w": "Next",
+   "start": 83.428,
+   "end": 83.685,
+   "startFrame": 5006,
+   "endFrame": 5021
+  },
+  {
+   "s": 25,
+   "w": "to",
+   "start": 83.685,
+   "end": 83.848,
+   "startFrame": 5021,
+   "endFrame": 5031
+  },
+  {
+   "s": 25,
+   "w": "the",
+   "start": 83.848,
+   "end": 84.058,
+   "startFrame": 5031,
+   "endFrame": 5043
+  },
+  {
+   "s": 25,
+   "w": "reel",
+   "start": 84.058,
+   "end": 84.315,
+   "startFrame": 5043,
+   "endFrame": 5059
+  },
+  {
+   "s": 25,
+   "w": "sits",
+   "start": 84.315,
+   "end": 84.572,
+   "startFrame": 5059,
+   "endFrame": 5074
+  },
+  {
+   "s": 25,
+   "w": "a",
+   "start": 84.572,
+   "end": 84.688,
+   "startFrame": 5074,
+   "endFrame": 5081
+  },
+  {
+   "s": 25,
+   "w": "heavy",
+   "start": 84.688,
+   "end": 84.992,
+   "startFrame": 5081,
+   "endFrame": 5100
+  },
+  {
+   "s": 25,
+   "w": "disc.",
+   "start": 84.992,
+   "end": 85.342,
+   "startFrame": 5100,
+   "endFrame": 5121
+  },
+  {
+   "s": 26,
+   "w": "It",
+   "start": 86.229,
+   "end": 86.357,
+   "startFrame": 5174,
+   "endFrame": 5181
+  },
+  {
+   "s": 26,
+   "w": "isn't",
+   "start": 86.357,
+   "end": 86.593,
+   "startFrame": 5181,
+   "endFrame": 5196
+  },
+  {
+   "s": 26,
+   "w": "fixed",
+   "start": 86.593,
+   "end": 86.83,
+   "startFrame": 5196,
+   "endFrame": 5210
+  },
+  {
+   "s": 26,
+   "w": "to",
+   "start": 86.83,
+   "end": 86.958,
+   "startFrame": 5210,
+   "endFrame": 5217
+  },
+  {
+   "s": 26,
+   "w": "the",
+   "start": 86.958,
+   "end": 87.122,
+   "startFrame": 5217,
+   "endFrame": 5227
+  },
+  {
+   "s": 26,
+   "w": "reel.",
+   "start": 87.122,
+   "end": 87.395,
+   "startFrame": 5227,
+   "endFrame": 5244
+  },
+  {
+   "s": 27,
+   "w": "It",
+   "start": 88.09,
+   "end": 88.228,
+   "startFrame": 5285,
+   "endFrame": 5294
+  },
+  {
+   "s": 27,
+   "w": "turns",
+   "start": 88.228,
+   "end": 88.483,
+   "startFrame": 5294,
+   "endFrame": 5309
+  },
+  {
+   "s": 27,
+   "w": "with",
+   "start": 88.483,
+   "end": 88.699,
+   "startFrame": 5309,
+   "endFrame": 5322
+  },
+  {
+   "s": 27,
+   "w": "it,",
+   "start": 88.699,
+   "end": 88.837,
+   "startFrame": 5322,
+   "endFrame": 5330
+  },
+  {
+   "s": 27,
+   "w": "loosely.",
+   "start": 89.078,
+   "end": 89.482,
+   "startFrame": 5345,
+   "endFrame": 5369
+  },
+  {
+   "s": 28,
+   "w": "Pull",
+   "start": 90.964,
+   "end": 91.214,
+   "startFrame": 5458,
+   "endFrame": 5473
+  },
+  {
+   "s": 28,
+   "w": "the",
+   "start": 91.214,
+   "end": 91.418,
+   "startFrame": 5473,
+   "endFrame": 5485
+  },
+  {
+   "s": 28,
+   "w": "belt",
+   "start": 91.418,
+   "end": 91.667,
+   "startFrame": 5485,
+   "endFrame": 5500
+  },
+  {
+   "s": 28,
+   "w": "slowly,",
+   "start": 91.667,
+   "end": 92.008,
+   "startFrame": 5500,
+   "endFrame": 5520
+  },
+  {
+   "s": 28,
+   "w": "and",
+   "start": 92.2,
+   "end": 92.395,
+   "startFrame": 5532,
+   "endFrame": 5544
+  },
+  {
+   "s": 28,
+   "w": "the",
+   "start": 92.395,
+   "end": 92.591,
+   "startFrame": 5544,
+   "endFrame": 5555
+  },
+  {
+   "s": 28,
+   "w": "reel",
+   "start": 92.591,
+   "end": 92.83,
+   "startFrame": 5555,
+   "endFrame": 5570
+  },
+  {
+   "s": 28,
+   "w": "turns",
+   "start": 92.83,
+   "end": 93.112,
+   "startFrame": 5570,
+   "endFrame": 5587
+  },
+  {
+   "s": 28,
+   "w": "slowly,",
+   "start": 93.112,
+   "end": 93.438,
+   "startFrame": 5587,
+   "endFrame": 5606
+  },
+  {
+   "s": 28,
+   "w": "and",
+   "start": 93.719,
+   "end": 93.902,
+   "startFrame": 5623,
+   "endFrame": 5634
+  },
+  {
+   "s": 28,
+   "w": "the",
+   "start": 93.902,
+   "end": 94.086,
+   "startFrame": 5634,
+   "endFrame": 5645
+  },
+  {
+   "s": 28,
+   "w": "disc",
+   "start": 94.086,
+   "end": 94.311,
+   "startFrame": 5645,
+   "endFrame": 5659
+  },
+  {
+   "s": 28,
+   "w": "keeps",
+   "start": 94.311,
+   "end": 94.576,
+   "startFrame": 5659,
+   "endFrame": 5675
+  },
+  {
+   "s": 28,
+   "w": "up.",
+   "start": 94.576,
+   "end": 94.801,
+   "startFrame": 5675,
+   "endFrame": 5688
+  },
+  {
+   "s": 29,
+   "w": "Nothing",
+   "start": 95.677,
+   "end": 96.007,
+   "startFrame": 5741,
+   "endFrame": 5760
+  },
+  {
+   "s": 29,
+   "w": "happens.",
+   "start": 96.007,
+   "end": 96.415,
+   "startFrame": 5760,
+   "endFrame": 5785
+  },
+  {
+   "s": 30,
+   "w": "But",
+   "start": 97.33,
+   "end": 97.545,
+   "startFrame": 5840,
+   "endFrame": 5853
+  },
+  {
+   "s": 30,
+   "w": "jerk",
+   "start": 97.545,
+   "end": 97.808,
+   "startFrame": 5853,
+   "endFrame": 5868
+  },
+  {
+   "s": 30,
+   "w": "the",
+   "start": 97.808,
+   "end": 98.023,
+   "startFrame": 5868,
+   "endFrame": 5881
+  },
+  {
+   "s": 30,
+   "w": "belt,",
+   "start": 98.023,
+   "end": 98.286,
+   "startFrame": 5881,
+   "endFrame": 5897
+  },
+  {
+   "s": 30,
+   "w": "and",
+   "start": 98.496,
+   "end": 98.697,
+   "startFrame": 5910,
+   "endFrame": 5922
+  },
+  {
+   "s": 30,
+   "w": "the",
+   "start": 98.697,
+   "end": 98.898,
+   "startFrame": 5922,
+   "endFrame": 5934
+  },
+  {
+   "s": 30,
+   "w": "reel",
+   "start": 98.898,
+   "end": 99.144,
+   "startFrame": 5934,
+   "endFrame": 5949
+  },
+  {
+   "s": 30,
+   "w": "spins",
+   "start": 99.144,
+   "end": 99.434,
+   "startFrame": 5949,
+   "endFrame": 5966
+  },
+  {
+   "s": 30,
+   "w": "up",
+   "start": 99.434,
+   "end": 99.59,
+   "startFrame": 5966,
+   "endFrame": 5975
+  },
+  {
+   "s": 30,
+   "w": "in",
+   "start": 99.59,
+   "end": 99.747,
+   "startFrame": 5975,
+   "endFrame": 5985
+  },
+  {
+   "s": 30,
+   "w": "an",
+   "start": 99.747,
+   "end": 99.903,
+   "startFrame": 5985,
+   "endFrame": 5994
+  },
+  {
+   "s": 30,
+   "w": "instant.",
+   "start": 99.903,
+   "end": 100.372,
+   "startFrame": 5994,
+   "endFrame": 6022
+  },
+  {
+   "s": 31,
+   "w": "And",
+   "start": 101.322,
+   "end": 101.494,
+   "startFrame": 6079,
+   "endFrame": 6090
+  },
+  {
+   "s": 31,
+   "w": "the",
+   "start": 101.494,
+   "end": 101.666,
+   "startFrame": 6090,
+   "endFrame": 6100
+  },
+  {
+   "s": 31,
+   "w": "disc?",
+   "start": 101.666,
+   "end": 101.877,
+   "startFrame": 6100,
+   "endFrame": 6113
+  },
+  {
+   "s": 32,
+   "w": "It's",
+   "start": 102.949,
+   "end": 103.142,
+   "startFrame": 6177,
+   "endFrame": 6189
+  },
+  {
+   "s": 32,
+   "w": "heavy.",
+   "start": 103.142,
+   "end": 103.441,
+   "startFrame": 6189,
+   "endFrame": 6206
+  },
+  {
+   "s": 33,
+   "w": "It",
+   "start": 104.223,
+   "end": 104.357,
+   "startFrame": 6253,
+   "endFrame": 6261
+  },
+  {
+   "s": 33,
+   "w": "can't",
+   "start": 104.357,
+   "end": 104.605,
+   "startFrame": 6261,
+   "endFrame": 6276
+  },
+  {
+   "s": 33,
+   "w": "speed",
+   "start": 104.605,
+   "end": 104.854,
+   "startFrame": 6276,
+   "endFrame": 6291
+  },
+  {
+   "s": 33,
+   "w": "up",
+   "start": 104.854,
+   "end": 104.987,
+   "startFrame": 6291,
+   "endFrame": 6299
+  },
+  {
+   "s": 33,
+   "w": "that",
+   "start": 104.987,
+   "end": 105.197,
+   "startFrame": 6299,
+   "endFrame": 6312
+  },
+  {
+   "s": 33,
+   "w": "fast.",
+   "start": 105.197,
+   "end": 105.484,
+   "startFrame": 6312,
+   "endFrame": 6329
+  },
+  {
+   "s": 34,
+   "w": "So",
+   "start": 106.367,
+   "end": 106.561,
+   "startFrame": 6382,
+   "endFrame": 6394
+  },
+  {
+   "s": 34,
+   "w": "for",
+   "start": 106.561,
+   "end": 106.811,
+   "startFrame": 6394,
+   "endFrame": 6409
+  },
+  {
+   "s": 34,
+   "w": "a",
+   "start": 106.811,
+   "end": 106.95,
+   "startFrame": 6409,
+   "endFrame": 6417
+  },
+  {
+   "s": 34,
+   "w": "split",
+   "start": 106.95,
+   "end": 107.31,
+   "startFrame": 6417,
+   "endFrame": 6439
+  },
+  {
+   "s": 34,
+   "w": "second,",
+   "start": 107.31,
+   "end": 107.726,
+   "startFrame": 6439,
+   "endFrame": 6464
+  },
+  {
+   "s": 34,
+   "w": "it",
+   "start": 107.923,
+   "end": 108.082,
+   "startFrame": 6475,
+   "endFrame": 6485
+  },
+  {
+   "s": 34,
+   "w": "falls",
+   "start": 108.082,
+   "end": 108.379,
+   "startFrame": 6485,
+   "endFrame": 6503
+  },
+  {
+   "s": 34,
+   "w": "behind.",
+   "start": 108.379,
+   "end": 108.812,
+   "startFrame": 6503,
+   "endFrame": 6529
+  },
+  {
+   "s": 35,
+   "w": "That",
+   "start": 110.191,
+   "end": 110.487,
+   "startFrame": 6611,
+   "endFrame": 6629
+  },
+  {
+   "s": 35,
+   "w": "tiny",
+   "start": 110.487,
+   "end": 110.782,
+   "startFrame": 6629,
+   "endFrame": 6647
+  },
+  {
+   "s": 35,
+   "w": "lag",
+   "start": 110.782,
+   "end": 111.024,
+   "startFrame": 6647,
+   "endFrame": 6661
+  },
+  {
+   "s": 35,
+   "w": "is",
+   "start": 111.024,
+   "end": 111.213,
+   "startFrame": 6661,
+   "endFrame": 6673
+  },
+  {
+   "s": 35,
+   "w": "the",
+   "start": 111.213,
+   "end": 111.455,
+   "startFrame": 6673,
+   "endFrame": 6687
+  },
+  {
+   "s": 35,
+   "w": "whole",
+   "start": 111.455,
+   "end": 111.804,
+   "startFrame": 6687,
+   "endFrame": 6708
+  },
+  {
+   "s": 35,
+   "w": "trick.",
+   "start": 111.804,
+   "end": 112.261,
+   "startFrame": 6708,
+   "endFrame": 6736
+  },
+  {
+   "s": 36,
+   "w": "The",
+   "start": 113.184,
+   "end": 113.367,
+   "startFrame": 6791,
+   "endFrame": 6802
+  },
+  {
+   "s": 36,
+   "w": "reel",
+   "start": 113.367,
+   "end": 113.591,
+   "startFrame": 6802,
+   "endFrame": 6815
+  },
+  {
+   "s": 36,
+   "w": "pulls",
+   "start": 113.591,
+   "end": 113.855,
+   "startFrame": 6815,
+   "endFrame": 6831
+  },
+  {
+   "s": 36,
+   "w": "ahead",
+   "start": 113.855,
+   "end": 114.12,
+   "startFrame": 6831,
+   "endFrame": 6847
+  },
+  {
+   "s": 36,
+   "w": "of",
+   "start": 114.12,
+   "end": 114.262,
+   "startFrame": 6847,
+   "endFrame": 6856
+  },
+  {
+   "s": 36,
+   "w": "the",
+   "start": 114.262,
+   "end": 114.445,
+   "startFrame": 6856,
+   "endFrame": 6867
+  },
+  {
+   "s": 36,
+   "w": "disc,",
+   "start": 114.445,
+   "end": 114.669,
+   "startFrame": 6867,
+   "endFrame": 6880
+  },
+  {
+   "s": 36,
+   "w": "and",
+   "start": 114.96,
+   "end": 115.187,
+   "startFrame": 6898,
+   "endFrame": 6911
+  },
+  {
+   "s": 36,
+   "w": "that",
+   "start": 115.187,
+   "end": 115.464,
+   "startFrame": 6911,
+   "endFrame": 6928
+  },
+  {
+   "s": 36,
+   "w": "gap",
+   "start": 115.464,
+   "end": 115.69,
+   "startFrame": 6928,
+   "endFrame": 6941
+  },
+  {
+   "s": 36,
+   "w": "pushes",
+   "start": 115.69,
+   "end": 116.068,
+   "startFrame": 6941,
+   "endFrame": 6964
+  },
+  {
+   "s": 36,
+   "w": "a",
+   "start": 116.068,
+   "end": 116.194,
+   "startFrame": 6964,
+   "endFrame": 6972
+  },
+  {
+   "s": 36,
+   "w": "small",
+   "start": 116.194,
+   "end": 116.522,
+   "startFrame": 6972,
+   "endFrame": 6991
+  },
+  {
+   "s": 36,
+   "w": "arm",
+   "start": 116.522,
+   "end": 116.748,
+   "startFrame": 6991,
+   "endFrame": 7005
+  },
+  {
+   "s": 36,
+   "w": "outward.",
+   "start": 116.748,
+   "end": 117.277,
+   "startFrame": 7005,
+   "endFrame": 7037
+  },
+  {
+   "s": 37,
+   "w": "The",
+   "start": 118.126,
+   "end": 118.28,
+   "startFrame": 7088,
+   "endFrame": 7097
+  },
+  {
+   "s": 37,
+   "w": "arm",
+   "start": 118.28,
+   "end": 118.435,
+   "startFrame": 7097,
+   "endFrame": 7106
+  },
+  {
+   "s": 37,
+   "w": "catches",
+   "start": 118.435,
+   "end": 118.726,
+   "startFrame": 7106,
+   "endFrame": 7124
+  },
+  {
+   "s": 37,
+   "w": "the",
+   "start": 118.726,
+   "end": 118.88,
+   "startFrame": 7124,
+   "endFrame": 7133
+  },
+  {
+   "s": 37,
+   "w": "teeth.",
+   "start": 118.88,
+   "end": 119.172,
+   "startFrame": 7133,
+   "endFrame": 7150
+  },
+  {
+   "s": 38,
+   "w": "Clack.",
+   "start": 120.027,
+   "end": 120.368,
+   "startFrame": 7202,
+   "endFrame": 7222
+  },
+  {
+   "s": 39,
+   "w": "The",
+   "start": 121.281,
+   "end": 121.48,
+   "startFrame": 7277,
+   "endFrame": 7289
+  },
+  {
+   "s": 39,
+   "w": "reel",
+   "start": 121.48,
+   "end": 121.724,
+   "startFrame": 7289,
+   "endFrame": 7303
+  },
+  {
+   "s": 39,
+   "w": "stops.",
+   "start": 121.724,
+   "end": 122.101,
+   "startFrame": 7303,
+   "endFrame": 7326
+  },
+  {
+   "s": 40,
+   "w": "Does",
+   "start": 123.505,
+   "end": 123.74,
+   "startFrame": 7410,
+   "endFrame": 7424
+  },
+  {
+   "s": 40,
+   "w": "it",
+   "start": 123.74,
+   "end": 123.889,
+   "startFrame": 7424,
+   "endFrame": 7433
+  },
+  {
+   "s": 40,
+   "w": "lock",
+   "start": 123.889,
+   "end": 124.123,
+   "startFrame": 7433,
+   "endFrame": 7447
+  },
+  {
+   "s": 40,
+   "w": "when",
+   "start": 124.123,
+   "end": 124.358,
+   "startFrame": 7447,
+   "endFrame": 7461
+  },
+  {
+   "s": 40,
+   "w": "the",
+   "start": 124.358,
+   "end": 124.55,
+   "startFrame": 7461,
+   "endFrame": 7473
+  },
+  {
+   "s": 40,
+   "w": "reel",
+   "start": 124.55,
+   "end": 124.784,
+   "startFrame": 7473,
+   "endFrame": 7487
+  },
+  {
+   "s": 40,
+   "w": "spins",
+   "start": 124.784,
+   "end": 125.062,
+   "startFrame": 7487,
+   "endFrame": 7504
+  },
+  {
+   "s": 40,
+   "w": "too",
+   "start": 125.062,
+   "end": 125.253,
+   "startFrame": 7504,
+   "endFrame": 7515
+  },
+  {
+   "s": 40,
+   "w": "fast?",
+   "start": 125.253,
+   "end": 125.488,
+   "startFrame": 7515,
+   "endFrame": 7529
+  },
+  {
+   "s": 41,
+   "w": "No.",
+   "start": 126.622,
+   "end": 126.958,
+   "startFrame": 7597,
+   "endFrame": 7617
+  },
+  {
+   "s": 42,
+   "w": "It",
+   "start": 127.694,
+   "end": 127.825,
+   "startFrame": 7662,
+   "endFrame": 7670
+  },
+  {
+   "s": 42,
+   "w": "doesn't",
+   "start": 127.825,
+   "end": 128.143,
+   "startFrame": 7670,
+   "endFrame": 7689
+  },
+  {
+   "s": 42,
+   "w": "care",
+   "start": 128.143,
+   "end": 128.349,
+   "startFrame": 7689,
+   "endFrame": 7701
+  },
+  {
+   "s": 42,
+   "w": "how",
+   "start": 128.349,
+   "end": 128.517,
+   "startFrame": 7701,
+   "endFrame": 7711
+  },
+  {
+   "s": 42,
+   "w": "fast.",
+   "start": 128.517,
+   "end": 128.798,
+   "startFrame": 7711,
+   "endFrame": 7728
+  },
+  {
+   "s": 43,
+   "w": "It",
+   "start": 129.502,
+   "end": 129.648,
+   "startFrame": 7770,
+   "endFrame": 7779
+  },
+  {
+   "s": 43,
+   "w": "cares",
+   "start": 129.648,
+   "end": 129.92,
+   "startFrame": 7779,
+   "endFrame": 7795
+  },
+  {
+   "s": 43,
+   "w": "how",
+   "start": 129.92,
+   "end": 130.108,
+   "startFrame": 7795,
+   "endFrame": 7806
+  },
+  {
+   "s": 43,
+   "w": "suddenly.",
+   "start": 130.108,
+   "end": 130.589,
+   "startFrame": 7806,
+   "endFrame": 7835
+  },
+  {
+   "s": 44,
+   "w": "The",
+   "start": 131.569,
+   "end": 131.735,
+   "startFrame": 7894,
+   "endFrame": 7904
+  },
+  {
+   "s": 44,
+   "w": "belt",
+   "start": 131.735,
+   "end": 131.938,
+   "startFrame": 7904,
+   "endFrame": 7916
+  },
+  {
+   "s": 44,
+   "w": "doesn't",
+   "start": 131.938,
+   "end": 132.251,
+   "startFrame": 7916,
+   "endFrame": 7935
+  },
+  {
+   "s": 44,
+   "w": "measure",
+   "start": 132.251,
+   "end": 132.565,
+   "startFrame": 7935,
+   "endFrame": 7954
+  },
+  {
+   "s": 44,
+   "w": "your",
+   "start": 132.565,
+   "end": 132.768,
+   "startFrame": 7954,
+   "endFrame": 7966
+  },
+  {
+   "s": 44,
+   "w": "speed.",
+   "start": 132.768,
+   "end": 133.081,
+   "startFrame": 7966,
+   "endFrame": 7985
+  },
+  {
+   "s": 45,
+   "w": "It",
+   "start": 133.765,
+   "end": 133.912,
+   "startFrame": 8026,
+   "endFrame": 8035
+  },
+  {
+   "s": 45,
+   "w": "just",
+   "start": 133.912,
+   "end": 134.142,
+   "startFrame": 8035,
+   "endFrame": 8049
+  },
+  {
+   "s": 45,
+   "w": "notices",
+   "start": 134.142,
+   "end": 134.498,
+   "startFrame": 8049,
+   "endFrame": 8070
+  },
+  {
+   "s": 45,
+   "w": "something",
+   "start": 134.498,
+   "end": 134.938,
+   "startFrame": 8070,
+   "endFrame": 8096
+  },
+  {
+   "s": 45,
+   "w": "heavy",
+   "start": 134.938,
+   "end": 135.21,
+   "startFrame": 8096,
+   "endFrame": 8113
+  },
+  {
+   "s": 45,
+   "w": "getting",
+   "start": 135.21,
+   "end": 135.566,
+   "startFrame": 8113,
+   "endFrame": 8134
+  },
+  {
+   "s": 45,
+   "w": "left",
+   "start": 135.566,
+   "end": 135.796,
+   "startFrame": 8134,
+   "endFrame": 8148
+  },
+  {
+   "s": 45,
+   "w": "behind.",
+   "start": 135.796,
+   "end": 136.194,
+   "startFrame": 8148,
+   "endFrame": 8172
+  },
+  {
+   "s": 46,
+   "w": "But",
+   "start": 137.746,
+   "end": 138.051,
+   "startFrame": 8265,
+   "endFrame": 8283
+  },
+  {
+   "s": 46,
+   "w": "now",
+   "start": 138.051,
+   "end": 138.357,
+   "startFrame": 8283,
+   "endFrame": 8301
+  },
+  {
+   "s": 46,
+   "w": "imagine",
+   "start": 138.357,
+   "end": 138.934,
+   "startFrame": 8301,
+   "endFrame": 8336
+  },
+  {
+   "s": 46,
+   "w": "a",
+   "start": 138.934,
+   "end": 139.104,
+   "startFrame": 8336,
+   "endFrame": 8346
+  },
+  {
+   "s": 46,
+   "w": "real",
+   "start": 139.104,
+   "end": 139.477,
+   "startFrame": 8346,
+   "endFrame": 8369
+  },
+  {
+   "s": 46,
+   "w": "crash.",
+   "start": 139.477,
+   "end": 140.054,
+   "startFrame": 8369,
+   "endFrame": 8403
+  },
+  {
+   "s": 47,
+   "w": "You",
+   "start": 140.897,
+   "end": 141.072,
+   "startFrame": 8454,
+   "endFrame": 8464
+  },
+  {
+   "s": 47,
+   "w": "are",
+   "start": 141.072,
+   "end": 141.247,
+   "startFrame": 8464,
+   "endFrame": 8475
+  },
+  {
+   "s": 47,
+   "w": "sitting",
+   "start": 141.247,
+   "end": 141.578,
+   "startFrame": 8475,
+   "endFrame": 8495
+  },
+  {
+   "s": 47,
+   "w": "still,",
+   "start": 141.578,
+   "end": 141.831,
+   "startFrame": 8495,
+   "endFrame": 8510
+  },
+  {
+   "s": 47,
+   "w": "belt",
+   "start": 142.174,
+   "end": 142.527,
+   "startFrame": 8530,
+   "endFrame": 8552
+  },
+  {
+   "s": 47,
+   "w": "on,",
+   "start": 142.527,
+   "end": 142.751,
+   "startFrame": 8552,
+   "endFrame": 8565
+  },
+  {
+   "s": 47,
+   "w": "hands",
+   "start": 143.034,
+   "end": 143.251,
+   "startFrame": 8582,
+   "endFrame": 8595
+  },
+  {
+   "s": 47,
+   "w": "on",
+   "start": 143.251,
+   "end": 143.368,
+   "startFrame": 8595,
+   "endFrame": 8602
+  },
+  {
+   "s": 47,
+   "w": "the",
+   "start": 143.368,
+   "end": 143.519,
+   "startFrame": 8602,
+   "endFrame": 8611
+  },
+  {
+   "s": 47,
+   "w": "wheel.",
+   "start": 143.519,
+   "end": 143.803,
+   "startFrame": 8611,
+   "endFrame": 8628
+  },
+  {
+   "s": 48,
+   "w": "The",
+   "start": 144.722,
+   "end": 144.883,
+   "startFrame": 8683,
+   "endFrame": 8693
+  },
+  {
+   "s": 48,
+   "w": "car",
+   "start": 144.883,
+   "end": 145.044,
+   "startFrame": 8693,
+   "endFrame": 8703
+  },
+  {
+   "s": 48,
+   "w": "hits",
+   "start": 145.044,
+   "end": 145.24,
+   "startFrame": 8703,
+   "endFrame": 8714
+  },
+  {
+   "s": 48,
+   "w": "something.",
+   "start": 145.24,
+   "end": 145.687,
+   "startFrame": 8714,
+   "endFrame": 8741
+  },
+  {
+   "s": 49,
+   "w": "In",
+   "start": 146.698,
+   "end": 146.847,
+   "startFrame": 8802,
+   "endFrame": 8811
+  },
+  {
+   "s": 49,
+   "w": "that",
+   "start": 146.847,
+   "end": 147.08,
+   "startFrame": 8811,
+   "endFrame": 8825
+  },
+  {
+   "s": 49,
+   "w": "first",
+   "start": 147.08,
+   "end": 147.356,
+   "startFrame": 8825,
+   "endFrame": 8841
+  },
+  {
+   "s": 49,
+   "w": "instant,",
+   "start": 147.356,
+   "end": 147.717,
+   "startFrame": 8841,
+   "endFrame": 8863
+  },
+  {
+   "s": 49,
+   "w": "nobody",
+   "start": 148.044,
+   "end": 148.341,
+   "startFrame": 8883,
+   "endFrame": 8900
+  },
+  {
+   "s": 49,
+   "w": "has",
+   "start": 148.341,
+   "end": 148.52,
+   "startFrame": 8900,
+   "endFrame": 8911
+  },
+  {
+   "s": 49,
+   "w": "jerked",
+   "start": 148.52,
+   "end": 148.818,
+   "startFrame": 8911,
+   "endFrame": 8929
+  },
+  {
+   "s": 49,
+   "w": "the",
+   "start": 148.818,
+   "end": 148.996,
+   "startFrame": 8929,
+   "endFrame": 8940
+  },
+  {
+   "s": 49,
+   "w": "belt.",
+   "start": 148.996,
+   "end": 149.294,
+   "startFrame": 8940,
+   "endFrame": 8958
+  },
+  {
+   "s": 50,
+   "w": "The",
+   "start": 150.077,
+   "end": 150.255,
+   "startFrame": 9005,
+   "endFrame": 9015
+  },
+  {
+   "s": 50,
+   "w": "reel",
+   "start": 150.255,
+   "end": 150.473,
+   "startFrame": 9015,
+   "endFrame": 9028
+  },
+  {
+   "s": 50,
+   "w": "hasn't",
+   "start": 150.473,
+   "end": 150.769,
+   "startFrame": 9028,
+   "endFrame": 9046
+  },
+  {
+   "s": 50,
+   "w": "moved",
+   "start": 150.769,
+   "end": 151.026,
+   "startFrame": 9046,
+   "endFrame": 9062
+  },
+  {
+   "s": 50,
+   "w": "at",
+   "start": 151.026,
+   "end": 151.165,
+   "startFrame": 9062,
+   "endFrame": 9070
+  },
+  {
+   "s": 50,
+   "w": "all.",
+   "start": 151.165,
+   "end": 151.422,
+   "startFrame": 9070,
+   "endFrame": 9085
+  },
+  {
+   "s": 51,
+   "w": "So",
+   "start": 152.771,
+   "end": 152.905,
+   "startFrame": 9166,
+   "endFrame": 9174
+  },
+  {
+   "s": 51,
+   "w": "what",
+   "start": 152.905,
+   "end": 153.117,
+   "startFrame": 9174,
+   "endFrame": 9187
+  },
+  {
+   "s": 51,
+   "w": "locks",
+   "start": 153.117,
+   "end": 153.367,
+   "startFrame": 9187,
+   "endFrame": 9202
+  },
+  {
+   "s": 51,
+   "w": "it?",
+   "start": 153.367,
+   "end": 153.501,
+   "startFrame": 9202,
+   "endFrame": 9210
+  },
+  {
+   "s": 52,
+   "w": "Below",
+   "start": 154.849,
+   "end": 155.147,
+   "startFrame": 9291,
+   "endFrame": 9309
+  },
+  {
+   "s": 52,
+   "w": "the",
+   "start": 155.147,
+   "end": 155.354,
+   "startFrame": 9309,
+   "endFrame": 9321
+  },
+  {
+   "s": 52,
+   "w": "reel,",
+   "start": 155.354,
+   "end": 155.606,
+   "startFrame": 9321,
+   "endFrame": 9336
+  },
+  {
+   "s": 52,
+   "w": "in",
+   "start": 155.764,
+   "end": 155.941,
+   "startFrame": 9346,
+   "endFrame": 9356
+  },
+  {
+   "s": 52,
+   "w": "one",
+   "start": 155.941,
+   "end": 156.169,
+   "startFrame": 9356,
+   "endFrame": 9370
+  },
+  {
+   "s": 52,
+   "w": "common",
+   "start": 156.169,
+   "end": 156.549,
+   "startFrame": 9370,
+   "endFrame": 9393
+  },
+  {
+   "s": 52,
+   "w": "design,",
+   "start": 156.549,
+   "end": 156.929,
+   "startFrame": 9393,
+   "endFrame": 9416
+  },
+  {
+   "s": 52,
+   "w": "sits",
+   "start": 157.291,
+   "end": 157.55,
+   "startFrame": 9437,
+   "endFrame": 9453
+  },
+  {
+   "s": 52,
+   "w": "a",
+   "start": 157.55,
+   "end": 157.667,
+   "startFrame": 9453,
+   "endFrame": 9460
+  },
+  {
+   "s": 52,
+   "w": "steel",
+   "start": 157.667,
+   "end": 157.973,
+   "startFrame": 9460,
+   "endFrame": 9478
+  },
+  {
+   "s": 52,
+   "w": "ball",
+   "start": 157.973,
+   "end": 158.231,
+   "startFrame": 9478,
+   "endFrame": 9494
+  },
+  {
+   "s": 52,
+   "w": "in",
+   "start": 158.231,
+   "end": 158.395,
+   "startFrame": 9494,
+   "endFrame": 9504
+  },
+  {
+   "s": 52,
+   "w": "a",
+   "start": 158.395,
+   "end": 158.513,
+   "startFrame": 9504,
+   "endFrame": 9511
+  },
+  {
+   "s": 52,
+   "w": "small",
+   "start": 158.513,
+   "end": 158.818,
+   "startFrame": 9511,
+   "endFrame": 9529
+  },
+  {
+   "s": 52,
+   "w": "cup",
+   "start": 158.818,
+   "end": 159.03,
+   "startFrame": 9529,
+   "endFrame": 9542
+  },
+  {
+   "s": 52,
+   "w": "shaped",
+   "start": 159.03,
+   "end": 159.382,
+   "startFrame": 9542,
+   "endFrame": 9563
+  },
+  {
+   "s": 52,
+   "w": "like",
+   "start": 159.382,
+   "end": 159.64,
+   "startFrame": 9563,
+   "endFrame": 9578
+  },
+  {
+   "s": 52,
+   "w": "a",
+   "start": 159.64,
+   "end": 159.758,
+   "startFrame": 9578,
+   "endFrame": 9585
+  },
+  {
+   "s": 52,
+   "w": "cone.",
+   "start": 159.758,
+   "end": 160.11,
+   "startFrame": 9585,
+   "endFrame": 9607
+  },
+  {
+   "s": 53,
+   "w": "When",
+   "start": 161.233,
+   "end": 161.45,
+   "startFrame": 9674,
+   "endFrame": 9687
+  },
+  {
+   "s": 53,
+   "w": "the",
+   "start": 161.45,
+   "end": 161.628,
+   "startFrame": 9687,
+   "endFrame": 9698
+  },
+  {
+   "s": 53,
+   "w": "car",
+   "start": 161.628,
+   "end": 161.806,
+   "startFrame": 9698,
+   "endFrame": 9708
+  },
+  {
+   "s": 53,
+   "w": "brakes",
+   "start": 161.806,
+   "end": 162.102,
+   "startFrame": 9708,
+   "endFrame": 9726
+  },
+  {
+   "s": 53,
+   "w": "hard,",
+   "start": 162.102,
+   "end": 162.319,
+   "startFrame": 9726,
+   "endFrame": 9739
+  },
+  {
+   "s": 53,
+   "w": "the",
+   "start": 162.613,
+   "end": 162.798,
+   "startFrame": 9757,
+   "endFrame": 9768
+  },
+  {
+   "s": 53,
+   "w": "cup",
+   "start": 162.798,
+   "end": 162.983,
+   "startFrame": 9768,
+   "endFrame": 9779
+  },
+  {
+   "s": 53,
+   "w": "stops",
+   "start": 162.983,
+   "end": 163.249,
+   "startFrame": 9779,
+   "endFrame": 9795
+  },
+  {
+   "s": 53,
+   "w": "with",
+   "start": 163.249,
+   "end": 163.475,
+   "startFrame": 9795,
+   "endFrame": 9808
+  },
+  {
+   "s": 53,
+   "w": "the",
+   "start": 163.475,
+   "end": 163.659,
+   "startFrame": 9808,
+   "endFrame": 9820
+  },
+  {
+   "s": 53,
+   "w": "car.",
+   "start": 163.659,
+   "end": 163.926,
+   "startFrame": 9820,
+   "endFrame": 9836
+  },
+  {
+   "s": 54,
+   "w": "The",
+   "start": 164.739,
+   "end": 164.901,
+   "startFrame": 9884,
+   "endFrame": 9894
+  },
+  {
+   "s": 54,
+   "w": "ball",
+   "start": 164.901,
+   "end": 165.1,
+   "startFrame": 9894,
+   "endFrame": 9906
+  },
+  {
+   "s": 54,
+   "w": "doesn't.",
+   "start": 165.1,
+   "end": 165.479,
+   "startFrame": 9906,
+   "endFrame": 9929
+  },
+  {
+   "s": 55,
+   "w": "It",
+   "start": 166.323,
+   "end": 166.502,
+   "startFrame": 9979,
+   "endFrame": 9990
+  },
+  {
+   "s": 55,
+   "w": "keeps",
+   "start": 166.502,
+   "end": 166.834,
+   "startFrame": 9990,
+   "endFrame": 10010
+  },
+  {
+   "s": 55,
+   "w": "going,",
+   "start": 166.834,
+   "end": 167.166,
+   "startFrame": 10010,
+   "endFrame": 10030
+  },
+  {
+   "s": 55,
+   "w": "rolls",
+   "start": 167.456,
+   "end": 167.688,
+   "startFrame": 10047,
+   "endFrame": 10061
+  },
+  {
+   "s": 55,
+   "w": "up",
+   "start": 167.688,
+   "end": 167.812,
+   "startFrame": 10061,
+   "endFrame": 10069
+  },
+  {
+   "s": 55,
+   "w": "the",
+   "start": 167.812,
+   "end": 167.973,
+   "startFrame": 10069,
+   "endFrame": 10078
+  },
+  {
+   "s": 55,
+   "w": "wall",
+   "start": 167.973,
+   "end": 168.169,
+   "startFrame": 10078,
+   "endFrame": 10090
+  },
+  {
+   "s": 55,
+   "w": "of",
+   "start": 168.169,
+   "end": 168.293,
+   "startFrame": 10090,
+   "endFrame": 10098
+  },
+  {
+   "s": 55,
+   "w": "the",
+   "start": 168.293,
+   "end": 168.454,
+   "startFrame": 10098,
+   "endFrame": 10107
+  },
+  {
+   "s": 55,
+   "w": "cup,",
+   "start": 168.454,
+   "end": 168.614,
+   "startFrame": 10107,
+   "endFrame": 10117
+  },
+  {
+   "s": 55,
+   "w": "and",
+   "start": 168.699,
+   "end": 168.908,
+   "startFrame": 10122,
+   "endFrame": 10134
+  },
+  {
+   "s": 55,
+   "w": "lifts",
+   "start": 168.908,
+   "end": 169.209,
+   "startFrame": 10134,
+   "endFrame": 10153
+  },
+  {
+   "s": 55,
+   "w": "a",
+   "start": 169.209,
+   "end": 169.325,
+   "startFrame": 10153,
+   "endFrame": 10160
+  },
+  {
+   "s": 55,
+   "w": "small",
+   "start": 169.325,
+   "end": 169.626,
+   "startFrame": 10160,
+   "endFrame": 10178
+  },
+  {
+   "s": 55,
+   "w": "lever",
+   "start": 169.626,
+   "end": 169.927,
+   "startFrame": 10178,
+   "endFrame": 10196
+  },
+  {
+   "s": 55,
+   "w": "into",
+   "start": 169.927,
+   "end": 170.182,
+   "startFrame": 10196,
+   "endFrame": 10211
+  },
+  {
+   "s": 55,
+   "w": "the",
+   "start": 170.182,
+   "end": 170.39,
+   "startFrame": 10211,
+   "endFrame": 10223
+  },
+  {
+   "s": 55,
+   "w": "teeth.",
+   "start": 170.39,
+   "end": 170.784,
+   "startFrame": 10223,
+   "endFrame": 10247
+  },
+  {
+   "s": 56,
+   "w": "The",
+   "start": 171.838,
+   "end": 172.013,
+   "startFrame": 10310,
+   "endFrame": 10321
+  },
+  {
+   "s": 56,
+   "w": "belt",
+   "start": 172.013,
+   "end": 172.227,
+   "startFrame": 10321,
+   "endFrame": 10334
+  },
+  {
+   "s": 56,
+   "w": "is",
+   "start": 172.227,
+   "end": 172.363,
+   "startFrame": 10334,
+   "endFrame": 10342
+  },
+  {
+   "s": 56,
+   "w": "locked",
+   "start": 172.363,
+   "end": 172.654,
+   "startFrame": 10342,
+   "endFrame": 10359
+  },
+  {
+   "s": 56,
+   "w": "almost",
+   "start": 172.654,
+   "end": 172.946,
+   "startFrame": 10359,
+   "endFrame": 10377
+  },
+  {
+   "s": 56,
+   "w": "as",
+   "start": 172.946,
+   "end": 173.082,
+   "startFrame": 10377,
+   "endFrame": 10385
+  },
+  {
+   "s": 56,
+   "w": "soon",
+   "start": 173.082,
+   "end": 173.296,
+   "startFrame": 10385,
+   "endFrame": 10398
+  },
+  {
+   "s": 56,
+   "w": "as",
+   "start": 173.296,
+   "end": 173.432,
+   "startFrame": 10398,
+   "endFrame": 10406
+  },
+  {
+   "s": 56,
+   "w": "you",
+   "start": 173.432,
+   "end": 173.607,
+   "startFrame": 10406,
+   "endFrame": 10416
+  },
+  {
+   "s": 56,
+   "w": "start",
+   "start": 173.607,
+   "end": 173.859,
+   "startFrame": 10416,
+   "endFrame": 10432
+  },
+  {
+   "s": 56,
+   "w": "to",
+   "start": 173.859,
+   "end": 173.995,
+   "startFrame": 10432,
+   "endFrame": 10440
+  },
+  {
+   "s": 56,
+   "w": "move.",
+   "start": 173.995,
+   "end": 174.287,
+   "startFrame": 10440,
+   "endFrame": 10457
+  },
+  {
+   "s": 57,
+   "w": "And",
+   "start": 175.697,
+   "end": 175.937,
+   "startFrame": 10542,
+   "endFrame": 10556
+  },
+  {
+   "s": 57,
+   "w": "it's",
+   "start": 175.937,
+   "end": 176.231,
+   "startFrame": 10556,
+   "endFrame": 10574
+  },
+  {
+   "s": 57,
+   "w": "fast.",
+   "start": 176.231,
+   "end": 176.632,
+   "startFrame": 10574,
+   "endFrame": 10598
+  },
+  {
+   "s": 58,
+   "w": "Under",
+   "start": 177.452,
+   "end": 177.734,
+   "startFrame": 10647,
+   "endFrame": 10664
+  },
+  {
+   "s": 58,
+   "w": "the",
+   "start": 177.734,
+   "end": 177.929,
+   "startFrame": 10664,
+   "endFrame": 10676
+  },
+  {
+   "s": 58,
+   "w": "American",
+   "start": 177.929,
+   "end": 178.342,
+   "startFrame": 10676,
+   "endFrame": 10701
+  },
+  {
+   "s": 58,
+   "w": "rule,",
+   "start": 178.342,
+   "end": 178.581,
+   "startFrame": 10701,
+   "endFrame": 10715
+  },
+  {
+   "s": 58,
+   "w": "in",
+   "start": 178.779,
+   "end": 178.95,
+   "startFrame": 10727,
+   "endFrame": 10737
+  },
+  {
+   "s": 58,
+   "w": "a",
+   "start": 178.95,
+   "end": 179.073,
+   "startFrame": 10737,
+   "endFrame": 10744
+  },
+  {
+   "s": 58,
+   "w": "hard",
+   "start": 179.073,
+   "end": 179.343,
+   "startFrame": 10744,
+   "endFrame": 10761
+  },
+  {
+   "s": 58,
+   "w": "stop,",
+   "start": 179.343,
+   "end": 179.613,
+   "startFrame": 10761,
+   "endFrame": 10777
+  },
+  {
+   "s": 58,
+   "w": "less",
+   "start": 179.946,
+   "end": 180.183,
+   "startFrame": 10797,
+   "endFrame": 10811
+  },
+  {
+   "s": 58,
+   "w": "than",
+   "start": 180.183,
+   "end": 180.42,
+   "startFrame": 10811,
+   "endFrame": 10825
+  },
+  {
+   "s": 58,
+   "w": "an",
+   "start": 180.42,
+   "end": 180.571,
+   "startFrame": 10825,
+   "endFrame": 10834
+  },
+  {
+   "s": 58,
+   "w": "inch",
+   "start": 180.571,
+   "end": 180.808,
+   "startFrame": 10834,
+   "endFrame": 10848
+  },
+  {
+   "s": 58,
+   "w": "of",
+   "start": 180.808,
+   "end": 180.959,
+   "startFrame": 10848,
+   "endFrame": 10858
+  },
+  {
+   "s": 58,
+   "w": "belt",
+   "start": 180.959,
+   "end": 181.196,
+   "startFrame": 10858,
+   "endFrame": 10872
+  },
+  {
+   "s": 58,
+   "w": "gets",
+   "start": 181.196,
+   "end": 181.433,
+   "startFrame": 10872,
+   "endFrame": 10886
+  },
+  {
+   "s": 58,
+   "w": "out",
+   "start": 181.433,
+   "end": 181.627,
+   "startFrame": 10886,
+   "endFrame": 10898
+  },
+  {
+   "s": 58,
+   "w": "before",
+   "start": 181.627,
+   "end": 181.95,
+   "startFrame": 10898,
+   "endFrame": 10917
+  },
+  {
+   "s": 58,
+   "w": "it",
+   "start": 181.95,
+   "end": 182.101,
+   "startFrame": 10917,
+   "endFrame": 10926
+  },
+  {
+   "s": 58,
+   "w": "locks.",
+   "start": 182.101,
+   "end": 182.467,
+   "startFrame": 10926,
+   "endFrame": 10948
+  },
+  {
+   "s": 59,
+   "w": "And",
+   "start": 183.308,
+   "end": 183.511,
+   "startFrame": 10998,
+   "endFrame": 11011
+  },
+  {
+   "s": 59,
+   "w": "if",
+   "start": 183.511,
+   "end": 183.669,
+   "startFrame": 11011,
+   "endFrame": 11020
+  },
+  {
+   "s": 59,
+   "w": "the",
+   "start": 183.669,
+   "end": 183.872,
+   "startFrame": 11020,
+   "endFrame": 11032
+  },
+  {
+   "s": 59,
+   "w": "car",
+   "start": 183.872,
+   "end": 184.075,
+   "startFrame": 11032,
+   "endFrame": 11044
+  },
+  {
+   "s": 59,
+   "w": "tips",
+   "start": 184.075,
+   "end": 184.323,
+   "startFrame": 11044,
+   "endFrame": 11059
+  },
+  {
+   "s": 59,
+   "w": "past",
+   "start": 184.323,
+   "end": 184.572,
+   "startFrame": 11059,
+   "endFrame": 11074
+  },
+  {
+   "s": 59,
+   "w": "forty-five",
+   "start": 184.572,
+   "end": 185.113,
+   "startFrame": 11074,
+   "endFrame": 11107
+  },
+  {
+   "s": 59,
+   "w": "degrees,",
+   "start": 185.113,
+   "end": 185.497,
+   "startFrame": 11107,
+   "endFrame": 11130
+  },
+  {
+   "s": 59,
+   "w": "it",
+   "start": 185.852,
+   "end": 186.009,
+   "startFrame": 11151,
+   "endFrame": 11161
+  },
+  {
+   "s": 59,
+   "w": "locks",
+   "start": 186.009,
+   "end": 186.301,
+   "startFrame": 11161,
+   "endFrame": 11178
+  },
+  {
+   "s": 59,
+   "w": "with",
+   "start": 186.301,
+   "end": 186.548,
+   "startFrame": 11178,
+   "endFrame": 11193
+  },
+  {
+   "s": 59,
+   "w": "no",
+   "start": 186.548,
+   "end": 186.705,
+   "startFrame": 11193,
+   "endFrame": 11202
+  },
+  {
+   "s": 59,
+   "w": "crash",
+   "start": 186.705,
+   "end": 186.996,
+   "startFrame": 11202,
+   "endFrame": 11220
+  },
+  {
+   "s": 59,
+   "w": "at",
+   "start": 186.996,
+   "end": 187.153,
+   "startFrame": 11220,
+   "endFrame": 11229
+  },
+  {
+   "s": 59,
+   "w": "all.",
+   "start": 187.153,
+   "end": 187.445,
+   "startFrame": 11229,
+   "endFrame": 11247
+  },
+  {
+   "s": 60,
+   "w": "Gravity",
+   "start": 188.351,
+   "end": 188.752,
+   "startFrame": 11301,
+   "endFrame": 11325
+  },
+  {
+   "s": 60,
+   "w": "rolls",
+   "start": 188.752,
+   "end": 189.059,
+   "startFrame": 11325,
+   "endFrame": 11344
+  },
+  {
+   "s": 60,
+   "w": "the",
+   "start": 189.059,
+   "end": 189.271,
+   "startFrame": 11344,
+   "endFrame": 11356
+  },
+  {
+   "s": 60,
+   "w": "ball,",
+   "start": 189.271,
+   "end": 189.531,
+   "startFrame": 11356,
+   "endFrame": 11372
+  },
+  {
+   "s": 60,
+   "w": "and",
+   "start": 189.71,
+   "end": 189.879,
+   "startFrame": 11383,
+   "endFrame": 11393
+  },
+  {
+   "s": 60,
+   "w": "the",
+   "start": 189.879,
+   "end": 190.049,
+   "startFrame": 11393,
+   "endFrame": 11403
+  },
+  {
+   "s": 60,
+   "w": "belt",
+   "start": 190.049,
+   "end": 190.257,
+   "startFrame": 11403,
+   "endFrame": 11415
+  },
+  {
+   "s": 60,
+   "w": "holds",
+   "start": 190.257,
+   "end": 190.502,
+   "startFrame": 11415,
+   "endFrame": 11430
+  },
+  {
+   "s": 60,
+   "w": "you,",
+   "start": 190.502,
+   "end": 190.672,
+   "startFrame": 11430,
+   "endFrame": 11440
+  },
+  {
+   "s": 60,
+   "w": "even",
+   "start": 191.056,
+   "end": 191.29,
+   "startFrame": 11463,
+   "endFrame": 11477
+  },
+  {
+   "s": 60,
+   "w": "upside",
+   "start": 191.29,
+   "end": 191.61,
+   "startFrame": 11477,
+   "endFrame": 11497
+  },
+  {
+   "s": 60,
+   "w": "down.",
+   "start": 191.61,
+   "end": 191.93,
+   "startFrame": 11497,
+   "endFrame": 11516
+  },
+  {
+   "s": 61,
+   "w": "So",
+   "start": 193.482,
+   "end": 193.701,
+   "startFrame": 11609,
+   "endFrame": 11622
+  },
+  {
+   "s": 61,
+   "w": "the",
+   "start": 193.701,
+   "end": 193.982,
+   "startFrame": 11622,
+   "endFrame": 11639
+  },
+  {
+   "s": 61,
+   "w": "lock",
+   "start": 193.982,
+   "end": 194.325,
+   "startFrame": 11639,
+   "endFrame": 11660
+  },
+  {
+   "s": 61,
+   "w": "works.",
+   "start": 194.325,
+   "end": 194.856,
+   "startFrame": 11660,
+   "endFrame": 11691
+  },
+  {
+   "s": 62,
+   "w": "And",
+   "start": 195.695,
+   "end": 195.907,
+   "startFrame": 11742,
+   "endFrame": 11754
+  },
+  {
+   "s": 62,
+   "w": "that",
+   "start": 195.907,
+   "end": 196.167,
+   "startFrame": 11754,
+   "endFrame": 11770
+  },
+  {
+   "s": 62,
+   "w": "is",
+   "start": 196.167,
+   "end": 196.332,
+   "startFrame": 11770,
+   "endFrame": 11780
+  },
+  {
+   "s": 62,
+   "w": "the",
+   "start": 196.332,
+   "end": 196.544,
+   "startFrame": 11780,
+   "endFrame": 11793
+  },
+  {
+   "s": 62,
+   "w": "new",
+   "start": 196.544,
+   "end": 196.756,
+   "startFrame": 11793,
+   "endFrame": 11805
+  },
+  {
+   "s": 62,
+   "w": "problem.",
+   "start": 196.756,
+   "end": 197.251,
+   "startFrame": 11805,
+   "endFrame": 11835
+  },
+  {
+   "s": 63,
+   "w": "Once",
+   "start": 198.677,
+   "end": 198.928,
+   "startFrame": 11921,
+   "endFrame": 11936
+  },
+  {
+   "s": 63,
+   "w": "the",
+   "start": 198.928,
+   "end": 199.134,
+   "startFrame": 11936,
+   "endFrame": 11948
+  },
+  {
+   "s": 63,
+   "w": "belt",
+   "start": 199.134,
+   "end": 199.385,
+   "startFrame": 11948,
+   "endFrame": 11963
+  },
+  {
+   "s": 63,
+   "w": "locks,",
+   "start": 199.385,
+   "end": 199.682,
+   "startFrame": 11963,
+   "endFrame": 11981
+  },
+  {
+   "s": 63,
+   "w": "your",
+   "start": 199.831,
+   "end": 200.085,
+   "startFrame": 11990,
+   "endFrame": 12005
+  },
+  {
+   "s": 63,
+   "w": "body",
+   "start": 200.085,
+   "end": 200.339,
+   "startFrame": 12005,
+   "endFrame": 12020
+  },
+  {
+   "s": 63,
+   "w": "is",
+   "start": 200.339,
+   "end": 200.501,
+   "startFrame": 12020,
+   "endFrame": 12030
+  },
+  {
+   "s": 63,
+   "w": "still",
+   "start": 200.501,
+   "end": 200.802,
+   "startFrame": 12030,
+   "endFrame": 12048
+  },
+  {
+   "s": 63,
+   "w": "rushing",
+   "start": 200.802,
+   "end": 201.194,
+   "startFrame": 12048,
+   "endFrame": 12072
+  },
+  {
+   "s": 63,
+   "w": "forward,",
+   "start": 201.194,
+   "end": 201.587,
+   "startFrame": 12072,
+   "endFrame": 12095
+  },
+  {
+   "s": 63,
+   "w": "and",
+   "start": 201.876,
+   "end": 202.087,
+   "startFrame": 12113,
+   "endFrame": 12125
+  },
+  {
+   "s": 63,
+   "w": "all",
+   "start": 202.087,
+   "end": 202.297,
+   "startFrame": 12125,
+   "endFrame": 12138
+  },
+  {
+   "s": 63,
+   "w": "of",
+   "start": 202.297,
+   "end": 202.46,
+   "startFrame": 12138,
+   "endFrame": 12148
+  },
+  {
+   "s": 63,
+   "w": "that",
+   "start": 202.46,
+   "end": 202.717,
+   "startFrame": 12148,
+   "endFrame": 12163
+  },
+  {
+   "s": 63,
+   "w": "lands",
+   "start": 202.717,
+   "end": 203.021,
+   "startFrame": 12163,
+   "endFrame": 12181
+  },
+  {
+   "s": 63,
+   "w": "on",
+   "start": 203.021,
+   "end": 203.184,
+   "startFrame": 12181,
+   "endFrame": 12191
+  },
+  {
+   "s": 63,
+   "w": "one",
+   "start": 203.184,
+   "end": 203.394,
+   "startFrame": 12191,
+   "endFrame": 12204
+  },
+  {
+   "s": 63,
+   "w": "strap",
+   "start": 203.394,
+   "end": 203.698,
+   "startFrame": 12204,
+   "endFrame": 12222
+  },
+  {
+   "s": 63,
+   "w": "across",
+   "start": 203.698,
+   "end": 204.048,
+   "startFrame": 12222,
+   "endFrame": 12243
+  },
+  {
+   "s": 63,
+   "w": "your",
+   "start": 204.048,
+   "end": 204.305,
+   "startFrame": 12243,
+   "endFrame": 12258
+  },
+  {
+   "s": 63,
+   "w": "chest.",
+   "start": 204.305,
+   "end": 204.702,
+   "startFrame": 12258,
+   "endFrame": 12282
+  },
+  {
+   "s": 64,
+   "w": "The",
+   "start": 205.691,
+   "end": 205.881,
+   "startFrame": 12341,
+   "endFrame": 12353
+  },
+  {
+   "s": 64,
+   "w": "front",
+   "start": 205.881,
+   "end": 206.156,
+   "startFrame": 12353,
+   "endFrame": 12369
+  },
+  {
+   "s": 64,
+   "w": "of",
+   "start": 206.156,
+   "end": 206.304,
+   "startFrame": 12369,
+   "endFrame": 12378
+  },
+  {
+   "s": 64,
+   "w": "the",
+   "start": 206.304,
+   "end": 206.494,
+   "startFrame": 12378,
+   "endFrame": 12390
+  },
+  {
+   "s": 64,
+   "w": "car",
+   "start": 206.494,
+   "end": 206.684,
+   "startFrame": 12390,
+   "endFrame": 12401
+  },
+  {
+   "s": 64,
+   "w": "crumples",
+   "start": 206.684,
+   "end": 207.085,
+   "startFrame": 12401,
+   "endFrame": 12425
+  },
+  {
+   "s": 64,
+   "w": "to",
+   "start": 207.085,
+   "end": 207.233,
+   "startFrame": 12425,
+   "endFrame": 12434
+  },
+  {
+   "s": 64,
+   "w": "soften",
+   "start": 207.233,
+   "end": 207.55,
+   "startFrame": 12434,
+   "endFrame": 12453
+  },
+  {
+   "s": 64,
+   "w": "the",
+   "start": 207.55,
+   "end": 207.74,
+   "startFrame": 12453,
+   "endFrame": 12464
+  },
+  {
+   "s": 64,
+   "w": "stop.",
+   "start": 207.74,
+   "end": 208.057,
+   "startFrame": 12464,
+   "endFrame": 12483
+  },
+  {
+   "s": 65,
+   "w": "The",
+   "start": 208.905,
+   "end": 209.142,
+   "startFrame": 12534,
+   "endFrame": 12549
+  },
+  {
+   "s": 65,
+   "w": "belt",
+   "start": 209.142,
+   "end": 209.432,
+   "startFrame": 12549,
+   "endFrame": 12566
+  },
+  {
+   "s": 65,
+   "w": "barely",
+   "start": 209.432,
+   "end": 209.826,
+   "startFrame": 12566,
+   "endFrame": 12590
+  },
+  {
+   "s": 65,
+   "w": "gives.",
+   "start": 209.826,
+   "end": 210.274,
+   "startFrame": 12590,
+   "endFrame": 12616
+  },
+  {
+   "s": 66,
+   "w": "It's",
+   "start": 210.937,
+   "end": 211.159,
+   "startFrame": 12656,
+   "endFrame": 12670
+  },
+  {
+   "s": 66,
+   "w": "built",
+   "start": 211.159,
+   "end": 211.421,
+   "startFrame": 12670,
+   "endFrame": 12685
+  },
+  {
+   "s": 66,
+   "w": "to",
+   "start": 211.421,
+   "end": 211.562,
+   "startFrame": 12685,
+   "endFrame": 12694
+  },
+  {
+   "s": 66,
+   "w": "hold.",
+   "start": 211.562,
+   "end": 211.865,
+   "startFrame": 12694,
+   "endFrame": 12712
+  },
+  {
+   "s": 67,
+   "w": "And",
+   "start": 213.211,
+   "end": 213.464,
+   "startFrame": 12793,
+   "endFrame": 12808
+  },
+  {
+   "s": 67,
+   "w": "chests",
+   "start": 213.464,
+   "end": 213.886,
+   "startFrame": 12808,
+   "endFrame": 12833
+  },
+  {
+   "s": 67,
+   "w": "can",
+   "start": 213.886,
+   "end": 214.139,
+   "startFrame": 12833,
+   "endFrame": 12848
+  },
+  {
+   "s": 67,
+   "w": "break.",
+   "start": 214.139,
+   "end": 214.617,
+   "startFrame": 12848,
+   "endFrame": 12877
+  },
+  {
+   "s": 68,
+   "w": "In",
+   "start": 215.61,
+   "end": 215.808,
+   "startFrame": 12937,
+   "endFrame": 12948
+  },
+  {
+   "s": 68,
+   "w": "bad",
+   "start": 215.808,
+   "end": 216.064,
+   "startFrame": 12948,
+   "endFrame": 12964
+  },
+  {
+   "s": 68,
+   "w": "crashes,",
+   "start": 216.064,
+   "end": 216.546,
+   "startFrame": 12964,
+   "endFrame": 12993
+  },
+  {
+   "s": 68,
+   "w": "older",
+   "start": 216.879,
+   "end": 217.167,
+   "startFrame": 13013,
+   "endFrame": 13030
+  },
+  {
+   "s": 68,
+   "w": "people",
+   "start": 217.167,
+   "end": 217.498,
+   "startFrame": 13030,
+   "endFrame": 13050
+  },
+  {
+   "s": 68,
+   "w": "were",
+   "start": 217.498,
+   "end": 217.742,
+   "startFrame": 13050,
+   "endFrame": 13065
+  },
+  {
+   "s": 68,
+   "w": "often",
+   "start": 217.742,
+   "end": 218.029,
+   "startFrame": 13065,
+   "endFrame": 13082
+  },
+  {
+   "s": 68,
+   "w": "badly",
+   "start": 218.029,
+   "end": 218.317,
+   "startFrame": 13082,
+   "endFrame": 13099
+  },
+  {
+   "s": 68,
+   "w": "hurt",
+   "start": 218.317,
+   "end": 218.56,
+   "startFrame": 13099,
+   "endFrame": 13114
+  },
+  {
+   "s": 68,
+   "w": "by",
+   "start": 218.56,
+   "end": 218.715,
+   "startFrame": 13114,
+   "endFrame": 13123
+  },
+  {
+   "s": 68,
+   "w": "the",
+   "start": 218.715,
+   "end": 218.914,
+   "startFrame": 13123,
+   "endFrame": 13135
+  },
+  {
+   "s": 68,
+   "w": "belt",
+   "start": 218.914,
+   "end": 219.157,
+   "startFrame": 13135,
+   "endFrame": 13149
+  },
+  {
+   "s": 68,
+   "w": "itself.",
+   "start": 219.157,
+   "end": 219.577,
+   "startFrame": 13149,
+   "endFrame": 13175
+  },
+  {
+   "s": 69,
+   "w": "The",
+   "start": 220.611,
+   "end": 220.81,
+   "startFrame": 13237,
+   "endFrame": 13249
+  },
+  {
+   "s": 69,
+   "w": "belt",
+   "start": 220.81,
+   "end": 221.053,
+   "startFrame": 13249,
+   "endFrame": 13263
+  },
+  {
+   "s": 69,
+   "w": "that",
+   "start": 221.053,
+   "end": 221.296,
+   "startFrame": 13263,
+   "endFrame": 13278
+  },
+  {
+   "s": 69,
+   "w": "saved",
+   "start": 221.296,
+   "end": 221.583,
+   "startFrame": 13278,
+   "endFrame": 13295
+  },
+  {
+   "s": 69,
+   "w": "them",
+   "start": 221.583,
+   "end": 221.826,
+   "startFrame": 13295,
+   "endFrame": 13310
+  },
+  {
+   "s": 69,
+   "w": "was",
+   "start": 221.826,
+   "end": 222.024,
+   "startFrame": 13310,
+   "endFrame": 13321
+  },
+  {
+   "s": 69,
+   "w": "also",
+   "start": 222.024,
+   "end": 222.267,
+   "startFrame": 13321,
+   "endFrame": 13336
+  },
+  {
+   "s": 69,
+   "w": "hurting",
+   "start": 222.267,
+   "end": 222.643,
+   "startFrame": 13336,
+   "endFrame": 13359
+  },
+  {
+   "s": 69,
+   "w": "them.",
+   "start": 222.643,
+   "end": 222.974,
+   "startFrame": 13359,
+   "endFrame": 13378
+  },
+  {
+   "s": 70,
+   "w": "Engineers",
+   "start": 224.552,
+   "end": 225.099,
+   "startFrame": 13473,
+   "endFrame": 13506
+  },
+  {
+   "s": 70,
+   "w": "did",
+   "start": 225.099,
+   "end": 225.333,
+   "startFrame": 13506,
+   "endFrame": 13520
+  },
+  {
+   "s": 70,
+   "w": "two",
+   "start": 225.333,
+   "end": 225.567,
+   "startFrame": 13520,
+   "endFrame": 13534
+  },
+  {
+   "s": 70,
+   "w": "things.",
+   "start": 225.567,
+   "end": 226.062,
+   "startFrame": 13534,
+   "endFrame": 13564
+  },
+  {
+   "s": 71,
+   "w": "And",
+   "start": 226.873,
+   "end": 227.034,
+   "startFrame": 13612,
+   "endFrame": 13622
+  },
+  {
+   "s": 71,
+   "w": "the",
+   "start": 227.034,
+   "end": 227.195,
+   "startFrame": 13622,
+   "endFrame": 13632
+  },
+  {
+   "s": 71,
+   "w": "first?",
+   "start": 227.195,
+   "end": 227.428,
+   "startFrame": 13632,
+   "endFrame": 13646
+  },
+  {
+   "s": 72,
+   "w": "Remember",
+   "start": 228.592,
+   "end": 228.901,
+   "startFrame": 13716,
+   "endFrame": 13734
+  },
+  {
+   "s": 72,
+   "w": "the",
+   "start": 228.901,
+   "end": 229.047,
+   "startFrame": 13734,
+   "endFrame": 13743
+  },
+  {
+   "s": 72,
+   "w": "chip",
+   "start": 229.047,
+   "end": 229.226,
+   "startFrame": 13743,
+   "endFrame": 13754
+  },
+  {
+   "s": 72,
+   "w": "you",
+   "start": 229.226,
+   "end": 229.372,
+   "startFrame": 13754,
+   "endFrame": 13762
+  },
+  {
+   "s": 72,
+   "w": "guessed",
+   "start": 229.372,
+   "end": 229.649,
+   "startFrame": 13762,
+   "endFrame": 13779
+  },
+  {
+   "s": 72,
+   "w": "at",
+   "start": 229.649,
+   "end": 229.762,
+   "startFrame": 13779,
+   "endFrame": 13786
+  },
+  {
+   "s": 72,
+   "w": "the",
+   "start": 229.762,
+   "end": 229.909,
+   "startFrame": 13786,
+   "endFrame": 13795
+  },
+  {
+   "s": 72,
+   "w": "start?",
+   "start": 229.909,
+   "end": 230.12,
+   "startFrame": 13795,
+   "endFrame": 13807
+  },
+  {
+   "s": 73,
+   "w": "It's",
+   "start": 231.213,
+   "end": 231.438,
+   "startFrame": 13873,
+   "endFrame": 13886
+  },
+  {
+   "s": 73,
+   "w": "real.",
+   "start": 231.438,
+   "end": 231.745,
+   "startFrame": 13886,
+   "endFrame": 13905
+  },
+  {
+   "s": 74,
+   "w": "It",
+   "start": 232.449,
+   "end": 232.569,
+   "startFrame": 13947,
+   "endFrame": 13954
+  },
+  {
+   "s": 74,
+   "w": "just",
+   "start": 232.569,
+   "end": 232.758,
+   "startFrame": 13954,
+   "endFrame": 13965
+  },
+  {
+   "s": 74,
+   "w": "has",
+   "start": 232.758,
+   "end": 232.913,
+   "startFrame": 13965,
+   "endFrame": 13975
+  },
+  {
+   "s": 74,
+   "w": "a",
+   "start": 232.913,
+   "end": 232.999,
+   "startFrame": 13975,
+   "endFrame": 13980
+  },
+  {
+   "s": 74,
+   "w": "different",
+   "start": 232.999,
+   "end": 233.36,
+   "startFrame": 13980,
+   "endFrame": 14002
+  },
+  {
+   "s": 74,
+   "w": "job.",
+   "start": 233.36,
+   "end": 233.583,
+   "startFrame": 14002,
+   "endFrame": 14015
+  },
+  {
+   "s": 75,
+   "w": "At",
+   "start": 234.875,
+   "end": 235.031,
+   "startFrame": 14092,
+   "endFrame": 14102
+  },
+  {
+   "s": 75,
+   "w": "the",
+   "start": 235.031,
+   "end": 235.231,
+   "startFrame": 14102,
+   "endFrame": 14114
+  },
+  {
+   "s": 75,
+   "w": "very",
+   "start": 235.231,
+   "end": 235.475,
+   "startFrame": 14114,
+   "endFrame": 14128
+  },
+  {
+   "s": 75,
+   "w": "start",
+   "start": 235.475,
+   "end": 235.764,
+   "startFrame": 14128,
+   "endFrame": 14146
+  },
+  {
+   "s": 75,
+   "w": "of",
+   "start": 235.764,
+   "end": 235.92,
+   "startFrame": 14146,
+   "endFrame": 14155
+  },
+  {
+   "s": 75,
+   "w": "a",
+   "start": 235.92,
+   "end": 236.031,
+   "startFrame": 14155,
+   "endFrame": 14162
+  },
+  {
+   "s": 75,
+   "w": "crash,",
+   "start": 236.031,
+   "end": 236.32,
+   "startFrame": 14162,
+   "endFrame": 14179
+  },
+  {
+   "s": 75,
+   "w": "the",
+   "start": 236.495,
+   "end": 236.713,
+   "startFrame": 14190,
+   "endFrame": 14203
+  },
+  {
+   "s": 75,
+   "w": "sensors",
+   "start": 236.713,
+   "end": 237.125,
+   "startFrame": 14203,
+   "endFrame": 14228
+  },
+  {
+   "s": 75,
+   "w": "that",
+   "start": 237.125,
+   "end": 237.391,
+   "startFrame": 14228,
+   "endFrame": 14243
+  },
+  {
+   "s": 75,
+   "w": "fire",
+   "start": 237.391,
+   "end": 237.657,
+   "startFrame": 14243,
+   "endFrame": 14259
+  },
+  {
+   "s": 75,
+   "w": "the",
+   "start": 237.657,
+   "end": 237.875,
+   "startFrame": 14259,
+   "endFrame": 14272
+  },
+  {
+   "s": 75,
+   "w": "airbag",
+   "start": 237.875,
+   "end": 238.239,
+   "startFrame": 14272,
+   "endFrame": 14294
+  },
+  {
+   "s": 75,
+   "w": "also",
+   "start": 238.239,
+   "end": 238.505,
+   "startFrame": 14294,
+   "endFrame": 14310
+  },
+  {
+   "s": 75,
+   "w": "fire",
+   "start": 238.505,
+   "end": 238.771,
+   "startFrame": 14310,
+   "endFrame": 14326
+  },
+  {
+   "s": 75,
+   "w": "a",
+   "start": 238.771,
+   "end": 238.892,
+   "startFrame": 14326,
+   "endFrame": 14334
+  },
+  {
+   "s": 75,
+   "w": "charge",
+   "start": 238.892,
+   "end": 239.256,
+   "startFrame": 14334,
+   "endFrame": 14355
+  },
+  {
+   "s": 75,
+   "w": "in",
+   "start": 239.256,
+   "end": 239.425,
+   "startFrame": 14355,
+   "endFrame": 14366
+  },
+  {
+   "s": 75,
+   "w": "the",
+   "start": 239.425,
+   "end": 239.643,
+   "startFrame": 14366,
+   "endFrame": 14379
+  },
+  {
+   "s": 75,
+   "w": "belt,",
+   "start": 239.643,
+   "end": 239.91,
+   "startFrame": 14379,
+   "endFrame": 14395
+  },
+  {
+   "s": 75,
+   "w": "usually",
+   "start": 240.325,
+   "end": 240.776,
+   "startFrame": 14420,
+   "endFrame": 14447
+  },
+  {
+   "s": 75,
+   "w": "a",
+   "start": 240.776,
+   "end": 240.908,
+   "startFrame": 14447,
+   "endFrame": 14454
+  },
+  {
+   "s": 75,
+   "w": "tiny",
+   "start": 240.908,
+   "end": 241.2,
+   "startFrame": 14454,
+   "endFrame": 14472
+  },
+  {
+   "s": 75,
+   "w": "explosive.",
+   "start": 241.2,
+   "end": 241.863,
+   "startFrame": 14472,
+   "endFrame": 14512
+  },
+  {
+   "s": 76,
+   "w": "It",
+   "start": 242.833,
+   "end": 242.981,
+   "startFrame": 14570,
+   "endFrame": 14579
+  },
+  {
+   "s": 76,
+   "w": "snaps",
+   "start": 242.981,
+   "end": 243.256,
+   "startFrame": 14579,
+   "endFrame": 14595
+  },
+  {
+   "s": 76,
+   "w": "the",
+   "start": 243.256,
+   "end": 243.447,
+   "startFrame": 14595,
+   "endFrame": 14607
+  },
+  {
+   "s": 76,
+   "w": "belt",
+   "start": 243.447,
+   "end": 243.68,
+   "startFrame": 14607,
+   "endFrame": 14621
+  },
+  {
+   "s": 76,
+   "w": "tight",
+   "start": 243.68,
+   "end": 243.955,
+   "startFrame": 14621,
+   "endFrame": 14637
+  },
+  {
+   "s": 76,
+   "w": "and",
+   "start": 243.955,
+   "end": 244.145,
+   "startFrame": 14637,
+   "endFrame": 14649
+  },
+  {
+   "s": 76,
+   "w": "pulls",
+   "start": 244.145,
+   "end": 244.42,
+   "startFrame": 14649,
+   "endFrame": 14665
+  },
+  {
+   "s": 76,
+   "w": "out",
+   "start": 244.42,
+   "end": 244.611,
+   "startFrame": 14665,
+   "endFrame": 14677
+  },
+  {
+   "s": 76,
+   "w": "the",
+   "start": 244.611,
+   "end": 244.801,
+   "startFrame": 14677,
+   "endFrame": 14688
+  },
+  {
+   "s": 76,
+   "w": "slack.",
+   "start": 244.801,
+   "end": 245.161,
+   "startFrame": 14688,
+   "endFrame": 14710
+  },
+  {
+   "s": 77,
+   "w": "Now",
+   "start": 246.089,
+   "end": 246.298,
+   "startFrame": 14765,
+   "endFrame": 14778
+  },
+  {
+   "s": 77,
+   "w": "your",
+   "start": 246.298,
+   "end": 246.555,
+   "startFrame": 14778,
+   "endFrame": 14793
+  },
+  {
+   "s": 77,
+   "w": "body",
+   "start": 246.555,
+   "end": 246.811,
+   "startFrame": 14793,
+   "endFrame": 14809
+  },
+  {
+   "s": 77,
+   "w": "starts",
+   "start": 246.811,
+   "end": 247.16,
+   "startFrame": 14809,
+   "endFrame": 14830
+  },
+  {
+   "s": 77,
+   "w": "slowing",
+   "start": 247.16,
+   "end": 247.555,
+   "startFrame": 14830,
+   "endFrame": 14853
+  },
+  {
+   "s": 77,
+   "w": "down",
+   "start": 247.555,
+   "end": 247.811,
+   "startFrame": 14853,
+   "endFrame": 14869
+  },
+  {
+   "s": 77,
+   "w": "with",
+   "start": 247.811,
+   "end": 248.067,
+   "startFrame": 14869,
+   "endFrame": 14884
+  },
+  {
+   "s": 77,
+   "w": "the",
+   "start": 248.067,
+   "end": 248.277,
+   "startFrame": 14884,
+   "endFrame": 14897
+  },
+  {
+   "s": 77,
+   "w": "car,",
+   "start": 248.277,
+   "end": 248.486,
+   "startFrame": 14897,
+   "endFrame": 14909
+  },
+  {
+   "s": 77,
+   "w": "sooner",
+   "start": 248.913,
+   "end": 249.286,
+   "startFrame": 14935,
+   "endFrame": 14957
+  },
+  {
+   "s": 77,
+   "w": "and",
+   "start": 249.286,
+   "end": 249.51,
+   "startFrame": 14957,
+   "endFrame": 14971
+  },
+  {
+   "s": 77,
+   "w": "more",
+   "start": 249.51,
+   "end": 249.784,
+   "startFrame": 14971,
+   "endFrame": 14987
+  },
+  {
+   "s": 77,
+   "w": "gently,",
+   "start": 249.784,
+   "end": 250.158,
+   "startFrame": 14987,
+   "endFrame": 15009
+  },
+  {
+   "s": 77,
+   "w": "instead",
+   "start": 250.421,
+   "end": 250.775,
+   "startFrame": 15025,
+   "endFrame": 15046
+  },
+  {
+   "s": 77,
+   "w": "of",
+   "start": 250.775,
+   "end": 250.921,
+   "startFrame": 15046,
+   "endFrame": 15055
+  },
+  {
+   "s": 77,
+   "w": "being",
+   "start": 250.921,
+   "end": 251.191,
+   "startFrame": 15055,
+   "endFrame": 15071
+  },
+  {
+   "s": 77,
+   "w": "caught",
+   "start": 251.191,
+   "end": 251.503,
+   "startFrame": 15071,
+   "endFrame": 15090
+  },
+  {
+   "s": 77,
+   "w": "late",
+   "start": 251.503,
+   "end": 251.732,
+   "startFrame": 15090,
+   "endFrame": 15104
+  },
+  {
+   "s": 77,
+   "w": "and",
+   "start": 251.732,
+   "end": 251.92,
+   "startFrame": 15104,
+   "endFrame": 15115
+  },
+  {
+   "s": 77,
+   "w": "hard.",
+   "start": 251.92,
+   "end": 252.232,
+   "startFrame": 15115,
+   "endFrame": 15134
+  },
+  {
+   "s": 78,
+   "w": "And",
+   "start": 253.608,
+   "end": 253.794,
+   "startFrame": 15216,
+   "endFrame": 15228
+  },
+  {
+   "s": 78,
+   "w": "the",
+   "start": 253.794,
+   "end": 253.98,
+   "startFrame": 15228,
+   "endFrame": 15239
+  },
+  {
+   "s": 78,
+   "w": "second",
+   "start": 253.98,
+   "end": 254.29,
+   "startFrame": 15239,
+   "endFrame": 15257
+  },
+  {
+   "s": 78,
+   "w": "fix?",
+   "start": 254.29,
+   "end": 254.476,
+   "startFrame": 15257,
+   "endFrame": 15269
+  },
+  {
+   "s": 79,
+   "w": "It",
+   "start": 255.563,
+   "end": 255.694,
+   "startFrame": 15334,
+   "endFrame": 15342
+  },
+  {
+   "s": 79,
+   "w": "sounds",
+   "start": 255.694,
+   "end": 255.975,
+   "startFrame": 15342,
+   "endFrame": 15358
+  },
+  {
+   "s": 79,
+   "w": "wrong.",
+   "start": 255.975,
+   "end": 256.294,
+   "startFrame": 15358,
+   "endFrame": 15378
+  },
+  {
+   "s": 80,
+   "w": "Inside",
+   "start": 257.223,
+   "end": 257.577,
+   "startFrame": 15433,
+   "endFrame": 15455
+  },
+  {
+   "s": 80,
+   "w": "the",
+   "start": 257.577,
+   "end": 257.79,
+   "startFrame": 15455,
+   "endFrame": 15467
+  },
+  {
+   "s": 80,
+   "w": "reel",
+   "start": 257.79,
+   "end": 258.049,
+   "startFrame": 15467,
+   "endFrame": 15483
+  },
+  {
+   "s": 80,
+   "w": "sits",
+   "start": 258.049,
+   "end": 258.309,
+   "startFrame": 15483,
+   "endFrame": 15499
+  },
+  {
+   "s": 80,
+   "w": "a",
+   "start": 258.309,
+   "end": 258.427,
+   "startFrame": 15499,
+   "endFrame": 15506
+  },
+  {
+   "s": 80,
+   "w": "steel",
+   "start": 258.427,
+   "end": 258.734,
+   "startFrame": 15506,
+   "endFrame": 15524
+  },
+  {
+   "s": 80,
+   "w": "bar",
+   "start": 258.734,
+   "end": 258.946,
+   "startFrame": 15524,
+   "endFrame": 15537
+  },
+  {
+   "s": 80,
+   "w": "that",
+   "start": 258.946,
+   "end": 259.206,
+   "startFrame": 15537,
+   "endFrame": 15552
+  },
+  {
+   "s": 80,
+   "w": "is",
+   "start": 259.206,
+   "end": 259.371,
+   "startFrame": 15552,
+   "endFrame": 15562
+  },
+  {
+   "s": 80,
+   "w": "built",
+   "start": 259.371,
+   "end": 259.678,
+   "startFrame": 15562,
+   "endFrame": 15581
+  },
+  {
+   "s": 80,
+   "w": "to",
+   "start": 259.678,
+   "end": 259.844,
+   "startFrame": 15581,
+   "endFrame": 15591
+  },
+  {
+   "s": 80,
+   "w": "twist.",
+   "start": 259.844,
+   "end": 260.245,
+   "startFrame": 15591,
+   "endFrame": 15615
+  },
+  {
+   "s": 81,
+   "w": "In",
+   "start": 261.59,
+   "end": 261.757,
+   "startFrame": 15695,
+   "endFrame": 15705
+  },
+  {
+   "s": 81,
+   "w": "a",
+   "start": 261.757,
+   "end": 261.877,
+   "startFrame": 15705,
+   "endFrame": 15713
+  },
+  {
+   "s": 81,
+   "w": "small",
+   "start": 261.877,
+   "end": 262.188,
+   "startFrame": 15713,
+   "endFrame": 15731
+  },
+  {
+   "s": 81,
+   "w": "crash,",
+   "start": 262.188,
+   "end": 262.499,
+   "startFrame": 15731,
+   "endFrame": 15750
+  },
+  {
+   "s": 81,
+   "w": "the",
+   "start": 262.66,
+   "end": 262.759,
+   "startFrame": 15760,
+   "endFrame": 15766
+  },
+  {
+   "s": 81,
+   "w": "bar",
+   "start": 262.759,
+   "end": 262.858,
+   "startFrame": 15766,
+   "endFrame": 15771
+  },
+  {
+   "s": 81,
+   "w": "holds,",
+   "start": 262.858,
+   "end": 263.001,
+   "startFrame": 15771,
+   "endFrame": 15780
+  },
+  {
+   "s": 81,
+   "w": "and",
+   "start": 263.122,
+   "end": 263.37,
+   "startFrame": 15787,
+   "endFrame": 15802
+  },
+  {
+   "s": 81,
+   "w": "the",
+   "start": 263.37,
+   "end": 263.619,
+   "startFrame": 15802,
+   "endFrame": 15817
+  },
+  {
+   "s": 81,
+   "w": "belt",
+   "start": 263.619,
+   "end": 263.923,
+   "startFrame": 15817,
+   "endFrame": 15835
+  },
+  {
+   "s": 81,
+   "w": "stays",
+   "start": 263.923,
+   "end": 264.283,
+   "startFrame": 15835,
+   "endFrame": 15857
+  },
+  {
+   "s": 81,
+   "w": "locked.",
+   "start": 264.283,
+   "end": 264.808,
+   "startFrame": 15857,
+   "endFrame": 15888
+  },
+  {
+   "s": 82,
+   "w": "But",
+   "start": 265.705,
+   "end": 265.873,
+   "startFrame": 15942,
+   "endFrame": 15952
+  },
+  {
+   "s": 82,
+   "w": "when",
+   "start": 265.873,
+   "end": 266.078,
+   "startFrame": 15952,
+   "endFrame": 15965
+  },
+  {
+   "s": 82,
+   "w": "the",
+   "start": 266.078,
+   "end": 266.245,
+   "startFrame": 15965,
+   "endFrame": 15975
+  },
+  {
+   "s": 82,
+   "w": "pull",
+   "start": 266.245,
+   "end": 266.45,
+   "startFrame": 15975,
+   "endFrame": 15987
+  },
+  {
+   "s": 82,
+   "w": "on",
+   "start": 266.45,
+   "end": 266.581,
+   "startFrame": 15987,
+   "endFrame": 15995
+  },
+  {
+   "s": 82,
+   "w": "your",
+   "start": 266.581,
+   "end": 266.786,
+   "startFrame": 15995,
+   "endFrame": 16007
+  },
+  {
+   "s": 82,
+   "w": "chest",
+   "start": 266.786,
+   "end": 267.028,
+   "startFrame": 16007,
+   "endFrame": 16022
+  },
+  {
+   "s": 82,
+   "w": "reaches",
+   "start": 267.028,
+   "end": 267.344,
+   "startFrame": 16022,
+   "endFrame": 16041
+  },
+  {
+   "s": 82,
+   "w": "a",
+   "start": 267.344,
+   "end": 267.438,
+   "startFrame": 16041,
+   "endFrame": 16046
+  },
+  {
+   "s": 82,
+   "w": "set",
+   "start": 267.438,
+   "end": 267.605,
+   "startFrame": 16046,
+   "endFrame": 16056
+  },
+  {
+   "s": 82,
+   "w": "limit,",
+   "start": 267.605,
+   "end": 267.847,
+   "startFrame": 16056,
+   "endFrame": 16071
+  },
+  {
+   "s": 82,
+   "w": "the",
+   "start": 268.204,
+   "end": 268.417,
+   "startFrame": 16092,
+   "endFrame": 16105
+  },
+  {
+   "s": 82,
+   "w": "bar",
+   "start": 268.417,
+   "end": 268.629,
+   "startFrame": 16105,
+   "endFrame": 16118
+  },
+  {
+   "s": 82,
+   "w": "starts",
+   "start": 268.629,
+   "end": 268.983,
+   "startFrame": 16118,
+   "endFrame": 16139
+  },
+  {
+   "s": 82,
+   "w": "to",
+   "start": 268.983,
+   "end": 269.148,
+   "startFrame": 16139,
+   "endFrame": 16149
+  },
+  {
+   "s": 82,
+   "w": "twist.",
+   "start": 269.148,
+   "end": 269.549,
+   "startFrame": 16149,
+   "endFrame": 16173
+  },
+  {
+   "s": 83,
+   "w": "Now",
+   "start": 270.465,
+   "end": 270.667,
+   "startFrame": 16228,
+   "endFrame": 16240
+  },
+  {
+   "s": 83,
+   "w": "the",
+   "start": 270.667,
+   "end": 270.869,
+   "startFrame": 16240,
+   "endFrame": 16252
+  },
+  {
+   "s": 83,
+   "w": "reel",
+   "start": 270.869,
+   "end": 271.115,
+   "startFrame": 16252,
+   "endFrame": 16267
+  },
+  {
+   "s": 83,
+   "w": "can",
+   "start": 271.115,
+   "end": 271.317,
+   "startFrame": 16267,
+   "endFrame": 16279
+  },
+  {
+   "s": 83,
+   "w": "turn",
+   "start": 271.317,
+   "end": 271.564,
+   "startFrame": 16279,
+   "endFrame": 16294
+  },
+  {
+   "s": 83,
+   "w": "a",
+   "start": 271.564,
+   "end": 271.676,
+   "startFrame": 16294,
+   "endFrame": 16301
+  },
+  {
+   "s": 83,
+   "w": "little,",
+   "start": 271.676,
+   "end": 272.012,
+   "startFrame": 16301,
+   "endFrame": 16321
+  },
+  {
+   "s": 83,
+   "w": "even",
+   "start": 272.264,
+   "end": 272.462,
+   "startFrame": 16336,
+   "endFrame": 16348
+  },
+  {
+   "s": 83,
+   "w": "while",
+   "start": 272.462,
+   "end": 272.695,
+   "startFrame": 16348,
+   "endFrame": 16362
+  },
+  {
+   "s": 83,
+   "w": "it's",
+   "start": 272.695,
+   "end": 272.892,
+   "startFrame": 16362,
+   "endFrame": 16374
+  },
+  {
+   "s": 83,
+   "w": "locked.",
+   "start": 272.892,
+   "end": 273.233,
+   "startFrame": 16374,
+   "endFrame": 16394
+  },
+  {
+   "s": 84,
+   "w": "The",
+   "start": 274.125,
+   "end": 274.302,
+   "startFrame": 16448,
+   "endFrame": 16458
+  },
+  {
+   "s": 84,
+   "w": "belt",
+   "start": 274.302,
+   "end": 274.518,
+   "startFrame": 16458,
+   "endFrame": 16471
+  },
+  {
+   "s": 84,
+   "w": "lets",
+   "start": 274.518,
+   "end": 274.735,
+   "startFrame": 16471,
+   "endFrame": 16484
+  },
+  {
+   "s": 84,
+   "w": "out,",
+   "start": 274.735,
+   "end": 274.912,
+   "startFrame": 16484,
+   "endFrame": 16495
+  },
+  {
+   "s": 84,
+   "w": "a",
+   "start": 275.197,
+   "end": 275.292,
+   "startFrame": 16512,
+   "endFrame": 16518
+  },
+  {
+   "s": 84,
+   "w": "little",
+   "start": 275.292,
+   "end": 275.579,
+   "startFrame": 16518,
+   "endFrame": 16535
+  },
+  {
+   "s": 84,
+   "w": "at",
+   "start": 275.579,
+   "end": 275.712,
+   "startFrame": 16535,
+   "endFrame": 16543
+  },
+  {
+   "s": 84,
+   "w": "a",
+   "start": 275.712,
+   "end": 275.808,
+   "startFrame": 16543,
+   "endFrame": 16548
+  },
+  {
+   "s": 84,
+   "w": "time,",
+   "start": 275.808,
+   "end": 276.018,
+   "startFrame": 16548,
+   "endFrame": 16561
+  },
+  {
+   "s": 84,
+   "w": "and",
+   "start": 276.413,
+   "end": 276.592,
+   "startFrame": 16585,
+   "endFrame": 16596
+  },
+  {
+   "s": 84,
+   "w": "the",
+   "start": 276.592,
+   "end": 276.771,
+   "startFrame": 16596,
+   "endFrame": 16606
+  },
+  {
+   "s": 84,
+   "w": "force",
+   "start": 276.771,
+   "end": 277.029,
+   "startFrame": 16606,
+   "endFrame": 16622
+  },
+  {
+   "s": 84,
+   "w": "on",
+   "start": 277.029,
+   "end": 277.169,
+   "startFrame": 16622,
+   "endFrame": 16630
+  },
+  {
+   "s": 84,
+   "w": "you",
+   "start": 277.169,
+   "end": 277.347,
+   "startFrame": 16630,
+   "endFrame": 16641
+  },
+  {
+   "s": 84,
+   "w": "stops",
+   "start": 277.347,
+   "end": 277.606,
+   "startFrame": 16641,
+   "endFrame": 16656
+  },
+  {
+   "s": 84,
+   "w": "climbing.",
+   "start": 277.606,
+   "end": 278.063,
+   "startFrame": 16656,
+   "endFrame": 16684
+  },
+  {
+   "s": 85,
+   "w": "It's",
+   "start": 278.949,
+   "end": 279.192,
+   "startFrame": 16737,
+   "endFrame": 16752
+  },
+  {
+   "s": 85,
+   "w": "called",
+   "start": 279.192,
+   "end": 279.524,
+   "startFrame": 16752,
+   "endFrame": 16771
+  },
+  {
+   "s": 85,
+   "w": "a",
+   "start": 279.524,
+   "end": 279.634,
+   "startFrame": 16771,
+   "endFrame": 16778
+  },
+  {
+   "s": 85,
+   "w": "load",
+   "start": 279.634,
+   "end": 279.878,
+   "startFrame": 16778,
+   "endFrame": 16793
+  },
+  {
+   "s": 85,
+   "w": "limiter.",
+   "start": 279.878,
+   "end": 280.342,
+   "startFrame": 16793,
+   "endFrame": 16821
+  },
+  {
+   "s": 86,
+   "w": "One",
+   "start": 281.736,
+   "end": 281.998,
+   "startFrame": 16904,
+   "endFrame": 16920
+  },
+  {
+   "s": 86,
+   "w": "carmaker,",
+   "start": 281.998,
+   "end": 282.551,
+   "startFrame": 16920,
+   "endFrame": 16953
+  },
+  {
+   "s": 86,
+   "w": "Renault,",
+   "start": 282.702,
+   "end": 283.106,
+   "startFrame": 16962,
+   "endFrame": 16986
+  },
+  {
+   "s": 86,
+   "w": "set",
+   "start": 283.513,
+   "end": 283.709,
+   "startFrame": 17011,
+   "endFrame": 17023
+  },
+  {
+   "s": 86,
+   "w": "its",
+   "start": 283.709,
+   "end": 283.905,
+   "startFrame": 17023,
+   "endFrame": 17034
+  },
+  {
+   "s": 86,
+   "w": "belts",
+   "start": 283.905,
+   "end": 284.188,
+   "startFrame": 17034,
+   "endFrame": 17051
+  },
+  {
+   "s": 86,
+   "w": "to",
+   "start": 284.188,
+   "end": 284.34,
+   "startFrame": 17051,
+   "endFrame": 17060
+  },
+  {
+   "s": 86,
+   "w": "let",
+   "start": 284.34,
+   "end": 284.536,
+   "startFrame": 17060,
+   "endFrame": 17072
+  },
+  {
+   "s": 86,
+   "w": "go",
+   "start": 284.536,
+   "end": 284.689,
+   "startFrame": 17072,
+   "endFrame": 17081
+  },
+  {
+   "s": 86,
+   "w": "sooner,",
+   "start": 284.689,
+   "end": 285.015,
+   "startFrame": 17081,
+   "endFrame": 17101
+  },
+  {
+   "s": 86,
+   "w": "at",
+   "start": 285.291,
+   "end": 285.456,
+   "startFrame": 17117,
+   "endFrame": 17127
+  },
+  {
+   "s": 86,
+   "w": "four",
+   "start": 285.456,
+   "end": 285.716,
+   "startFrame": 17127,
+   "endFrame": 17143
+  },
+  {
+   "s": 86,
+   "w": "kilo-newtons.",
+   "start": 285.716,
+   "end": 286.47,
+   "startFrame": 17143,
+   "endFrame": 17188
+  },
+  {
+   "s": 87,
+   "w": "That's",
+   "start": 287.33,
+   "end": 287.639,
+   "startFrame": 17240,
+   "endFrame": 17258
+  },
+  {
+   "s": 87,
+   "w": "about",
+   "start": 287.639,
+   "end": 287.908,
+   "startFrame": 17258,
+   "endFrame": 17274
+  },
+  {
+   "s": 87,
+   "w": "the",
+   "start": 287.908,
+   "end": 288.093,
+   "startFrame": 17274,
+   "endFrame": 17286
+  },
+  {
+   "s": 87,
+   "w": "weight",
+   "start": 288.093,
+   "end": 288.403,
+   "startFrame": 17286,
+   "endFrame": 17304
+  },
+  {
+   "s": 87,
+   "w": "of",
+   "start": 288.403,
+   "end": 288.547,
+   "startFrame": 17304,
+   "endFrame": 17313
+  },
+  {
+   "s": 87,
+   "w": "five",
+   "start": 288.547,
+   "end": 288.774,
+   "startFrame": 17313,
+   "endFrame": 17326
+  },
+  {
+   "s": 87,
+   "w": "adults",
+   "start": 288.774,
+   "end": 289.083,
+   "startFrame": 17326,
+   "endFrame": 17345
+  },
+  {
+   "s": 87,
+   "w": "on",
+   "start": 289.083,
+   "end": 289.228,
+   "startFrame": 17345,
+   "endFrame": 17354
+  },
+  {
+   "s": 87,
+   "w": "one",
+   "start": 289.228,
+   "end": 289.413,
+   "startFrame": 17354,
+   "endFrame": 17365
+  },
+  {
+   "s": 87,
+   "w": "strap.",
+   "start": 289.413,
+   "end": 289.764,
+   "startFrame": 17365,
+   "endFrame": 17386
+  },
+  {
+   "s": 88,
+   "w": "And",
+   "start": 290.63,
+   "end": 290.813,
+   "startFrame": 17438,
+   "endFrame": 17449
+  },
+  {
+   "s": 88,
+   "w": "it",
+   "start": 290.813,
+   "end": 290.955,
+   "startFrame": 17449,
+   "endFrame": 17457
+  },
+  {
+   "s": 88,
+   "w": "added",
+   "start": 290.955,
+   "end": 291.219,
+   "startFrame": 17457,
+   "endFrame": 17473
+  },
+  {
+   "s": 88,
+   "w": "an",
+   "start": 291.219,
+   "end": 291.361,
+   "startFrame": 17473,
+   "endFrame": 17482
+  },
+  {
+   "s": 88,
+   "w": "airbag",
+   "start": 291.361,
+   "end": 291.666,
+   "startFrame": 17482,
+   "endFrame": 17500
+  },
+  {
+   "s": 88,
+   "w": "to",
+   "start": 291.666,
+   "end": 291.808,
+   "startFrame": 17500,
+   "endFrame": 17508
+  },
+  {
+   "s": 88,
+   "w": "catch",
+   "start": 291.808,
+   "end": 292.072,
+   "startFrame": 17508,
+   "endFrame": 17524
+  },
+  {
+   "s": 88,
+   "w": "you.",
+   "start": 292.072,
+   "end": 292.336,
+   "startFrame": 17524,
+   "endFrame": 17540
+  },
+  {
+   "s": 89,
+   "w": "With",
+   "start": 293.294,
+   "end": 293.486,
+   "startFrame": 17598,
+   "endFrame": 17609
+  },
+  {
+   "s": 89,
+   "w": "the",
+   "start": 293.486,
+   "end": 293.644,
+   "startFrame": 17609,
+   "endFrame": 17619
+  },
+  {
+   "s": 89,
+   "w": "two",
+   "start": 293.644,
+   "end": 293.801,
+   "startFrame": 17619,
+   "endFrame": 17628
+  },
+  {
+   "s": 89,
+   "w": "together,",
+   "start": 293.801,
+   "end": 294.134,
+   "startFrame": 17628,
+   "endFrame": 17648
+  },
+  {
+   "s": 89,
+   "w": "those",
+   "start": 294.456,
+   "end": 294.774,
+   "startFrame": 17667,
+   "endFrame": 17686
+  },
+  {
+   "s": 89,
+   "w": "cars",
+   "start": 294.774,
+   "end": 295.042,
+   "startFrame": 17686,
+   "endFrame": 17703
+  },
+  {
+   "s": 89,
+   "w": "had",
+   "start": 295.042,
+   "end": 295.262,
+   "startFrame": 17703,
+   "endFrame": 17716
+  },
+  {
+   "s": 89,
+   "w": "about",
+   "start": 295.262,
+   "end": 295.579,
+   "startFrame": 17716,
+   "endFrame": 17735
+  },
+  {
+   "s": 89,
+   "w": "three",
+   "start": 295.579,
+   "end": 295.896,
+   "startFrame": 17735,
+   "endFrame": 17754
+  },
+  {
+   "s": 89,
+   "w": "quarters",
+   "start": 295.896,
+   "end": 296.36,
+   "startFrame": 17754,
+   "endFrame": 17782
+  },
+  {
+   "s": 89,
+   "w": "fewer",
+   "start": 296.36,
+   "end": 296.677,
+   "startFrame": 17782,
+   "endFrame": 17801
+  },
+  {
+   "s": 89,
+   "w": "serious",
+   "start": 296.677,
+   "end": 297.092,
+   "startFrame": 17801,
+   "endFrame": 17826
+  },
+  {
+   "s": 89,
+   "w": "chest",
+   "start": 297.092,
+   "end": 297.409,
+   "startFrame": 17826,
+   "endFrame": 17845
+  },
+  {
+   "s": 89,
+   "w": "injuries",
+   "start": 297.409,
+   "end": 297.873,
+   "startFrame": 17845,
+   "endFrame": 17872
+  },
+  {
+   "s": 89,
+   "w": "than",
+   "start": 297.873,
+   "end": 298.141,
+   "startFrame": 17872,
+   "endFrame": 17888
+  },
+  {
+   "s": 89,
+   "w": "cars",
+   "start": 298.141,
+   "end": 298.41,
+   "startFrame": 17888,
+   "endFrame": 17905
+  },
+  {
+   "s": 89,
+   "w": "with",
+   "start": 298.41,
+   "end": 298.678,
+   "startFrame": 17905,
+   "endFrame": 17921
+  },
+  {
+   "s": 89,
+   "w": "a",
+   "start": 298.678,
+   "end": 298.8,
+   "startFrame": 17921,
+   "endFrame": 17928
+  },
+  {
+   "s": 89,
+   "w": "stiffer",
+   "start": 298.8,
+   "end": 299.215,
+   "startFrame": 17928,
+   "endFrame": 17953
+  },
+  {
+   "s": 89,
+   "w": "limiter,",
+   "start": 299.215,
+   "end": 299.63,
+   "startFrame": 17953,
+   "endFrame": 17978
+  },
+  {
+   "s": 89,
+   "w": "or",
+   "start": 299.967,
+   "end": 300.079,
+   "startFrame": 17998,
+   "endFrame": 18005
+  },
+  {
+   "s": 89,
+   "w": "none.",
+   "start": 300.079,
+   "end": 300.318,
+   "startFrame": 18005,
+   "endFrame": 18019
+  },
+  {
+   "s": 90,
+   "w": "But",
+   "start": 301.935,
+   "end": 302.159,
+   "startFrame": 18116,
+   "endFrame": 18130
+  },
+  {
+   "s": 90,
+   "w": "what",
+   "start": 302.159,
+   "end": 302.433,
+   "startFrame": 18130,
+   "endFrame": 18146
+  },
+  {
+   "s": 90,
+   "w": "does",
+   "start": 302.433,
+   "end": 302.706,
+   "startFrame": 18146,
+   "endFrame": 18162
+  },
+  {
+   "s": 90,
+   "w": "letting",
+   "start": 302.706,
+   "end": 303.129,
+   "startFrame": 18162,
+   "endFrame": 18188
+  },
+  {
+   "s": 90,
+   "w": "go",
+   "start": 303.129,
+   "end": 303.303,
+   "startFrame": 18188,
+   "endFrame": 18198
+  },
+  {
+   "s": 90,
+   "w": "cost",
+   "start": 303.303,
+   "end": 303.577,
+   "startFrame": 18198,
+   "endFrame": 18215
+  },
+  {
+   "s": 90,
+   "w": "you?",
+   "start": 303.577,
+   "end": 303.801,
+   "startFrame": 18215,
+   "endFrame": 18228
+  },
+  {
+   "s": 91,
+   "w": "Every",
+   "start": 305.044,
+   "end": 305.334,
+   "startFrame": 18303,
+   "endFrame": 18320
+  },
+  {
+   "s": 91,
+   "w": "bit",
+   "start": 305.334,
+   "end": 305.534,
+   "startFrame": 18320,
+   "endFrame": 18332
+  },
+  {
+   "s": 91,
+   "w": "of",
+   "start": 305.534,
+   "end": 305.69,
+   "startFrame": 18332,
+   "endFrame": 18341
+  },
+  {
+   "s": 91,
+   "w": "belt",
+   "start": 305.69,
+   "end": 305.935,
+   "startFrame": 18341,
+   "endFrame": 18356
+  },
+  {
+   "s": 91,
+   "w": "it",
+   "start": 305.935,
+   "end": 306.091,
+   "startFrame": 18356,
+   "endFrame": 18365
+  },
+  {
+   "s": 91,
+   "w": "lets",
+   "start": 306.091,
+   "end": 306.336,
+   "startFrame": 18365,
+   "endFrame": 18380
+  },
+  {
+   "s": 91,
+   "w": "out,",
+   "start": 306.336,
+   "end": 306.536,
+   "startFrame": 18380,
+   "endFrame": 18392
+  },
+  {
+   "s": 91,
+   "w": "you",
+   "start": 306.816,
+   "end": 307.02,
+   "startFrame": 18409,
+   "endFrame": 18421
+  },
+  {
+   "s": 91,
+   "w": "travel",
+   "start": 307.02,
+   "end": 307.362,
+   "startFrame": 18421,
+   "endFrame": 18442
+  },
+  {
+   "s": 91,
+   "w": "further",
+   "start": 307.362,
+   "end": 307.748,
+   "startFrame": 18442,
+   "endFrame": 18465
+  },
+  {
+   "s": 91,
+   "w": "forward.",
+   "start": 307.748,
+   "end": 308.226,
+   "startFrame": 18465,
+   "endFrame": 18494
+  },
+  {
+   "s": 92,
+   "w": "That's",
+   "start": 309.144,
+   "end": 309.447,
+   "startFrame": 18549,
+   "endFrame": 18567
+  },
+  {
+   "s": 92,
+   "w": "why",
+   "start": 309.447,
+   "end": 309.629,
+   "startFrame": 18567,
+   "endFrame": 18578
+  },
+  {
+   "s": 92,
+   "w": "the",
+   "start": 309.629,
+   "end": 309.81,
+   "startFrame": 18578,
+   "endFrame": 18589
+  },
+  {
+   "s": 92,
+   "w": "softer",
+   "start": 309.81,
+   "end": 310.113,
+   "startFrame": 18589,
+   "endFrame": 18607
+  },
+  {
+   "s": 92,
+   "w": "limit",
+   "start": 310.113,
+   "end": 310.376,
+   "startFrame": 18607,
+   "endFrame": 18623
+  },
+  {
+   "s": 92,
+   "w": "came",
+   "start": 310.376,
+   "end": 310.598,
+   "startFrame": 18623,
+   "endFrame": 18636
+  },
+  {
+   "s": 92,
+   "w": "with",
+   "start": 310.598,
+   "end": 310.82,
+   "startFrame": 18636,
+   "endFrame": 18649
+  },
+  {
+   "s": 92,
+   "w": "an",
+   "start": 310.82,
+   "end": 310.961,
+   "startFrame": 18649,
+   "endFrame": 18658
+  },
+  {
+   "s": 92,
+   "w": "airbag.",
+   "start": 310.961,
+   "end": 311.345,
+   "startFrame": 18658,
+   "endFrame": 18681
+  },
+  {
+   "s": 93,
+   "w": "And",
+   "start": 312.172,
+   "end": 312.402,
+   "startFrame": 18730,
+   "endFrame": 18744
+  },
+  {
+   "s": 93,
+   "w": "engineers",
+   "start": 312.402,
+   "end": 312.939,
+   "startFrame": 18744,
+   "endFrame": 18776
+  },
+  {
+   "s": 93,
+   "w": "worry",
+   "start": 312.939,
+   "end": 313.272,
+   "startFrame": 18776,
+   "endFrame": 18796
+  },
+  {
+   "s": 93,
+   "w": "about",
+   "start": 313.272,
+   "end": 313.605,
+   "startFrame": 18796,
+   "endFrame": 18816
+  },
+  {
+   "s": 93,
+   "w": "tall",
+   "start": 313.605,
+   "end": 313.886,
+   "startFrame": 18816,
+   "endFrame": 18833
+  },
+  {
+   "s": 93,
+   "w": "or",
+   "start": 313.886,
+   "end": 314.065,
+   "startFrame": 18833,
+   "endFrame": 18844
+  },
+  {
+   "s": 93,
+   "w": "heavy",
+   "start": 314.065,
+   "end": 314.398,
+   "startFrame": 18844,
+   "endFrame": 18864
+  },
+  {
+   "s": 93,
+   "w": "passengers,",
+   "start": 314.398,
+   "end": 314.986,
+   "startFrame": 18864,
+   "endFrame": 18899
+  },
+  {
+   "s": 93,
+   "w": "who",
+   "start": 315.485,
+   "end": 315.665,
+   "startFrame": 18929,
+   "endFrame": 18940
+  },
+  {
+   "s": 93,
+   "w": "might",
+   "start": 315.665,
+   "end": 315.925,
+   "startFrame": 18940,
+   "endFrame": 18956
+  },
+  {
+   "s": 93,
+   "w": "let",
+   "start": 315.925,
+   "end": 316.105,
+   "startFrame": 18956,
+   "endFrame": 18966
+  },
+  {
+   "s": 93,
+   "w": "out",
+   "start": 316.105,
+   "end": 316.285,
+   "startFrame": 18966,
+   "endFrame": 18977
+  },
+  {
+   "s": 93,
+   "w": "too",
+   "start": 316.285,
+   "end": 316.465,
+   "startFrame": 18977,
+   "endFrame": 18988
+  },
+  {
+   "s": 93,
+   "w": "much",
+   "start": 316.465,
+   "end": 316.685,
+   "startFrame": 18988,
+   "endFrame": 19001
+  },
+  {
+   "s": 93,
+   "w": "belt",
+   "start": 316.685,
+   "end": 316.905,
+   "startFrame": 19001,
+   "endFrame": 19014
+  },
+  {
+   "s": 93,
+   "w": "and",
+   "start": 316.905,
+   "end": 317.084,
+   "startFrame": 19014,
+   "endFrame": 19025
+  },
+  {
+   "s": 93,
+   "w": "reach",
+   "start": 317.084,
+   "end": 317.344,
+   "startFrame": 19025,
+   "endFrame": 19041
+  },
+  {
+   "s": 93,
+   "w": "the",
+   "start": 317.344,
+   "end": 317.524,
+   "startFrame": 19041,
+   "endFrame": 19051
+  },
+  {
+   "s": 93,
+   "w": "inside",
+   "start": 317.524,
+   "end": 317.824,
+   "startFrame": 19051,
+   "endFrame": 19069
+  },
+  {
+   "s": 93,
+   "w": "of",
+   "start": 317.824,
+   "end": 317.964,
+   "startFrame": 19069,
+   "endFrame": 19078
+  },
+  {
+   "s": 93,
+   "w": "the",
+   "start": 317.964,
+   "end": 318.144,
+   "startFrame": 19078,
+   "endFrame": 19089
+  },
+  {
+   "s": 93,
+   "w": "car.",
+   "start": 318.144,
+   "end": 318.404,
+   "startFrame": 19089,
+   "endFrame": 19104
+  },
+  {
+   "s": 94,
+   "w": "Where",
+   "start": 319.823,
+   "end": 320.02,
+   "startFrame": 19189,
+   "endFrame": 19201
+  },
+  {
+   "s": 94,
+   "w": "do",
+   "start": 320.02,
+   "end": 320.126,
+   "startFrame": 19201,
+   "endFrame": 19208
+  },
+  {
+   "s": 94,
+   "w": "you",
+   "start": 320.126,
+   "end": 320.262,
+   "startFrame": 19208,
+   "endFrame": 19216
+  },
+  {
+   "s": 94,
+   "w": "set",
+   "start": 320.262,
+   "end": 320.398,
+   "startFrame": 19216,
+   "endFrame": 19224
+  },
+  {
+   "s": 94,
+   "w": "the",
+   "start": 320.398,
+   "end": 320.535,
+   "startFrame": 19224,
+   "endFrame": 19232
+  },
+  {
+   "s": 94,
+   "w": "limit,",
+   "start": 320.535,
+   "end": 320.731,
+   "startFrame": 19232,
+   "endFrame": 19244
+  },
+  {
+   "s": 94,
+   "w": "then?",
+   "start": 320.825,
+   "end": 320.971,
+   "startFrame": 19250,
+   "endFrame": 19258
+  },
+  {
+   "s": 95,
+   "w": "Too",
+   "start": 322.2,
+   "end": 322.474,
+   "startFrame": 19332,
+   "endFrame": 19348
+  },
+  {
+   "s": 95,
+   "w": "high,",
+   "start": 322.474,
+   "end": 322.809,
+   "startFrame": 19348,
+   "endFrame": 19369
+  },
+  {
+   "s": 95,
+   "w": "and",
+   "start": 323.004,
+   "end": 323.179,
+   "startFrame": 19380,
+   "endFrame": 19391
+  },
+  {
+   "s": 95,
+   "w": "the",
+   "start": 323.179,
+   "end": 323.355,
+   "startFrame": 19391,
+   "endFrame": 19401
+  },
+  {
+   "s": 95,
+   "w": "belt",
+   "start": 323.355,
+   "end": 323.569,
+   "startFrame": 19401,
+   "endFrame": 19414
+  },
+  {
+   "s": 95,
+   "w": "hurts",
+   "start": 323.569,
+   "end": 323.823,
+   "startFrame": 19414,
+   "endFrame": 19429
+  },
+  {
+   "s": 95,
+   "w": "the",
+   "start": 323.823,
+   "end": 323.998,
+   "startFrame": 19429,
+   "endFrame": 19440
+  },
+  {
+   "s": 95,
+   "w": "chest",
+   "start": 323.998,
+   "end": 324.252,
+   "startFrame": 19440,
+   "endFrame": 19455
+  },
+  {
+   "s": 95,
+   "w": "it",
+   "start": 324.252,
+   "end": 324.388,
+   "startFrame": 19455,
+   "endFrame": 19463
+  },
+  {
+   "s": 95,
+   "w": "holds.",
+   "start": 324.388,
+   "end": 324.72,
+   "startFrame": 19463,
+   "endFrame": 19483
+  },
+  {
+   "s": 96,
+   "w": "Too",
+   "start": 325.577,
+   "end": 325.874,
+   "startFrame": 19535,
+   "endFrame": 19552
+  },
+  {
+   "s": 96,
+   "w": "low,",
+   "start": 325.874,
+   "end": 326.172,
+   "startFrame": 19552,
+   "endFrame": 19570
+  },
+  {
+   "s": 96,
+   "w": "and",
+   "start": 326.389,
+   "end": 326.559,
+   "startFrame": 19583,
+   "endFrame": 19594
+  },
+  {
+   "s": 96,
+   "w": "it",
+   "start": 326.559,
+   "end": 326.691,
+   "startFrame": 19594,
+   "endFrame": 19601
+  },
+  {
+   "s": 96,
+   "w": "lets",
+   "start": 326.691,
+   "end": 326.898,
+   "startFrame": 19601,
+   "endFrame": 19614
+  },
+  {
+   "s": 96,
+   "w": "you",
+   "start": 326.898,
+   "end": 327.068,
+   "startFrame": 19614,
+   "endFrame": 19624
+  },
+  {
+   "s": 96,
+   "w": "go",
+   "start": 327.068,
+   "end": 327.2,
+   "startFrame": 19624,
+   "endFrame": 19632
+  },
+  {
+   "s": 96,
+   "w": "too",
+   "start": 327.2,
+   "end": 327.37,
+   "startFrame": 19632,
+   "endFrame": 19642
+  },
+  {
+   "s": 96,
+   "w": "far.",
+   "start": 327.37,
+   "end": 327.615,
+   "startFrame": 19642,
+   "endFrame": 19657
+  },
+  {
+   "s": 97,
+   "w": "Every",
+   "start": 328.595,
+   "end": 328.866,
+   "startFrame": 19716,
+   "endFrame": 19732
+  },
+  {
+   "s": 97,
+   "w": "limit",
+   "start": 328.866,
+   "end": 329.137,
+   "startFrame": 19732,
+   "endFrame": 19748
+  },
+  {
+   "s": 97,
+   "w": "is",
+   "start": 329.137,
+   "end": 329.283,
+   "startFrame": 19748,
+   "endFrame": 19757
+  },
+  {
+   "s": 97,
+   "w": "a",
+   "start": 329.283,
+   "end": 329.388,
+   "startFrame": 19757,
+   "endFrame": 19763
+  },
+  {
+   "s": 97,
+   "w": "choice",
+   "start": 329.388,
+   "end": 329.701,
+   "startFrame": 19763,
+   "endFrame": 19782
+  },
+  {
+   "s": 97,
+   "w": "between",
+   "start": 329.701,
+   "end": 330.055,
+   "startFrame": 19782,
+   "endFrame": 19803
+  },
+  {
+   "s": 97,
+   "w": "the",
+   "start": 330.055,
+   "end": 330.243,
+   "startFrame": 19803,
+   "endFrame": 19815
+  },
+  {
+   "s": 97,
+   "w": "two.",
+   "start": 330.243,
+   "end": 330.514,
+   "startFrame": 19815,
+   "endFrame": 19831
+  },
+  {
+   "s": 98,
+   "w": "So",
+   "start": 331.927,
+   "end": 332.126,
+   "startFrame": 19916,
+   "endFrame": 19928
+  },
+  {
+   "s": 98,
+   "w": "in",
+   "start": 332.126,
+   "end": 332.326,
+   "startFrame": 19928,
+   "endFrame": 19940
+  },
+  {
+   "s": 98,
+   "w": "a",
+   "start": 332.326,
+   "end": 332.468,
+   "startFrame": 19940,
+   "endFrame": 19948
+  },
+  {
+   "s": 98,
+   "w": "hard",
+   "start": 332.468,
+   "end": 332.781,
+   "startFrame": 19948,
+   "endFrame": 19967
+  },
+  {
+   "s": 98,
+   "w": "crash,",
+   "start": 332.781,
+   "end": 333.152,
+   "startFrame": 19967,
+   "endFrame": 19989
+  },
+  {
+   "s": 98,
+   "w": "your",
+   "start": 333.286,
+   "end": 333.522,
+   "startFrame": 19997,
+   "endFrame": 20011
+  },
+  {
+   "s": 98,
+   "w": "belt",
+   "start": 333.522,
+   "end": 333.759,
+   "startFrame": 20011,
+   "endFrame": 20026
+  },
+  {
+   "s": 98,
+   "w": "makes",
+   "start": 333.759,
+   "end": 334.038,
+   "startFrame": 20026,
+   "endFrame": 20042
+  },
+  {
+   "s": 98,
+   "w": "three",
+   "start": 334.038,
+   "end": 334.317,
+   "startFrame": 20042,
+   "endFrame": 20059
+  },
+  {
+   "s": 98,
+   "w": "moves",
+   "start": 334.317,
+   "end": 334.596,
+   "startFrame": 20059,
+   "endFrame": 20076
+  },
+  {
+   "s": 98,
+   "w": "in",
+   "start": 334.596,
+   "end": 334.747,
+   "startFrame": 20076,
+   "endFrame": 20085
+  },
+  {
+   "s": 98,
+   "w": "a",
+   "start": 334.747,
+   "end": 334.854,
+   "startFrame": 20085,
+   "endFrame": 20091
+  },
+  {
+   "s": 98,
+   "w": "blink.",
+   "start": 334.854,
+   "end": 335.219,
+   "startFrame": 20091,
+   "endFrame": 20113
+  },
+  {
+   "s": 99,
+   "w": "Pull",
+   "start": 336.13,
+   "end": 336.344,
+   "startFrame": 20168,
+   "endFrame": 20181
+  },
+  {
+   "s": 99,
+   "w": "tight.",
+   "start": 336.344,
+   "end": 336.674,
+   "startFrame": 20181,
+   "endFrame": 20200
+  },
+  {
+   "s": 100,
+   "w": "Lock.",
+   "start": 337.51,
+   "end": 337.911,
+   "startFrame": 20251,
+   "endFrame": 20275
+  },
+  {
+   "s": 101,
+   "w": "Then",
+   "start": 338.691,
+   "end": 338.964,
+   "startFrame": 20321,
+   "endFrame": 20338
+  },
+  {
+   "s": 101,
+   "w": "let",
+   "start": 338.964,
+   "end": 339.188,
+   "startFrame": 20338,
+   "endFrame": 20351
+  },
+  {
+   "s": 101,
+   "w": "go,",
+   "start": 339.188,
+   "end": 339.361,
+   "startFrame": 20351,
+   "endFrame": 20362
+  },
+  {
+   "s": 101,
+   "w": "just",
+   "start": 339.772,
+   "end": 339.944,
+   "startFrame": 20386,
+   "endFrame": 20397
+  },
+  {
+   "s": 101,
+   "w": "enough.",
+   "start": 339.944,
+   "end": 340.24,
+   "startFrame": 20397,
+   "endFrame": 20414
+  },
+  {
+   "s": 102,
+   "w": "Ever",
+   "start": 341.827,
+   "end": 342.055,
+   "startFrame": 20510,
+   "endFrame": 20523
+  },
+  {
+   "s": 102,
+   "w": "pulled",
+   "start": 342.055,
+   "end": 342.366,
+   "startFrame": 20523,
+   "endFrame": 20542
+  },
+  {
+   "s": 102,
+   "w": "your",
+   "start": 342.366,
+   "end": 342.594,
+   "startFrame": 20542,
+   "endFrame": 20556
+  },
+  {
+   "s": 102,
+   "w": "belt",
+   "start": 342.594,
+   "end": 342.822,
+   "startFrame": 20556,
+   "endFrame": 20569
+  },
+  {
+   "s": 102,
+   "w": "all",
+   "start": 342.822,
+   "end": 343.008,
+   "startFrame": 20569,
+   "endFrame": 20580
+  },
+  {
+   "s": 102,
+   "w": "the",
+   "start": 343.008,
+   "end": 343.195,
+   "startFrame": 20580,
+   "endFrame": 20592
+  },
+  {
+   "s": 102,
+   "w": "way",
+   "start": 343.195,
+   "end": 343.381,
+   "startFrame": 20592,
+   "endFrame": 20603
+  },
+  {
+   "s": 102,
+   "w": "out,",
+   "start": 343.381,
+   "end": 343.567,
+   "startFrame": 20603,
+   "endFrame": 20614
+  },
+  {
+   "s": 102,
+   "w": "and",
+   "start": 343.855,
+   "end": 344.019,
+   "startFrame": 20631,
+   "endFrame": 20641
+  },
+  {
+   "s": 102,
+   "w": "then",
+   "start": 344.019,
+   "end": 344.218,
+   "startFrame": 20641,
+   "endFrame": 20653
+  },
+  {
+   "s": 102,
+   "w": "it",
+   "start": 344.218,
+   "end": 344.346,
+   "startFrame": 20653,
+   "endFrame": 20661
+  },
+  {
+   "s": 102,
+   "w": "would",
+   "start": 344.346,
+   "end": 344.582,
+   "startFrame": 20661,
+   "endFrame": 20675
+  },
+  {
+   "s": 102,
+   "w": "only",
+   "start": 344.582,
+   "end": 344.781,
+   "startFrame": 20675,
+   "endFrame": 20687
+  },
+  {
+   "s": 102,
+   "w": "go",
+   "start": 344.781,
+   "end": 344.908,
+   "startFrame": 20687,
+   "endFrame": 20694
+  },
+  {
+   "s": 102,
+   "w": "back",
+   "start": 344.908,
+   "end": 345.108,
+   "startFrame": 20694,
+   "endFrame": 20706
+  },
+  {
+   "s": 102,
+   "w": "in?",
+   "start": 345.108,
+   "end": 345.235,
+   "startFrame": 20706,
+   "endFrame": 20714
+  },
+  {
+   "s": 103,
+   "w": "It's",
+   "start": 346.439,
+   "end": 346.656,
+   "startFrame": 20786,
+   "endFrame": 20799
+  },
+  {
+   "s": 103,
+   "w": "not",
+   "start": 346.656,
+   "end": 346.834,
+   "startFrame": 20799,
+   "endFrame": 20810
+  },
+  {
+   "s": 103,
+   "w": "broken.",
+   "start": 346.834,
+   "end": 347.21,
+   "startFrame": 20810,
+   "endFrame": 20833
+  },
+  {
+   "s": 104,
+   "w": "Many",
+   "start": 348.138,
+   "end": 348.379,
+   "startFrame": 20888,
+   "endFrame": 20903
+  },
+  {
+   "s": 104,
+   "w": "belts",
+   "start": 348.379,
+   "end": 348.664,
+   "startFrame": 20903,
+   "endFrame": 20920
+  },
+  {
+   "s": 104,
+   "w": "have",
+   "start": 348.664,
+   "end": 348.905,
+   "startFrame": 20920,
+   "endFrame": 20934
+  },
+  {
+   "s": 104,
+   "w": "a",
+   "start": 348.905,
+   "end": 349.015,
+   "startFrame": 20934,
+   "endFrame": 20941
+  },
+  {
+   "s": 104,
+   "w": "child-seat",
+   "start": 349.015,
+   "end": 349.541,
+   "startFrame": 20941,
+   "endFrame": 20972
+  },
+  {
+   "s": 104,
+   "w": "mode.",
+   "start": 349.541,
+   "end": 349.87,
+   "startFrame": 20972,
+   "endFrame": 20992
+  },
+  {
+   "s": 105,
+   "w": "Pull",
+   "start": 350.808,
+   "end": 351.04,
+   "startFrame": 21048,
+   "endFrame": 21062
+  },
+  {
+   "s": 105,
+   "w": "out",
+   "start": 351.04,
+   "end": 351.229,
+   "startFrame": 21062,
+   "endFrame": 21074
+  },
+  {
+   "s": 105,
+   "w": "every",
+   "start": 351.229,
+   "end": 351.503,
+   "startFrame": 21074,
+   "endFrame": 21090
+  },
+  {
+   "s": 105,
+   "w": "bit",
+   "start": 351.503,
+   "end": 351.693,
+   "startFrame": 21090,
+   "endFrame": 21102
+  },
+  {
+   "s": 105,
+   "w": "of",
+   "start": 351.693,
+   "end": 351.84,
+   "startFrame": 21102,
+   "endFrame": 21110
+  },
+  {
+   "s": 105,
+   "w": "belt,",
+   "start": 351.84,
+   "end": 352.072,
+   "startFrame": 21110,
+   "endFrame": 21124
+  },
+  {
+   "s": 105,
+   "w": "let",
+   "start": 352.49,
+   "end": 352.651,
+   "startFrame": 21149,
+   "endFrame": 21159
+  },
+  {
+   "s": 105,
+   "w": "it",
+   "start": 352.651,
+   "end": 352.776,
+   "startFrame": 21159,
+   "endFrame": 21167
+  },
+  {
+   "s": 105,
+   "w": "wind",
+   "start": 352.776,
+   "end": 352.973,
+   "startFrame": 21167,
+   "endFrame": 21178
+  },
+  {
+   "s": 105,
+   "w": "back",
+   "start": 352.973,
+   "end": 353.17,
+   "startFrame": 21178,
+   "endFrame": 21190
+  },
+  {
+   "s": 105,
+   "w": "a",
+   "start": 353.17,
+   "end": 353.26,
+   "startFrame": 21190,
+   "endFrame": 21196
+  },
+  {
+   "s": 105,
+   "w": "little,",
+   "start": 353.26,
+   "end": 353.529,
+   "startFrame": 21196,
+   "endFrame": 21212
+  },
+  {
+   "s": 105,
+   "w": "and",
+   "start": 353.891,
+   "end": 354.12,
+   "startFrame": 21233,
+   "endFrame": 21247
+  },
+  {
+   "s": 105,
+   "w": "now",
+   "start": 354.12,
+   "end": 354.35,
+   "startFrame": 21247,
+   "endFrame": 21261
+  },
+  {
+   "s": 105,
+   "w": "it",
+   "start": 354.35,
+   "end": 354.529,
+   "startFrame": 21261,
+   "endFrame": 21272
+  },
+  {
+   "s": 105,
+   "w": "can",
+   "start": 354.529,
+   "end": 354.758,
+   "startFrame": 21272,
+   "endFrame": 21285
+  },
+  {
+   "s": 105,
+   "w": "only",
+   "start": 354.758,
+   "end": 355.039,
+   "startFrame": 21285,
+   "endFrame": 21302
+  },
+  {
+   "s": 105,
+   "w": "wind",
+   "start": 355.039,
+   "end": 355.32,
+   "startFrame": 21302,
+   "endFrame": 21319
+  },
+  {
+   "s": 105,
+   "w": "in,",
+   "start": 355.32,
+   "end": 355.498,
+   "startFrame": 21319,
+   "endFrame": 21330
+  },
+  {
+   "s": 105,
+   "w": "so",
+   "start": 355.911,
+   "end": 356.07,
+   "startFrame": 21355,
+   "endFrame": 21364
+  },
+  {
+   "s": 105,
+   "w": "a",
+   "start": 356.07,
+   "end": 356.184,
+   "startFrame": 21364,
+   "endFrame": 21371
+  },
+  {
+   "s": 105,
+   "w": "child",
+   "start": 356.184,
+   "end": 356.479,
+   "startFrame": 21371,
+   "endFrame": 21389
+  },
+  {
+   "s": 105,
+   "w": "seat",
+   "start": 356.479,
+   "end": 356.729,
+   "startFrame": 21389,
+   "endFrame": 21404
+  },
+  {
+   "s": 105,
+   "w": "stays",
+   "start": 356.729,
+   "end": 357.025,
+   "startFrame": 21404,
+   "endFrame": 21422
+  },
+  {
+   "s": 105,
+   "w": "tight.",
+   "start": 357.025,
+   "end": 357.411,
+   "startFrame": 21422,
+   "endFrame": 21445
+  },
+  {
+   "s": 106,
+   "w": "Let",
+   "start": 358.36,
+   "end": 358.54,
+   "startFrame": 21502,
+   "endFrame": 21512
+  },
+  {
+   "s": 106,
+   "w": "it",
+   "start": 358.54,
+   "end": 358.68,
+   "startFrame": 21512,
+   "endFrame": 21521
+  },
+  {
+   "s": 106,
+   "w": "wind",
+   "start": 358.68,
+   "end": 358.9,
+   "startFrame": 21521,
+   "endFrame": 21534
+  },
+  {
+   "s": 106,
+   "w": "all",
+   "start": 358.9,
+   "end": 359.081,
+   "startFrame": 21534,
+   "endFrame": 21545
+  },
+  {
+   "s": 106,
+   "w": "the",
+   "start": 359.081,
+   "end": 359.261,
+   "startFrame": 21545,
+   "endFrame": 21556
+  },
+  {
+   "s": 106,
+   "w": "way",
+   "start": 359.261,
+   "end": 359.441,
+   "startFrame": 21556,
+   "endFrame": 21566
+  },
+  {
+   "s": 106,
+   "w": "back,",
+   "start": 359.441,
+   "end": 359.661,
+   "startFrame": 21566,
+   "endFrame": 21580
+  },
+  {
+   "s": 106,
+   "w": "and",
+   "start": 359.913,
+   "end": 360.046,
+   "startFrame": 21595,
+   "endFrame": 21603
+  },
+  {
+   "s": 106,
+   "w": "it's",
+   "start": 360.046,
+   "end": 360.208,
+   "startFrame": 21603,
+   "endFrame": 21612
+  },
+  {
+   "s": 106,
+   "w": "normal",
+   "start": 360.208,
+   "end": 360.43,
+   "startFrame": 21612,
+   "endFrame": 21626
+  },
+  {
+   "s": 106,
+   "w": "again.",
+   "start": 360.43,
+   "end": 360.681,
+   "startFrame": 21626,
+   "endFrame": 21641
+  },
+  {
+   "s": 107,
+   "w": "Want",
+   "start": 362.278,
+   "end": 362.476,
+   "startFrame": 21737,
+   "endFrame": 21749
+  },
+  {
+   "s": 107,
+   "w": "to",
+   "start": 362.476,
+   "end": 362.601,
+   "startFrame": 21749,
+   "endFrame": 21756
+  },
+  {
+   "s": 107,
+   "w": "feel",
+   "start": 362.601,
+   "end": 362.799,
+   "startFrame": 21756,
+   "endFrame": 21768
+  },
+  {
+   "s": 107,
+   "w": "it",
+   "start": 362.799,
+   "end": 362.925,
+   "startFrame": 21768,
+   "endFrame": 21776
+  },
+  {
+   "s": 107,
+   "w": "yourself?",
+   "start": 362.925,
+   "end": 363.266,
+   "startFrame": 21776,
+   "endFrame": 21796
+  },
+  {
+   "s": 108,
+   "w": "Next",
+   "start": 364.604,
+   "end": 364.868,
+   "startFrame": 21876,
+   "endFrame": 21892
+  },
+  {
+   "s": 108,
+   "w": "time",
+   "start": 364.868,
+   "end": 365.132,
+   "startFrame": 21892,
+   "endFrame": 21908
+  },
+  {
+   "s": 108,
+   "w": "you",
+   "start": 365.132,
+   "end": 365.348,
+   "startFrame": 21908,
+   "endFrame": 21921
+  },
+  {
+   "s": 108,
+   "w": "put",
+   "start": 365.348,
+   "end": 365.564,
+   "startFrame": 21921,
+   "endFrame": 21934
+  },
+  {
+   "s": 108,
+   "w": "your",
+   "start": 365.564,
+   "end": 365.828,
+   "startFrame": 21934,
+   "endFrame": 21950
+  },
+  {
+   "s": 108,
+   "w": "belt",
+   "start": 365.828,
+   "end": 366.092,
+   "startFrame": 21950,
+   "endFrame": 21966
+  },
+  {
+   "s": 108,
+   "w": "on,",
+   "start": 366.092,
+   "end": 366.26,
+   "startFrame": 21966,
+   "endFrame": 21976
+  },
+  {
+   "s": 108,
+   "w": "pull",
+   "start": 366.346,
+   "end": 366.625,
+   "startFrame": 21981,
+   "endFrame": 21998
+  },
+  {
+   "s": 108,
+   "w": "it",
+   "start": 366.625,
+   "end": 366.804,
+   "startFrame": 21998,
+   "endFrame": 22008
+  },
+  {
+   "s": 108,
+   "w": "slowly,",
+   "start": 366.804,
+   "end": 367.185,
+   "startFrame": 22008,
+   "endFrame": 22031
+  },
+  {
+   "s": 108,
+   "w": "and",
+   "start": 367.443,
+   "end": 367.625,
+   "startFrame": 22047,
+   "endFrame": 22058
+  },
+  {
+   "s": 108,
+   "w": "feel",
+   "start": 367.625,
+   "end": 367.849,
+   "startFrame": 22058,
+   "endFrame": 22071
+  },
+  {
+   "s": 108,
+   "w": "it",
+   "start": 367.849,
+   "end": 367.991,
+   "startFrame": 22071,
+   "endFrame": 22079
+  },
+  {
+   "s": 108,
+   "w": "let",
+   "start": 367.991,
+   "end": 368.174,
+   "startFrame": 22079,
+   "endFrame": 22090
+  },
+  {
+   "s": 108,
+   "w": "you",
+   "start": 368.174,
+   "end": 368.357,
+   "startFrame": 22090,
+   "endFrame": 22101
+  },
+  {
+   "s": 108,
+   "w": "go.",
+   "start": 368.357,
+   "end": 368.58,
+   "startFrame": 22101,
+   "endFrame": 22115
+  },
+  {
+   "s": 109,
+   "w": "Then",
+   "start": 369.609,
+   "end": 369.915,
+   "startFrame": 22177,
+   "endFrame": 22195
+  },
+  {
+   "s": 109,
+   "w": "give",
+   "start": 369.915,
+   "end": 370.22,
+   "startFrame": 22195,
+   "endFrame": 22213
+  },
+  {
+   "s": 109,
+   "w": "it",
+   "start": 370.22,
+   "end": 370.414,
+   "startFrame": 22213,
+   "endFrame": 22225
+  },
+  {
+   "s": 109,
+   "w": "one",
+   "start": 370.414,
+   "end": 370.664,
+   "startFrame": 22225,
+   "endFrame": 22240
+  },
+  {
+   "s": 109,
+   "w": "sharp",
+   "start": 370.664,
+   "end": 371.026,
+   "startFrame": 22240,
+   "endFrame": 22262
+  },
+  {
+   "s": 109,
+   "w": "tug,",
+   "start": 371.026,
+   "end": 371.275,
+   "startFrame": 22262,
+   "endFrame": 22276
+  },
+  {
+   "s": 109,
+   "w": "and",
+   "start": 371.528,
+   "end": 371.729,
+   "startFrame": 22292,
+   "endFrame": 22304
+  },
+  {
+   "s": 109,
+   "w": "feel",
+   "start": 371.729,
+   "end": 371.976,
+   "startFrame": 22304,
+   "endFrame": 22319
+  },
+  {
+   "s": 109,
+   "w": "it",
+   "start": 371.976,
+   "end": 372.133,
+   "startFrame": 22319,
+   "endFrame": 22328
+  },
+  {
+   "s": 109,
+   "w": "stop.",
+   "start": 372.133,
+   "end": 372.469,
+   "startFrame": 22328,
+   "endFrame": 22348
+  },
+  {
+   "s": 110,
+   "w": "A",
+   "start": 373.873,
+   "end": 373.991,
+   "startFrame": 22432,
+   "endFrame": 22439
+  },
+  {
+   "s": 110,
+   "w": "disc",
+   "start": 373.991,
+   "end": 374.25,
+   "startFrame": 22439,
+   "endFrame": 22455
+  },
+  {
+   "s": 110,
+   "w": "that",
+   "start": 374.25,
+   "end": 374.509,
+   "startFrame": 22455,
+   "endFrame": 22471
+  },
+  {
+   "s": 110,
+   "w": "got",
+   "start": 374.509,
+   "end": 374.721,
+   "startFrame": 22471,
+   "endFrame": 22483
+  },
+  {
+   "s": 110,
+   "w": "left",
+   "start": 374.721,
+   "end": 374.98,
+   "startFrame": 22483,
+   "endFrame": 22499
+  },
+  {
+   "s": 110,
+   "w": "behind",
+   "start": 374.98,
+   "end": 375.334,
+   "startFrame": 22499,
+   "endFrame": 22520
+  },
+  {
+   "s": 110,
+   "w": "just",
+   "start": 375.334,
+   "end": 375.593,
+   "startFrame": 22520,
+   "endFrame": 22536
+  },
+  {
+   "s": 110,
+   "w": "made",
+   "start": 375.593,
+   "end": 375.852,
+   "startFrame": 22536,
+   "endFrame": 22551
+  },
+  {
+   "s": 110,
+   "w": "that",
+   "start": 375.852,
+   "end": 376.111,
+   "startFrame": 22551,
+   "endFrame": 22567
+  },
+  {
+   "s": 110,
+   "w": "decision.",
+   "start": 376.111,
+   "end": 376.653,
+   "startFrame": 22567,
+   "endFrame": 22599
+  },
+  {
+   "s": 111,
+   "w": "And",
+   "start": 377.603,
+   "end": 377.78,
+   "startFrame": 22656,
+   "endFrame": 22667
+  },
+  {
+   "s": 111,
+   "w": "behind",
+   "start": 377.78,
+   "end": 378.076,
+   "startFrame": 22667,
+   "endFrame": 22685
+  },
+  {
+   "s": 111,
+   "w": "it,",
+   "start": 378.076,
+   "end": 378.214,
+   "startFrame": 22685,
+   "endFrame": 22693
+  },
+  {
+   "s": 111,
+   "w": "a",
+   "start": 378.597,
+   "end": 378.717,
+   "startFrame": 22716,
+   "endFrame": 22723
+  },
+  {
+   "s": 111,
+   "w": "steel",
+   "start": 378.717,
+   "end": 379.031,
+   "startFrame": 22723,
+   "endFrame": 22742
+  },
+  {
+   "s": 111,
+   "w": "bar",
+   "start": 379.031,
+   "end": 379.248,
+   "startFrame": 22742,
+   "endFrame": 22755
+  },
+  {
+   "s": 111,
+   "w": "waits",
+   "start": 379.248,
+   "end": 379.562,
+   "startFrame": 22755,
+   "endFrame": 22774
+  },
+  {
+   "s": 111,
+   "w": "for",
+   "start": 379.562,
+   "end": 379.779,
+   "startFrame": 22774,
+   "endFrame": 22787
+  },
+  {
+   "s": 111,
+   "w": "the",
+   "start": 379.779,
+   "end": 379.997,
+   "startFrame": 22787,
+   "endFrame": 22800
+  },
+  {
+   "s": 111,
+   "w": "day",
+   "start": 379.997,
+   "end": 380.214,
+   "startFrame": 22800,
+   "endFrame": 22813
+  },
+  {
+   "s": 111,
+   "w": "the",
+   "start": 380.214,
+   "end": 380.431,
+   "startFrame": 22813,
+   "endFrame": 22826
+  },
+  {
+   "s": 111,
+   "w": "right",
+   "start": 380.431,
+   "end": 380.745,
+   "startFrame": 22826,
+   "endFrame": 22845
+  },
+  {
+   "s": 111,
+   "w": "answer",
+   "start": 380.745,
+   "end": 381.107,
+   "startFrame": 22845,
+   "endFrame": 22866
+  },
+  {
+   "s": 111,
+   "w": "is",
+   "start": 381.107,
+   "end": 381.276,
+   "startFrame": 22866,
+   "endFrame": 22877
+  },
+  {
+   "s": 111,
+   "w": "to",
+   "start": 381.276,
+   "end": 381.445,
+   "startFrame": 22877,
+   "endFrame": 22887
+  },
+  {
+   "s": 111,
+   "w": "hold",
+   "start": 381.445,
+   "end": 381.711,
+   "startFrame": 22887,
+   "endFrame": 22903
+  },
+  {
+   "s": 111,
+   "w": "you,",
+   "start": 381.711,
+   "end": 381.928,
+   "startFrame": 22903,
+   "endFrame": 22916
+  },
+  {
+   "s": 111,
+   "w": "and",
+   "start": 382.375,
+   "end": 382.585,
+   "startFrame": 22942,
+   "endFrame": 22955
+  },
+  {
+   "s": 111,
+   "w": "then",
+   "start": 382.585,
+   "end": 382.84,
+   "startFrame": 22955,
+   "endFrame": 22970
+  },
+  {
+   "s": 111,
+   "w": "let",
+   "start": 382.84,
+   "end": 383.049,
+   "startFrame": 22970,
+   "endFrame": 22983
+  },
+  {
+   "s": 111,
+   "w": "you",
+   "start": 383.049,
+   "end": 383.258,
+   "startFrame": 22983,
+   "endFrame": 22995
+  },
+  {
+   "s": 111,
+   "w": "go.",
+   "start": 383.258,
+   "end": 383.514,
+   "startFrame": 22995,
+   "endFrame": 23011
+  },
+  {
+   "s": 112,
+   "w": "Next:",
+   "start": 385.219,
+   "end": 385.528,
+   "startFrame": 23113,
+   "endFrame": 23132
+  },
+  {
+   "s": 112,
+   "w": "the",
+   "start": 385.528,
+   "end": 385.78,
+   "startFrame": 23132,
+   "endFrame": 23147
+  },
+  {
+   "s": 112,
+   "w": "plane",
+   "start": 385.78,
+   "end": 386.145,
+   "startFrame": 23147,
+   "endFrame": 23169
+  },
+  {
+   "s": 112,
+   "w": "wing",
+   "start": 386.145,
+   "end": 386.454,
+   "startFrame": 23169,
+   "endFrame": 23187
+  },
+  {
+   "s": 112,
+   "w": "that",
+   "start": 386.454,
+   "end": 386.762,
+   "startFrame": 23187,
+   "endFrame": 23206
+  },
+  {
+   "s": 112,
+   "w": "is",
+   "start": 386.762,
+   "end": 386.959,
+   "startFrame": 23206,
+   "endFrame": 23218
+  },
+  {
+   "s": 112,
+   "w": "built",
+   "start": 386.959,
+   "end": 387.324,
+   "startFrame": 23218,
+   "endFrame": 23239
+  },
+  {
+   "s": 112,
+   "w": "to",
+   "start": 387.324,
+   "end": 387.52,
+   "startFrame": 23239,
+   "endFrame": 23251
+  },
+  {
+   "s": 112,
+   "w": "bend.",
+   "start": 387.52,
+   "end": 387.941,
+   "startFrame": 23251,
+   "endFrame": 23276
+  }
+ ],
+ "chapters": [
+  {
+   "title": "Cold open",
+   "start": 0.0,
+   "startFrame": 0
+  },
+  {
+   "title": "The lock that can't tell",
+   "start": 53.2,
+   "startFrame": 3192
+  },
+  {
+   "title": "The disc that falls behind",
+   "start": 81.571,
+   "startFrame": 4894
+  },
+  {
+   "title": "The ball that keeps going",
+   "start": 137.746,
+   "startFrame": 8265
+  },
+  {
+   "title": "A lock that is too good",
+   "start": 193.482,
+   "startFrame": 11609
+  },
+  {
+   "title": "Two fixes",
+   "start": 224.552,
+   "startFrame": 13473
+  },
+  {
+   "title": "The price",
+   "start": 301.935,
+   "startFrame": 18116
+  },
+  {
+   "title": "One last mystery",
+   "start": 341.827,
+   "startFrame": 20510
+  },
+  {
+   "title": "The landing",
+   "start": 362.278,
+   "startFrame": 21737
+  }
+ ],
+ "duration": 388.093,
+ "durationInFrames": 23286
+}

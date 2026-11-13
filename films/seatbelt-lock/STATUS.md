@@ -1,19 +1,20 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** steps 3–4 done. Three fresh story panels: 7.6 → 7.8 → **8.4** (bar met; `review/audience_v1..3.md`); the
-script is locked on the bar as **VO v4** (`script/vo.txt`, 1,062 words; spoken-English check and claims gate, 22 rows,
-pass). Earlier drafts kept as `vo_v1..3.txt`. The screenplay's shot order follows v1: re-order it to v4 (the
-child-seat mystery moves before the landing; the pretensioner becomes the first of "Two fixes") in step 5.
-**Next action:** step 5: the narration review. Write `script/blocks_performance.md` (the performed narration: final
-words, paragraph rhythm, reveal holds marked) and give it to a fresh panel (stage NARRATION); save
-`review/narration_v1.md`; fix; then step 6, the voice.
+**Now:** steps 5–6 done. Step 5: the owner approved the narration (VO v4) himself on 2026-11-13, in place of the
+narration panel. Step 6: the voice: `script/blocks_performance.md` (9 blocks, 5,215 characters, built from vo.txt by
+`script/build_blocks.py`), eleven_v4, the channel voice; every block 100 % words as written; takes chosen b01 t1, b02 t1,
+b03 t1, b04 t1, b05 t1, b06 t1, b07 t1, b08 t3, b09 t2 (`vo/takes_review.md`); `vo/timing.json` 388.1 s, 113 sentences,
+159 wpm; vo_sync 0 frames. Audio in Drive `seatbelt-lock/vo/` (raw takes in `vo/takes_raw/`).
+**Next action:** step 7: build the film. First re-order `script/screenplay.md` to VO v4 and to the real timings
+(the child-seat mystery before the landing; the pretensioner as the first of "Two fixes"), then the scene handoffs,
+the components, the footage search (Pixabay API), the music cut and the sound.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
 - [x] 3 Story review (3 rounds: 7.6 → 7.8 → 8.4)              PRs #71, #72, this one
 - [x] 4 Story and script fixed; bar met (VO v4 locked)       this PR
-- [ ] 5 Narration review                                      PR #
-- [ ] 6 Voice                                                 PR #
+- [x] 5 Narration: approved by the owner (2026-11-13)         this PR
+- [x] 6 Voice: 9 blocks measured; 388.1 s, 159 wpm, sync 0 frames  this PR
 - [ ] 7 Film built                                            PR #
 - [ ] 8 720p cut, viewer panel                                PR #
 - [ ] 9 Fixes, new cuts, panels                               PR #
@@ -32,3 +33,8 @@ words, paragraph rhythm, reveal holds marked) and give it to a fresh panel (stag
   story and the 75–85% result. The UN R16 text is behind a block from here; its 2009 working paper is background
   only, so the film's numbers are FMVSS 209's and the VO says "in the United States". Written to PLAYBOOK §7.9: four
   spoken numbers, none before 0:30; the ratchet shown failing; the catch as an event.
+- **2026-11-13, steps 5–6.** The owner approved VO v4 ("Narration approved"). Voice on eleven_v4 with the channel
+  voice: block 1 first (both takes 100 % words, t1 livelier), then blocks 2–9 × 2. Block 8 ("One last mystery") came
+  back +1.5 and +2.0 semitones in both takes (⚠ voice changed); two more takes: t3 +0.2 st, used. The end of block 9
+  "inserted" a sentence in the transcript: every word at the same final instant, a Whisper end-of-file hallucination,
+  no audio behind it. Owner, same day: from film 4 the whole narration is one block (PLAYBOOK §7.7).
