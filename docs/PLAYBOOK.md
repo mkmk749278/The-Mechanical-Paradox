@@ -994,6 +994,9 @@ the line (film 1: "How Train Wheels Turn With No Steering at All"). Never an abs
   earned 0.6%. The words ask the viewer's own question or name the danger (CABLE GONE. THEN?); the picture shows the
   moment before disaster or the contradiction, never the mechanism's result. The thumbnail and title together must
   not give away the trick (§5.1 rule 4 applies to the package too).
+- **The YouTube API (2026-11-13):** `scripts/yt_api.py` reads and changes this channel's own titles, descriptions
+  and thumbnails (`YT_REFRESH_TOKEN_THEMECHANICALPARADOX`); the owner asked for it to be used. Save the old snippet
+  in the film's `youtube/` before any change. Test & Compare stays in Studio (the owner's).
 - **Studio judges, not the panel:** the click panel (§13.7) is a floor. After 100+ impressions, a package under half
   the channel's best CTR is swapped the same day (thumbnail first, then title) and the swap logged in §16.
 - **Bright subject:** YouTube's app is dark; our abyss works only with a strongly lit subject and one bright accent.
