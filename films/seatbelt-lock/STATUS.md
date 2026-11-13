@@ -4,8 +4,9 @@
 retractor patents, Stapp 2001), `research/model.py`, `claims.csv` 20 rows (gate passes), `treatment.md`, the opening
 through the promise check (top of `script/screenplay.md`), the screenplay (30 shots) and `script/vo.txt` v1 (1,080
 words, spoken-English check passes).
-**Next action:** step 3: the story review. A fresh no-repo session with `prompts/audience_review_v2.md` (stage
-SCRIPT, the title, the thumbnail concept, `vo.txt`); save `review/audience_v1.md`; fix (step 4).
+**Next action:** step 3/4: story review round 2 (fresh panel, session_019NnLeoViv1GnWkEiQNYyQK, VO v2) is running.
+Round 1 (`review/audience_v1.md`): 7.6, bar not met; every confirmed note fixed in VO v2. Save round 2 as
+`review/audience_v2.md`; if the bar of §3a.3 is met, step 5 (narration review); else fix and a third, last panel.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
