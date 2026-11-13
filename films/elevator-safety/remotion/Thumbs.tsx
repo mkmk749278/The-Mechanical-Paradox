@@ -124,3 +124,39 @@ export const ThumbI: React.FC = () => (
 		</Words>
 	</Plate>
 );
+
+// ---- The photo-real plate (owner's direction, 2026-11-13: "with Canva we got a more realistic way"). Generated in the
+// owner's Canva account with no text (design DAHaxmJQoaw): the car seen from below as it comes down the shaft,
+// sparks at its lower corners where the safety gears meet the rails. An illustration, not a photograph (the video's
+// altered-content disclosure covers it); media_manifest.csv. The words stay ours: they ask, they never answer.
+
+/** The photo, pushed right and enlarged so the car sits right of centre and the words own a darkened left. */
+const Photo: React.FC<{children?: React.ReactNode}> = ({children}) => (
+	<AbsoluteFill style={{backgroundColor: colors.bg, overflow: 'hidden'}}>
+		<Img
+			src={staticFile('films/elevator-safety/thumbs/canva_fall.png')}
+			style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transform: 'translateX(230px) translateY(40px) scale(1.22)', transformOrigin: '50% 50%'}}
+		/>
+		<AbsoluteFill style={{background: 'linear-gradient(90deg, rgba(5,7,10,0.92) 0%, rgba(5,7,10,0.78) 30%, rgba(5,7,10,0.25) 52%, rgba(5,7,10,0) 66%)'}} />
+		<Vignette strength={0.35} />
+		{children}
+	</AbsoluteFill>
+);
+
+const PhotoTwo: React.FC<{a: string; b: string; bColor: string; size: number}> = ({a, b, bColor, size}) => (
+	<Photo>
+		<Words x={70} y={120} size={size} color={colors.ink}>
+			{a}
+		</Words>
+		<Words x={70} y={120 + size * 0.98} size={size} color={bColor}>
+			{b}
+		</Words>
+	</Photo>
+);
+
+/** J (main): HOW FAR? on the photo. */
+export const ThumbJ: React.FC = () => <PhotoTwo a="HOW" b="FAR?" bColor={colors.amber} size={250} />;
+/** K: CABLE SNAPS. THEN? on the photo. */
+export const ThumbK: React.FC = () => <PhotoTwo a="CABLE SNAPS." b="THEN?" bColor={colors.amber} size={128} />;
+/** L: DO YOU FALL? on the photo. */
+export const ThumbL: React.FC = () => <PhotoTwo a="DO YOU" b="FALL?" bColor={colors.crimson} size={210} />;

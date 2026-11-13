@@ -1,8 +1,29 @@
 # Film 2 YouTube package: What Happens If an Elevator Cable Snaps? It Brakes Itself
 
+## Re-package v2 (2026-11-13): use these
+Live result of v1: "Why Falling Elevators Don't Stop Instantly" + BUILT TO SLIP, 164 impressions, 0.6% CTR (film 1:
+5.2%). The v1 car read as a white box, nothing said danger, and the words gave the answer (PLAYBOOK §16, §13.3).
+**Title:**
+```text
+What Happens If an Elevator Cable Snaps? It Brakes Itself
+```
+The searched phrase first (all three markets autocomplete it); "It Brakes Itself" is the paradox, not the mechanism.
+**Thumbnails** (Test & Compare, all three): a photo-real plate made in the owner's Canva account, with no text
+(design DAHaxmJQoaw; `public/films/elevator-safety/thumbs/canva_fall.png`, Drive `elevator-safety/youtube/`): the
+car seen from below as it comes down the shaft, sparks at its lower corners where the safety gears meet the rails.
+Words ours, in `remotion/Thumbs.tsx` (ThumbJ/K/L). They ask; none answers.
+1. **Main: HOW FAR?** (`thumb_v2_main_how-far.jpg`): the sparks say it is braking; the question is how far it slides.
+   The film pays it at "within about a meter" (cold open) and the 10 g chapter.
+2. **CABLE SNAPS. THEN?** (`thumb_v2_b_cable-snaps.jpg`): the search phrase as the moment.
+3. **DO YOU FALL?** (`thumb_v2_c_do-you-fall.jpg`): the fear in plain words; honest answer, "for a split second".
+An illustration, not a photograph; the video's altered-content disclosure (Yes) covers it.
+
+
 Checklist: PLAYBOOK §13.7. Files here: `thumb_main_built-to-slip.jpg`, `thumb_b_cable-gone.jpg`,
 `thumb_c_cutaway.jpg` (1280×720), `description.md`, `elevator-safety.en.srt`, this file. Upload file: Drive
 `elevator-safety/renders/elevator-safety_master_4k.mp4` (3840×2160, 60 fps, 7:10.0).
+
+## v1 (live until 2026-11-13; superseded)
 
 ## Title
 ```text
