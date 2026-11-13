@@ -24,6 +24,10 @@ import {Film as ElFilm, FILM_FRAMES as EL_FILM_FRAMES} from '../films/elevator-s
 import {Counterweight as ElCounterweight, Landing as ElLanding, Rail as ElRail, Spring as ElSpring, UpBrake as ElUpBrake} from '../films/elevator-safety/remotion/Group3';
 import {Otis as ElOtis, Question as ElQuestion, TooHard as ElTooHard, WedgeScene as ElWedge, Window as ElWindow} from '../films/elevator-safety/remotion/Group2';
 import {Flyweights as ElFlyweights, GovernorIntro as ElGovernor, PullsLever as ElPullsLever, PureMechanics as ElPure, Ropes as ElRopes} from '../films/elevator-safety/remotion/Group1';
+import {BallScene as SbBall, ColdOpen as SbColdOpen, DiscScene as SbDisc, LockCantTell as SbLock} from '../films/seatbelt-lock/remotion/Part1';
+import {span as sbSpan} from '../films/seatbelt-lock/remotion/scenes';
+import {BarScene as SbBar, ChildSeat as SbChild, ChipAfterAll as SbChip, Landing as SbLanding, Price as SbPrice, TooGood as SbTooGood} from '../films/seatbelt-lock/remotion/Part2';
+import {Film as SbFilm, FILM_FRAMES as SB_FILM_FRAMES} from '../films/seatbelt-lock/remotion/Film';
 
 loadBrandFonts();
 
@@ -84,6 +88,19 @@ export const Root: React.FC = () => (
 			<Composition id="EL-S14-Counterweight" component={ElCounterweight} durationInFrames={elSpan('s14').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S15-UpBrake" component={ElUpBrake} durationInFrames={elSpan('s15').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="EL-S16-Landing" component={ElLanding} durationInFrames={elSpan('s16').dur} fps={video.fps} width={video.width} height={video.height} />
+		</Folder>
+		<Folder name="SeatbeltLock">
+			<Composition id="SB-S01-ColdOpen" component={SbColdOpen} durationInFrames={sbSpan('s01').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S02-Lock" component={SbLock} durationInFrames={sbSpan('s02').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S03-Disc" component={SbDisc} durationInFrames={sbSpan('s03').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S04-Ball" component={SbBall} durationInFrames={sbSpan('s04').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-Film" component={SbFilm} durationInFrames={SB_FILM_FRAMES} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S05-TooGood" component={SbTooGood} durationInFrames={sbSpan('s05').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S06-Chip" component={SbChip} durationInFrames={sbSpan('s06').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S07-Bar" component={SbBar} durationInFrames={sbSpan('s07').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S08-Price" component={SbPrice} durationInFrames={sbSpan('s08').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S09-Child" component={SbChild} durationInFrames={sbSpan('s09').dur} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-S10-Landing" component={SbLanding} durationInFrames={sbSpan('s10').dur} fps={video.fps} width={video.width} height={video.height} />
 		</Folder>
 		<Folder name="Dev">
 			<Composition id="TW-Look3D" component={Look3D} durationInFrames={600} fps={video.fps} width={video.width} height={video.height} />
