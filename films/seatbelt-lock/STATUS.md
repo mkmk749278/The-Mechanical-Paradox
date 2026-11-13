@@ -37,3 +37,9 @@ scale 2/3, tail_frames 820, name `seatbelt-lock_v1_720p.mp4`), our picture gate 
   back +1.5 and +2.0 semitones in both takes (⚠ voice changed); two more takes: t3 +0.2 st, used. The end of block 9
   "inserted" a sentence in the transcript: every word at the same final instant, a Whisper end-of-file hallucination,
   no audio behind it. Owner, same day: from film 4 the whole narration is one block (PLAYBOOK §7.7).
+- **2026-11-13, step 8, cut v1 + our gate.** 720p on 7 runners (run 43400380382); the join failed its length check:
+  the mix lacked the 820-frame tail (PLAYBOOK §16), remixed with `--tail-frames 820`, joined from the kept shards (run
+  43403972167). Gate (one frame every 3 s against the words, 15 sheets): mechanism, labels and credits on their words;
+  fixed for v2: static cabins (a road that scrolls and stops dead at each crash, a slow push), titles under the HUD
+  (HUD bottom-right in s03–s05, s07), the disc callout clipped, a blank beat at 4:43, the injury bars starting equal,
+  a dip between two landing photos (one photo now).

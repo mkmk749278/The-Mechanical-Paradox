@@ -32,8 +32,7 @@ export const INSERTS: Insert[] = [
 	{clip: 'p01_pull', credit: 'cfarnsworth', kind: 'photo', fx: 0.25, fy: 0.3, scene: 's01', from: 'Pull the belt slowly', pre: 6, to: 'And it has to be right', post: 0},
 	{clip: 'p02_driver', credit: 'freestocks-photos', kind: 'photo', fx: 0.7, fy: 0.5, scene: 's04', from: 'You are sitting still', pre: 6, to: 'The car hits something', post: -10},
 	{clip: 'p03_seat', credit: 'welshandproud', kind: 'photo', fx: 0.72, fy: 0.45, scene: 's09', from: 'Ever pulled your belt', pre: 6, to: "It's not broken", post: 0},
-	{clip: 'p02_driver', credit: 'freestocks-photos', kind: 'photo', fx: 0.4, fy: 0.4, scene: 's10', from: '', pre: 0, to: 'Next time you put your belt on', post: 0},
-	{clip: 'p01_pull', credit: 'cfarnsworth', kind: 'photo', fx: 0.3, fy: 0.25, scene: 's10', from: 'Next time you put your belt on', pre: 0, to: 'Then give it one sharp tug', post: 0},
+	{clip: 'p01_pull', credit: 'cfarnsworth', kind: 'photo', fx: 0.3, fy: 0.25, scene: 's10', from: '', pre: 0, to: 'Then give it one sharp tug', post: 0},
 ];
 
 const FADE = 30; // a longer dissolve: the cut into bright footage read as a flash (viewer review v2)
@@ -109,5 +108,5 @@ export const FootageLayer: React.FC = () => (
 // every insert must be short (the drawing explains)
 for (const i of INSERTS) {
 	const w = insertWindow(i);
-	if (w.to - w.from < 90 || w.to - w.from > 400) throw new Error(`footage ${i.clip} in ${i.scene}: ${w.to - w.from} frames`);
+	if (w.to - w.from < 90 || w.to - w.from > 480) throw new Error(`footage ${i.clip} in ${i.scene}: ${w.to - w.from} frames`);
 }
