@@ -20,4 +20,4 @@ const m = await import(pathToFileURL(out).href);
 const data = m.exportShot(id);
 mkdirSync(dirname(resolve(outFile)), {recursive: true});
 writeFileSync(resolve(outFile), JSON.stringify(data));
-console.log(`${id}: ${data.frames.length} frames, ${data.wheelset.length} wheelset meshes → ${outFile}`);
+console.log(`${id}: ${data.frames.length} frames${data.wheelset ? `, ${data.wheelset.length} wheelset meshes` : ""} → ${outFile}`);

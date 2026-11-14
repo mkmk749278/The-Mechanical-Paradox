@@ -1,14 +1,13 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** step 9, rebuilding the picture. Cut v2: our gate passed, the independent viewer panel scored 7.0
-(`review/viewer_v1.md`), and the owner's own review rejected the look: "low level visuals, not at all near to reality;
-still image while saying reaching phone and jerk; use ultra realistic animation for the science, otherwise mostly real
-clips" (PLAYBOOK §16, "Realism over diagrams"). The owner chose photoreal 3D for the everyday shots (Canva's AI video
-limit is spent until 2026-12-01). The voice, timing, music and story stay; the picture is rebuilt.
-**Next action:** build the photoreal scenes in Blender (Cycles on the runners): the retractor in cutaway (frame,
-ratchet ring, spool and webbing, inertia disc, sensor arm, ball-in-cup sensor, torsion bar) driven by `remotion/model.ts`;
-the cabin (seat, pillar, belt, a crash-test dummy occupant) for the reach, the jerk, the crash and the child-seat mode;
-then public-domain crash-test footage where it exists. The blueprint layer becomes callouts and HUD over the plates.
+**Now:** step 9, cut v3 (realism over diagrams). The edit is `remotion/edit.ts` (comp `SB-FilmV3`): real clips for
+people and crashes (Pixabay driving footage; NHTSA crash films, tests 11664 and 11500; all in Drive
+`seatbelt-lock/render-media/footage`), photoreal Cycles plates for the belt at the D-ring and the retractor in steel
+(`blender/`, rendered on the runners by blender-render.yml with `script: films/seatbelt-lock/blender/render.py`).
+Mix remixed with the v3 cues (Drive `seatbelt-lock/mix/mix.wav`, −14.3 LUFS).
+**Next action:** plates for the review cut at 1280 px / 6 samples (32 shots, about 9,300 frames); then the 720p cut
+(remotion-render.yml, comp SB-FilmV3, tail_frames 820), our picture gate, a fresh viewer panel. The 4K master's plates
+render at 1920 after the panel passes.
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)

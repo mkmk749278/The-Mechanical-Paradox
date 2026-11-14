@@ -83,3 +83,22 @@ chapter ends on a click.
   patent, and says "one common design" once.
 - **Tall and heavy occupants:** said as a worry ("engineers worry"), never as a measured effect (C16 is a `claim`).
 - **The tilt rule:** the standard's numbers only (15° must not lock, beyond 45° must lock); no claim about driveways.
+
+## Cut v3: realism over diagrams (owner's review of cut v2, 2026-11-13)
+The owner: "first moment itself feels lost interest; low level visuals; not at all near to reality; still image while
+saying reaching phone and jerk; use ultra realistic animation for the science, otherwise mostly real clips". The story,
+the voice and the timing stay; the picture is rebuilt (`remotion/edit.ts`, one shot list on the VO clock):
+- **People only from real clips.** The opening is a real driver's hand going to the phone (Pixabay 133694), cut on
+  "crashing" to a real NCAP frontal impact (NHTSA test 11664): the first ten seconds are all real. The catch, the
+  airbag and the forward travel are NHTSA's own high-speed films (tests 11664 and 11500, a THOR dummy loading its belt).
+  A procedural crash-test dummy was built and dropped: it read as a toy (first cabin test, 2026-11-14).
+- **Objects in photoreal 3D (Cycles).** The belt at the pillar: woven webbing threaded through the D-ring, an autumn road
+  outside (CC0 HDRI), the weave sliding by the model's own payout, so "slowly it lets you go, jerk it and it stops dead"
+  is seen on the real object. The retractor in steel cutaway: frame and its ring of teeth, spool, the heavy disc, the
+  arm, the ball in its cone, the pretensioner's charge, the torsion bar in a cut spool glowing in the stress colours.
+- **Physics corrected in the 3D.** The car sensor's lever now catches teeth on the disc's rim (holding the disc, so the
+  reel's next degrees are pure lag and the same arm locks it; P86, P98), not the frame's own teeth, which would lock
+  nothing; the naive hook rides on the reel; the reel turns the right way for payout; the lever rests on the ball by
+  construction (checked in `blender/retractor.py`).
+- **One signature, made honest.** The jerk's lock takes about a fifth of a second; in the disc shot the simulation runs
+  slowed so the arm catches on "The arm catches the teeth", and the picture says SLOW MOTION.
