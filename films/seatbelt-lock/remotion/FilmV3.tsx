@@ -18,6 +18,9 @@ import {FPS} from './model';
 
 const COLOR = {amber: colors.amber, cyan: colors.cyan, crimson: colors.crimson, emerald: colors.emerald, line: colors.line} as const;
 const pad = (n: number): string => String(n).padStart(5, '0');
+/** Readable sources for the HUD footer (viewer panel v2: claim codes read as leftover production IDs). */
+const SOURCE: Record<string, string> = {C06: 'US STANDARD FMVSS 209', C07: 'US STANDARD FMVSS 209', C08: 'US STANDARD FMVSS 209', C13: 'STAPP CAR CRASH J. 2001'};
+const SHADOW = 'drop-shadow(0 0 6px rgba(0,0,0,0.95)) drop-shadow(0 0 2px rgba(0,0,0,1))';
 
 /** Blender's pinhole (blender/common.py set_camera: 36 mm sensor, horizontal fit, no shift), world → frame px. */
 export const project = (c: Cam, p: Vec3): [number, number] | null => {
@@ -54,7 +57,18 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 	const cam = shot.kind === 'plate' ? shot.cam(t) : null;
 	const st = shot.kind === 'plate' ? (shot.state(t, g) as {tilt?: number}) : {};
 	return (
-		<AbsoluteFill>
+		<AbsoluteFill style={{filter: SHADOW}}>
+			{ov.gravity ? (
+				<>
+					<svg width={W} height={H} style={{position: 'absolute'}}>
+						<line x1={150} y1={300} x2={150} y2={560} stroke={colors.cyan} strokeWidth={6} strokeLinecap="round" />
+						<path d="M126 540 L150 590 L174 540 Z" fill={colors.cyan} />
+					</svg>
+					<Label x={150} y={606} size={36} color={colors.cyan} align="center" weight={600}>
+						GRAVITY
+					</Label>
+				</>
+			) : null}
 			{/* a low scrim so the labels hold on bright footage */}
 			<AbsoluteFill style={{background: `linear-gradient(to top, ${colors.bg}C0 0px, ${colors.bg}60 110px, ${colors.bg}00 230px)`}} />
 			{cam && ov.callouts
@@ -85,16 +99,16 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 				<>
 					{ov.hud.map((r, i) => (
 						<React.Fragment key={r.k}>
-							<Label x={W - 96} y={96 + i * 96} size={26} color={colors.sub} align="right">
+							<Label x={W - 96} y={96 + i * 116} size={34} color={colors.sub} align="right">
 								{r.k}
 							</Label>
-							<Label x={W - 96} y={126 + i * 96} size={44} color={colors.line} align="right" weight={600}>
+							<Label x={W - 96} y={136 + i * 116} size={56} color={colors.line} align="right" weight={600}>
 								{r.v(t)}
 							</Label>
 						</React.Fragment>
 					))}
-					<Label x={W - 96} y={96 + ov.hud.length * 96 + 6} size={26} color={colors.sub} align="right">
-						{ov.hud.every((r) => r.source === 'ILLUSTRATIVE') ? 'ILLUSTRATIVE VALUES' : ov.hud.filter((r) => r.source !== 'ILLUSTRATIVE').map((r) => r.source).join(' · ')}
+					<Label x={W - 96} y={96 + ov.hud.length * 116 + 8} size={30} color={colors.line} align="right">
+						{ov.hud.every((r) => r.source === 'ILLUSTRATIVE') ? 'ILLUSTRATIVE VALUES' : [...new Set(ov.hud.filter((r) => r.source !== 'ILLUSTRATIVE').map((r) => SOURCE[r.source] ?? r.source))].join(' · ')}
 					</Label>
 				</>
 			) : null}
@@ -157,6 +171,23 @@ const ShotView: React.FC<{shot: Shot}> = ({shot}) => {
 	);
 };
 
+/** The sting dissolves in over the last plate's handle frames (viewer panel v2: 1.1 s of black before it). */
+const StingIn: React.FC = () => {
+	const f = useCurrentFrame();
+	const last = SHOTS[SHOTS.length - 1];
+	const o = interpolate(f, [0, 22], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	return (
+		<AbsoluteFill>
+			{f < 24 && last.kind === 'plate' ? (
+				<Img src={staticFile(`films/seatbelt-lock/plates/${last.id}/${pad(Math.floor(((last.to - last.from + f) * PLATE_FPS) / FPS))}.webp`)} style={{width: W, height: H}} />
+			) : null}
+			<AbsoluteFill style={{opacity: o}}>
+				<ChannelSting endScreen />
+			</AbsoluteFill>
+		</AbsoluteFill>
+	);
+};
+
 export const VO_FRAMES_V3 = EDIT_END;
 export const FILM_FRAMES_V3 = EDIT_END + OUTRO_FRAMES;
 
@@ -168,7 +199,7 @@ export const FilmV3: React.FC = () => (
 			</Sequence>
 		))}
 		<Sequence from={EDIT_END} durationInFrames={OUTRO_FRAMES} name="sting">
-			<ChannelSting endScreen />
+			<StingIn />
 		</Sequence>
 	</AbsoluteFill>
 );

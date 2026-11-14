@@ -252,8 +252,10 @@ class Retractor:
         self.core = cylinder_y("core", CORE * MM, 4.6 * MM, 50.4 * MM, self.DARKSTEEL, self.spool, n=64, r_in=6 * MM)
         self.wound = self.wound_webbing(self.spool)
         # the cut spool: three quarters of the core and the wound belt, so the bar inside shows
-        self.cutcore = self.cut_solid("cutcore", 6.0, CORE, self.DARKSTEEL, self.spool)
-        self.cutweb = self.cut_solid("cutweb", CORE, SPOOL_R, self.WEB, self.spool)
+        # the cut-open spool stays facing the camera (on the reel, not the turning spool): the twist shows on the bar's
+        # spiral stripe and in the belt paying out (stills 2026-11-14: a turning cut swung the bar out of view)
+        self.cutcore = self.cut_solid("cutcore", 6.0, CORE, self.DARKSTEEL, self.reel)
+        self.cutweb = self.cut_solid("cutweb", CORE, SPOOL_R, self.WEB, self.reel)
         # the torsion bar through the core (seen in the cut spool)
         self.bar = self.torsion_bar(self.reel)
         # the pretensioner: a gas generator on the back plate driving the spool backwards through a pinion
@@ -282,7 +284,10 @@ class Retractor:
         for k in range(3):
             a = math.radians(20 + 120 * k)
             holes.append(list(reversed(mm_pts(kidney(13.5, 26.0, a, a + math.radians(104))))))
-        d = prism_xz("discplate", mm_pts(disc_outline()), -6.5 * MM, -2.0 * MM, self.STEEL, self.disc, holes=holes)
+        # yellow-chromate plated (a real finish on such parts): the heavy disc reads apart from the black reel at once
+        # (viewer panel v2: "viewers will take the black wheel to be the disc")
+        self.DISCMAT = steel("discsteel", "#C9A55A", 0.32, scale=4000, scratch=0.2)
+        d = prism_xz("discplate", mm_pts(disc_outline()), -6.5 * MM, -2.0 * MM, self.DISCMAT, self.disc, holes=holes)
         bevel(d, 0.3 * MM, 2)
         am = bmesh.new()
         bmesh.ops.create_cube(am, size=1)
@@ -293,11 +298,21 @@ class Retractor:
         # ---- the car sensor, below: cup (housing), ball, lever on its pivot
         self.sensor = empty("sensor", R)
         ax, az = CUP_X, cup_apex_z()
-        w = 9.5
+        # a true cone (the narration's "cup shaped like a cone"; panel v2 read the old V-block as a toy prism): a turned
+        # steel cone, its wall at BETA, on a round base
+        w = 8.0
         h = w * math.tan(BETA)
-        cup_out = [(ax - w - 2.5, az - 3.5), (ax + w + 2.5, az - 3.5), (ax + w + 2.5, az + h + 0.8), (ax + w, az + h + 0.8),
-                   (ax, az), (ax - w, az + h + 0.8), (ax - w - 2.5, az + h + 0.8)]
-        bevel(prism_xz("cup", mm_pts(cup_out), -9.5 * MM, -0.5 * MM, self.CUP, self.sensor), 0.4 * MM)
+        cb = bmesh.new()
+        bmesh.ops.create_cone(cb, cap_ends=False, cap_tris=False, segments=64, radius1=0.15 * MM, radius2=w * MM, depth=h * MM)
+        cone = mesh_from_bm("cup", cb, self.CUP, self.sensor, smooth=True)
+        cone.location = (ax * MM, -6.0 * MM, (az + h / 2) * MM)
+        sol = cone.modifiers.new("solid", "SOLIDIFY")
+        sol.thickness = 1.4 * MM
+        sol.offset = 1
+        bb = bmesh.new()
+        bmesh.ops.create_cone(bb, cap_ends=True, segments=64, radius1=(w + 1.2) * MM, radius2=(w + 1.2) * MM, depth=3.0 * MM)
+        base = mesh_from_bm("cupbase", bb, self.CUP, self.sensor, smooth=True)
+        base.location = (ax * MM, -6.0 * MM, (az - 1.2) * MM)
         bm = bmesh.new()
         bmesh.ops.create_uvsphere(bm, u_segments=48, v_segments=24, radius=BALL_R * MM)
         self.ball = mesh_from_bm("ball", bm, self.BALL, self.sensor, smooth=True)
@@ -386,9 +401,53 @@ class Retractor:
         nt.links.new(ramp.outputs["Color"], p.inputs["Emission Color"])
         es = nt.nodes.new("ShaderNodeMath")
         es.operation = "MULTIPLY"
-        es.inputs[1].default_value = 3.0
+        es.inputs[1].default_value = 1.4
         nt.links.new(tw.outputs[0], es.inputs[0])
-        nt.links.new(es.outputs[0], p.inputs["Emission Strength"])
+        # a painted stripe along the bar that spirals as it twists (panel v2: "show it twisting"): stripe where
+        # cos(4·angle − spiral·y/L) > 0.72, the spiral set per frame
+        sp = nt.nodes.new("ShaderNodeValue")
+        sp.name = "spiral"
+        tc = nt.nodes.new("ShaderNodeTexCoord")
+        sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+        nt.links.new(tc.outputs["Object"], sep.inputs["Vector"])
+        at2 = nt.nodes.new("ShaderNodeMath")
+        at2.operation = "ARCTAN2"
+        nt.links.new(sep.outputs["Z"], at2.inputs[0])
+        nt.links.new(sep.outputs["X"], at2.inputs[1])
+        ang = nt.nodes.new("ShaderNodeMath")
+        ang.operation = "MULTIPLY"
+        ang.inputs[1].default_value = 4.0  # four stripes: one always faces the camera
+        nt.links.new(at2.outputs[0], ang.inputs[0])
+        yl = nt.nodes.new("ShaderNodeMath")
+        yl.operation = "MULTIPLY"
+        nt.links.new(sep.outputs["Y"], yl.inputs[0])
+        nt.links.new(sp.outputs[0], yl.inputs[1])
+        df = nt.nodes.new("ShaderNodeMath")
+        df.operation = "SUBTRACT"
+        nt.links.new(ang.outputs[0], df.inputs[0])
+        nt.links.new(yl.outputs[0], df.inputs[1])
+        cs = nt.nodes.new("ShaderNodeMath")
+        cs.operation = "COSINE"
+        nt.links.new(df.outputs[0], cs.inputs[0])
+        gt = nt.nodes.new("ShaderNodeMath")
+        gt.operation = "GREATER_THAN"
+        gt.inputs[1].default_value = 0.72
+        nt.links.new(cs.outputs[0], gt.inputs[0])
+        mixc = nt.nodes.new("ShaderNodeMix")
+        mixc.data_type = "RGBA"
+        mixc.inputs[6].default_value = lin("#B8C0C8")
+        mixc.inputs[7].default_value = lin("#F2F4F6")
+        nt.links.new(gt.outputs[0], mixc.inputs["Factor"])
+        nt.links.new(mixc.outputs[2], p.inputs["Base Color"])
+        inv = nt.nodes.new("ShaderNodeMath")
+        inv.operation = "SUBTRACT"
+        inv.inputs[0].default_value = 1.0
+        nt.links.new(gt.outputs[0], inv.inputs[1])
+        em = nt.nodes.new("ShaderNodeMath")
+        em.operation = "MULTIPLY"
+        nt.links.new(es.outputs[0], em.inputs[0])
+        nt.links.new(inv.outputs[0], em.inputs[1])
+        nt.links.new(em.outputs[0], p.inputs["Emission Strength"])
         ob = cylinder_y("torsionbar", 5.2 * MM, -7.9 * MM, 53 * MM, m, parent, n=48)
         self.BARMAT = m
         return ob
@@ -416,7 +475,7 @@ class Retractor:
         self.arm.rotation_euler = (0, -(ARM_PIVOT_A + ARM_REST + (ARM_OUT - ARM_REST) * swing), 0)
         c = st.get("ball", 0.0)
         bx, bz = ball_center(c)
-        self.ball.location = (bx * MM, -5.0 * MM, bz * MM)
+        self.ball.location = (bx * MM, -6.0 * MM, bz * MM)
         # the ball rolls (no slip) as it climbs
         self.ball.rotation_euler = (0, CLIMB_MAX * c / BALL_R, 0)
         self.leverpiv.rotation_euler = (0, -lever_angle(c), 0)
@@ -430,7 +489,9 @@ class Retractor:
         self.pre.hide_render = False
         self.BARMAT.node_tree.nodes["twist"].outputs[0].default_value = st.get("twist", 0.0)
         tw = st.get("twist", 0.0)
-        self.bar.rotation_euler = (0, -0.25 * tw, 0)
+        self.bar.rotation_euler = (0, 0, 0)
+        # the stripe's spiral follows the spool's turn on the bar (the bar's far end is held by the locked side)
+        self.BARMAT.node_tree.nodes["spiral"].outputs[0].default_value = -st.get("spool", 0.0) / (60 * MM)
         from common import set_slide
         set_slide(self.WEB, -st.get("payout", 0.0) * MM)  # the weave moves up the tail as the belt pays out
         show = st.get("show", {})
