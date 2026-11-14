@@ -1,13 +1,19 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** step 9, cut v3 (realism over diagrams). The edit is `remotion/edit.ts` (comp `SB-FilmV3`): real clips for
-people and crashes (Pixabay driving footage; NHTSA crash films, tests 11664 and 11500; all in Drive
-`seatbelt-lock/render-media/footage`), photoreal Cycles plates for the belt at the D-ring and the retractor in steel
-(`blender/`, rendered on the runners by blender-render.yml with `script: films/seatbelt-lock/blender/render.py`).
-Mix remixed with the v3 cues (Drive `seatbelt-lock/mix/mix.wav`, −14.3 LUFS).
-**Next action:** plates for the review cut at 1280 px / 6 samples (32 shots, about 9,300 frames); then the 720p cut
-(remotion-render.yml, comp SB-FilmV3, tail_frames 820), our picture gate, a fresh viewer panel. The 4K master's plates
-render at 1920 after the panel passes.
+**Now:** step 9, cut v3d. Viewer panel v2 on cut v3c scored 6.0 (`review/viewer_v2.md`): real footage and D-ring
+renders judged real; mechanism shots failed (invisible lag, bar not twisting, ball barely moving, holds, labels). All its
+fixes are merged (PR #82). The 28 changed plates were re-rendering on the runners when the session paused (blender-render
+run on main, started 2026-11-14 14:06 UTC, 1280 px / 6 samples; stale tars for those shots were deleted from Drive first).
+**Next action (resume here):**
+1. Check the latest blender-render run on main. If any block failed, re-run it with the `blocks` input; if the run is
+   gone, dispatch again with `script: films/seatbelt-lock/blender/render.py`, width 1280, samples 6 and these shots:
+   how_know,second_decision,simplest,clues,disc_intro,disc_slow,jerk_real,jerk_disc,jerk_arm,not_speed,left_behind,
+   real_crash,reel_still,ball,ball_lock,inch,tilt,two_things,pretension,bar,renault,three_quarters,limit_choice,
+   three_moves,all_out,feel,disc_decides,bar_waits
+2. remotion-render: comp SB-FilmV3, scale 2/3, tail_frames 820, name seatbelt-lock_cut_v3d_720p.mp4 (mix in Drive is current).
+3. Our picture gate (a frame every 4 s; the panel v2 list), then a fresh viewer panel (prompt: the v2 prompt in this
+   session's pattern, PLAYBOOK §3a; proxy 720p30 crf 26, share, delete after download).
+4. When it passes: 1920 plates for the 4K master (step 10), package (11), Shorts (12).
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
