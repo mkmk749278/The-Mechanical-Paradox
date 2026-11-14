@@ -237,7 +237,7 @@ const defs = (): Def[] => {
 		plate('disc_slow', st, 'retractor', push(RET.front, 0.08, 6), (t) => {
 			const p = sample(SLOW.payout, t);
 			return {reel: reelOf(p), disc: reelOf(p) - (sample(SLOW.reel, t) - sample(SLOW.disc, t)), payout: p};
-		}, {hud: [{k: 'DISC LAG', v: (t) => `${((sample(SLOW.reel, t) - sample(SLOW.disc, t)) * 180 / Math.PI).toFixed(1)}°`, source: 'ILLUSTRATIVE'}]});
+		}, {hud: [{k: 'DISC LAG', v: (t) => `${Math.max(0, (sample(SLOW.reel, t) - sample(SLOW.disc, t)) * 180 / Math.PI).toFixed(1)}°`, source: 'ILLUSTRATIVE'}]});
 	}
 	{
 		// the jerk at real speed first (it is over in a fifth of a second), then a slowed replay on the disc and the arm,
@@ -253,7 +253,7 @@ const defs = (): Def[] => {
 		const replay = (g: number): ReturnType<typeof jerkAt> => jerkAt(sec(g - r0), slow);
 		const hud = (from: number) => [{k: 'DISC LAG', v: (t: number) => {
 			const j = replay(from + t * FPS);
-			return `${((j.reel - j.disc) * 180 / Math.PI).toFixed(1)}°`;
+			return `${Math.max(0, (j.reel - j.disc) * 180 / Math.PI).toFixed(1)}°`;
 		}, source: 'ILLUSTRATIVE'}];
 		plate('jerk_disc', r0, 'retractor', orbit(RET.disc, 14, 10), (t, g) => {
 			const j = replay(g);

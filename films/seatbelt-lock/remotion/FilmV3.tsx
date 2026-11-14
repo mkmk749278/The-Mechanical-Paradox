@@ -58,19 +58,28 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 			{/* a low scrim so the labels hold on bright footage */}
 			<AbsoluteFill style={{background: `linear-gradient(to top, ${colors.bg}C0 0px, ${colors.bg}60 110px, ${colors.bg}00 230px)`}} />
 			{cam && ov.callouts
-				? ov.callouts.map((c, i) => {
-						const p = project(cam, shot.kind === 'plate' && shot.set === 'retractor' ? tilted(c.p, st.tilt ?? 0) : c.p);
-						if (!p) return null;
-						const a = phraseIn(c.at, shot) - shot.from;
-						const k = interpolate(f, [a, a + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-						// the label must fit inside the frame (gate, cut v3: a right-hand label ran off the edge) and labels
-						// stack, never collide
-						const tw = String(c.text).length * 36 * 0.62 + 24;
-						const right = p[0] < W * 0.55;
-						const lx = right ? Math.min(W - 96 - tw, p[0] + 170) : Math.max(96 + tw, p[0] - 170);
-						const ly = Math.max(150, Math.min(H - 220, p[1] - 110 + i * 84));
-						return <Callout key={i} x={p[0]} y={p[1]} lx={lx} ly={ly} text={c.text} color={COLOR[c.color ?? 'line']} t={k} />;
-					})
+				? (() => {
+						// place labels one by one: each takes the nearest free row (rows 84 px apart) so none collide
+						// (gate, cut v3: RING OF TEETH and HOOK landed on one row)
+						const used: {y: number; x0: number; x1: number}[] = [];
+						return ov.callouts.map((c, i) => {
+							const p = project(cam, shot.kind === 'plate' && shot.set === 'retractor' ? tilted(c.p, st.tilt ?? 0) : c.p);
+							if (!p) return null;
+							const a = phraseIn(c.at, shot) - shot.from;
+							const k = interpolate(f, [a, a + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+							const tw = String(c.text).length * 36 * 0.62 + 24;
+							const right = p[0] < W * 0.55;
+							const lx = right ? Math.min(W - 96 - tw, p[0] + 170) : Math.max(96 + tw, p[0] - 170);
+							const x0 = right ? lx : lx - tw;
+							const x1 = right ? lx + tw : lx;
+							let ly = Math.max(150, Math.min(H - 220, p[1] - 110));
+							for (let n = 0; n < 12 && used.some((u) => Math.abs(u.y - ly) < 76 && u.x0 < x1 && x0 < u.x1); n++) {
+								ly = ly + 84 > H - 220 ? ly - 84 * (n + 1) : ly + 84;
+							}
+							used.push({y: ly, x0, x1});
+							return <Callout key={i} x={p[0]} y={p[1]} lx={lx} ly={ly} text={c.text} color={COLOR[c.color ?? 'line']} t={k} />;
+						});
+					})()
 				: null}
 			{ov.hud ? (
 				<>
