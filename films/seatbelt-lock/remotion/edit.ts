@@ -240,17 +240,34 @@ const defs = (): Def[] => {
 		}, {hud: [{k: 'DISC LAG', v: (t) => `${((sample(SLOW.reel, t) - sample(SLOW.disc, t)) * 180 / Math.PI).toFixed(1)}°`, source: 'ILLUSTRATIVE'}]});
 	}
 	{
+		// the jerk at real speed first (it is over in a fifth of a second), then a slowed replay on the disc and the arm,
+		// timed so the arm catches on "The arm catches the teeth" (the picture says SLOW MOTION)
 		const st = s('But jerk the belt');
-		// slowed so the arm catches on "The arm catches the teeth" (the real lock takes about a fifth of a second)
-		const tCatch = rel(st, 'The arm catches the teeth');
+		plate('jerk_real', st, 'retractor', orbit(RET.front, 8, 6), (t) => {
+			const j = jerkAt(Math.max(0, t - 0.9));
+			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.locked ? 0.7 : 0.2, payout: j.payout};
+		}, {big: {text: 'LOCKED IN 0.2 s', at: 'spins up in an instant', color: 'crimson'}}, [{at: st + Math.round((0.9 + JERK_LOCK_S) * FPS), sfx: 'metal_jam_sub', gainDb: -12}]);
+		const r0 = at('And the disc', 'But jerk the belt') - PRE;
+		const tCatch = sec(at('The arm catches the teeth') - r0);
 		const slow = tCatch / JERK_LOCK_S;
-		plate('disc_jerk', st, 'retractor', move(RET.disc, {pos: [0.05, -0.13, 0.035], lens: 75}, 14), (t) => {
-			const j = jerkAt(t, slow);
-			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.arm > 0.05 ? 0.8 : 0.3, payout: j.payout};
+		const replay = (g: number): ReturnType<typeof jerkAt> => jerkAt(sec(g - r0), slow);
+		const hud = (from: number) => [{k: 'DISC LAG', v: (t: number) => {
+			const j = replay(from + t * FPS);
+			return `${((j.reel - j.disc) * 180 / Math.PI).toFixed(1)}°`;
+		}, source: 'ILLUSTRATIVE'}];
+		plate('jerk_disc', r0, 'retractor', orbit(RET.disc, 14, 10), (t, g) => {
+			const j = replay(g);
+			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: 0.6, payout: j.payout};
+		}, {label: 'ILLUSTRATION · SLOW MOTION', hud: hud(r0)});
+		const r1 = at('That tiny lag is the whole trick') - PRE;
+		const ARMCAM = {pos: [-0.045, -0.11, 0.07] as Vec3, target: [-0.016, -0.002, 0.027] as Vec3, lens: 85, fstop: 9};
+		plate('jerk_arm', r1, 'retractor', move(ARMCAM, {pos: [-0.035, -0.1, 0.06]}, 12), (t, g) => {
+			const j = replay(g);
+			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.arm > 0.98 ? 1 : 0.7, payout: j.payout};
 		}, {
 			label: 'ILLUSTRATION · SLOW MOTION',
-			hud: [{k: 'DISC LAG', v: (t) => `${(Math.min(LOCK_LAG, jerkAt(t, slow).reel - jerkAt(t, slow).disc) * 180 / Math.PI).toFixed(1)}°`, source: 'ILLUSTRATIVE'}],
-			callouts: [{text: 'ARM', p: [-0.012, -0.002, 0.03], color: 'amber', at: 'pushes a small arm outward'}],
+			hud: hud(r1),
+			callouts: [{text: 'ARM', p: [-0.02, -0.002, 0.03], color: 'amber', at: 'pushes a small arm outward'}, {text: 'TEETH', p: [-0.03, 0.0, 0.026], color: 'line', at: 'The arm catches the teeth'}],
 		}, [{at: at('The arm catches the teeth') + 6, sfx: 'metal_jam_sub', gainDb: -4}]);
 	}
 	plate('not_speed', s('Does it lock when the reel spins too fast'), 'retractor', orbit(RET.front, 10, 8), (t) => {
@@ -297,7 +314,7 @@ const defs = (): Def[] => {
 	clip('lock_works', s('So the lock works'), 'nh_sled_side', 0.0, NH, {label: 'SLOW MOTION'});
 	clip('one_strap', s('Once the belt locks'), 'nh_sled_side', 1.4, NH, {label: 'SLOW MOTION'});
 	clip('crumple', s('The front of the car crumples'), 'nh_overall', 3.0, NH, {label: 'SLOW MOTION'});
-	clip('barely_gives', s('The belt barely gives'), 'nh_sled_shoulder', 2.2, NH, {label: 'SLOW MOTION'});
+	clip('barely_gives', s('The belt barely gives'), 'nh_driver', 3.0, NH, {label: 'SLOW MOTION'});
 	clip('chests', s('And chests can break'), 'nh_sled_side', 2.6, NH, {label: 'SLOW MOTION'});
 	clip('older', s('In bad crashes, older people'), 'nh_sled_side', 4.0, NH, {label: 'SLOW MOTION · STAPP CAR CRASH J. 2001'});
 
@@ -342,7 +359,7 @@ const defs = (): Def[] => {
 
 	// ---- s08: the cost
 	clip('cost', s('But what does letting go cost you'), 'nh_sled_side', 3.2, NH, {label: 'SLOW MOTION'});
-	clip('softer', s("That's why the softer limit"), 'nh_onboard', 5.5, NH, {label: 'SLOW MOTION'});
+	clip('softer', s("That's why the softer limit"), 'nh_onboard', 3.6, NH, {label: 'SLOW MOTION'});
 	clip('tall', s('And engineers worry about tall'), 'nh_driver', 5.0, NH, {label: 'SLOW MOTION'});
 	{
 		const st = s('Where do you set the limit');
