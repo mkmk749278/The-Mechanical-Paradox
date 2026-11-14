@@ -82,7 +82,7 @@ def mat(name, base, metal=0.0, rough=0.5, coat=0.0, emit=None, emit_strength=0.0
     return m
 
 
-def steel(name, base="#9AA3AD", rough=0.28, scale=900.0, scratch=0.25):
+def steel(name, base="#9AA3AD", rough=0.28, scale=4000.0, scratch=0.25):
     """Stamped / machined steel: a fine noise in roughness and a faint bump, so highlights break up like real metal."""
     m, nt, p = node_mat(name)
     p.inputs["Base Color"].default_value = lin(base)
@@ -98,8 +98,8 @@ def steel(name, base="#9AA3AD", rough=0.28, scale=900.0, scratch=0.25):
     nt.links.new(nz.outputs["Fac"], mr.inputs["Value"])
     nt.links.new(mr.outputs["Result"], p.inputs["Roughness"])
     bump = nt.nodes.new("ShaderNodeBump")
-    bump.inputs["Strength"].default_value = 0.05
-    bump.inputs["Distance"].default_value = 0.0002
+    bump.inputs["Strength"].default_value = 0.012  # a fine machined grain, not a casting's mottle (stills, 2026-11-14)
+    bump.inputs["Distance"].default_value = 0.0001
     nt.links.new(nz.outputs["Fac"], bump.inputs["Height"])
     nt.links.new(bump.outputs["Normal"], p.inputs["Normal"])
     return m

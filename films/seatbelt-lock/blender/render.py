@@ -40,7 +40,7 @@ if data["set"] == "retractor":
     # studio: a warm key high left, a cool rim behind right, a broad soft fill from the camera side
     area_light("key", (-0.25, -0.35, 0.30), (0, 0.02, 0), 0.25, 3.0, "#FFE6C8")
     area_light("rim", (0.30, 0.20, 0.25), (0, 0.02, 0), 0.15, 2.4, "#BFD9FF")
-    area_light("fill", (0.10, -0.50, -0.05), (0, 0.02, 0), 0.6, 0.8, "#E8EEF5")
+    area_light("fill", (0.34, -0.36, 0.14), (0, 0.02, 0), 0.6, 0.6, "#E8EEF5")  # to the side: a mirror-like disc must not reflect it head-on
     area_light("under", (0.05, -0.15, -0.25), (0, 0, -0.04), 0.12, 0.3, "#FFD7A8")
     area_light("side", (0.30, 0.02, -0.12), (0, 0.027, -0.01), 0.15, 1.2, "#F3F6FA")
 elif data["set"] == "cabin":
