@@ -63,9 +63,12 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 						if (!p) return null;
 						const a = phraseIn(c.at, shot) - shot.from;
 						const k = interpolate(f, [a, a + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-						const right = p[0] < W * 0.62;
-						const lx = right ? Math.min(W - 520, p[0] + 170) : Math.max(520, p[0] - 170);
-						const ly = Math.max(150, Math.min(H - 220, p[1] - 90 + i * 8));
+						// the label must fit inside the frame (gate, cut v3: a right-hand label ran off the edge) and labels
+						// stack, never collide
+						const tw = String(c.text).length * 36 * 0.62 + 24;
+						const right = p[0] < W * 0.55;
+						const lx = right ? Math.min(W - 96 - tw, p[0] + 170) : Math.max(96 + tw, p[0] - 170);
+						const ly = Math.max(150, Math.min(H - 220, p[1] - 110 + i * 84));
 						return <Callout key={i} x={p[0]} y={p[1]} lx={lx} ly={ly} text={c.text} color={COLOR[c.color ?? 'line']} t={k} />;
 					})
 				: null}
