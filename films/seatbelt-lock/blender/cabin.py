@@ -186,11 +186,26 @@ class Cabin:
 
     # ---------------- materials ----------------
     def glass(self):
-        m, nt, p = node_mat("glass")
-        p.inputs["Base Color"].default_value = lin("#DDE6E8")
-        p.inputs["Roughness"].default_value = 0.0
-        p.inputs["Transmission Weight"].default_value = 1.0
-        p.inputs["IOR"].default_value = 1.52
+        """Thin automotive glass: a clear pass-through with a faint tint and a sharp reflection (no refraction: a 4 mm
+        pane barely bends light, and full transmission doubled the frame time)."""
+        m = bpy.data.materials.new("glass")
+        m.use_nodes = True
+        nt = m.node_tree
+        out = nt.nodes["Material Output"]
+        for n in list(nt.nodes):
+            if n.name != out.name:
+                nt.nodes.remove(n)
+        tr = nt.nodes.new("ShaderNodeBsdfTransparent")
+        tr.inputs["Color"].default_value = lin("#E6EEEE")
+        gl = nt.nodes.new("ShaderNodeBsdfGlossy")
+        gl.inputs["Roughness"].default_value = 0.02
+        fr = nt.nodes.new("ShaderNodeFresnel")
+        fr.inputs["IOR"].default_value = 1.52
+        mix = nt.nodes.new("ShaderNodeMixShader")
+        nt.links.new(fr.outputs["Fac"], mix.inputs["Fac"])
+        nt.links.new(tr.outputs["BSDF"], mix.inputs[1])
+        nt.links.new(gl.outputs["BSDF"], mix.inputs[2])
+        nt.links.new(mix.outputs["Shader"], out.inputs["Surface"])
         return m
 
     # ---------------- the world: HDRI sky + moving sun dapples ----------------
@@ -299,7 +314,7 @@ class Cabin:
         rbox("roof", (0.0, 0.0, ROOF + 0.03), (2.2, 1.5, 0.06), self.HEADLINER, R, 0.02, 1)
         self.windscreen = rbox("windscreen", (0.78, -0.2, 0.62), (0.008, 1.5, 0.72), self.GLASS, R, 0.002, 0,
                                rot=(0, math.radians(-58), 0))
-        rbox("sidewindow", (0.3, 0.49, 0.6), (1.0, 0.006, 0.42), self.GLASS, R, 0.002, 0)
+        rbox("sidewindow", (0.25, 0.49, 0.6), (1.2, 0.006, 0.42), self.GLASS, R, 0.002, 0)
         rbox("dash", (0.86, -0.2, 0.22), (0.5, 1.6, 0.26), self.DASH, R, 0.06)
         rbox("dashtop", (0.72, -0.2, 0.36), (0.28, 1.6, 0.04), self.DASH, R, 0.02)
         rbox("cluster", (0.66, 0.0, 0.43), (0.12, 0.34, 0.1), self.DASH, R, 0.03)

@@ -117,7 +117,8 @@ const RET = {
 // cabin: the D-ring close-up and a wider view of the pillar from the passenger side
 const CAB = {
 	dring: {pos: [0.05, -0.08, 0.62] as Vec3, target: [-0.3, 0.33, 0.6] as Vec3, lens: 40, fstop: 2.8},
-	wide: {pos: [0.45, -0.42, 0.62] as Vec3, target: [-0.3, 0.32, 0.45] as Vec3, lens: 26, fstop: 4},
+	low: {pos: [0.04, -0.06, 0.52] as Vec3, target: [-0.3, 0.34, 0.64] as Vec3, lens: 40, fstop: 2.8},
+	macro: {pos: [-0.12, 0.12, 0.6] as Vec3, target: [-0.3, 0.35, 0.65] as Vec3, lens: 70, fstop: 2.2},
 };
 type CamPreset = {pos: Vec3; target: Vec3; lens: number; fstop: number};
 /** A slow move between two framings (camera ease), so no plate is ever static. */
@@ -158,7 +159,7 @@ const defs = (): Def[] => {
 		callouts: [{text: 'A CHIP?', p: [-0.3, 0.33, 0.66], color: 'amber', at: 'chip'}],
 	});
 	clip('airbag_guess', s('You would probably guess'), 'nh_onboard', 2.0, NH);
-	plate('no_chip', s('But the lock inside a seatbelt'), 'cabin', push(CAB.wide, 0.1, 3), (t) => ({payout: 0, drive: t * 14}));
+	clip('no_chip', s('But the lock inside a seatbelt'), 'px133698', 1.0, PX('133698'));
 	{
 		const st = s('Pull the belt slowly', 'But the lock inside');
 		plate('slow_pull', st, 'cabin', push(CAB.dring, 0.08, 3), (t) => ({payout: sample(SLOW.payout, Math.max(0, t - 0.2)), drive: t * 14}), {
@@ -167,7 +168,7 @@ const defs = (): Def[] => {
 	}
 	{
 		const st = s('Jerk it');
-		plate('jerk', st, 'cabin', push(CAB.dring, 0.06, 3), (t) => {
+		plate('jerk', st, 'cabin', push(CAB.macro, 0.06, 3), (t) => {
 			const j = jerkAt(Math.max(0, t - 0.25));
 			const tl = t - 0.25 - JERK_LOCK_S;
 			return {payout: 40 + j.payout, tremor: tl > 0 ? 0.004 * Math.exp(-tl * 6) * Math.sin(tl * 2 * Math.PI * 9) : 0, drive: t * 14};
@@ -177,7 +178,7 @@ const defs = (): Def[] => {
 	{
 		const st = s('Lock on every tug');
 		// three small tugs, each caught at once: you would fight your belt all day
-		plate('every_tug', st, 'cabin', move(CAB.dring, {pos: [0.06, -0.1, 0.6]}, 4), (t) => {
+		plate('every_tug', st, 'cabin', move(CAB.low, {pos: [0.05, -0.08, 0.53]}, 4), (t) => {
 			const k = Math.floor(t / 1.1);
 			const ph = t - k * 1.1;
 			return {payout: Math.min(3, k) * 6 + (ph < 0.12 ? ph * 50 : 6), tremor: ph > 0.12 && ph < 0.5 ? 0.003 * Math.sin(ph * 60) * Math.exp(-ph * 8) : 0, drive: t * 14};
@@ -212,7 +213,7 @@ const defs = (): Def[] => {
 	}
 	{
 		const st = s('Lean over to the glovebox');
-		plate('glovebox', st, 'cabin', push(CAB.wide, 0.1, 4), (t) => ({payout: Math.min(25, t * 25), tremor: t > 1 ? 0.003 * Math.sin(t * 50) * Math.exp(-(t - 1) * 6) : 0, drive: t * 14}), {big: {text: 'LOCKED', at: 'it holds you like a crash', color: 'crimson'}}, [{at: st + FPS, sfx: 'metal_jam_sub', gainDb: -10}]);
+		plate('glovebox', st, 'cabin', push(CAB.low, 0.1, 4), (t) => ({payout: Math.min(25, t * 25), tremor: t > 1 ? 0.003 * Math.sin(t * 50) * Math.exp(-(t - 1) * 6) : 0, drive: t * 14}), {big: {text: 'LOCKED', at: 'it holds you like a crash', color: 'crimson'}}, [{at: st + FPS, sfx: 'metal_jam_sub', gainDb: -10}]);
 	}
 	plate('clues', s("The hook can't be the clever part"), 'retractor', orbit(RET.hero, 14, 12), (t) => ({reel: 0.4 + reelOf(t * 4), disc: 0.4 + reelOf(t * 4)}), {
 		big: undefined,
@@ -277,7 +278,7 @@ const defs = (): Def[] => {
 			hud: [{k: 'CAR DECEL', v: (t) => (t > tBrake ? '> 0.7 g' : '0 g'), source: 'C06'}],
 		}, [{at: at('lifts a small lever into the teeth') + 30, sfx: 'quartz_tick', gainDb: -10}, {at: at('The belt is locked almost'), sfx: 'metal_jam_sub', gainDb: -6}]);
 	}
-	plate('inch', s("And it's fast"), 'cabin', push(CAB.dring, 0.1, 6), (t) => ({payout: Math.min(20, Math.max(0, t - 1.5) * 60), drive: 0}), {
+	plate('inch', s("And it's fast"), 'cabin', push(CAB.macro, 0.1, 6), (t) => ({payout: Math.min(20, Math.max(0, t - 1.5) * 60), drive: 0}), {
 		big: {text: 'LESS THAN 1 INCH (25 mm)', at: 'less than an inch', color: 'cyan'},
 		hud: [{k: 'FMVSS 209', v: () => '0.7 g · 25 mm', source: 'C06'}],
 	});
@@ -312,7 +313,7 @@ const defs = (): Def[] => {
 			return {reel: 0.5 - back * 2.4, disc: 0.5 - back * 2.4, fire: f, payout: -back * 60};
 		}, {callouts: [{text: 'PRETENSIONER', p: [-0.022, 0.0, -0.08], color: 'crimson', at: 'fire a charge in the belt'}]}, [{at: at('fire a charge in the belt') + 8, sfx: 'metal_snap_sub', gainDb: -8}]);
 	}
-	plate('snap', s('It snaps the belt tight'), 'cabin', push(CAB.dring, 0.1, 3), (t) => ({payout: 40 - 60 * smooth(t / 0.18), tremor: t > 0.18 ? 0.004 * Math.sin(t * 60) * Math.exp(-(t - 0.18) * 5) : 0}), {big: {text: 'SLACK: GONE', at: 'pulls out the slack', color: 'cyan'}}, [{at: at('It snaps the belt tight') + 6, sfx: 'whoosh', gainDb: -8}]);
+	plate('snap', s('It snaps the belt tight'), 'cabin', push(CAB.low, 0.1, 3), (t) => ({payout: 40 - 60 * smooth(t / 0.18), tremor: t > 0.18 ? 0.004 * Math.sin(t * 60) * Math.exp(-(t - 0.18) * 5) : 0}), {big: {text: 'SLACK: GONE', at: 'pulls out the slack', color: 'cyan'}}, [{at: at('It snaps the belt tight') + 6, sfx: 'whoosh', gainDb: -8}]);
 	clip('slows_sooner', s('Now your body starts slowing down'), 'nh_sled_side', 0.8, NH, {label: 'SLOW MOTION'});
 
 	// ---- s07: the torsion bar
@@ -376,7 +377,7 @@ const defs = (): Def[] => {
 		const st = s('Ever pulled your belt all the way out');
 		const tIn = rel(st, "It's not broken");
 		const tBack = rel(st, 'Let it wind all the way back');
-		plate('all_out', st, 'cabin', move(CAB.wide, {pos: [0.4, -0.36, 0.58]}, 20), (t) => {
+		plate('all_out', st, 'cabin', move(CAB.macro, {pos: [-0.1, 0.09, 0.6]}, 20), (t) => {
 			const out = Math.min(700, Math.max(0, t) * 400);
 			// winding in, one click at a time (it can only go in)
 			const steps = t > tIn ? Math.floor((t - tIn) / 0.9) * 40 + 40 * smooth(((t - tIn) % 0.9) / 0.15) : 0;

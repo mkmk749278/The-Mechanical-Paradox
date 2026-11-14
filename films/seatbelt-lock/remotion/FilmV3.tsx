@@ -166,3 +166,6 @@ export const filmCuesV3 = (): SfxCue[] => [
 	...SHOTS.flatMap((s) => (s.sfx ?? []).map((c) => ({frame: c.at, sfx: c.sfx as SfxName, gainDb: c.gainDb}))),
 	...shiftCues([...stingCues, ...endScreenCues], EDIT_END),
 ];
+
+/** export_cues.mjs reads filmCues() */
+export const filmCues = filmCuesV3;
