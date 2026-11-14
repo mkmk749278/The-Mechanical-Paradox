@@ -43,6 +43,8 @@ export type Overlay = {
 	hud?: {k: string; v: (t: number) => string; source: string}[];
 	/** a big statement card element (never a text card on its own: over a moving plate or clip) */
 	big?: {text: string; at: string; color?: 'amber' | 'cyan' | 'crimson' | 'emerald'};
+	/** a fixed arrow showing which way is down (the tilt shot) */
+	gravity?: boolean;
 };
 
 export type Shot = {
@@ -148,7 +150,7 @@ const defs = (): Def[] => {
 		d.push({id, start, kind: 'clip', file, in: inS, credit, overlay, sfx});
 	};
 	const plate = (id: string, start: number, set: PlateSet, cam: (t: number) => Cam, state: (t: number, g: number) => RetractorState | CabinState, overlay?: Overlay, sfx?: Def['sfx']): void => {
-		d.push({id, start, kind: 'plate', set, cam, state, overlay: {label: 'ILLUSTRATION', ...overlay}, sfx});
+		d.push({id, start, kind: 'plate', set, cam, state, overlay: {label: set === 'retractor' ? 'ILLUSTRATION · NOT TO SCALE' : 'ILLUSTRATION', ...overlay}, sfx});
 	};
 	const s = (phrase: string, after?: string): number => at(phrase, after) - PRE;
 
@@ -193,7 +195,7 @@ const defs = (): Def[] => {
 		const st = s('And in a really hard crash');
 		const tLock = rel(st, 'it makes a second decision');
 		const tLet = rel(st, 'it starts to let you go');
-		plate('second_decision', st, 'retractor', orbit(RET.hero, -12, 9), (t) => {
+		plate('second_decision', st, 'retractor', orbit(RET.hero, -16, 12), (t) => {
 			const lock = t > tLock;
 			const lag = lock ? LOCK_LAG : smooth((t - tLock + 0.4) / 0.4) * LOCK_LAG;
 			const let_ = smooth((t - tLet) / 3);
@@ -205,7 +207,7 @@ const defs = (): Def[] => {
 	{
 		const st = s('Imagine the simplest lock');
 		const tDrop = rel(st, 'drops into them');
-		plate('simplest', st, 'retractor', push(RET.front, 0.1, 8), (t) => {
+		plate('simplest', st, 'retractor', move(RET.front, {pos: [0.05, -0.2, 0.03]}, 30), (t) => {
 			const turning = t < tDrop + 0.3;
 			const rr = turning ? reelOf(t * 25) : reelOf((tDrop + 0.3) * 25);
 			return {reel: rr, disc: rr, arm: smooth((t - tDrop) / 0.3), show: {disc: 0, sensor: 0}};
@@ -246,7 +248,7 @@ const defs = (): Def[] => {
 		plate('jerk_real', st, 'retractor', orbit(RET.front, 8, 6), (t) => {
 			const j = jerkAt(Math.max(0, t - 0.9));
 			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.locked ? 0.7 : 0.2, payout: j.payout};
-		}, {big: {text: 'LOCKED IN 0.2 s', at: 'spins up in an instant', color: 'crimson'}}, [{at: st + Math.round((0.9 + JERK_LOCK_S) * FPS), sfx: 'metal_jam_sub', gainDb: -12}]);
+		}, undefined, [{at: st + Math.round((0.9 + JERK_LOCK_S) * FPS), sfx: 'metal_jam_sub', gainDb: -12}]);
 		const r0 = at('And the disc', 'But jerk the belt') - PRE;
 		const tCatch = sec(at('The arm catches the teeth') - r0);
 		const slow = tCatch / JERK_LOCK_S;
@@ -258,15 +260,16 @@ const defs = (): Def[] => {
 		plate('jerk_disc', r0, 'retractor', orbit(RET.disc, 14, 10), (t, g) => {
 			const j = replay(g);
 			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: 0.6, payout: j.payout};
-		}, {label: 'ILLUSTRATION · SLOW MOTION', hud: hud(r0)});
+		}, {label: 'ILLUSTRATION · SLOW MOTION · NOT TO SCALE', hud: hud(r0)});
 		const r1 = at('That tiny lag is the whole trick') - PRE;
 		const ARMCAM = {pos: [-0.045, -0.11, 0.07] as Vec3, target: [-0.016, -0.002, 0.027] as Vec3, lens: 85, fstop: 9};
 		plate('jerk_arm', r1, 'retractor', move(ARMCAM, {pos: [-0.035, -0.1, 0.06]}, 12), (t, g) => {
 			const j = replay(g);
 			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.arm > 0.98 ? 1 : 0.7, payout: j.payout};
 		}, {
-			label: 'ILLUSTRATION · SLOW MOTION',
+			label: 'ILLUSTRATION · SLOW MOTION · NOT TO SCALE',
 			hud: hud(r1),
+			big: {text: 'LOCKED', at: 'Clack', color: 'crimson'},
 			callouts: [{text: 'ARM', p: [-0.02, -0.002, 0.03], color: 'amber', at: 'pushes a small arm outward'}, {text: 'TEETH', p: [-0.03, 0.0, 0.026], color: 'line', at: 'The arm catches the teeth'}],
 		}, [{at: at('The arm catches the teeth') + 6, sfx: 'metal_jam_sub', gainDb: -4}]);
 	}
@@ -277,7 +280,7 @@ const defs = (): Def[] => {
 	plate('left_behind', s("The belt doesn't measure your speed"), 'retractor', push(RET.disc, 0.12, 6), (t) => ({reel: 0.9 + reelOf(t * 6), disc: 0.9 - LOCK_LAG * 0.6 + reelOf(t * 6), glow: 0.6}));
 
 	// ---- s04: the crash, and the ball
-	clip('real_crash', s('But now imagine a real crash'), 'px123665', 1.5, PX('123665'));
+	plate('real_crash', s('But now imagine a real crash'), 'cabin', move(CAB.dring, {pos: [0.07, -0.1, 0.6]}, 8), (t) => ({payout: 0, drive: t * 14, shake: 0.0006 * Math.sin(t * 23)}));
 	clip('hits', s('The car hits something'), 'nh_impact', 2.6, NH, undefined, [{at: at('The car hits something') + 24, sfx: 'metal_jam_sub', gainDb: -6}]);
 	plate('reel_still', s('In that first instant'), 'retractor', push(RET.front, 0.12, 7), () => ({reel: 0.2, disc: 0.2}), {hud: [{k: 'REEL', v: () => '0°', source: 'ILLUSTRATIVE'}]});
 	{
@@ -285,17 +288,25 @@ const defs = (): Def[] => {
 		const tBrake = rel(st, 'When the car brakes hard');
 		const tLever = rel(st, 'lifts a small lever into the teeth');
 		const tLock = rel(st, 'The belt is locked almost');
-		plate('ball', st, 'retractor', move(RET.cup, {pos: [0.07, -0.13, -0.01]}, 18), (t) => {
-			const climb = smooth((t - tBrake - 1.2) / (tLever - tBrake - 0.6));
+		const lockState = (t: number) => {
+			const climb = smooth((t - tBrake - 0.8) / (tLever - tBrake + 0.6));
 			const turn = smooth((t - tLock + 0.6) / 0.6) * LOCK_LAG;
 			return {reel: 0.2 + turn, disc: 0.2, arm: turn / LOCK_LAG, ball: climb, glow: climb * 0.7};
-		}, {
+		};
+		const CUPCAM = {pos: [0.035, -0.085, -0.03] as Vec3, target: [0.008, -0.005, -0.043] as Vec3, lens: 110, fstop: 8};
+		plate('ball', st, 'retractor', move(CUPCAM, {pos: [0.045, -0.09, -0.02]}, sec(at('It keeps going') - st) + 2), (t) => lockState(t), {
 			label: 'ILLUSTRATION · NOT TO SCALE',
-			callouts: [{text: 'STEEL BALL', p: [0.008, -0.005, -0.044], color: 'amber', at: 'sits a steel ball'}, {text: 'LEVER', p: [0.0, -0.004, -0.036], color: 'amber', at: 'lifts a small lever'}],
+			callouts: [{text: 'STEEL BALL', p: [0.008, -0.005, -0.044], color: 'amber', at: 'sits a steel ball'}, {text: 'CONE-SHAPED CUP', p: [0.0, -0.005, -0.05], color: 'line', at: 'shaped like a cone'}],
 			hud: [{k: 'CAR DECEL', v: (t) => (t > tBrake ? '> 0.7 g' : '0 g'), source: 'C06'}],
+		});
+		const s2 = at('It keeps going') - PRE;
+		plate('ball_lock', s2, 'retractor', move({...RET.front, pos: [0.03, -0.2, -0.02], target: [0.0, 0.0, -0.025]}, {pos: [0.0, -0.17, -0.01]}, 12), (t) => lockState(t + sec(s2 - st)), {
+			label: 'ILLUSTRATION · NOT TO SCALE',
+			callouts: [{text: 'LEVER', p: [0.0, -0.004, -0.036], color: 'amber', at: 'lifts a small lever'}, {text: 'DISC HELD', p: [-0.02, -0.004, -0.025], color: 'cyan', at: 'The belt is locked almost'}],
+			hud: [{k: 'CAR DECEL', v: () => '> 0.7 g', source: 'C06'}],
 		}, [{at: at('lifts a small lever into the teeth') + 30, sfx: 'quartz_tick', gainDb: -10}, {at: at('The belt is locked almost'), sfx: 'metal_jam_sub', gainDb: -6}]);
 	}
-	plate('inch', s("And it's fast"), 'cabin', push(CAB.macro, 0.1, 6), (t) => ({payout: Math.min(20, Math.max(0, t - 1.5) * 60), drive: 0}), {
+	plate('inch', s("And it's fast"), 'cabin', move(CAB.macro, {pos: [-0.09, 0.08, 0.62]}, 9), (t) => ({payout: Math.min(20, Math.max(0, t - 1.5) * 60), drive: 0}), {
 		big: {text: 'LESS THAN 1 INCH (25 mm)', at: 'less than an inch', color: 'cyan'},
 		hud: [{k: 'FMVSS 209', v: () => '0.7 g · 25 mm', source: 'C06'}],
 	});
@@ -307,16 +318,16 @@ const defs = (): Def[] => {
 			const climb = smooth((tilt - CUP_BETA) / ((12 * Math.PI) / 180));
 			const lockT = climb >= 1 ? LOCK_LAG : 0;
 			return {tilt, ball: climb, reel: 0.2 + lockT, disc: 0.2, arm: climb >= 1 ? 1 : 0, glow: climb * 0.6};
-		}, {label: 'ILLUSTRATION · NOT TO SCALE', hud: [{k: 'TILT', v: (t) => `${Math.round(t < tGrav ? 50 * smooth(t / (tGrav - 0.3)) : 50 + 100 * smooth((t - tGrav) / 4))}°`, source: 'C08'}], big: {text: '45°', at: 'forty-five degrees', color: 'amber'}});
+		}, {label: 'ILLUSTRATION · NOT TO SCALE', gravity: true, hud: [{k: 'TILT', v: (t) => `${Math.round(t < tGrav ? 50 * smooth(t / (tGrav - 0.3)) : 50 + 100 * smooth((t - tGrav) / 4))}°`, source: 'C08'}], big: {text: '45°', at: 'forty-five degrees', color: 'amber'}});
 	}
 
 	// ---- s05: the catch (real crash films)
-	clip('lock_works', s('So the lock works'), 'nh_sled_side', 0.0, NH, {label: 'SLOW MOTION'});
+	clip('lock_works', s('So the lock works'), 'nh_realtime', 2.6, NH);
 	clip('one_strap', s('Once the belt locks'), 'nh_sled_side', 1.4, NH, {label: 'SLOW MOTION'});
 	clip('crumple', s('The front of the car crumples'), 'nh_overall', 3.0, NH, {label: 'SLOW MOTION'});
 	clip('barely_gives', s('The belt barely gives'), 'nh_driver', 3.0, NH, {label: 'SLOW MOTION'});
 	clip('chests', s('And chests can break'), 'nh_sled_side', 2.6, NH, {label: 'SLOW MOTION'});
-	clip('older', s('In bad crashes, older people'), 'nh_sled_side', 4.0, NH, {label: 'SLOW MOTION · STAPP CAR CRASH J. 2001'});
+	clip('older', s('In bad crashes, older people'), 'nh_sled_side', 4.0, NH, {label: 'SLOW MOTION'});
 
 	// ---- s06: the pretensioner
 	plate('two_things', s('Engineers did two things'), 'retractor', orbit(RET.hero, -10, 8), (t) => ({reel: 0.3 + reelOf(t * 3), disc: 0.3 + reelOf(t * 3)}));
@@ -331,7 +342,7 @@ const defs = (): Def[] => {
 		}, {callouts: [{text: 'PRETENSIONER', p: [-0.022, 0.0, -0.08], color: 'crimson', at: 'fire a charge in the belt'}]}, [{at: at('fire a charge in the belt') + 8, sfx: 'metal_snap_sub', gainDb: -8}]);
 	}
 	plate('snap', s('It snaps the belt tight'), 'cabin', push(CAB.low, 0.1, 3), (t) => ({payout: 40 - 60 * smooth(t / 0.18), tremor: t > 0.18 ? 0.004 * Math.sin(t * 60) * Math.exp(-(t - 0.18) * 5) : 0}), {big: {text: 'SLACK: GONE', at: 'pulls out the slack', color: 'cyan'}}, [{at: at('It snaps the belt tight') + 6, sfx: 'whoosh', gainDb: -8}]);
-	clip('slows_sooner', s('Now your body starts slowing down'), 'nh_sled_side', 0.8, NH, {label: 'SLOW MOTION'});
+	clip('slows_sooner', s('Now your body starts slowing down'), 'nh_onboard', 1.0, NH, {label: 'SLOW MOTION'});
 
 	// ---- s07: the torsion bar
 	{
@@ -340,7 +351,7 @@ const defs = (): Def[] => {
 		const tLimit = rel(st, 'the bar starts to twist');
 		plate('bar', st, 'retractor', move(RET.side, {pos: [0.18, -0.03, -0.085], lens: 58}, 30), (t) => {
 			const load = t < tLimit ? smooth((t - tHolds) / 2) * 0.55 : 0.55 + 0.45 * smooth((t - tLimit) / 0.8);
-			const twist = smooth((t - tLimit) / 6) * 0.7;
+			const twist = smooth((t - tLimit) / 6) * 1.6;
 			return {cut: true, reel: 0.3, disc: 0.3 - LOCK_LAG, arm: 1, twist: load, spool: twist, payout: twist * R_MM};
 		}, {
 			callouts: [{text: 'TORSION BAR', p: [0.0, 0.03, 0.0], color: 'amber', at: 'a steel bar that is built to twist'}],
@@ -363,7 +374,7 @@ const defs = (): Def[] => {
 	clip('tall', s('And engineers worry about tall'), 'nh_driver', 5.0, NH, {label: 'SLOW MOTION'});
 	{
 		const st = s('Where do you set the limit');
-		plate('limit_choice', st, 'retractor', orbit(RET.side, 10, 10), (t) => ({cut: true, reel: 0.3, disc: 0.3 - LOCK_LAG, arm: 1, twist: 0.5 + 0.5 * Math.sin(t * 1.6) * Math.exp(-t * 0.25), spool: 0.4 + 0.15 * Math.sin(t * 1.6) * Math.exp(-t * 0.25)}), {
+		plate('limit_choice', st, 'retractor', orbit(RET.side, 14, 13), (t) => ({cut: true, reel: 0.3, disc: 0.3 - LOCK_LAG, arm: 1, twist: 0.5 + 0.5 * Math.sin(t * 1.6) * Math.exp(-t * 0.25), spool: 0.4 + 0.15 * Math.sin(t * 1.6) * Math.exp(-t * 0.25)}), {
 			callouts: [
 				{text: 'TOO HIGH: THE CHEST', p: [0.0, 0.0, 0.03], color: 'crimson', at: 'Too high'},
 				{text: 'TOO LOW: TOO FAR', p: [0.0, 0.05, -0.02], color: 'amber', at: 'Too low'},
@@ -394,7 +405,7 @@ const defs = (): Def[] => {
 		const st = s('Ever pulled your belt all the way out');
 		const tIn = rel(st, "It's not broken");
 		const tBack = rel(st, 'Let it wind all the way back');
-		plate('all_out', st, 'cabin', move(CAB.macro, {pos: [-0.1, 0.09, 0.6]}, 20), (t) => {
+		plate('all_out', st, 'cabin', move(CAB.dring, {pos: [0.08, -0.11, 0.6]}, 20), (t) => {
 			const out = Math.min(700, Math.max(0, t) * 400);
 			// winding in, one click at a time (it can only go in)
 			const steps = t > tIn ? Math.floor((t - tIn) / 0.9) * 40 + 40 * smooth(((t - tIn) % 0.9) / 0.15) : 0;
@@ -404,7 +415,7 @@ const defs = (): Def[] => {
 	}
 
 	// ---- s10: the landing
-	clip('feel', s('Want to feel it yourself'), 'px133711', 2.0, PX('133711'));
+	plate('feel', s('Want to feel it yourself'), 'cabin', move(CAB.low, {pos: [0.05, -0.08, 0.54]}, 3), (t) => ({payout: 0, drive: t * 14}));
 	plate('feel_slow', s('Next time you put your belt on'), 'cabin', push(CAB.dring, 0.1, 5), (t) => ({payout: sample(SLOW.payout, t), drive: t * 14}));
 	{
 		const st = s('Then give it one sharp tug');
