@@ -67,11 +67,19 @@ jobs:
       # download.blender.org got error pages on 2 of them (run 41858536600)
       - name: Blender (pinned, checksum verified)
         run: |
-          for i in 1 2 3 4; do
-            curl -sSfL -m 900 -o blender.tar.xz "https://download.blender.org/release/Blender${BLENDER_VER%.*}/blender-${BLENDER_VER}-linux-x64.tar.xz" \
-              && echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c - && break
-            [ "$i" = 4 ] && exit 1; sleep $((i * 15))
+          # download.blender.org answered 403 to a runner (run 43544817419): the official mirrors follow; the sha256 makes
+          # every source equally safe
+          F="Blender${BLENDER_VER%.*}/blender-${BLENDER_VER}-linux-x64.tar.xz"
+          ok=""
+          for i in 1 2; do
+            for base in https://download.blender.org/release https://mirror.clarkson.edu/blender/release \
+                        https://ftp.nluug.nl/pub/graphics/blender/release https://mirrors.dotsrc.org/blender/blender-release; do
+              curl -sSfL -m 900 -o blender.tar.xz "$base/$F" && echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c - \
+                && { ok=1; echo "Blender from $base"; break 2; }
+            done
+            sleep 20
           done
+          [ -n "$ok" ] || exit 1
       - uses: actions/upload-artifact@v4.6.2
         with:
           name: blender
