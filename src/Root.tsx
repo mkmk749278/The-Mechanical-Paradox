@@ -28,6 +28,7 @@ import {BallScene as SbBall, ColdOpen as SbColdOpen, DiscScene as SbDisc, LockCa
 import {span as sbSpan} from '../films/seatbelt-lock/remotion/scenes';
 import {BarScene as SbBar, ChildSeat as SbChild, ChipAfterAll as SbChip, Landing as SbLanding, Price as SbPrice, TooGood as SbTooGood} from '../films/seatbelt-lock/remotion/Part2';
 import {Film as SbFilm, FILM_FRAMES as SB_FILM_FRAMES} from '../films/seatbelt-lock/remotion/Film';
+import {FilmV3 as SbFilmV3, FILM_FRAMES_V3 as SB_FILM_FRAMES_V3} from '../films/seatbelt-lock/remotion/FilmV3';
 
 loadBrandFonts();
 
@@ -95,6 +96,7 @@ export const Root: React.FC = () => (
 			<Composition id="SB-S03-Disc" component={SbDisc} durationInFrames={sbSpan('s03').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="SB-S04-Ball" component={SbBall} durationInFrames={sbSpan('s04').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="SB-Film" component={SbFilm} durationInFrames={SB_FILM_FRAMES} fps={video.fps} width={video.width} height={video.height} />
+			<Composition id="SB-FilmV3" component={SbFilmV3} durationInFrames={SB_FILM_FRAMES_V3} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="SB-S05-TooGood" component={SbTooGood} durationInFrames={sbSpan('s05').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="SB-S06-Chip" component={SbChip} durationInFrames={sbSpan('s06').dur} fps={video.fps} width={video.width} height={video.height} />
 			<Composition id="SB-S07-Bar" component={SbBar} durationInFrames={sbSpan('s07').dur} fps={video.fps} width={video.width} height={video.height} />

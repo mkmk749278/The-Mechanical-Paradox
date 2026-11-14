@@ -244,12 +244,31 @@ class Retractor:
             v.co = Vector(((4.5 + v.co.x * 8.4) * MM, (-8.05 + v.co.y * 0.12) * MM, v.co.z * 2.0 * MM))
         mesh_from_bm("reelmark", mk, self.WHITE, self.reel)
         cylinder_y("lockplate", 30 * MM, 3 * MM, 4.4 * MM, self.STEEL, self.reel, n=128)
-        cylinder_y("flangeF", 27 * MM, 4.4 * MM, 4.6 * MM, self.STEEL, self.reel, n=96)
-        cylinder_y("flangeB", 27 * MM, 50.4 * MM, 50.6 * MM, self.STEEL, self.reel, n=96)
-        self.core = cylinder_y("core", CORE * MM, 4.6 * MM, 50.4 * MM, self.DARKSTEEL, self.reel, n=64, r_in=6 * MM)
-        self.wound = self.wound_webbing(self.reel)
+        # the spool body rides on the torsion bar: locked, the lock side holds while the spool can still turn by the
+        # bar's twist (the load limiter)
+        self.spool = empty("spool", self.reel)
+        cylinder_y("flangeF", 27 * MM, 4.4 * MM, 4.6 * MM, self.STEEL, self.spool, n=96)
+        cylinder_y("flangeB", 27 * MM, 50.4 * MM, 50.6 * MM, self.STEEL, self.spool, n=96)
+        self.core = cylinder_y("core", CORE * MM, 4.6 * MM, 50.4 * MM, self.DARKSTEEL, self.spool, n=64, r_in=6 * MM)
+        self.wound = self.wound_webbing(self.spool)
+        # the cut spool: three quarters of the core and the wound belt, so the bar inside shows
+        self.cutcore = self.cut_solid("cutcore", 6.0, CORE, self.DARKSTEEL, self.spool)
+        self.cutweb = self.cut_solid("cutweb", CORE, SPOOL_R, self.WEB, self.spool)
         # the torsion bar through the core (seen in the cut spool)
         self.bar = self.torsion_bar(self.reel)
+        # the pretensioner: a gas generator on the back plate driving the spool backwards through a pinion
+        self.pre = empty("pretensioner", R)
+        # under the frame, along the spool: its front end (the charge) faces the camera
+        gg = cylinder_y("gasgen", 8 * MM, 6 * MM, 50 * MM, self.DARKSTEEL, self.pre, n=48)
+        gg.location = (-22 * MM, 0, -80 * MM)
+        cylinder_y("gascap", 8.6 * MM, 2 * MM, 7 * MM, self.STEEL, self.pre, n=48).location = (-22 * MM, 0, -80 * MM)
+        bevel(prism_xz("gasbracket", mm_pts([(-34, -73), (-10, -73), (-10, -66), (-34, -66)]), 8 * MM, 48 * MM,
+                       self.ZINC, self.pre), 0.4 * MM)
+        self.FLASH = mat("flash", "#FFB347", 0.0, 0.5, emit="#FFC46B", emit_strength=0.0)
+        bm = bmesh.new()  # the flash at the charge
+        bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, radius=5 * MM)
+        self.flash = mesh_from_bm("flash", bm, self.FLASH, self.pre, smooth=True)
+        self.flash.location = (-22 * MM, 0.5 * MM, -80 * MM)
         # the arm: pivot pin on the lock plate, the pawl swinging about it
         px, pz = ARM_PIVOT * math.cos(ARM_PIVOT_A), ARM_PIVOT * math.sin(ARM_PIVOT_A)
         self.armpiv = empty("armpivot", self.reel, (px * MM, 0, pz * MM))
@@ -319,6 +338,14 @@ class Retractor:
                 f = bm.faces.new((c, vs[i], vs[(i + 1) % n]) if k == 0 else (c, vs[(i + 1) % n], vs[i]))
         bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
         ob = mesh_from_bm("wound", bm, self.WEB, parent, smooth=True)
+        return ob
+
+    def cut_solid(self, name, r0, r1, material, parent, a0=math.radians(-20), a1=math.radians(250)):
+        """A tube from r0 to r1 along the spool, only over angles a0..a1 (screen): the rest is cut away."""
+        n = 64
+        out = [(r1 * MM * math.cos(a0 + (a1 - a0) * i / n), r1 * MM * math.sin(a0 + (a1 - a0) * i / n)) for i in range(n + 1)]
+        inn = [(r0 * MM * math.cos(a1 - (a1 - a0) * i / n), r0 * MM * math.sin(a1 - (a1 - a0) * i / n)) for i in range(n + 1)]
+        ob = prism_xz(name, out + inn, 4.8 * MM, 50.2 * MM, material, parent)
         return ob
 
     def belt_tail(self, parent):
@@ -394,6 +421,13 @@ class Retractor:
         self.ball.rotation_euler = (0, CLIMB_MAX * c / BALL_R, 0)
         self.leverpiv.rotation_euler = (0, -lever_angle(c), 0)
         self.root.rotation_euler = (0, -st.get("tilt", 0.0), 0)
+        # the spool's extra turn on the twisting bar (load limiter), rad, payout direction
+        self.spool.rotation_euler = (0, -st.get("spool", 0.0), 0)
+        f = st.get("fire", 0.0)
+        self.FLASH.node_tree.nodes["Principled BSDF"].inputs["Emission Strength"].default_value = 25.0 * f
+        self.flash.scale = (0.5 + 1.0 * f,) * 3
+        self.flash.hide_render = f <= 0.01
+        self.pre.hide_render = False
         self.BARMAT.node_tree.nodes["twist"].outputs[0].default_value = st.get("twist", 0.0)
         tw = st.get("twist", 0.0)
         self.bar.rotation_euler = (0, -0.25 * tw, 0)
@@ -407,4 +441,6 @@ class Retractor:
         cut = bool(st.get("cut", False))
         self.core.hide_render = cut
         self.wound.hide_render = cut
+        self.cutcore.hide_render = not cut
+        self.cutweb.hide_render = not cut
         self.bar.hide_render = not cut and not show.get("bar", 0)

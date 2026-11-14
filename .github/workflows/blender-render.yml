@@ -14,6 +14,9 @@ on:
       module:
         description: "the film's module exporting exportShot(id)"
         default: "remotion/blenderExport.ts"
+      script:
+        description: "the Blender script (repo path): blender/render_shot.py (film 1) or a film's own, e.g. films/seatbelt-lock/blender/render.py"
+        default: "blender/render_shot.py"
       shots:
         description: "comma-separated shot ids"
         required: true
@@ -139,13 +142,15 @@ jobs:
           echo "${BLENDER_SHA256}  blender.tar.xz" | sha256sum -c -
           tar -xf blender.tar.xz && rm blender.tar.xz
           echo "BLENDER=$PWD/blender-${BLENDER_VER}-linux-x64/blender" >> "$GITHUB_ENV"
+      - name: Film assets (pinned CC0 files, if the film has any)
+        run: '[ ! -x "films/$FILM/blender/fetch_assets.sh" ] || "films/$FILM/blender/fetch_assets.sh"'
       - name: Render
         shell: bash
         run: |
           IFS=: read -r SHOT START END <<< "${{ matrix.block }}"
           echo "SHOT=$SHOT" >> "$GITHUB_ENV"
           node scripts/export_blender_shot.mjs "films/$FILM/${{ inputs.module }}" "$SHOT" "export/$SHOT.json"
-          "$BLENDER" -b --factory-startup -P blender/render_shot.py -- "export/$SHOT.json" "out/$SHOT" \
+          "$BLENDER" -b --factory-startup -P "${{ inputs.script }}" -- "export/$SHOT.json" "out/$SHOT" \
             --start "$START" --end "$END" --width ${{ inputs.width }} --samples ${{ inputs.samples }} 2>&1 \
             | grep --line-buffered -E "PLATE|Error|Traceback|line [0-9]+"
           n=$(ls out/$SHOT/*.png | wc -l); want=$((END - START))
