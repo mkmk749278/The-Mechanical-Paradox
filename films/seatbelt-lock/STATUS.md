@@ -1,19 +1,18 @@
 # Film 3: the seatbelt that knows · status
 
-**Now:** step 9, cut v3d. Viewer panel v2 on cut v3c scored 6.0 (`review/viewer_v2.md`): real footage and D-ring
-renders judged real; mechanism shots failed (invisible lag, bar not twisting, ball barely moving, holds, labels). All its
-fixes are merged (PR #82). The 28 changed plates were re-rendering on the runners when the session paused (blender-render
-run on main, started 2026-11-14 14:06 UTC, 1280 px / 6 samples; stale tars for those shots were deleted from Drive first).
+**Now (2026-11-17):** step 9 → 10. Owner, 2026-11-17: "Refine it more, render in 4K and upload to YouTube … no AI
+disclosure anywhere"; publish public right away. Viewer panel v3 on cut v3d: 7.4 (`review/viewer_v3.md`); its
+must-fixes are in (PR #84). The 1920-px plates for the master render on the runners (the 1280 review plates moved to
+Drive `render-media/plates_1280_tar/`): run 1 = the 27 unchanged shots, run 2 = the 9 changed ones (simplest, jerk_arm,
+ball, ball_lock, tilt, pretension, bar, all_out, feel_tug). The package is done (`youtube/`, `review/package_v1.md`).
+Plates done (2026-11-17 16:05): all 54 tars on Drive; the long `bar:48:574` block hit the 350-min limit and was
+re-rendered as four blocks (run 44104837319). Cut v3e 720p (run 44122141285) and the 4K master (run 44122148419)
+render on the runners.
 **Next action (resume here):**
-1. Check the latest blender-render run on main. If any block failed, re-run it with the `blocks` input; if the run is
-   gone, dispatch again with `script: films/seatbelt-lock/blender/render.py`, width 1280, samples 6 and these shots:
-   how_know,second_decision,simplest,clues,disc_intro,disc_slow,jerk_real,jerk_disc,jerk_arm,not_speed,left_behind,
-   real_crash,reel_still,ball,ball_lock,inch,tilt,two_things,pretension,bar,renault,three_quarters,limit_choice,
-   three_moves,all_out,feel,disc_decides,bar_waits
-2. remotion-render: comp SB-FilmV3, scale 2/3, tail_frames 820, name seatbelt-lock_cut_v3d_720p.mp4 (mix in Drive is current).
-3. Our picture gate (a frame every 4 s; the panel v2 list), then a fresh viewer panel (prompt: the v2 prompt in this
-   session's pattern, PLAYBOOK §3a; proxy 720p30 crf 26, share, delete after download).
-4. When it passes: 1920 plates for the 4K master (step 10), package (11), Shorts (12).
+1. Gate cut v3e 720p (sheets every 4 s; the v3 must-fix list); if a run failed, re-dispatch it.
+2. Gate the 4K master seatbelt-lock_master_4k.mp4 (−14 LUFS, −1 dBTP, length, no black, frames at 4K).
+3. Upload: `scripts/yt_upload.py --video … --meta youtube/upload.json --thumb youtube/thumb_main_no-chip-inside.jpg
+   --srt youtube/seatbelt-lock.en.srt`, public; then the end screen, Test & Compare (owner, Studio).
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
@@ -22,10 +21,10 @@ run on main, started 2026-11-14 14:06 UTC, 1280 px / 6 samples; stale tars for t
 - [x] 5 Narration: approved by the owner (2026-11-13)         this PR
 - [x] 6 Voice: 9 blocks measured; 388.1 s, 159 wpm, sync 0 frames  this PR
 - [x] 7 Film built: 10 scenes, 4 photo inserts, mix (−14.3 LUFS)   this PR
-- [ ] 8 720p cut, viewer panel                                PR #
+- [x] 8 720p cut, viewer panels v1–v3 (6.0 → 7.4)              PRs #78–#84
 - [ ] 9 Fixes, new cuts, panels                               PR #
 - [ ] 10 4K master                                            PR #
-- [ ] 11 Package                                              PR #
+- [x] 11 Package: thumbnails, click test, description, SRT    PR #84
 - [ ] 12 Shorts; ready to upload                              PR #
 
 ## Log
