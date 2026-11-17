@@ -8,7 +8,7 @@ import {SfxCue, SfxName} from '../../../lib/remotion/sfx';
 import {ChannelSting, endScreenCues, OUTRO_FRAMES, stingCues} from '../../../src/channel/ChannelSting';
 import {shiftCues} from '../../../lib/remotion/sfx';
 import {cue} from './cues';
-import {EDIT_END, Cam, Overlay, PLATE_FPS, Shot, SHOTS, Vec3} from './edit';
+import {EDIT_END, Cam, Overlay, PLATE_FPS, plateFrames, Shot, SHOTS, Vec3} from './edit';
 import {FPS} from './model';
 
 // Film 3, cut v3: the edit (edit.ts) played shot by shot. Real clips play as they are (a light cool grade, never a
@@ -20,6 +20,8 @@ const COLOR = {amber: colors.amber, cyan: colors.cyan, crimson: colors.crimson, 
 const pad = (n: number): string => String(n).padStart(5, '0');
 /** Readable sources for the HUD footer (viewer panel v2: claim codes read as leftover production IDs). */
 const SOURCE: Record<string, string> = {C06: 'US STANDARD FMVSS 209', C07: 'US STANDARD FMVSS 209', C08: 'US STANDARD FMVSS 209', C13: 'STAPP CAR CRASH J. 2001'};
+/** Callout names (viewer panel v3: 36 px still read small on a phone held sideways). */
+const CALLOUT = 46;
 const SHADOW = 'drop-shadow(0 0 6px rgba(0,0,0,0.95)) drop-shadow(0 0 2px rgba(0,0,0,1))';
 
 /** Blender's pinhole (blender/common.py set_camera: 36 mm sensor, horizontal fit, no shift), world → frame px. */
@@ -75,23 +77,24 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 				? (() => {
 						// place labels one by one: each takes the nearest free row (rows 84 px apart) so none collide
 						// (gate, cut v3: RING OF TEETH and HOOK landed on one row)
-						const used: {y: number; x0: number; x1: number}[] = [];
+						// the big statement's band is taken too (viewer panel v3: LOCKED landed on the ARM label)
+						const used: {y: number; x0: number; x1: number}[] = ov.big ? [{y: H * 0.66, x0: W / 2 - 560, x1: W / 2 + 560}] : [];
 						return ov.callouts.map((c, i) => {
 							const p = project(cam, shot.kind === 'plate' && shot.set === 'retractor' ? tilted(c.p, st.tilt ?? 0) : c.p);
 							if (!p) return null;
 							const a = phraseIn(c.at, shot) - shot.from;
 							const k = interpolate(f, [a, a + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-							const tw = String(c.text).length * 36 * 0.62 + 24;
+							const tw = String(c.text).length * CALLOUT * 0.62 + 24;
 							const right = p[0] < W * 0.55;
 							const lx = right ? Math.min(W - 96 - tw, p[0] + 170) : Math.max(96 + tw, p[0] - 170);
 							const x0 = right ? lx : lx - tw;
 							const x1 = right ? lx + tw : lx;
 							let ly = Math.max(150, Math.min(H - 220, p[1] - 110));
-							for (let n = 0; n < 12 && used.some((u) => Math.abs(u.y - ly) < 76 && u.x0 < x1 && x0 < u.x1); n++) {
+							for (let n = 0; n < 12 && used.some((u) => Math.abs(u.y - ly) < 76 && u.x0 < x1 + 80 && x0 - 80 < u.x1); n++) {
 								ly = ly + 84 > H - 220 ? ly - 84 * (n + 1) : ly + 84;
 							}
 							used.push({y: ly, x0, x1});
-							return <Callout key={i} x={p[0]} y={p[1]} lx={lx} ly={ly} text={c.text} color={COLOR[c.color ?? 'line']} t={k} />;
+							return <Callout key={i} x={p[0]} y={p[1]} lx={lx} ly={ly} text={c.text} color={COLOR[c.color ?? 'line']} t={k} size={CALLOUT} />;
 						});
 					})()
 				: null}
@@ -99,7 +102,7 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 				<>
 					{ov.hud.map((r, i) => (
 						<React.Fragment key={r.k}>
-							<Label x={W - 96} y={96 + i * 116} size={34} color={colors.sub} align="right">
+							<Label x={W - 96} y={96 + i * 116} size={34} color={colors.line} opacity={0.85} align="right">
 								{r.k}
 							</Label>
 							<Label x={W - 96} y={136 + i * 116} size={56} color={colors.line} align="right" weight={600}>
@@ -127,12 +130,12 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 					})()
 				: null}
 			{ov.label ? (
-				<Label x={96} y={H - 88} size={30} color={colors.line} opacity={0.92}>
+				<Label x={96} y={H - 92} size={36} color={colors.line} opacity={0.92}>
 					{ov.label}
 				</Label>
 			) : null}
 			{credit ? (
-				<Label x={W - 96} y={H - 88} size={30} color={colors.line} align="right" opacity={0.92}>
+				<Label x={W - 96} y={H - 92} size={34} color={colors.line} align="right" opacity={0.92}>
 					{credit}
 				</Label>
 			) : null}
@@ -171,15 +174,17 @@ const ShotView: React.FC<{shot: Shot}> = ({shot}) => {
 	);
 };
 
-/** The sting dissolves in over the last plate's handle frames (viewer panel v2: 1.1 s of black before it). */
+/** The sting dissolves in over the last plate (its handle frames, then its last frame held), slowly enough that the
+ * sting's own dark first frames never read as black (viewer panels v2 and v3: 1.1 s, then 0.73 s of black). */
 const StingIn: React.FC = () => {
 	const f = useCurrentFrame();
 	const last = SHOTS[SHOTS.length - 1];
-	const o = interpolate(f, [0, 22], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	const o = interpolate(f, [8, 56], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	const lastN = last.kind === 'plate' ? plateFrames(last) - 1 : 0;
 	return (
 		<AbsoluteFill>
-			{f < 24 && last.kind === 'plate' ? (
-				<Img src={staticFile(`films/seatbelt-lock/plates/${last.id}/${pad(Math.floor(((last.to - last.from + f) * PLATE_FPS) / FPS))}.webp`)} style={{width: W, height: H}} />
+			{f < 58 && last.kind === 'plate' ? (
+				<Img src={staticFile(`films/seatbelt-lock/plates/${last.id}/${pad(Math.min(lastN, Math.floor(((last.to - last.from + f) * PLATE_FPS) / FPS)))}.webp`)} style={{width: W, height: H}} />
 			) : null}
 			<AbsoluteFill style={{opacity: o}}>
 				<ChannelSting endScreen />

@@ -106,6 +106,25 @@ const jerkAt = (tSec: number, slow = 1): {payout: number; reel: number; disc: nu
 export const JERK_LOCK_S = (JERK.lockFrame + 1) / FPS;
 const reelOf = (payoutMm: number): number => payoutMm / R_MM;
 
+// ---------------- the arm, on screen ----------------
+// blender/retractor.py: ARM_PIVOT 24 mm, ARM_LEN 16 mm, rest 100°, swung 25° (from the pivot's radial line), pivot at
+// 115° on the reel; the reel turns everything on it counter-clockwise by its angle. Callouts land on the part itself
+// (viewer panel v3: the ARM and HOOK leaders ended in empty space).
+const ARM_GEO = {pivot: 24, len: 16, rest: (100 * Math.PI) / 180, out: (25 * Math.PI) / 180, pivotA: (115 * Math.PI) / 180};
+/** A point on the arm (frac 0 = pivot, 1 = tip) for a reel angle and swing, in the set's metres (just in front of it). */
+const armPoint = (reel: number, swing: number, frac: number, rOut = 0): Vec3 => {
+	const pa = ARM_GEO.pivotA + reel;
+	const d = pa + ARM_GEO.rest + (ARM_GEO.out - ARM_GEO.rest) * swing;
+	let x = ARM_GEO.pivot * Math.cos(pa) + ARM_GEO.len * frac * Math.cos(d);
+	let z = ARM_GEO.pivot * Math.sin(pa) + ARM_GEO.len * frac * Math.sin(d);
+	if (rOut > 0) {
+		const r = Math.hypot(x, z);
+		x *= rOut / r;
+		z *= rOut / r;
+	}
+	return [x / 1000, -0.001, z / 1000];
+};
+
 // ---------------- cameras ----------------
 // retractor (metres; the reel's axis along +y, the face plane x–z; see blender/retractor.py)
 const RET = {
@@ -207,11 +226,22 @@ const defs = (): Def[] => {
 	{
 		const st = s('Imagine the simplest lock');
 		const tDrop = rel(st, 'drops into them');
-		plate('simplest', st, 'retractor', move(RET.front, {pos: [0.05, -0.2, 0.03]}, 30), (t) => {
-			const turning = t < tDrop + 0.3;
-			const rr = turning ? reelOf(t * 25) : reelOf((tDrop + 0.3) * 25);
+		const REEL_F = 0.55;
+		const tStop = rel(st, 'A ring of teeth');
+		// the belt runs freely while the idea is set up, then rests with the hook upper left (its leader stays on it);
+		// the hook drops into a gap on its word
+		const reelAt = (t: number): number => {
+			const d = Math.max(0, tStop - t);
+			return REEL_F - (d > 0.6 ? 0.9 * (d - 0.3) : (0.9 * d * d) / 1.2);
+		};
+		const WIDE = {pos: [0.0, -0.31, 0.0] as Vec3, target: [-0.004, 0.0, 0.0] as Vec3, lens: 60, fstop: 11};
+		plate('simplest', st, 'retractor', move(WIDE, {pos: [-0.012, -0.27, 0.008]}, 16), (t) => {
+			const rr = reelAt(t);
 			return {reel: rr, disc: rr, arm: smooth((t - tDrop) / 0.3), show: {disc: 0, sensor: 0}};
-		}, {callouts: [{text: 'RING OF TEETH', p: [-0.03, -0.002, 0.03], color: 'line', at: 'A ring of teeth'}, {text: 'HOOK', p: [-0.016, -0.002, 0.025], color: 'amber', at: 'a hook'}]}, [{at: at('drops into them') + 18, sfx: 'metal_jam_sub', gainDb: -8}]);
+		}, {callouts: [
+			{text: 'RING OF TEETH', p: [0.0285, -0.002, -0.0285], color: 'line', at: 'A ring of teeth'},
+			{text: 'HOOK', p: armPoint(REEL_F, 0, 0.2), color: 'amber', at: 'a hook'},
+		]}, [{at: at('drops into them') + 18, sfx: 'metal_jam_sub', gainDb: -8}]);
 	}
 	{
 		const st = s('Lean over to the glovebox');
@@ -232,7 +262,7 @@ const defs = (): Def[] => {
 			const tl = rel(st, 'It turns with it, loosely');
 			const r = t > tl ? reelOf((t - tl) * 20) : 0;
 			return {reel: r, disc: r, glow: smooth((t - rel(st, 'sits a heavy disc')) / 0.5) * 0.6};
-		}, {callouts: [{text: 'HEAVY DISC', p: [0.022, -0.006, 0.0], color: 'amber', at: 'sits a heavy disc'}, {text: 'REEL', p: [0.0, -0.008, 0.0], color: 'line', at: "It isn't fixed to the reel"}]});
+		}, {callouts: [{text: 'HEAVY DISC', p: [0.027, -0.007, 0.012], color: 'amber', at: 'sits a heavy disc'}, {text: 'REEL', p: [0.0, -0.008, 0.0], color: 'line', at: "It isn't fixed to the reel"}]});
 	}
 	{
 		const st = s('Pull the belt slowly, and the reel turns slowly');
@@ -263,14 +293,15 @@ const defs = (): Def[] => {
 		}, {label: 'ILLUSTRATION · SLOW MOTION · NOT TO SCALE', hud: hud(r0)});
 		const r1 = at('That tiny lag is the whole trick') - PRE;
 		const ARMCAM = {pos: [-0.045, -0.11, 0.07] as Vec3, target: [-0.016, -0.002, 0.027] as Vec3, lens: 85, fstop: 9};
-		plate('jerk_arm', r1, 'retractor', move(ARMCAM, {pos: [-0.035, -0.1, 0.06]}, 12), (t, g) => {
+		const jLock = replay(at('The arm catches the teeth'));
+		plate('jerk_arm', r1, 'retractor', move(ARMCAM, {pos: [-0.033, -0.095, 0.058]}, 17), (t, g) => {
 			const j = replay(g);
 			return {reel: j.reel, disc: j.disc, arm: j.arm, glow: j.arm > 0.98 ? 1 : 0.7, payout: j.payout};
 		}, {
 			label: 'ILLUSTRATION · SLOW MOTION · NOT TO SCALE',
 			hud: hud(r1),
 			big: {text: 'LOCKED', at: 'Clack', color: 'crimson'},
-			callouts: [{text: 'ARM', p: [-0.02, -0.002, 0.03], color: 'amber', at: 'pushes a small arm outward'}, {text: 'TEETH', p: [-0.03, 0.0, 0.026], color: 'line', at: 'The arm catches the teeth'}],
+			callouts: [{text: 'ARM', p: armPoint(jLock.reel, 0.6, 0.5), color: 'amber', at: 'pushes a small arm outward'}, {text: 'TEETH', p: armPoint(jLock.reel, 1, 1, 40.2), color: 'line', at: 'The arm catches the teeth'}],
 		}, [{at: at('The arm catches the teeth') + 6, sfx: 'metal_jam_sub', gainDb: -4}]);
 	}
 	plate('not_speed', s('Does it lock when the reel spins too fast'), 'retractor', orbit(RET.front, 10, 8), (t) => {
@@ -286,25 +317,28 @@ const defs = (): Def[] => {
 	{
 		const st = s('So what locks it');
 		const tBrake = rel(st, 'When the car brakes hard');
+		const tGo = rel(st, "The ball doesn't");
 		const tLever = rel(st, 'lifts a small lever into the teeth');
 		const tLock = rel(st, 'The belt is locked almost');
 		const lockState = (t: number) => {
-			const climb = smooth((t - tBrake - 0.8) / (tLever - tBrake + 0.6));
+			const climb = smooth((t - tGo) / (tLever - tGo + 0.5));
 			const turn = smooth((t - tLock + 0.6) / 0.6) * LOCK_LAG;
 			return {reel: 0.2 + turn, disc: 0.2, arm: turn / LOCK_LAG, ball: climb, glow: climb * 0.7};
 		};
 		const CUPCAM = {pos: [0.035, -0.085, -0.03] as Vec3, target: [0.008, -0.005, -0.043] as Vec3, lens: 110, fstop: 8};
-		plate('ball', st, 'retractor', move(CUPCAM, {pos: [0.045, -0.09, -0.02]}, sec(at('It keeps going') - st) + 2), (t) => lockState(t), {
+		const MIDCAM = {pos: [0.05, -0.15, -0.03] as Vec3, target: [0.004, -0.004, -0.036] as Vec3, lens: 75, fstop: 9};
+		const tWide = rel(st, 'It keeps going');
+		plate('ball', st, 'retractor', (t: number): Cam => (t < tWide ? move(CUPCAM, {pos: [0.04, -0.088, -0.026]}, tWide)(t) : move(MIDCAM, {pos: [0.045, -0.14, -0.026]}, 6)(t - tWide)), (t) => lockState(t), {
 			label: 'ILLUSTRATION · NOT TO SCALE',
-			callouts: [{text: 'STEEL BALL', p: [0.008, -0.005, -0.044], color: 'amber', at: 'sits a steel ball'}, {text: 'CONE-SHAPED CUP', p: [0.0, -0.005, -0.05], color: 'line', at: 'shaped like a cone'}],
+			callouts: [{text: 'STEEL BALL', p: [0.008, -0.005, -0.044], color: 'amber', at: 'sits a steel ball'}, {text: 'CONE-SHAPED CUP', p: [0.0, -0.005, -0.05], color: 'line', at: 'shaped like a cone'}, {text: 'LEVER', p: [0.0, -0.004, -0.036], color: 'amber', at: 'lifts a small lever'}],
 			hud: [{k: 'CAR DECEL', v: (t) => (t > tBrake ? '> 0.7 g' : '0 g'), source: 'C06'}],
-		});
-		const s2 = at('It keeps going') - PRE;
+		}, [{at: at('lifts a small lever into the teeth') + 30, sfx: 'quartz_tick', gainDb: -10}]);
+		const s2 = at('The belt is locked almost') - PRE;
 		plate('ball_lock', s2, 'retractor', move({...RET.front, pos: [0.03, -0.2, -0.02], target: [0.0, 0.0, -0.025]}, {pos: [0.0, -0.17, -0.01]}, 12), (t) => lockState(t + sec(s2 - st)), {
 			label: 'ILLUSTRATION · NOT TO SCALE',
-			callouts: [{text: 'LEVER', p: [0.0, -0.004, -0.036], color: 'amber', at: 'lifts a small lever'}, {text: 'DISC HELD', p: [-0.02, -0.004, -0.025], color: 'cyan', at: 'The belt is locked almost'}],
+			big: {text: 'LOCKED', at: 'The belt is locked almost', color: 'crimson'},
 			hud: [{k: 'CAR DECEL', v: () => '> 0.7 g', source: 'C06'}],
-		}, [{at: at('lifts a small lever into the teeth') + 30, sfx: 'quartz_tick', gainDb: -10}, {at: at('The belt is locked almost'), sfx: 'metal_jam_sub', gainDb: -6}]);
+		}, [{at: at('The belt is locked almost'), sfx: 'metal_jam_sub', gainDb: -6}]);
 	}
 	plate('inch', s("And it's fast"), 'cabin', move(CAB.macro, {pos: [-0.09, 0.08, 0.62]}, 9), (t) => ({payout: Math.min(20, Math.max(0, t - 1.5) * 60), drive: 0}), {
 		big: {text: 'LESS THAN 1 INCH (25 mm)', at: 'less than an inch', color: 'cyan'},
@@ -318,7 +352,7 @@ const defs = (): Def[] => {
 			const climb = smooth((tilt - CUP_BETA) / ((12 * Math.PI) / 180));
 			const lockT = climb >= 1 ? LOCK_LAG : 0;
 			return {tilt, ball: climb, reel: 0.2 + lockT, disc: 0.2, arm: climb >= 1 ? 1 : 0, glow: climb * 0.6};
-		}, {label: 'ILLUSTRATION · NOT TO SCALE', gravity: true, hud: [{k: 'TILT', v: (t) => `${Math.round(t < tGrav ? 50 * smooth(t / (tGrav - 0.3)) : 50 + 100 * smooth((t - tGrav) / 4))}°`, source: 'C08'}], big: {text: '45°', at: 'forty-five degrees', color: 'amber'}});
+		}, {label: 'ILLUSTRATION · NOT TO SCALE', gravity: true, hud: [{k: 'TILT', v: (t) => `${Math.round(t < tGrav ? 50 * smooth(t / (tGrav - 0.3)) : 50 + 100 * smooth((t - tGrav) / 4))}°`, source: 'C08'}, {k: 'MUST LOCK PAST', v: () => '45°', source: 'C08'}], big: {text: 'LOCKED', at: 'Gravity rolls the ball', color: 'crimson'}});
 	}
 
 	// ---- s05: the catch (real crash films)
@@ -355,7 +389,7 @@ const defs = (): Def[] => {
 			return {cut: true, reel: 0.3, disc: 0.3 - LOCK_LAG, arm: 1, twist: load, spool: twist, payout: twist * R_MM};
 		}, {
 			callouts: [{text: 'TORSION BAR', p: [0.0, 0.03, 0.0], color: 'amber', at: 'a steel bar that is built to twist'}],
-			hud: [{k: 'BELT FORCE', v: (t) => `${(t < tLimit ? 4 * smooth((t - tHolds) / 2) * 0.9 : 4).toFixed(1)} kN`, source: 'ILLUSTRATIVE'}],
+			hud: [{k: 'BELT FORCE', v: (t) => (t < tLimit ? `${(4 * smooth((t - tHolds) / 2) * 0.9).toFixed(1)} kN` : 'AT LIMIT'), source: 'ILLUSTRATIVE'}],
 		}, [{at: at('the bar starts to twist'), sfx: 'torque_whine', gainDb: -10}]);
 	}
 	plate('renault', s('One carmaker, Renault'), 'retractor', move(RET.side, {pos: [0.24, -0.08, -0.12]}, 10), (t) => ({cut: true, reel: 0.3, disc: 0.3 - LOCK_LAG, arm: 1, twist: 1, spool: 0.7 + t * 0.02}), {
@@ -393,7 +427,7 @@ const defs = (): Def[] => {
 			return {reel: 0.5 - back + lock * LOCK_LAG, disc: 0.5 - back, arm: lock, fire: t > t1 ? Math.exp(-(t - t1) * 3) : 0, spool: go, glow: lock * 0.6};
 		}, {
 			callouts: [
-				{text: 'PULL TIGHT', p: [-0.022, 0.0, -0.08], color: 'cyan', at: 'Pull tight'},
+				{text: 'PULL TIGHT', p: [0.0, -0.008, 0.0], color: 'cyan', at: 'Pull tight'},
 				{text: 'LOCK', p: [-0.012, -0.002, 0.03], color: 'crimson', at: 'Lock', },
 				{text: 'LET GO', p: [0.026, 0.02, 0.0], color: 'emerald', at: 'Then let go, just enough'},
 			],
@@ -423,7 +457,7 @@ const defs = (): Def[] => {
 			const j = jerkAt(Math.max(0, t - 0.7));
 			const tl = t - 0.7 - JERK_LOCK_S;
 			return {payout: 60 + j.payout, tremor: tl > 0 ? 0.004 * Math.exp(-tl * 6) * Math.sin(tl * 2 * Math.PI * 9) : 0, drive: t * 14};
-		}, undefined, [{at: st + Math.round((0.7 + JERK_LOCK_S) * FPS), sfx: 'metal_jam_sub', gainDb: -8}]);
+		}, {big: {text: 'LOCKED', at: 'and feel it stop', color: 'crimson'}}, [{at: st + Math.round((0.7 + JERK_LOCK_S) * FPS), sfx: 'metal_jam_sub', gainDb: -8}]);
 	}
 	plate('disc_decides', s('A disc that got left behind'), 'retractor', orbit(RET.disc, -12, 6), (t) => ({reel: 1.2 + LOCK_LAG, disc: 1.2, arm: 1, glow: 0.8 - 0.1 * t}));
 	plate('bar_waits', s('And behind it, a steel bar waits'), 'retractor', move(RET.side, {pos: [0.42, -0.3, -0.05], lens: 40}, 14), (t) => ({cut: true, reel: 0.3, disc: 0.3, twist: 0.25 + 0.05 * Math.sin(t)}));
