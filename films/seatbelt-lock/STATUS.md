@@ -5,11 +5,12 @@ disclosure anywhere"; publish public right away. Viewer panel v3 on cut v3d: 7.4
 must-fixes are in (PR #84). The 1920-px plates for the master render on the runners (the 1280 review plates moved to
 Drive `render-media/plates_1280_tar/`): run 1 = the 27 unchanged shots, run 2 = the 9 changed ones (simplest, jerk_arm,
 ball, ball_lock, tilt, pretension, bar, all_out, feel_tug). The package is done (`youtube/`, `review/package_v1.md`).
+Plates done (2026-11-17 16:05): all 54 tars on Drive; the long `bar:48:574` block hit the 350-min limit and was
+re-rendered as four blocks (run 44104837319). Cut v3e 720p (run 44122141285) and the 4K master (run 44122148419)
+render on the runners.
 **Next action (resume here):**
-1. When both blender-render runs are green (any failed block: re-run it with `blocks`), render cut v3e at 720p
-   (comp SB-FilmV3, scale 2/3, tail_frames 820) and gate it (sheets every 4 s; the v3 must-fix list).
-2. 4K master: remotion-render comp SB-FilmV3, scale 2, tail_frames 820, seconds 5,
-   name seatbelt-lock_master_4k.mp4; gate (−14 LUFS, −1 dBTP, length, no black, frames at 4K).
+1. Gate cut v3e 720p (sheets every 4 s; the v3 must-fix list); if a run failed, re-dispatch it.
+2. Gate the 4K master seatbelt-lock_master_4k.mp4 (−14 LUFS, −1 dBTP, length, no black, frames at 4K).
 3. Upload: `scripts/yt_upload.py --video … --meta youtube/upload.json --thumb youtube/thumb_main_no-chip-inside.jpg
    --srt youtube/seatbelt-lock.en.srt`, public; then the end screen, Test & Compare (owner, Studio).
 
