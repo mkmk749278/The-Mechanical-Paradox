@@ -38,7 +38,7 @@ export type Overlay = {
 	/** honesty label, bottom left */
 	label?: string;
 	/** callouts: a name on a 3D point of the set (metres, the set's own frame), from a phrase to the shot's end */
-	callouts?: {text: string; p: Vec3; at?: string; color?: 'amber' | 'cyan' | 'crimson' | 'emerald' | 'line'}[];
+	callouts?: {text: string; p: Vec3; at?: string; color?: 'amber' | 'cyan' | 'crimson' | 'emerald' | 'line'; side?: 'left' | 'right'}[];
 	/** HUD rows: value(t) with its source (claims id) or ILLUSTRATIVE */
 	hud?: {k: string; v: (t: number) => string; source: string}[];
 	/** a big statement card element (never a text card on its own: over a moving plate or clip) */
@@ -429,7 +429,7 @@ const defs = (): Def[] => {
 			callouts: [
 				{text: 'PULL TIGHT', p: [0.0, -0.008, 0.0], color: 'cyan', at: 'Pull tight'},
 				{text: 'LOCK', p: [-0.012, -0.002, 0.03], color: 'crimson', at: 'Lock', },
-				{text: 'LET GO', p: [0.026, 0.02, 0.0], color: 'emerald', at: 'Then let go, just enough'},
+				{text: 'LET GO', p: [0.026, 0.02, 0.0], color: 'emerald', at: 'Then let go, just enough', side: 'right'},
 			],
 		}, [{at: at('Pull tight'), sfx: 'metal_snap_sub', gainDb: -10}, {at: at('Lock', 'Pull tight'), sfx: 'metal_jam_sub', gainDb: -6}, {at: at('Then let go, just enough'), sfx: 'torque_whine', gainDb: -12}]);
 	}

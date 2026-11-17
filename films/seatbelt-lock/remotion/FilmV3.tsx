@@ -85,7 +85,8 @@ const OverlayLayer: React.FC<{shot: Shot; ov: Overlay; credit?: string}> = ({sho
 							const a = phraseIn(c.at, shot) - shot.from;
 							const k = interpolate(f, [a, a + 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 							const tw = String(c.text).length * CALLOUT * 0.62 + 24;
-							const right = p[0] < W * 0.55;
+							// a label may be pinned to one side (gate, cut v3e: LET GO drawn left sat on PULL TIGHT's leader)
+							const right = c.side ? c.side === 'right' : p[0] < W * 0.55;
 							const lx = right ? Math.min(W - 96 - tw, p[0] + 170) : Math.max(96 + tw, p[0] - 170);
 							const x0 = right ? lx : lx - tw;
 							const x1 = right ? lx + tw : lx;
