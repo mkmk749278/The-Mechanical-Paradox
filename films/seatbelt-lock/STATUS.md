@@ -1,18 +1,14 @@
 # Film 3: the seatbelt that knows · status
 
-**Now (2026-11-17):** step 9 → 10. Owner, 2026-11-17: "Refine it more, render in 4K and upload to YouTube … no AI
-disclosure anywhere"; publish public right away. Viewer panel v3 on cut v3d: 7.4 (`review/viewer_v3.md`); its
-must-fixes are in (PR #84). The 1920-px plates for the master render on the runners (the 1280 review plates moved to
-Drive `render-media/plates_1280_tar/`): run 1 = the 27 unchanged shots, run 2 = the 9 changed ones (simplest, jerk_arm,
-ball, ball_lock, tilt, pretension, bar, all_out, feel_tug). The package is done (`youtube/`, `review/package_v1.md`).
-Plates done (2026-11-17 16:05): all 54 tars on Drive; the long `bar:48:574` block hit the 350-min limit and was
-re-rendered as four blocks (run 44104837319). Cut v3e 720p (run 44122141285) and the 4K master (run 44122148419)
-render on the runners.
+**Now (2026-11-17):** published. **https://youtu.be/ihwYBpkAEFA** (public, 2026-11-17 ~18:00 UTC): title "How Does
+a Seatbelt Know When to Lock?", SEO description with chapters, 10 tags, thumbnail `youtube/thumb_main_no-chip-inside.jpg`,
+English SRT, not made for kids, no synthetic-media flag (owner, 2026-11-17). Master: Drive
+`seatbelt-lock/renders/seatbelt-lock_master_4k.mp4` (3840×2160, 60 fps, 401.8 s, −14.3 LUFS, −1.2 dBTP, no black;
+freezes ≤ 2.5 s). Cut v3e gate: one fix (LET GO label, PR #86).
 **Next action (resume here):**
-1. Gate cut v3e 720p (sheets every 4 s; the v3 must-fix list); if a run failed, re-dispatch it.
-2. Gate the 4K master seatbelt-lock_master_4k.mp4 (−14 LUFS, −1 dBTP, length, no black, frames at 4K).
-3. Upload: `scripts/yt_upload.py --video … --meta youtube/upload.json --thumb youtube/thumb_main_no-chip-inside.jpg
-   --srt youtube/seatbelt-lock.en.srt`, public; then the end screen, Test & Compare (owner, Studio).
+1. Owner, in Studio: end screen (next video / subscribe), Test & Compare with `thumb_b_no-chip-photo.jpg` and
+   `thumb_c_no-chip-gear.jpg`, auto-dubbing on where offered (listen to a sample for wrong technical words).
+2. Step 12: 2–3 Shorts (the "Clack" lock 1:53–2:11; "Pull tight. Lock. Then let go" 5:31–5:41; try it 6:02–6:17).
 
 - [x] 1 Topic picked (gate 37/40, brief.md)                    PR (this one)
 - [x] 2 Research, claims, treatment, opening, script          PR (this one)
@@ -22,8 +18,8 @@ render on the runners.
 - [x] 6 Voice: 9 blocks measured; 388.1 s, 159 wpm, sync 0 frames  this PR
 - [x] 7 Film built: 10 scenes, 4 photo inserts, mix (−14.3 LUFS)   this PR
 - [x] 8 720p cut, viewer panels v1–v3 (6.0 → 7.4)              PRs #78–#84
-- [ ] 9 Fixes, new cuts, panels                               PR #
-- [ ] 10 4K master                                            PR #
+- [x] 9 Fixes, new cuts (v3e gate)                         PRs #84, #86
+- [x] 10 4K master (run 44128807370, Drive renders/)         this PR
 - [x] 11 Package: thumbnails, click test, description, SRT    PR #84
 - [ ] 12 Shorts; ready to upload                              PR #
 
