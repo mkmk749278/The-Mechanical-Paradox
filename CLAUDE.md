@@ -76,6 +76,7 @@ priority in every step;** the gates are the floor.
 ## Owner and workflow
 - The owner (Kishore) works **only from an Android phone** (GitHub app, Claude app, Termux, SSH to a VPS). Everything
   runs in cloud sessions, GitHub Actions or the VPS; results must open on a phone.
+- **Times in the session chat are in IST (owner, 2026-11-20).** Every time told to the owner in chat (next check-in, render or CI ETA, reminder, scheduled run, when something finished) is Indian Standard Time, written like "11:00 AM IST", never UTC alone: the owner reads it on a phone in India. Convert first (IST = UTC + 5:30; 05:00 UTC is 10:30 AM IST); add the UTC time in brackets only when it helps match a log. Chat only: the films, files, logs and code keep their own conventions.
 - **Google Drive:** channel folder **`The-Mechanical-Paradox`** at the top of My Drive (id
   `1F4h9HudKHZEAfRNo8bg1S1yMKSaEWqP3`); channel art in `_Channel/`; one folder per film, `<slug>/`. Videos go up with
   `scripts/upload_gdrive.sh --sub <slug> FILE…` (`GDRIVE_RCLONE_TOKEN` is set). Never write in the `Creator` or
