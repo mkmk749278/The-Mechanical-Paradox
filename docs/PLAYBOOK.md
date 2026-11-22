@@ -806,6 +806,7 @@ alignment + word spreader; ported) writes `vo/timing.json` with sentences and wo
   picture gate reads frames beside the *audio* (Whisper word times), never only beside `timing.json`.
 
 ### 10.5 Rendering
+- **2026-11-22: GitHub's runners are retired for rendering; renders move to Modal (owner).** GitHub removed the owner's Creator repo for rendering 4K video on its runners. GitHub's Actions terms allow its compute only for building, testing and shipping the repository's own software, and a video farm is not that, so the same could happen to this repo. No render, plate or Short runs on GitHub Actions any more, at any resolution; the workflows moved to `.github/workflows-retired/` and are kept only as the reference for the Modal port (the shard plan, the join, the loudness pass and the Drive upload carry over). The notes below on runners are history until the Modal pipeline replaces them.
 - **720p review cuts first; 4K once the second independent review passes** (§3a steps 8–10; owner, 2026-11-07,
   replacing the sister channels' "4K only after the owner approves"; the owner may still review any cut). Review: `scale` `2/3` (written as a fraction:
   0.6666667 gives a non-integer frame and Remotion refuses it). Master: `scale` 2 → 3840×2160 at 60 fps.
