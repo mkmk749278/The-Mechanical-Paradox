@@ -40,20 +40,16 @@ priority in every step;** the gates are the floor.
 6. **Voice** (never before the opening has passed the promise check and the narration review): block 1 generated and
    measured (`eleven_tts.py`, `vo_review.py`); when it's right, every block, then
    all measured together.
-7. **Build the film:** scenes, Blender plates and music on GitHub's runners, sound, stills reviewed.
-8. **720p cut** on the runners; our picture gate; an independent viewer panel (`prompts/viewer_review_v2.md`).
+7. **Build the film:** scenes, Blender plates and music on Modal, sound, stills reviewed.
+8. **720p cut** on Modal; our picture gate; an independent viewer panel (`prompts/viewer_review_v2.md`).
 9. **Fix everything,** each note checked first; a new cut; a fresh viewer panel; repeat until no must-fix.
-10. **4K master** on the runners; gate; Drive.
+10. **4K master** on Modal; gate; Drive.
 11. **The package**, built from the locked promise: 10+ titles → 3, 6+ thumbnail variants → 3, an independent click test against real competitors
     (`prompts/package_review_v1.md`), description for search, tags, SRT, auto-dubbing.
 12. **Shorts and handoff:** 2–3 Shorts; `STATUS.md` "ready to upload"; one message to the owner, who uploads.
 - **Resume point:** `films/<slug>/STATUS.md` (the steps, what runs where, the next action), updated in every PR; a
   restarted session continues from the first open step. Commit and push within every 30–45 minutes of work.
-- **Free machines, shared:** the repo is public, so GitHub's standard runners are free (6 h a job), but the **20
-  jobs at once belong to the whole account and are shared with the two sister channels.** Renders default to
-  `runners: auto` (`scripts/runner_share.py`): every runner free across the three repos at start, never fewer than 7
-  (decision 15; needs the `RUNNER_SHARE_TOKEN` secret, else 7). Extra jobs queue, they don't fail. Every render, Blender plate and Short runs there; the session keeps working on the next step meanwhile, and
-  starts long jobs (4K plates) as early as their inputs are final.
+- **Renders run on Modal, never on GitHub's runners (owner, 2026-11-22):** GitHub removed the owner's Creator repo for rendering 4K video on its runners, so no render, Blender plate, Short or other heavy media job runs on GitHub Actions in any repo, at any resolution. The old workflows sit in `.github/workflows-retired/` (GitHub never runs that folder), kept only as the reference for the Modal port. Until the Modal pipeline is built and tested, no full renders; the session renders stills and short tests only. Modal is paid compute past its monthly free credit: state the expected cost of every render and ask before going past the free credit. The session keeps working on the next step while Modal renders.
 - **Ask only for money or the outside world:** anything beyond the approved accounts and caps, or outward-facing, is
   asked with AskUserQuestion while every other step carries on.
 
@@ -141,7 +137,7 @@ priority in every step;** the gates are the floor.
 - **Failure is a stress field,** never a flashing icon: the FEA ramp navy → cyan → yellow → red at the notch.
 - **Realism over diagrams (owner, 2026-11-13; PLAYBOOK §16):** everyday moments are real video, else photoreal 3D or
   labelled AI video, never a still photo under a line that describes motion; science moments are photoreal 3D
-  animation (Blender Cycles on the runners) with the blueprint linework as the accent layer over it; the first 10
+  animation (Blender Cycles on Modal) with the blueprint linework as the accent layer over it; the first 10
   seconds are the most realistic shots in the film.
 - **Real footage (owner, 2026-11-04):** short inserts of the real thing (track, curves, wheels, trains) where the
   narration describes it, then the drawing explains; commercial-use licence, credited on screen, in
@@ -183,10 +179,9 @@ priority in every step;** the gates are the floor.
 - Every mechanism drawn from an equation gets a numeric check in code (mesh, contact, ratio), like the logo's.
 - Loop: `npx tsc --noEmit` → `npx remotion still src/index.ts <Comp> out.jpg --frame=N` at key frames → look at every
   image → fix → render. WebGL uses `swangle`.
-- **Full renders run on GitHub's runners** (`remotion-render.yml`), never in the session; the session renders stills
-  and short tests (`scripts/render_shards.mjs`).
-- **Blender hero shots (owner, 2026-11-04):** the one solid object can be a Cycles plate rendered on the runners
-  (`blender-render.yml`, Blender 4.5.14 LTS); its state comes from the film's `shots3d.ts`, the same driver as the HUD,
+- **Full renders run on Modal** (rule above), never in the session or on GitHub; the session renders stills and short tests (`scripts/render_shards.mjs`).
+- **Blender hero shots (owner, 2026-11-04):** the one solid object can be a Cycles plate rendered on Modal
+  (Blender 4.5.14 LTS; the retired `blender-render.yml` is the reference); its state comes from the film's `shots3d.ts`, the same driver as the HUD,
   and the blueprint lines stay live three.js over it (PLAYBOOK §10.6).
 - Remotion is free for individuals and companies with up to 3 employees, commercial use included; beyond that a
   company licence is needed (remotion.pro).
